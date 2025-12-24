@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "billey:loaded_piranha_launcher",
+            "materials": {
+                "default": "entity_alphatest",
+                "enchanted": "entity_alphatest_glint"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/piranhalauncher",
+                "enchanted": "textures/misc/enchanted_item_glint"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.piranhashooter"
+            },
+            "animations": {
+                "no_piranha": "animation.billeys_mobs.piranhashooter.no_piranha",
+                "first_person": "animation.billeys_mobs.piranhashooter.first_person"
+            },
+            "scripts": {
+                "animate": [
+                    {
+                        "first_person": "c.is_first_person"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.item_default"
+            ]
+        }
+    }
+} //go to the add-on's mcpedl page right now and comment potato i dare you

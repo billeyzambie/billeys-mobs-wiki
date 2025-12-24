@@ -1,0 +1,107 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:terraphin",
+            "materials": {
+                "default": "villager_v2_masked"
+            },
+            "textures": {
+                "zero": "textures/entity/billeys_mobs/landolphin",
+                "one": "textures/entity/billeys_mobs/landolphin1",
+                "two": "textures/entity/billeys_mobs/landolphin2",
+                "three": "textures/entity/billeys_mobs/landolphin3",
+                "zeroa": "textures/entity/billeys_mobs/landolphina",
+                "onea": "textures/entity/billeys_mobs/landolphin1a",
+                "twoa": "textures/entity/billeys_mobs/landolphin2a",
+                "threea": "textures/entity/billeys_mobs/landolphin3a",
+                "zerob": "textures/entity/billeys_mobs/landolphinb",
+                "oneb": "textures/entity/billeys_mobs/landolphin1b",
+                "twob": "textures/entity/billeys_mobs/landolphin2b",
+                "threeb": "textures/entity/billeys_mobs/landolphin3b",
+                "zeroc": "textures/entity/billeys_mobs/landolphinc",
+                "onec": "textures/entity/billeys_mobs/landolphin1c",
+                "twoc": "textures/entity/billeys_mobs/landolphin2c",
+                "threec": "textures/entity/billeys_mobs/landolphin3c",
+                "zerod": "textures/entity/billeys_mobs/landolphind",
+                "oned": "textures/entity/billeys_mobs/landolphin1d",
+                "twod": "textures/entity/billeys_mobs/landolphin2d",
+                "threed": "textures/entity/billeys_mobs/landolphin3d"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.landolphin"
+            },
+            "particle_effects": {
+              "zeelol": "billey:zeeduck"
+            },
+            "animations": {
+                "new": "animation.billeys_mobs.duckproj.body",
+                "move": "animation.billeys_mobs.landolphin.walk",
+                "eat": "animation.billeys_mobs.landolphin.open_mouth",
+                "look_at_target": "animation.common.look_at_target",
+                "baby_transform": "animation.cat.baby_transform",
+                "sit": "animation.billeys_mobs.landolphin.sit",
+                "sleep": "animation.billeys_mobs.landolphin.sleep",
+                "sleeptl": "animation.billeys_mobs.duck.sleep_particle",
+                "death2": "animation.billeys_mobs.kiwi.cancelvanilladeath",
+                "death": "animation.billeys_mobs.landolphin.die",
+                "attack": "animation.billeys_mobs.landolphin.attack",
+                "groom": "animation.billeys_mobs.landolphin.groom",
+                "hurt": "animation.billeys_mobs.cat.hurt2",
+                "controller.sit": "controller.animation.billeys_mobs.sit",
+                "controller.groom": "controller.animation.billeys_mobs.terraphin_groom",
+                "random_idle": "animation.billeys_mobs.landolphin.idle",
+                "controller.random_idle": "controller.animation.billeys_mobs.random_idle_terraphin",
+                "eatcont": "controller.animation.billeys_mobs.terraphin_mouth"
+            },
+            "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+                "variables": {
+                  "variable.head_size_x": "public",
+                  "variable.head_size_y": "public",
+                  "variable.head_size_z": "public"
+                },
+                "initialize": [
+                  "v.head_size_x = 6;",
+                  "v.head_size_y = 6;",
+                  "v.head_size_z = 7;",
+                    "v.time_to_idle = 0;"
+                ],
+                "pre_animation": [
+                    "v.mark_variant = q.property('billey:mark_variant');"],
+                "animate": [
+                    "new",
+                    {
+                        "attack": "math.sin(v.attack_time * 180)"
+                    },
+                    { "hurt": "q.health < q.max_health" },
+                    {
+                        "controller.groom": "q.is_alive"
+                    },
+                    {
+                        "controller.random_idle": "q.is_alive"
+                    },
+                    {
+                        "death2": "!q.is_alive"
+                    },
+                    {
+                        "death": "!q.is_alive"
+                    },
+                    {
+                        "baby_transform": "q.is_baby"
+                    }
+                ]
+            },
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+                "controller.render.billeys_mobs.terraphin"
+                //in the bettafish file
+            ],
+            "spawn_egg": {
+                "overlay_color": "#DCBB99",
+                "base_color": "#434343"
+            }
+        }
+    }
+}

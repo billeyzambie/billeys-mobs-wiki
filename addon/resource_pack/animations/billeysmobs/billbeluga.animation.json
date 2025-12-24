@@ -1,0 +1,42 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.beluga.eat": {
+			"loop": true,
+			"bones": {
+				"mouth": {
+					"rotation": [-7.5, 0, 0],
+					"position": [0, 0, -0.7]
+				},
+				"jaw": {
+					"rotation": [15, 0, 0],
+					"position": [0, 0, 0]
+				},
+				"bone": {
+					"position": [0, 0.01, 0],
+					"scale": [1, 0, 1]
+				},
+				"bone2": {
+					"position": [0, 0.01, 0],
+					"scale": [1, 0, 1]
+				},
+				"bone3": {
+					"position": [0, -0.01, 0],
+					"scale": [1, 0, 1]
+				}
+			}
+		},
+		"animation.billeys_mobs.beluga.squish": {
+			"animation_length": 0.16,
+			"bones": {
+				"melon": {
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.04": [1, 0.5, 1],
+						"0.16": [1, 1, 1]
+					}
+				}
+			}
+		}
+	}
+}

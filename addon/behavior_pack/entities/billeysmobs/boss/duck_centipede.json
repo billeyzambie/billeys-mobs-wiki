@@ -1,0 +1,624 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:duck_centipede",
+            "is_spawnable": true,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "electrocuted": {
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/billey_electrocuted.json"
+                }
+            },
+            "despawned": {
+                "minecraft:instant_despawn": {}
+            },
+            "golden": {
+                "minecraft:variant": {
+                    "value": 5
+                }
+            },
+            "canmove": {
+                "minecraft:type_family": {
+                    "family": [
+                        "monster",
+                        "arthropod",
+                        "duck_centipede",
+                        "boss"
+                    ]
+                },
+                "minecraft:leashable": {
+                    "soft_distance": 0.0,
+                    "hard_distance": 0.0,
+                    "max_distance": 0.0
+                },
+                "minecraft:push_through": {
+                    "value": 1
+                },
+                "minecraft:is_sheared": {},
+                "minecraft:collision_box": {
+                    "width": 0.6,
+                    "height": 0.8
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 2,
+                    "must_see": true,
+                    "reselect_targets": true,
+                    "within_radius": 25.0,
+                    "must_see_forget_duration": 17.0,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "duck_centipede",
+                                        "operator": "!="
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "inanimate"
+                                    }
+                                ]
+                            },
+                            "max_dist": 35
+                        }
+                    ]
+                },
+                "minecraft:attack": {
+                    "damage": 5
+                },
+                "minecraft:behavior.melee_attack": {
+                    "require_complete_path": true,
+                    "priority": 3,
+                    "reach_multiplier": 2.5,
+                    "speed_multiplier": 1.3
+                },
+                "minecraft:shooter": {
+                    "def": "billey:end_rod_projectile2"
+                },
+                "minecraft:behavior.ranged_attack": {
+                    "priority": 3,
+                    "attack_interval_min": 1,
+                    "attack_interval_max": 2,
+                    "attack_radius_min": 2,
+                    "attack_radius": 10.0
+                },
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 1
+                },
+                "minecraft:boss": {
+                    "name": "entity.billey:duck_centipede.name",
+                    "hud_range": 55
+                },
+                "minecraft:movement": {
+                    "value": 0.25
+                },
+                "minecraft:navigation.walk": {
+                    "can_path_over_water": true,
+                    "avoid_damage_blocks": true
+                },
+                "minecraft:damage_sensor": {
+                    "triggers": [
+                        {
+                            "cause": "fall",
+                            "deals_damage": false
+                        }
+                    ]
+                },
+                "minecraft:behavior.random_stroll": {
+                    "priority": 7,
+                    "speed_multiplier": 1.0
+                },
+                "minecraft:behavior.run_around_like_crazy": {
+                    "priority": 6,
+                    "speed_multiplier": 1.0
+                },
+                "minecraft:behavior.look_at_player": {
+                    "probability": 0.01,
+                    "priority": 7,
+                    "look_distance": 6.0
+                },
+                "minecraft:behavior.random_look_around": {
+                    "priority": 8
+                }
+            },//-854 y -310
+            "spawnanother": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+                        {
+                            "min_wait_time": 0.1,
+                            "max_wait_time": 0.1,
+                            "spawn_entity": "billey:duck_centipede",
+                            "spawn_event": "minecraft:entity_spawned2",
+                            "single_use": true,
+                            "num_to_spawn": 1,
+                            "should_leash": true
+                        }
+                    ]
+                }
+            },
+            "spawnanother2": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+                        {
+                            "min_wait_time": 0.1,
+                            "max_wait_time": 0.1,
+                            "spawn_entity": "billey:duck_centipede",
+                            "spawn_event": "minecraft:entity_spawned3",
+                            "single_use": true,
+                            "num_to_spawn": 1,
+                            "should_leash": true
+                        }
+                    ]
+                }
+            },
+            "spawnanother3": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+                        {
+                            "min_wait_time": 0.1,
+                            "max_wait_time": 0.1,
+                            "spawn_entity": "billey:duck_centipede",
+                            "spawn_event": "minecraft:entity_spawned4",
+                            "single_use": true,
+                            "num_to_spawn": 1,
+                            "should_leash": true
+                        }
+                    ]
+                }
+            },
+            "spawnanother4": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+                        {
+                            "min_wait_time": 0.1,
+                            "max_wait_time": 0.1,
+                            "spawn_entity": "billey:duck_centipede",
+                            "spawn_event": "minecraft:entity_spawned5",
+                            "single_use": true,
+                            "num_to_spawn": 1,
+                            "should_leash": true
+                        }
+                    ]
+                }
+            },
+            "spawnanother5": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+                        {
+                            "min_wait_time": 0.1,
+                            "max_wait_time": 0.1,
+                            "spawn_entity": "billey:duck_centipede",
+                            "spawn_event": "minecraft:entity_spawned6",
+                            "single_use": true,
+                            "num_to_spawn": 1,
+                            "should_leash": true
+                        }
+                    ]
+                }
+            },
+            "spawnanother6": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+                        {
+                            "min_wait_time": 0.1,
+                            "max_wait_time": 0.1,
+                            "spawn_entity": "billey:duck_centipede",
+                            "spawn_event": "minecraft:entity_spawned7",
+                            "single_use": true,
+                            "num_to_spawn": 1,
+                            "should_leash": true
+                        }
+                    ]
+                }
+            },
+            "spawnanother7": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+                        {
+                            "min_wait_time": 0.1,
+                            "max_wait_time": 0.1,
+                            "spawn_entity": "billey:duck_centipede",
+                            "spawn_event": "minecraft:entity_spawned8",
+                            "single_use": true,
+                            "num_to_spawn": 1,
+                            "should_leash": true
+                        }
+                    ]
+                }
+            },
+            "spawnanother8": {
+                "minecraft:spawn_entity": {
+                    "entities": [
+                        {
+                            "min_wait_time": 0.1,
+                            "max_wait_time": 0.1,
+                            "spawn_entity": "billey:duck_centipede",
+                            "spawn_event": "minecraft:entity_spawned9",
+                            "single_use": true,
+                            "num_to_spawn": 1,
+                            "should_leash": true
+                        }
+                    ]
+                }
+            },
+            "baby": {
+                "minecraft:variant": {
+                    "value": 5
+                },
+                "minecraft:ageable": {
+                    "duration": 300,
+                    "grow_up": {
+                        "event": "minecraft:ageable_grow_up",
+                        "target": "self"
+                    }
+                },
+                "minecraft:is_saddled": {},
+                "minecraft:color": {
+                    "value": 15
+                },
+                "minecraft:is_baby": {},
+                "minecraft:scale": {
+                    "value": 0.5
+                }
+            },
+            "hat": {
+                "minecraft:is_saddled": {}
+            },
+            "tonormalduck": {
+                "minecraft:leashable": {
+                    "soft_distance": 0.0,
+                    "hard_distance": 0.0,
+                    "max_distance": 0.0
+                },
+                "minecraft:transformation": {
+                    "into": "billey:duck<spawngoldenbaby>"
+                }
+            },
+            "adult": {
+                "minecraft:experience_reward": {
+                    "on_death": "math.max(0,q.last_hit_by_player * Math.Random(-4,1))"
+                },
+                "minecraft:behavior.breed": {
+                    "priority": 3,
+                    "speed_multiplier": 1.0
+                }
+            }
+        },
+        "components": {
+            "minecraft:loot": {
+                "table": "loot_tables/entities/billyeetduck_damaged.json"
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:type_family": {
+                "family": [
+                    "duck_centipede",
+                    "inanimate",
+                    "boss"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.55,
+                "height": 0.75
+            },
+            "minecraft:jump.static": {
+                "jump_power": 0.42
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:nameable": {},
+            "minecraft:health": {
+                "value": 10,
+                "max": 10
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "subject": "self",
+                            "operator": "==",
+                            "value": true
+                        },
+                        "cause": "lava",
+                        "damage_per_tick": 4
+                    }
+                ]
+            },
+            "minecraft:leashable": {
+                "soft_distance": 0.3,
+                "hard_distance": 1.2,
+                "max_distance": 4.0
+            },
+            "minecraft:movement": {
+                "value": 0.25
+            },
+            "minecraft:navigation.walk": {
+                "can_path_over_water": true,
+                "avoid_damage_blocks": true
+            },
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "event": "getmovement",
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_leashed",
+                                    "subject": "self",
+                                    "value": false
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "not",
+                                    "value": "minecraft:behavior.random_stroll"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "minecraft:follow_range": {
+                "max": 100,
+                "value": 100
+            },
+            "minecraft:behavior.float": {
+                "priority": 0
+            },
+            "minecraft:physics": {},
+            "minecraft:push_through": {
+                "value": 1
+            },
+            "minecraft:pushable": {
+                "is_pushable": false,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
+                }
+            },
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on"
+                }
+            },
+            "get_electrocuted": {
+                "add": {
+                    "component_groups": [
+                        "electrocuted"
+                    ]
+                }
+            },
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawned"
+                    ]
+                }
+            },
+            "getmovement": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "operator": "not",
+                            "subject": "self",
+                            "value": "minecraft:is_baby"
+                        },
+                        "queue_command": {
+                            "command": [
+                                "effect @e[type=billey:duck_centipede,r=10] regeneration 1 255 true",
+                                "kill @e[type=item,r=5,name=Lead]",
+                                "kill @e[type=xp_orb,r=5]",
+                                "summon xp_orb"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "canmove"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "operator": "not",
+                            "subject": "self",
+                            "value": "minecraft:is_baby"
+                        },
+                        "randomize": [
+                            {
+                                "weight": 2
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "summon billey:duckyeetitem"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_baby"
+                                },
+                                {
+                                    "test": "is_leashed",
+                                    "subject": "self",
+                                    "value": false
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "kill @e[type=item,r=5]",
+                                "execute @a[r=10,tag=!billeyadv_killcenti] ~~~ scriptevent billey:advancement killcenti"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "tonormalduck"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "losemove": {
+                "remove": {
+                    "component_groups": [
+                        "canmove"
+                    ]
+                }
+            },
+            "from_egg": {
+                "add": {
+                    "component_groups": [
+                        "baby"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned": {
+                "trigger": "minecraft:spawn_adult",
+                "add": {
+                    "component_groups": [
+                        "canmove",
+                        "golden"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned2": {
+                "add": {
+                    "component_groups": [
+                        "adult",
+                        "spawnanother2"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned3": {
+                "add": {
+                    "component_groups": [
+                        "adult",
+                        "spawnanother3"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned4": {
+                "add": {
+                    "component_groups": [
+                        "adult",
+                        "spawnanother4"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned5": {
+                "add": {
+                    "component_groups": [
+                        "adult",
+                        "spawnanother5"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned6": {
+                "add": {
+                    "component_groups": [
+                        "adult",
+                        "spawnanother6"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned7": {
+                "add": {
+                    "component_groups": [
+                        "adult",
+                        "spawnanother7"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned8": {
+                "add": {
+                    "component_groups": [
+                        "adult",
+                        "spawnanother8"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned9": {
+                "add": {
+                    "component_groups": [
+                        "adult"
+                    ]
+                }
+            },
+            "minecraft:ageable_grow_up": {
+                "randomize": [
+                    {
+                        "weight": 1,
+                        "remove": {
+                            "component_groups": [
+                                "baby"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "hat"
+                            ]
+                        },
+                        "trigger": "minecraft:spawn_adult"
+                    },
+                    {
+                        "weight": 1
+                    }
+                ]
+            },
+            "minecraft:spawn_adult": {
+                "add": {
+                    "component_groups": [
+                        "adult",
+                        "spawnanother"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,154 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs.duck": {
+      "arrays": {
+        "textures": {
+          "array.skins": [
+            "texture.white",
+            "texture.brown",
+            "texture.golden",
+            "texture.mandarin",
+            "texture.blue",
+            "texture.black",
+            "texture.head",
+            "texture.whole"
+          ],
+          "array.changer": [
+            "texture.white",
+            "texture.brown",
+            "texture.golden",
+            "texture.mandarin",
+            "texture.blue",
+            "texture.black",
+            "texture.head",
+            "texture.whole",
+            "texture.whiteling",
+            "texture.brownling"
+          ],
+          "array.baby": [
+            "texture.whiteling",
+            "texture.brownling",
+            "texture.golden",
+            "texture.brownling",
+            "texture.brownling",
+            "texture.whiteling",
+            "texture.whiteling",
+            "texture.whole"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "part_visibility": [ 
+        { "dontshowonbaby": "!q.is_baby" }],
+        "textures": [ "(q.get_name == 'Pizza' || q.get_name == 'Πίτσα') ? (array.changer[q.life_time * 1.5 + q.variant + q.is_baby * 8]) : (q.is_baby ? array.baby[q.variant] : array.skins[q.variant])" ],
+      "overlay_color": {
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.duckcentipede": {
+      "arrays": {
+        "textures": {
+          "array.skins": [
+            "texture.white",
+            "texture.brown",
+            "texture.golden",
+            "texture.mandarin",
+            "texture.blue",
+            "texture.black",
+            "texture.head",
+            "texture.whole"
+          ],
+          "array.baby": [
+            "texture.whiteling",
+            "texture.brownling",
+            "texture.golden",
+            "texture.brownling",
+            "texture.brownling",
+            "texture.whiteling",
+            "texture.whiteling",
+            "texture.whole"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "part_visibility": [ { "bone9": "v.state == 4 || q.is_sleeping" },
+        { "bone8": "!q.is_baby && q.mark_variant == 0" },
+        { "dontshowonbaby": "!q.is_baby" }],
+      "textures": [ "q.is_baby ? array.baby[q.variant] : array.skins[q.variant]" ],
+      "overlay_color": {
+          "r": "q.variant == 2 ? math.sin(q.life_time * 500 + q.variant * 234) : math.sin(q.life_time * 200 + q.variant * 234)",
+          "g": "q.variant == 2 ? math.sin(q.life_time * 400 + q.variant * 234 + 120) : math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+          "b": "q.variant == 2 ? math.sin(q.life_time * 300 + q.variant * 234 + 240) : math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.penguin": {
+      "arrays": {
+        "textures": {
+          "array.normal": [
+            "texture.adelie",
+            "texture.emperor",
+            "texture.humboldt",
+            "texture.little"
+          ],
+          "array.leucistic": [
+            "texture.adelie1",
+            "texture.emperor1",
+            "texture.humboldt1",
+            "texture.little1"
+          ]
+        },
+        "geometries": {
+          "array.models": [
+            "Geometry.adelie",
+            "Geometry.emperor",
+            "Geometry.humboldt",
+            "Geometry.little"
+          ]
+        }
+      },
+      "geometry": "array.models[q.mark_variant]",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "q.variant ? array.normal[q.mark_variant] : array.leucistic[q.mark_variant]" ],
+      "overlay_color": {
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },
+    "controller.render.billeys_mobs.penguinhat": {
+      "arrays": {
+        "geometries": {
+          "array.models": [
+            "Geometry.adeliehat",
+            "Geometry.emperorhat",
+            "Geometry.humboldthat",
+            "Geometry.littlehat"
+          ]
+        }
+      },
+      "is_hurt_color": {
+          "a": "0"
+      },
+      "geometry": "array.models[q.mark_variant]",
+      "materials": [ { "*": "Material.dyeable" } ],
+      "textures": [
+        "texture.hat"
+      ],
+      "overlay_color": {
+        "r": "math.sin(q.life_time * 300 + q.variant * 234 + 100)",
+        "g": "math.sin(q.life_time * 300 + q.variant * 234 + 220)",
+        "b": "math.sin(q.life_time * 300 + q.variant * 234 + 340)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.30",
+	"minecraft:item": {
+		"description": {
+			"identifier": "billey:royal_rat_chef_hat",
+			"menu_category": {
+				"category": "equipment",
+				"group": "itemGroup.name.horseArmor"
+			}
+		},
+		"components": {
+			"minecraft:max_stack_size": {
+				"value": 1
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "billey.royal_rat_chef_hat"
+				}
+			},
+			"minecraft:rarity": {
+			  "value": "uncommon"
+			}
+		}
+	}
+}

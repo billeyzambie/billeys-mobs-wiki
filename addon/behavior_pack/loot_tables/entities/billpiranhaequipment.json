@@ -1,0 +1,70 @@
+{
+      "pools": [
+         {
+            "rolls": 1,
+            "conditions": [
+               {
+                  "condition": "random_chance",
+                  "chance": 0.25
+               }
+            ],
+            "entries": [
+               {
+                  "type": "item",
+                  "name": "minecraft:sand",
+                  "weight": 1
+               },
+               {
+                  "type": "item",
+                  "name": "minecraft:dirt",
+                  "weight": 1
+               },
+               {
+                  "type": "item",
+                  "name": "minecraft:gravel",
+                  "weight": 1
+               },
+               {
+                  "type": "item",
+                  "name": "minecraft:seagrass",
+                  "weight": 1
+               },
+               {
+                  "type": "item",
+                  "name": "minecraft:kelp",
+                  "weight": 1
+               },
+               {
+                  "type": "item",
+                  "name": "billey:pizzapiece",
+                  "weight": 1
+               },
+               {
+                  "type": "item",
+                  "name": "billey:sand_banana",
+                  "weight": 1
+               },
+               {
+                  "type": "item",
+                  "name": "billey:poultry_orange",
+                  "weight": 1
+               },
+               {
+                  "type": "item",
+                  "name": "billey:shark_tooth",
+                  "weight": 1
+               },
+               {
+                  "type": "item",
+                  "name": "bone",
+                  "weight": 1
+               },
+               {
+                  "type": "item",
+                  "name": "bone_meal",
+                  "weight": 1
+               }
+            ]
+         }
+      ]
+   }

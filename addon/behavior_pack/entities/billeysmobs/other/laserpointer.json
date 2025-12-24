@@ -1,0 +1,69 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+      "description": {
+        "identifier": "billey:laser_pointer_proj",
+        "runtime_identifier": "minecraft:snowball",
+        "is_spawnable": false,
+        "is_summonable": true,
+        "is_experimental": false
+      },
+      "events": {
+        "despawm": {
+            "add": {
+                "component_groups": [
+                    "despawned"
+                ]
+            }
+        }
+      },
+      "component_groups": {
+        "despawned": {
+            "minecraft:instant_despawn": {
+            }
+        }
+      },
+      "components": {
+        "minecraft:collision_box": {
+          "width": 0.1,
+          "height": 0.1
+        },
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "filter": "blaze",
+              "damage": 3,
+              "knockback": false
+            },
+            "remove_on_hit": { }
+          },
+          "anchor": 1,
+          "power": 100.0,
+          "gravity": 0.0,
+          "angle_offset": 0.0
+        },
+          "minecraft:physics": {
+        },
+        "minecraft:pushable": {
+          "is_pushable": true,
+          "is_pushable_by_piston": true
+        },
+        "minecraft:conditional_bandwidth_optimization": {
+          "default_values": {
+            "max_optimized_distance": 100.0,
+            "max_dropped_ticks": 7,
+            "use_motion_prediction_hints": true
+          }
+        },
+        "minecraft:timer": {
+            "time": 10,
+            "looping": true,
+            "time_down_event": {
+                "event": "despawn",
+                "target": "self"
+            }
+        }
+      }
+    }
+  }
+  

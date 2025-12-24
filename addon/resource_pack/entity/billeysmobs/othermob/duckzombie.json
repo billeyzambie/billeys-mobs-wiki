@@ -1,0 +1,12 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:duck_zombie",
+			"spawn_egg": {
+				"base_color": "#1dc5eb",
+				"overlay_color": "#668e6f"
+			}
+		}
+	}
+}

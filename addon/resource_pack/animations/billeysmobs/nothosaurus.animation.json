@@ -1,0 +1,35 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.nothosaurus.walk": {
+			"loop": true,
+			"bones": {
+				"left_am": {
+					"rotation": [0, "math.cos(q.anim_time * 720) * 15", "math.min(5,math.sin(q.anim_time * 720) * 15)"]
+				},
+				"body": {
+					"rotation": ["-math.sin(720 * q.anim_time) * 5", 0, "math.sin(1080*q.anim_time) * 2"]
+				},
+				"tail": {
+					"rotation": [0, "math.sin(480*q.anim_time) * 5", 0],
+					"position": [0, 0, 0]
+				},
+				"left_am2": {
+					"rotation": [0, "math.cos(180+q.anim_time * 720) * 15", "math.min(5,math.sin(180+q.anim_time * 720) * 15)"]
+				},
+				"right_am2": {
+					"rotation": [0, "math.cos(q.anim_time * 720) * 15", "math.max(-5,math.sin(q.anim_time * 720) * 15)"]
+				},
+				"right_am": {
+					"rotation": [0, "math.cos(180+q.anim_time * 720) * 15", "math.max(-5,math.sin(180+q.anim_time * 720) * 15)"]
+				},
+				"neck": {
+					"rotation": [-12.5, 0, 0]
+				},
+				"head": {
+					"rotation": ["12.5 + math.sin(720 * q.anim_time) * 5", 0, 0]
+				}
+			}
+		}
+	}
+}

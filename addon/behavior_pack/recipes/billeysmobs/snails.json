@@ -1,0 +1,15 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_furnace": {
+        "description": {
+            "identifier": "billey:furnace_snails"
+        },
+        "tags": [
+            "furnace",
+            "smoker",
+            "campfire"
+        ],
+        "input": "billey:raw_snail_s",
+        "output": "billey:cooked_snail_s"
+    }
+}

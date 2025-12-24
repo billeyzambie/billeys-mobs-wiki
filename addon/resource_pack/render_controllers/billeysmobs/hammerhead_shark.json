@@ -1,0 +1,77 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.billeys_mobs.hammerhead_shark": {
+            "arrays": {
+                "textures": {
+                    "array.skins": [
+                        "texture.cartoony",
+                        "texture.scalloped",
+                        "texture.great",
+                        "texture.smooth",
+                        "texture.gray",
+                        "texture.albino",
+                        "texture.saturated"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "saddle*": "q.model_scale >= 0.06"
+                },
+                {
+                    "topfin": "q.model_scale < 0.06"
+                }
+            ],
+            "textures": [
+                "array.skins[q.variant]"
+            ],
+            "overlay_color": {
+                "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+                "g": "math.sin(q.life_time * 200 + q.variant * 590 + 120)",
+                "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+                "a": "q.is_illager_captain ? 0.4 : 0.0"
+            }
+        },
+        "controller.render.billeys_mobs.old_hammerhead_shark": {
+            "arrays": {
+                "textures": {
+                    "array.skins": [
+                        "texture.normal",
+                        "texture.gay",
+                        "texture.desat"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "part_visibility": [
+                {
+                    "saddle*": "q.model_scale >= 0.06"
+                },
+                {
+                    "topfin": "q.model_scale < 0.06"
+                }
+            ],
+            "textures": [
+                "array.skins[q.variant]"
+            ],
+            "overlay_color": {
+                "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+                "g": "math.sin(q.life_time * 200 + q.variant * 590 + 120)",
+                "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+                "a": "q.is_illager_captain ? 0.4 : 0.0"
+            }
+        }
+    }
+}

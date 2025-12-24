@@ -1,0 +1,54 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:piranha",
+      "materials": {
+        "default": "cat"
+      },
+      "textures": {
+        "normal": "textures/entity/billeys_mobs/piranha",
+        "gay": "textures/entity/billeys_mobs/piranha1",
+        "desat": "textures/entity/billeys_mobs/piranha2"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.piranha"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "thrown": "animation.billeys_mobs.piranha.thrown",
+        "flop": "animation.billeys_mobs.piranha.flop",
+        "swim": "animation.billeys_mobs.piranha.swim"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 3;",
+				  "v.head_size_y = 3;",
+				  "v.head_size_z = 3;"
+				],
+        "animate": [
+          "new",
+          "swim",
+          {
+            "flop": "!q.is_in_water && q.is_alive &&!q.is_sheared"
+          }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.old_hammerhead_shark"
+      ],
+      "spawn_egg": {
+        "base_color": "#6C6C6C",
+        "overlay_color": "#802C11"
+      }
+    }
+  }
+}

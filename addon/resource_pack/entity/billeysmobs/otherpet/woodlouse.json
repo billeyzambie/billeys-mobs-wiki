@@ -1,0 +1,90 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:woodlouse",
+      "materials": {
+        "default": "entity_alphatest",
+        "opaque": "entity",
+        "cat": "cat"
+      },
+      "textures": {
+        "zero": "textures/entity/billeys_mobs/woodlouse",
+        "one": "textures/entity/billeys_mobs/woodlouse1",
+        "two": "textures/entity/billeys_mobs/woodlouse2",
+        "three": "textures/entity/billeys_mobs/woodlouse3",
+        "four": "textures/entity/billeys_mobs/woodlouse4",
+        "five": "textures/entity/billeys_mobs/woodlouse5",
+        "six": "textures/entity/billeys_mobs/woodlouse6",
+        "seven": "textures/entity/billeys_mobs/woodlouse7",
+        "eight": "textures/entity/billeys_mobs/woodlouse8",
+        "nine": "textures/entity/billeys_mobs/woodlouse9",
+        "ten": "textures/entity/billeys_mobs/woodlouse10",
+        "eleven": "textures/entity/billeys_mobs/woodlouse11",
+        "twelve": "textures/entity/billeys_mobs/woodlouse12",
+        "thirteen": "textures/entity/billeys_mobs/woodlouse13",
+        "fourteen": "textures/entity/billeys_mobs/woodlouse14",
+        "fifteen": "textures/entity/billeys_mobs/woodlouse15",
+        "sixteen": "textures/entity/billeys_mobs/woodlouse16",
+        "seventeen": "textures/entity/billeys_mobs/woodlouse17",
+        "eighteen": "textures/entity/billeys_mobs/woodlouse18",
+        "nineteen": "textures/entity/billeys_mobs/woodlouse19",
+        "twenty": "textures/entity/billeys_mobs/woodlouse20",
+        "twentyone": "textures/entity/billeys_mobs/woodlouse21"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.woodlouse"
+      },
+      "animations": {
+        "controller.sit": "controller.animation.billeys_mobs.sit",
+        "sit": "animation.billeys_mobs.woodlouse.sit",
+        "random_idle": "animation.billeys_mobs.woodlouse.idle",
+        "sheared": "animation.billeys_mobs.woodlouse.curl",
+        "climb": "animation.billeys_mobs.woodlouse.climb",
+        "look_at_target": "animation.common.look_at_target",
+        "controller.random_idle": "controller.animation.billeys_mobs.random_idle",
+				"c.climb": "controller.animation.billeys_mobs.climbb",
+        "hurt": "animation.billeys_mobs.cat.hurt2",
+        "c.sheared": "controller.animation.billeys_mobs.sheared",
+        "walk": "animation.billeys_mobs.woodlouse.walk"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.head_size_x = 4;",
+          "v.head_size_y = 3;",
+          "v.head_size_z = 2;",
+          "v.time_to_idle = 0;",
+          "v.colordelay=math.random_integer(0,1)*math.random_integer(0,360);"
+        ],
+        "animate": [
+          { "controller.sit": "!q.is_moving" },
+          { "c.sheared": "q.is_alive" },
+          { "hurt": "q.health < q.max_health" },
+          {
+            "walk": "q.is_moving || !q.is_sitting ? q.modified_move_speed * 2.15"
+          },
+          "controller.random_idle",
+          { "c.climb": "!q.is_in_water && q.is_alive"},
+          {
+            "look_at_target": "0.5"
+          }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.bettafish"
+      ],
+      "spawn_egg": {
+        "base_color": "#8c8f96",
+        "overlay_color": "#df971b"
+      }
+    }
+  }
+}

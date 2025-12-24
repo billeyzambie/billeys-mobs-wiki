@@ -1,0 +1,21 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "billey:boring_potion"
+    },
+     "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "minecraft:potion",
+        "data":  3
+      },
+      {
+        "item": "billey:scat_dust"
+      }
+    ],
+    "result": [
+      { "item": "billey:scat_bottle" }
+    ]
+  }
+}

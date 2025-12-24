@@ -1,0 +1,101 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:zombified_cat",
+      "materials": {
+        "default": "cat"
+      },
+      "textures": {
+        "white": "textures/entity/zcat/white",
+        "black": "textures/entity/zcat/tuxedo",
+        "red": "textures/entity/zcat/redtabby",
+        "siamese": "textures/entity/zcat/siamesecat",
+        "british": "textures/entity/zcat/britishshorthair",
+        "calico": "textures/entity/zcat/calico",
+        "persian": "textures/entity/zcat/persian",
+        "ragdoll": "textures/entity/zcat/ragdoll",
+        "tabby": "textures/entity/zcat/tabby",
+        "jellie": "textures/entity/zcat/jellie",
+        "blackorange": "textures/entity/zcat/blackorange",
+        "blackwhite": "textures/entity/zcat/blackwhite",
+        "perry": "textures/entity/zcat/perry",
+        "pizza": "textures/entity/zcat/pizza",
+        "sugar": "textures/entity/zcat/sugar",
+        "all_black": "textures/entity/zcat/allblackcat",
+        "white_tame": "textures/entity/zcat/white_tame",
+        "black_tame": "textures/entity/zcat/tuxedo_tame",
+        "red_tame": "textures/entity/zcat/redtabby_tame",
+        "siamese_tame": "textures/entity/zcat/siamesecat_tame",
+        "british_tame": "textures/entity/zcat/britishshorthair_tame",
+        "calico_tame": "textures/entity/zcat/calico_tame",
+        "persian_tame": "textures/entity/zcat/persian_tame",
+        "ragdoll_tame": "textures/entity/zcat/ragdoll_tame",
+        "tabby_tame": "textures/entity/zcat/tabby_tame",
+        "all_black_tame": "textures/entity/zcat/allblackcat_tame",
+        "jellie_tame": "textures/entity/zcat/jellie_tame",
+        "blackorange_tame": "textures/entity/zcat/blackorange_tame",
+        "blackwhite_tame": "textures/entity/zcat/blackwhite_tame",
+        "perry_tame": "textures/entity/zcat/perry_tame",
+        "pizza_tame": "textures/entity/zcat/pizza_tame",
+        "sugar_tame": "textures/entity/zcat/sugar_tame",
+        "lily": "textures/entity/cat/lily",
+        "tigerlily": "textures/entity/cat/tigerlily",
+        "lily_tame": "textures/entity/cat/lily_tame"
+      },
+      "geometry": {
+        "default": "geometry.zcat"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "sneak": "animation.cat.sneak",
+        "walk": "animation.cat.walk",
+        "sprint": "animation.cat.sprint",
+        "sit": "animation.cat.sit",
+        "stand": "controller.animation.bcat.move",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.cat.baby_transform",
+        "lie_down": "animation.cat.lie_down",
+        "fix": "animation.cat.fix",
+        "eat": "animation.cat.tailsnek",
+        "beg": "animation.cat.beg",
+        "look_at_target_cont": "controller.animation.bcat.look_at_target",
+        "sitcont": "controller.animation.billeys_mobs.sitforcat",
+        "baby": "controller.animation.bcat.baby",
+        "eatcont": "controller.animation.billeys_mobs.eat",
+        "hurt": "animation.billeys_mobs.cat.hurt",
+        "raising": "controller.animation.billeys_mobs.eatnoblend"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.head_size_x = 5;",
+          "v.head_size_y = 4;",
+          "v.head_size_z = 5;"
+        ],
+        "animate": [ "new",
+          "look_at_target_cont",
+          "sitcont",
+          "baby",
+          "eatcont",
+          "raising",
+          { "hurt": "q.health < q.max_health" }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.cat"
+      ],
+      "spawn_egg": {
+        "texture": "egg_cat_withered"
+      } /*    ,
+      { "hurt": "q.health < q.max_health" }
+    */}
+  }
+}

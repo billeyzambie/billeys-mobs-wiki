@@ -1,0 +1,60 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:banana_slipper",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "despawn": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            },
+            "minecraft:collision_box": {
+                "height": 0.0,
+                "width": 0.0
+            },
+            "minecraft:timer": {
+                "time": 0.485,
+                "looping": true,
+                "time_down_event": {
+                    "event": "slip",
+                    "target": "self"
+                }
+            }
+        },
+        "events": {
+            "slip": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "damage @e[c=1,tag=billey_slipped,r=3] 12 entity_attack entity @s",
+                                "tp @e[c=1,tag=billey_slipped,r=3] ~ ~-1 ~",
+                                "camerashake add @a[c=1,tag=billey_slipped,r=3] 4 0.561 rotational",
+                                "tag @e[c=1,tag=billey_slipped,r=3] remove billey_slipped"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "despawn"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

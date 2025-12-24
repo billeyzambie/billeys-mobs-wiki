@@ -1,0 +1,2241 @@
+{
+	"format_version": "1.21.120",
+	"minecraft:block": {
+		"description": {
+			"identifier": "billey:fish_tank",
+			"menu_category": {
+				"category": "items"
+			},
+			"states": {
+				"billey:has_water": [
+					false,
+					true
+				],
+				"billey:substrate": [
+					"none",
+					"minecraft:red_sand",
+					"minecraft:sand",
+					"billey:aquarium_gravel",
+					"minecraft:gravel",
+					"minecraft:dirt"
+				],
+				"billey:plant": [
+					"none",
+					"minecraft:kelp",
+					"minecraft:seagrass",
+					"minecraft:tube_coral",
+					"minecraft:brain_coral",
+					"minecraft:bubble_coral",
+					"minecraft:fire_coral",
+					"minecraft:horn_coral"
+				]
+			}
+		},
+		"components": {
+			"billey:fish_tank": {},
+			"minecraft:material_instances": {
+				"*": {
+					//for the destruction particles, and the carried item i think
+					"texture": "glass",
+					"render_method": "alpha_test_single_sided",
+					"ambient_occlusion": false
+				},
+				"top": {
+					"texture": "billey.fish_tank_top",
+					"render_method": "alpha_test_single_sided",
+					"ambient_occlusion": false
+				},
+				"bottom": {
+					"texture": "billey.fish_tank_bottom",
+					"render_method": "alpha_test_single_sided",
+					"ambient_occlusion": false
+				},
+				"side": {
+					"texture": "billey.fish_tank_side",
+					"render_method": "alpha_test_single_sided",
+					"ambient_occlusion": false
+				},
+				"tip": {
+					"texture": "billey.fish_tank_tip",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false
+				},
+				"substrate": {
+					"texture": "billey.nothing",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false
+				},
+				"plant": {
+					"texture": "billey.nothing",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false
+				},
+				"water": {
+					"texture": "billey.nothing",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:map_color": "#6B8F99",
+			"minecraft:destructible_by_mining": {
+				"seconds_to_destroy": 1
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+			"minecraft:light_dampening": 0,
+			"minecraft:geometry": "geometry.billeys_mobs.fish_tank",
+			"minecraft:movable": {
+				"movement_type": "immovable"
+			}
+		},
+		"permutations": [
+			{
+				"condition": "!q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'none'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"water": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'minecraft:sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"water": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'minecraft:red_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "red_sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"water": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'billey:aquarium_gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "billey.aquarium_gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"water": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'minecraft:gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"water": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "!q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'minecraft:dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"water": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'minecraft:sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'minecraft:red_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "red_sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'billey:aquarium_gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "billey.aquarium_gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'minecraft:gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'none' && q.block_state('billey:substrate') == 'minecraft:dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "billey.nothing",
+							"render_method": "alpha_test"
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:kelp' && q.block_state('billey:substrate') == 'minecraft:sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "kelp_top",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:seagrass' && q.block_state('billey:substrate') == 'minecraft:sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "seagrass_short",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:tube_coral' && q.block_state('billey:substrate') == 'minecraft:sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "tube_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:brain_coral' && q.block_state('billey:substrate') == 'minecraft:sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "brain_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:bubble_coral' && q.block_state('billey:substrate') == 'minecraft:sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "bubble_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:fire_coral' && q.block_state('billey:substrate') == 'minecraft:sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "fire_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:horn_coral' && q.block_state('billey:substrate') == 'minecraft:sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "horn_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:kelp' && q.block_state('billey:substrate') == 'minecraft:red_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "red_sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "kelp_top",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:seagrass' && q.block_state('billey:substrate') == 'minecraft:red_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "red_sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "seagrass_short",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:tube_coral' && q.block_state('billey:substrate') == 'minecraft:red_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "red_sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "tube_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:brain_coral' && q.block_state('billey:substrate') == 'minecraft:red_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "red_sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "brain_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:bubble_coral' && q.block_state('billey:substrate') == 'minecraft:red_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "red_sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "bubble_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:fire_coral' && q.block_state('billey:substrate') == 'minecraft:red_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "red_sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "fire_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:horn_coral' && q.block_state('billey:substrate') == 'minecraft:red_sand'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "red_sand",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "horn_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:kelp' && q.block_state('billey:substrate') == 'billey:aquarium_gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "billey.aquarium_gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "kelp_top",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:seagrass' && q.block_state('billey:substrate') == 'billey:aquarium_gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "billey.aquarium_gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "seagrass_short",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:tube_coral' && q.block_state('billey:substrate') == 'billey:aquarium_gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "billey.aquarium_gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "tube_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:brain_coral' && q.block_state('billey:substrate') == 'billey:aquarium_gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "billey.aquarium_gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "brain_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:bubble_coral' && q.block_state('billey:substrate') == 'billey:aquarium_gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "billey.aquarium_gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "bubble_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:fire_coral' && q.block_state('billey:substrate') == 'billey:aquarium_gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "billey.aquarium_gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "fire_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:horn_coral' && q.block_state('billey:substrate') == 'billey:aquarium_gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "billey.aquarium_gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "horn_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:kelp' && q.block_state('billey:substrate') == 'minecraft:gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "kelp_top",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:seagrass' && q.block_state('billey:substrate') == 'minecraft:gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "seagrass_short",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:tube_coral' && q.block_state('billey:substrate') == 'minecraft:gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "tube_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:brain_coral' && q.block_state('billey:substrate') == 'minecraft:gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "brain_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:bubble_coral' && q.block_state('billey:substrate') == 'minecraft:gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "bubble_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:fire_coral' && q.block_state('billey:substrate') == 'minecraft:gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "fire_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:horn_coral' && q.block_state('billey:substrate') == 'minecraft:gravel'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "gravel",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "horn_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:kelp' && q.block_state('billey:substrate') == 'minecraft:dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "kelp_top",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:seagrass' && q.block_state('billey:substrate') == 'minecraft:dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "seagrass_short",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:tube_coral' && q.block_state('billey:substrate') == 'minecraft:dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "tube_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:brain_coral' && q.block_state('billey:substrate') == 'minecraft:dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "brain_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:bubble_coral' && q.block_state('billey:substrate') == 'minecraft:dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "bubble_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:fire_coral' && q.block_state('billey:substrate') == 'minecraft:dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "fire_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			},
+			{
+				"condition": "q.block_state('billey:has_water') && q.block_state('billey:plant') == 'minecraft:horn_coral' && q.block_state('billey:substrate') == 'minecraft:dirt'",
+				"components": {
+					"minecraft:material_instances": {
+						"*": {
+							"texture": "glass",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"top": {
+							"texture": "billey.fish_tank_top",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"bottom": {
+							"texture": "billey.fish_tank_bottom",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"side": {
+							"texture": "billey.fish_tank_side",
+							"render_method": "alpha_test_single_sided",
+							"ambient_occlusion": false
+						},
+						"tip": {
+							"texture": "billey.fish_tank_tip",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"substrate": {
+							"texture": "dirt",
+							"render_method": "alpha_test"
+						},
+						"plant": {
+							"texture": "horn_coral",
+							"render_method": "alpha_test",
+							"ambient_occlusion": false
+						},
+						"water": {
+							"tint_method": "water",
+							"texture": "still_water_grey",
+							"render_method": "blend",
+							"ambient_occlusion": false
+						}
+					}
+				}
+			}
+		]
+	}
+}

@@ -1,0 +1,73 @@
+{
+  //no idea what this does
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "billey:despawn",
+      "runtime_identifier": "minecraft:pig",//mr peepee
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+    "scripts": {
+      "animate": [ "despawn" ]
+    },
+    "animations": {
+      "despawn": "controller.animation.billeys_mobs.despawn"
+    }
+    },
+    "components": { "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family": [ "nothing" ]
+      },
+      "minecraft:collision_box": {
+        "width": 0.0,
+        "height": 0.0
+      },
+      "minecraft:instant_despawn": {},
+      "minecraft:nameable": {
+      },
+      "minecraft:physics": {
+      }, "minecraft:despawn": {}
+    },
+
+    "events": {
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on"
+                }
+            },
+    "get_electrocuted": {
+       "add": { "component_groups": [
+         "electrocuted" ]}
+  },
+      "kroma": {
+        "add": {
+          "component_groups": [
+            "kromatik"
+          ]
+        }
+      },
+      "nokroma": {
+        "remove": {
+          "component_groups": [
+            "kromatik"
+          ]
+        }
+      }
+    }
+  }
+}

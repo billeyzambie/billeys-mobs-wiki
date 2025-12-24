@@ -1,0 +1,38 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.billeys_mobs.tiktaalik": {
+            "arrays": {
+                "textures": {
+                    "array.skins": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five",
+                        "texture.six",
+                        "texture.seven",
+                        "texture.eight",
+                        "texture.nine"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "(q.get_name == 'Perry' || q.get_name == 'Peri' || q.get_name == 'Πέρι') ? array.skins[q.variant+q.life_time*1.5] : array.skins[q.variant]"
+            ],
+            "overlay_color": {
+                "r": "math.sin(q.life_time * 200 + q.variant * 590)",
+                "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+                "b": "math.sin(q.life_time * 200 + q.variant * 590 + 240)",
+                "a": "q.is_illager_captain ? 0.4 : 0.0"
+            }
+        }
+    }
+}

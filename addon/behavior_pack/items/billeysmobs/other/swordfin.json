@@ -1,0 +1,26 @@
+{
+  "format_version": "1.20.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "billey:swordfin",
+      "menu_category": {
+        "category": "items"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "billey:can_craft_info_book"
+        ]
+      },
+      "minecraft:max_stack_size": {
+        "value": 64
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "swordfin"
+        }
+      }
+    }
+  }
+}

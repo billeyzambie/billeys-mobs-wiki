@@ -1,0 +1,431 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "billey:pigeon_vibe",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+    "electrocuted": {
+       
+				"minecraft:loot": {
+					"table": "loot_tables/entities/billey_electrocuted.json"
+				}
+  },
+      "hat": {
+        "minecraft:is_charged": {},
+        "minecraft:color": {
+          "value": 12
+        },
+        "minecraft:is_dyeable": {
+          "interact_text": "action.interact.dye"
+        }
+      },
+      "kromatik": {
+        "minecraft:is_illager_captain": {},
+        "minecraft:color": {
+          "value": 0
+        }
+      }
+    },
+    "components": { "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family": [
+          "pigeon",
+          "mob",
+          "arthropod",
+          "monster",
+          "player"
+        ]
+      },
+      "minecraft:interact": {
+        "interactions": [
+					{
+						"play_sounds": "plop",
+						"swing": true,
+						"interact_text": "action.interact.get_info",
+						"on_interact": {
+							"filters": {
+								"any_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "feather"
+									},
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "book"
+									}
+								]
+							},
+							"event": "send_info",
+							"target": "self"
+						}
+					},
+          {
+            "use_item": true,
+            "play_sounds": "milk",
+            "interact_text": "action.interact.use",
+            "transform_to_item": "glass_bottle",
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "billey:colorful_bottle"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "event": "kroma",
+              "target": "self"
+            }
+          },
+          {
+            "use_item": true,
+            "play_sounds": "milk",
+            "interact_text": "action.interact.use",
+            "transform_to_item": "glass_bottle",
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "billey:colorless_bottle"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "event": "nokroma",
+              "target": "self"
+            }
+          },
+          {
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "operator": "not",
+                    "value": "billey:colorful_bottle"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "operator": "not",
+                    "value": "billey:colorless_bottle"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "operator": "not",
+                    "value": "flint_and_steel"
+                  },
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "operator": "not",
+                    "domain": "hand",
+                    "value": "billey:pet_hat"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "event": "anotherone",
+              "target": "self"
+            }
+          },
+          {
+            "use_item": true,
+            "play_sounds": "armor.equip_generic",
+            "interact_text": "action.interact.equip",
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "billey:pet_hat"
+                  },
+                  {
+                    "test": "has_component",
+                    "subject": "self",
+                    "operator": "not",
+                    "value": "minecraft:is_charged"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "event": "wearhat",
+              "target": "self"
+            }
+          },
+          {
+            "use_item": false,
+            "play_sounds": "armor.equip_generic",
+            "spawn_items": {
+              "table": "loot_tables/entities/billeyhat.json"
+            },
+            "interact_text": "action.interact.equip",
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "billey:pet_hat"
+                  },
+                  {
+                    "test": "has_component",
+                    "subject": "self",
+                    "value": "minecraft:is_charged"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "event": "destroy_head_equipment",
+              "target": "self"
+            }
+          },
+          {
+            "play_sounds": "armor.equip_generic",
+            "interact_text": "action.interact.equip",
+            "on_interact": {
+              "filters": {
+                "all_of": [
+                  {
+                    "test": "has_equipment",
+                    "subject": "other",
+                    "domain": "hand",
+                    "value": "flint_and_steel"
+                  },
+                  {
+                    "test": "is_family",
+                    "subject": "other",
+                    "value": "player"
+                  }
+                ]
+              },
+              "event": "lit",
+              "target": "self"
+            }
+          }
+        ]
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_water": true,
+        "avoid_damage_blocks": false
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:collision_box": {
+        "width": 0.34,
+        "height": 0.56
+      },
+      "minecraft:nameable": {},
+      "minecraft:health": {
+        "value": 3,
+        "max": 3
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 1
+          }
+        ]
+      },
+      "minecraft:movement": {
+        "value": 0.25
+      },
+      "minecraft:behavior.float": {
+        "priority": 0
+      },
+      "minecraft:behavior.panic": {
+        "priority": 1,
+        "speed_multiplier": 1.25
+      },
+      "minecraft:behavior.tempt": {
+        "priority": 4,
+        "speed_multiplier": 1.25,
+        "items": [
+          "stone_sword",
+          "golden_sword",
+          "iron_sword",
+          "diamond_sword",
+          "netherite_sword",
+          "bow",
+          "trident",
+          "crossbow",
+          "flint_and_steel"
+        ]
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4.0,
+        "hard_distance": 6.0,
+        "max_distance": 10.0
+      },
+      "minecraft:balloonable": {},
+      "minecraft:rideable": {
+        "seat_count": 1,
+        "family_types": [
+          "zombie"
+        ],
+        "seats": {
+          "position": [
+            0.0,
+            0.3,
+            0.0
+          ]
+        }
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    
+        "events": {
+            "reset_target": {
+                "reset_target": {}
+            },"destroy_head_equipment": {
+    "queue_command":{
+"command": "scriptevent billey:destroy_pet_head_equipment"
+}
+},
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
+                }
+            },
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on"
+                }
+            },
+    "get_electrocuted": {
+       "add": { "component_groups": [
+         "electrocuted" ]}
+  },
+      "minecraft:entity_spawned": {
+        "queue_command": {
+          "command": [
+            "playanimation @e[r=3] animation.billeys_mobs.pigeon.new2 sedghdgopjgrdhh 3"
+          ]
+        }
+      },
+      "anotherone": {
+        "queue_command": {
+          "command": [
+            "summon billey:pigeon_vibe"
+          ]
+        }
+      },
+      "lit": {
+        "queue_command": {
+          "command": [
+            "setblock ~~~ fire"
+          ]
+        }
+      },
+      "kroma": {
+        "add": {
+          "component_groups": [
+            "kromatik"
+          ]
+        }
+      },
+      "nokroma": {
+        "remove": {
+          "component_groups": [
+            "kromatik"
+          ]
+        }
+      },
+      "wearhat": {
+        "add": {
+          "component_groups": [
+            "hat"
+          ]
+        }
+      },
+      "nohat": {
+        "remove": {
+          "component_groups": [
+            "hat"
+          ]
+        }
+      }
+    }
+  }
+}

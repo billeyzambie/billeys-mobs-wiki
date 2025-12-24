@@ -1,0 +1,1469 @@
+{
+    "entity_sounds": {
+        "entities": {
+            "billey:anglerfish": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "hurt.in.water": "mob.fish.hurt",
+                    "death.in.water": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.6,
+                            0.75
+                        ]
+                    },
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.5,
+                            0.58
+                        ]
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "eat": {
+                        "sound": "mob.dolphin.eat",
+                        "pitch": [
+                            1.0,
+                            1.1
+                        ]
+                    },
+                    "flop": {
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0,
+                        "pitch": 1.0
+                    },
+                    "ambient": {
+                        "sound": "mob.shulker.ambient",
+                        "pitch": [
+                            0.8,
+                            0.9
+                        ]
+                    }
+                }
+            },
+            "billey:swordfish": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "hurt.in.water": "mob.fish.hurt",
+                    "death.in.water": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.55,
+                            0.65
+                        ]
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.4,
+                            0.48
+                        ]
+                    },
+                    "eat": {
+                        "sound": "mob.dolphin.eat",
+                        "pitch": [
+                            1.0,
+                            1.1
+                        ]
+                    },
+                    "flop": {
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0,
+                        "pitch": 1.0
+                    }
+                }
+            },
+            "billey:mergoose": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "hurt.in.water": "mob.fish.hurt",
+                    "death.in.water": {
+                        "sound": "billey.duck.diebanana",
+                        "pitch": [
+                            0.55,
+                            0.65
+                        ]
+                    },
+                    "ambient": {
+                        "sound": "billey.kiwi.say",
+                        "pitch": [
+                            0.6,
+                            0.7
+                        ]
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.4,
+                            0.48
+                        ]
+                    },
+                    "eat": {
+                        "sound": "mob.dolphin.eat",
+                        "pitch": [
+                            1.0,
+                            1.1
+                        ]
+                    },
+                    "flop": {
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0,
+                        "pitch": 1.0
+                    }
+                }
+            },
+            "billey:zombie_cat": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient.tame": "mob.cat.straymeow",
+                    "ambient": {
+                        "sound": "mob.zombie.say",
+                        "pitch": 1.5
+                    },
+                    "hurt": {
+                        "sound": "mob.cat.hit",
+                        "volume": 0.45,
+                        "pitch": 0.6
+                    },
+                    "death": {
+                        "sound": "mob.cat.hit",
+                        "volume": 0.5,
+                        "pitch": 0.5
+                    },
+                    "purr": "mob.cat.purr",
+                    "purreow": "mob.cat.purreow",
+                    "eat": "mob.cat.eat"
+                }
+            },
+            "billey:skeleton_cat": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient": {
+                        "sound": "mob.skeleton.say",
+                        "pitch": 1.5
+                    },
+                    "hurt": {
+                        "sound": "mob.skeleton.hurt",
+                        "volume": 0.45,
+                        "pitch": 1.5
+                    },
+                    "death": {
+                        "sound": "mob.skeleton.death",
+                        "volume": 0.5,
+                        "pitch": 1.4
+                    },
+                    "purr": "mob.cat.purr",
+                    "purreow": "mob.cat.purreow",
+                    "eat": "mob.cat.eat"
+                }
+            },
+            "billey:mercat": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient": "mob.cat.purr",
+                    "ambient.skeleton": {
+                        "sound": "mob.skeleton.say",
+                        "pitch": 1.5
+                    },
+                    "hurt": {
+                        "sound": "mob.cat.purreow",
+                        "pitch": [
+                            0.75,
+                            0.85
+                        ]
+                    },
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "volume": 0.6,
+                        "pitch": [
+                            0.75,
+                            0.85
+                        ]
+                    },
+                    "purr": "mob.cat.purr",
+                    "purreow": "mob.cat.purreow",
+                    "eat": "mob.cat.eat"
+                }
+            },
+            "billey:pigeon": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient": "billey.pigeon.say",
+                    "hurt": "billey.pigeon.hit",
+                    "death": {
+                        "sound": "billey.pigeon.hit",
+                        "volume": 1.0,
+                        "pitch": 0.6
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:orca": {
+                "volume": 1.2,
+                "pitch": [
+                    0.4,
+                    0.8
+                ],
+                "events": {
+                    "ambient": "mob.dolphin.idle",
+                    "hurt": "mob.dolphin.hurt",
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "volume": 0.5,
+                        "pitch": 0.8
+                    },
+                    "breathe": "mob.dolphin.blowhole",
+                    "eat": "mob.dolphin.eat",
+                    "splash": "mob.dolphin.splash",
+                    "swim": "mob.dolphin.swim",
+                    "ambient.in.water": "mob.dolphin.idle_water",
+                    "hurt.in.water": "mob.dolphin.hurt",
+                    "death.in.water": {
+                        "sound": "billey.fish.die",
+                        "volume": 0.5,
+                        "pitch": 0.8
+                    },
+                    "jump": {
+                        "sound": "mob.dolphin.jump",
+                        "volume": 0.5,
+                        "pitch": 0.8
+                    }
+                }
+            },
+            "billey:pizzafish": {
+                "volume": 1.2,
+                "pitch": [
+                    1.2,
+                    1.6
+                ],
+                "events": {
+                    "ambient": "mob.dolphin.idle",
+                    "hurt": "mob.dolphin.hurt",
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "volume": 0.5,
+                        "pitch": [
+                            1.0,
+                            0.8
+                        ]
+                    },
+                    "breathe": "mob.dolphin.blowhole",
+                    "eat": "mob.dolphin.eat",
+                    "splash": "mob.dolphin.splash",
+                    "swim": "mob.dolphin.swim",
+                    "ambient.in.water": "mob.dolphin.idle_water",
+                    "hurt.in.water": "mob.dolphin.hurt",
+                    "death.in.water": {
+                        "sound": "billey.fish.die",
+                        "volume": 0.5,
+                        "pitch": [
+                            1.0,
+                            0.8
+                        ]
+                    },
+                    "flop": {
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0,
+                        "pitch": 1.0
+                    }
+                }
+            },
+            "billey:gwshark": {
+                "volume": 1.0,
+                "pitch": [
+                    0.4,
+                    0.6
+                ],
+                "events": {
+                    "hurt.in.water": "mob.fish.hurt",
+                    "death.in.water": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.5,
+                            0.6
+                        ]
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.5,
+                            0.6
+                        ]
+                    },
+                    "flop": {
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0,
+                        "pitch": 0.6
+                    }
+                }
+            },
+            "billey:hammerhead_shark": {
+                "volume": 1.0,
+                "pitch": [
+                    0.4,
+                    0.6
+                ],
+                "events": {
+                    "hurt.in.water": "mob.fish.hurt",
+                    "death.in.water": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.5,
+                            0.6
+                        ]
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.5,
+                            0.6
+                        ]
+                    },
+                    "flop": {
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0,
+                        "pitch": 0.6
+                    }
+                }
+            },
+            "billey:endercat": {
+                "volume": 1.0,
+                "pitch": [
+                    1.2,
+                    1.6
+                ],
+                "events": {
+                    "ambient": "mob.endermen.idle",
+                    "hurt": "mob.endermen.hit",
+                    "death": "mob.endermen.death",
+                    "mad": "mob.endermen.scream",
+                    "stare": {
+                        "sound": "mob.endermen.stare",
+                        "volume": 1.4,
+                        "pitch": 1.4
+                    }
+                }
+            },
+            "billey:flyingcat": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient.tame": "mob.cat.meow",
+                    "ambient": "mob.cat.straymeow",
+                    "hurt": {
+                        "sound": "mob.cat.hit",
+                        "volume": 0.45
+                    },
+                    "death": {
+                        "sound": "mob.cat.hit",
+                        "volume": 0.5,
+                        "pitch": 0.9
+                    },
+                    "purr": "mob.cat.purr",
+                    "purreow": "mob.cat.purreow",
+                    "eat": "mob.cat.eat"
+                }
+            },
+            "billey:picklepet": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient": {
+                        "sound": "mob.shulker.ambient",
+                        "volume": 1.0,
+                        "pitch": 1.7
+                    },
+                    "hurt": "mob.slime.small",
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": {
+                        "sound": "mob.slime.big",
+                        "volume": 1.0,
+                        "pitch": 0.2
+                    },
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "volume": 1.0,
+                        "pitch": [
+                            1.05,
+                            1.15
+                        ]
+                    }
+                }
+            },
+            "billey:endflyingcat": {
+                "volume": 1.0,
+                "pitch": [
+                    1.2,
+                    1.6
+                ],
+                "events": {
+                    "ambient": "mob.endermen.idle",
+                    "hurt": "mob.endermen.hit",
+                    "death": "mob.endermen.death",
+                    "mad": "mob.endermen.scream",
+                    "stare": {
+                        "sound": "mob.endermen.stare",
+                        "volume": 1.4,
+                        "pitch": 1.4
+                    }
+                }
+            },
+            "billey:duck": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "hurt": "billey.duck.hit",
+                    "death": {
+                        "sound": "billey.duck.death",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.9,
+                            1.1
+                        ]
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:poopstain": {
+                "volume": 1.0,
+                "pitch": [
+                    1.4,
+                    1.6
+                ],
+                "events": {
+                    "hurt": "mob.slime.small",
+                    "death": {
+                        "sound": "mob.slime.big",
+                        "volume": 1.0,
+                        "pitch": [
+                            1.4,
+                            1.6
+                        ]
+                    }
+                }
+            },
+            "billey:flyingpig": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient": "mob.pig.say",
+                    "hurt": "mob.pig.say",
+                    "death": "mob.pig.death",
+                    "step": {
+                        "sound": "mob.pig.step",
+                        "volume": 0.15,
+                        "pitch": 1.0
+                    },
+                    "boost": {
+                        "sound": "mob.pig.boost",
+                        "volume": 1.0,
+                        "pitch": 1.0
+                    },
+                    "death.to.zombie": {
+                        "sound": "mob.pig.death",
+                        "volume": 2.0
+                    }
+                }
+            },
+            "billey:zombified_cat": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient.tame": "mob.cat.straymeow",
+                    "ambient": {
+                        "sound": "mob.zombie.say",
+                        "pitch": 1.5
+                    },
+                    "hurt": {
+                        "sound": "mob.cat.hit",
+                        "volume": 0.45,
+                        "pitch": 0.6
+                    },
+                    "death": {
+                        "sound": "mob.cat.hit",
+                        "volume": 0.5,
+                        "pitch": 0.5
+                    },
+                    "purr": "mob.cat.purr",
+                    "purreow": "mob.cat.purreow",
+                    "eat": "mob.cat.eat"
+                }
+            },
+            "billey:penguin": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "hurt": "billey.penguin.hit",
+                    "ambient": "billey.penguin.say",
+                    "ambient.tame": "billey.penguin.say",
+                    "death": {
+                        "sound": "billey.penguin.die",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.7,
+                            0.9
+                        ]
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:piranha": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "hurt.in.water": "mob.fish.hurt",
+                    "death.in.water": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.55,
+                            0.55
+                        ],
+                        "volume": 0.5
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "pitch": [
+                            0.5,
+                            0.58
+                        ]
+                    },
+                    "flop": {
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0,
+                        "pitch": 1.0
+                    },
+                    "eat": {
+                        "sound": "mob.dolphin.eat",
+                        "pitch": [
+                            1.0,
+                            1.1
+                        ]
+                    }
+                }
+            },
+            "billey:banana_duck": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "hurt": "billey.duck.hit",
+                    "death": {
+                        "sound": "billey.duck.diebanana",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.9,
+                            1.1
+                        ]
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:pickle_cat": {
+                "events": {
+                    "ambient": "mob.cat.straymeow",
+                    "ambient.tame": "mob.cat.meow",
+                    "death": {
+                        "pitch": 0.90,
+                        "sound": "mob.cat.hit",
+                        "volume": 0.50
+                    },
+                    "eat": "mob.cat.eat",
+                    "hurt": {
+                        "sound": "mob.cat.hit",
+                        "volume": 0.450
+                    },
+                    "purr": "mob.cat.purr",
+                    "purreow": "mob.cat.purreow"
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            },
+            "billey:flyingpickle_cat": {
+                "events": {
+                    "ambient": "mob.cat.straymeow",
+                    "ambient.tame": "mob.cat.meow",
+                    "death": {
+                        "pitch": 0.90,
+                        "sound": "mob.cat.hit",
+                        "volume": 0.50
+                    },
+                    "eat": "mob.cat.eat",
+                    "hurt": {
+                        "sound": "mob.cat.hit",
+                        "volume": 0.450
+                    },
+                    "purr": "mob.cat.purr",
+                    "purreow": "mob.cat.purreow"
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            },
+            "billey:cucumbeel": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient": {
+                        "sound": "mob.shulker.ambient",
+                        "volume": 1.0,
+                        "pitch": 1.7
+                    },
+                    "hurt": "mob.slime.small",
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": {
+                        "sound": "mob.slime.big",
+                        "volume": 1.0,
+                        "pitch": 0.2
+                    },
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "volume": 1.0,
+                        "pitch": [
+                            1.05,
+                            1.15
+                        ]
+                    }
+                }
+            },
+            "billey:velvet_worm": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient": {
+                        "sound": "mob.shulker.ambient",
+                        "volume": 1.0,
+                        "pitch": 2.0
+                    },
+                    "hurt": "mob.slime.small",
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": {
+                        "sound": "mob.slime.big",
+                        "volume": 1.0,
+                        "pitch": 0.2
+                    },
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "volume": 1.0,
+                        "pitch": [
+                            1.05,
+                            1.15
+                        ]
+                    }
+                }
+            },
+            "billey:woodlouse": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient": {
+                        "sound": "mob.shulker.ambient",
+                        "volume": 1.0,
+                        "pitch": 2.6
+                    },
+                    "hurt": {
+                        "sound": "mob.shulker.hurt",
+                        "volume": 1.0,
+                        "pitch": 2.6
+                    },
+                    "step": {
+                        "sound": "mob.spider.step",
+                        "volume": 0.5,
+                        "pitch": 2.0
+                    },
+                    "plop": {
+                        "sound": "mob.slime.big",
+                        "volume": 1.0,
+                        "pitch": 0.2
+                    },
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "volume": 1.0,
+                        "pitch": [
+                            1.0,
+                            1.1
+                        ]
+                    }
+                }
+            },
+            "billey:stick_bug": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient": {
+                        "sound": "mob.shulker.ambient",
+                        "volume": 1.0,
+                        "pitch": 3.6
+                    },
+                    "hurt": {
+                        "sound": "mob.shulker.hurt",
+                        "volume": 1.0,
+                        "pitch": 3.6
+                    },
+                    "plop": {
+                        "sound": "mob.slime.big",
+                        "volume": 1.0,
+                        "pitch": 0.2
+                    },
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "volume": 1.0,
+                        "pitch": [
+                            1.25,
+                            1.35
+                        ]
+                    }
+                }
+            },
+            "billey:slimedrop": {
+                "volume": 0.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "death": {
+                        "sound": "mob.slime.big",
+                        "volume": 0.8,
+                        "pitch": [
+                            1.5,
+                            1.8
+                        ]
+                    }
+                }
+            },
+            "billey:goose": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "hurt": {
+                        "sound": "billey.goose.say",
+                        "pitch": [
+                            0.7,
+                            0.9
+                        ]
+                    },
+                    "death": {
+                        "sound": "billey.goose.say",
+                        "pitch": [
+                            0.45,
+                            0.65
+                        ]
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:berry_goose": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "hurt": {
+                        "sound": "billey.goose.say",
+                        "pitch": [
+                            0.7,
+                            0.9
+                        ]
+                    },
+                    "death": {
+                        "sound": "billey.goose.say",
+                        "pitch": [
+                            0.45,
+                            0.65
+                        ]
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:hamster": {
+                "volume": 1.0,
+                "pitch": [
+                    1.8,
+                    2.0
+                ],
+                "events": {
+                    "ambient": "mob.fox.ambient",
+                    "ambient.tame": "mob.fox.ambient",
+                    "hurt": "mob.fox.hurt",
+                    "death": {
+                        "sound": "mob.fox.hurt",
+                        "pitch": 1.6
+                    },
+                    "mad": "mob.fox.aggro",
+                    "attack": "mob.fox.bite",
+                    "eat": "mob.fox.eat",
+                    "screech": {
+                        "sound": "mob.fox.screech",
+                        "volume": 2
+                    },
+                    "sleep": "mob.fox.sleep"
+                }
+            },
+            "billey:rat": {
+                "volume": 1.0,
+                "pitch": [
+                    1.8,
+                    2.0
+                ],
+                "events": {
+                    "ambient": "mob.fox.ambient",
+                    "ambient.tame": "mob.fox.ambient",
+                    "hurt": "mob.fox.hurt",
+                    "death": {
+                        "sound": "mob.fox.hurt",
+                        "pitch": 1.6
+                    },
+                    "mad": "mob.fox.aggro",
+                    "attack": "mob.fox.bite",
+                    "eat": "mob.fox.eat",
+                    "screech": {
+                        "sound": "mob.fox.screech",
+                        "volume": 2
+                    },
+                    "sleep": "mob.fox.sleep"
+                }
+            },
+            "billey:rat_minion": {
+                "volume": 1.0,
+                "pitch": [
+                    1.8,
+                    2.0
+                ],
+                "events": {
+                    "ambient": "mob.fox.ambient",
+                    "ambient.tame": "mob.fox.ambient",
+                    "hurt": "mob.fox.hurt",
+                    "death": {
+                        "sound": "mob.fox.hurt",
+                        "pitch": 1.6
+                    },
+                    "mad": "mob.fox.aggro",
+                    "attack": "mob.fox.bite",
+                    "eat": "mob.fox.eat",
+                    "screech": {
+                        "sound": "mob.fox.screech",
+                        "volume": 2
+                    },
+                    "sleep": "mob.fox.sleep"
+                }
+            },
+            "billey:catfish": {
+                "events": {
+                    "flop": {
+                        "pitch": 1.0,
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "hurt.in.water": "mob.fish.hurt",
+                    "death": "billey.fish.die",
+                    "step": {
+                        "pitch": 1.0,
+                        "sound": "mob.fish.step",
+                        "volume": 0.150
+                    }
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            },
+            "billey:place_pickle": {
+                "events": {
+                    "flop": {
+                        "pitch": 1.0,
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "hurt.in.water": "mob.fish.hurt",
+                    "step": {
+                        "pitch": 1.0,
+                        "sound": "mob.fish.flop",
+                        "volume": 0.150
+                    }
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            },
+            "billey:dropsharkteeth": {
+                "events": {
+                    "hurt": "",
+                    "death": ""
+                }
+            },
+            "billey:duck_zombie": {
+                "events": {
+                    "hurt": "",
+                    "death": ""
+                }
+            },
+            "billey:dropduckhat": {
+                "events": {
+                    "hurt": "",
+                    "death": ""
+                }
+            },
+            "billey:dropfishsword": {
+                "events": {
+                    "hurt": "",
+                    "death": ""
+                }
+            },
+            "billey:naturally_spawned_duck_zombie": {
+                "events": {
+                    "hurt": "",
+                    "death": ""
+                }
+            },
+            "billey:duckyeetitem": {
+                "events": {
+                    "hurt": "",
+                    "death": ""
+                }
+            },
+            "billey:kiwi": {
+                "events": {
+                    "ambient": "billey.kiwi.say",
+                    "death": {
+                        "sound": "billey.kiwi.say",
+                        "pitch": [
+                            0.6,
+                            0.7
+                        ]
+                    },
+                    "hurt": {
+                        "sound": "billey.kiwi.say",
+                        "pitch": [
+                            0.75,
+                            0.85
+                        ]
+                    },
+                    "plop": "mob.chicken.plop",
+                    "step": {
+                        "pitch": 0.75,
+                        "sound": "mob.chicken.step",
+                        "volume": 0.5
+                    }
+                },
+                "pitch": [
+                    0.90,
+                    1.10
+                ],
+                "volume": 1.0
+            },
+            "billey:betta_fish": {
+                "events": {
+                    "flop": {
+                        "pitch": 1.0,
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "hurt.in.water": "mob.fish.hurt",
+                    "step": {
+                        "pitch": 1.0,
+                        "sound": "mob.fish.step",
+                        "volume": 0.150
+                    },
+                    "death": "billey.fish.die"
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            },
+            "billey:electric_eel": {
+                "events": {
+                    "flop": {
+                        "pitch": 1.0,
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "hurt.in.water": "mob.fish.hurt",
+                    "step": {
+                        "pitch": 1.0,
+                        "sound": "mob.fish.step",
+                        "volume": 0.150
+                    },
+                    "death": {
+                        "sound": "billey.fish.die",
+                        "volume": 1.0,
+                        "pitch": [
+                            1.05,
+                            1.15
+                        ]
+                    }
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            },
+            "billey:orange_penguin": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "hurt": "billey.orange.hit",
+                    "ambient": "billey.orange.say",
+                    "ambient.tame": "billey.orange.say",
+                    "death": {
+                        "sound": "billey.orange.die",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.7,
+                            0.9
+                        ]
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:terraphin": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "ambient": "billey.terraphin.say",
+                    "ambient.in.water": "mob.dolphin.idle_water",
+                    "death": "billey.terraphin.death",
+                    "hurt": {
+                        "sound": "billey.terraphin.hurt",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.65,
+                            0.8
+                        ]
+                    },
+                    "eat": {
+                        "sound": "mob.dolphin.eat",
+                        "volume": 0.7,
+                        "pitch": 1.0
+                    }
+                }
+            },
+            "billey:deinonychus": {
+                "volume": 1.0,
+                "pitch": [
+                    0.65,
+                    0.95
+                ],
+                "events": {
+                    "ambient": "billey.terraphin.say",
+                    "death": "billey.terraphin.death",
+                    "hurt": {
+                        "sound": "billey.terraphin.hurt",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.45,
+                            0.6
+                        ]
+                    }
+                }
+            },
+            "billey:yutyrannus": {
+                "volume": 0.6,
+                "pitch": [
+                    0.2,
+                    0.3
+                ],
+                "events": {
+                    "ambient": "mob.phantom.idle",
+                    "hurt": "mob.phantom.hurt",
+                    "death": "mob.phantom.death",
+                    "attack": "mob.phantom.bite"
+                }
+            },
+            "billey:netherrat": {
+                "volume": 0.6,
+                "pitch": [
+                    1.8,
+                    2.0
+                ],
+                "events": {
+                    "ambient": "mob.phantom.idle",
+                    "hurt": "mob.phantom.hurt",
+                    "death": "mob.phantom.death",
+                    "attack": "mob.phantom.bite"
+                }
+            },
+            "billey:slime_wyvern": {
+                "volume": 1.0,
+                "pitch": [
+                    0.65,
+                    0.75
+                ],
+                "events": {
+                    "ambient": "billey.terraphin.say",
+                    "death": "billey.terraphin.death",
+                    "hurt": {
+                        "sound": "billey.terraphin.hurt",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.45,
+                            0.6
+                        ]
+                    }
+                }
+            },
+            "billey:tiktaalik": {
+                "events": {
+                    "ambient": "mob.frog.ambient",
+                    "ambient.baby": {
+                        "pitch": 0.9,
+                        "sound": "mob.frog.ambient"
+                    },
+                    "death": "billey.fish.die",
+                    "eat": "mob.frog.eat",
+                    "hurt": "mob.frog.hurt",
+                    "jump_to_block": "mob.frog.jump_to_block",
+                    "step": "mob.frog.step"
+                },
+                "pitch": [
+                    0.65,
+                    0.85
+                ],
+                "volume": 1
+            },
+            "billey:rat_king": {
+                "volume": 0.6,
+                "pitch": [
+                    1.8,
+                    2.0
+                ],
+                "events": {
+                    "ambient": "mob.phantom.idle",
+                    "hurt": "mob.phantom.hurt",
+                    "death": "mob.phantom.death",
+                    "attack": "mob.phantom.bite",
+                    "swoop": "mob.phantom.swoop"
+                }
+            },
+            "billey:pygmy_dunkleosteus": {
+                "events": {
+                    "flop": {
+                        "pitch": 1.0,
+                        "sound": "mob.fish.flop",
+                        "volume": 1.0
+                    },
+                    "hurt": "mob.fish.hurt",
+                    "hurt.in.water": "mob.fish.hurt",
+                    "step": {
+                        "pitch": 1.0,
+                        "sound": "mob.fish.step",
+                        "volume": 0.150
+                    },
+                    "death": {
+                        "pitch": [
+                            0.75,
+                            0.85
+                        ],
+                        "sound": "billey.fish.die",
+                        "volume": 0.150
+                    }
+                },
+                "pitch": [
+                    0.80,
+                    1.20
+                ],
+                "volume": 1.0
+            },
+            "billey:duckatrice": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "hurt": "billey.duckatrice.hurt",
+                    "death": {
+                        "sound": "billey.duck.death",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.4,
+                            0.5
+                        ]
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 0.5
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:duckatrice_boss": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "hurt": "billey.duckatrice.hurt",
+                    "death": {
+                        "sound": "billey.duck.death",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.4,
+                            0.5
+                        ]
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 0.5
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:duck_minion": {
+                "volume": 1.0,
+                "pitch": [
+                    0.85,
+                    1.15
+                ],
+                "events": {
+                    "hurt": "billey.duck.hit",
+                    "death": {
+                        "sound": "billey.duck.death",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.9,
+                            1.1
+                        ]
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:giraffe_cat": {
+                "volume": 1.0,
+                "pitch": [
+                    0.6,
+                    1.0
+                ],
+                "events": {
+                    "ambient.tame": "mob.cat.meow",
+                    "ambient": "mob.cat.straymeow",
+                    "hurt": {
+                        "pitch": [
+                            0.6,
+                            1.0
+                        ],
+                        "sound": "mob.cat.hit",
+                        "volume": 0.45
+                    },
+                    "death": {
+                        "pitch": 0.7,
+                        "sound": "mob.cat.hit",
+                        "volume": 0.5
+                    },
+                    "admire": {
+                        "sound": "hit.gravel",
+                        "volume": 0.25,
+                        "pitch": [
+                            0.7,
+                            0.9
+                        ]
+                    },
+                    "purr": "mob.cat.purr",
+                    "purreow": "mob.cat.purreow",
+                    "eat": "mob.cat.eat"
+                }
+            },
+            "billey:pigeon_minion": {
+                "volume": 1.0,
+                "pitch": [
+                    0.8,
+                    1.2
+                ],
+                "events": {
+                    "ambient": "billey.pigeon.say",
+                    "hurt": "billey.pigeon.hit",
+                    "death": {
+                        "sound": "billey.pigeon.hit",
+                        "volume": 1.0,
+                        "pitch": 0.6
+                    },
+                    "step": {
+                        "sound": "mob.chicken.step",
+                        "volume": 0.3,
+                        "pitch": 1.0
+                    },
+                    "plop": "mob.chicken.plop"
+                }
+            },
+            "billey:deinonychus_minion": {
+                "volume": 1.0,
+                "pitch": [
+                    0.65,
+                    0.95
+                ],
+                "events": {
+                    "ambient": "billey.terraphin.say",
+                    "death": "billey.terraphin.death",
+                    "hurt": {
+                        "sound": "billey.terraphin.hurt",
+                        "volume": 1.0,
+                        "pitch": [
+                            0.45,
+                            0.6
+                        ]
+                    }
+                }
+            },
+            "billey:yutyrannus_minion": {
+                "volume": 0.6,
+                "pitch": [
+                    0.2,
+                    0.3
+                ],
+                "events": {
+                    "ambient": "mob.phantom.idle",
+                    "hurt": "mob.phantom.hurt",
+                    "death": "mob.phantom.death",
+                    "attack": "mob.phantom.bite"
+                }
+            }
+        }
+    }
+}

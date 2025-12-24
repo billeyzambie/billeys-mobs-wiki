@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "billey:furnace_swordfish_frmswrd"
+    },
+
+   
+    "tags": ["furnace", "smoker", "campfire"],
+    "input": "billey:swordfish",
+    "output": "billey:swordcooked"
+  }
+ 
+}

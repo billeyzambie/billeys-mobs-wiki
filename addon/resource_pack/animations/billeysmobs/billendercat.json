@@ -1,0 +1,42 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.endercat.sit": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [-50, 0, 0],
+					"position": [0, -4, 0]
+				},
+				"head": {
+					"rotation": [0, 0, 0],
+					"position": [0, -2, 0]
+				},
+				"backLegL": {
+					"rotation": [-35, 0, 320]
+				},
+				"backLegR": {
+					"rotation": [-35, 0, -320]
+				},
+				"frontLegL": {
+					"rotation": [50, 0, 0],
+					"position": [0, -2.85093, -0.03582]
+				},
+				"frontLegR": {
+					"rotation": [50, 0, 0],
+					"position": [0, -2.85093, -0.03582]
+				},
+				"bodylol": {
+					"rotation": [0, 0, 0]
+				},
+				"tail3": {
+					"rotation": [85, 0, 0],
+					"position": [0, -2, 0]
+				},
+				"tail4": {
+					"rotation": [20, 0, 0]
+				}
+			}
+		}
+	}
+}

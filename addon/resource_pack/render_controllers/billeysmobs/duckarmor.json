@@ -1,0 +1,29 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs.duckarmor": {
+      "arrays": {
+        "textures": {
+          "array.skins": [
+            "texture.leather",
+            "texture.gold",
+            "texture.chain",
+            "texture.iron",
+            "texture.diamond",
+            "texture.netherite"
+          ]
+        }
+      },
+      "geometry": "Geometry.armor",
+      "materials": [ { "*": "Material.dyeable" } ],
+      "textures": [ "array.skins[q.mark_variant - 1]" ],
+      "is_hurt_color": {
+          "r": "math.sin(q.life_time * 200 + q.variant * 234 + 100)",
+          "g": "math.sin(q.life_time * 200 + q.variant * 234 + 220)",
+          "b": "math.sin(q.life_time * 200 + q.variant * 234 + 340)",
+          //the a stands for alpha and it means opacity
+          "a": "0.0"
+      }
+    }
+  }
+}

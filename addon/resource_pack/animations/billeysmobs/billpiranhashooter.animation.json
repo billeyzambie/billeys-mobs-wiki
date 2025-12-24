@@ -1,0 +1,22 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.piranhashooter.remove_piranha": {
+			"loop": true,
+			"bones": {
+				"piranha_launcher_piranha": {
+					"scale": 0
+				}
+			}
+		},
+		"animation.billeys_mobs.piranhashooter.first_person": {
+			"loop": true,
+			"bones": {
+				"piranha_launcher": {
+					"rotation": [-73.68273, 56.87804, -59.79871],
+					"position": [4, 4, -1]
+				}
+			}
+		}
+	}
+}

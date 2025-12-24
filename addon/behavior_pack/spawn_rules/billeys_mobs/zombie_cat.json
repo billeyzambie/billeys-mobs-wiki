@@ -1,0 +1,66 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "billey:zombie_cat",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_underground": {},
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": true
+        },
+        "minecraft:weight": {
+          "default": 15
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 4
+        },
+        "minecraft:permute_type": [
+          {
+            "weight": 1
+          },
+          {
+            "weight": 1,
+            "entity_type": "billey:zombified_cat"
+          }
+        ],
+        "minecraft:biome_filter": {
+         "test": "has_biome_tag", "operator": "==", "value": "jungle"
+        }
+      },
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 7,
+          "adjust_for_weather": true
+        },
+        "minecraft:weight": {
+          "default": 15
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 4
+        },
+        "minecraft:permute_type": [
+          {
+            "weight": 1
+          },
+          {
+            "weight": 1,
+            "entity_type": "billey:zombified_cat"
+          }
+        ],
+        "minecraft:biome_filter": {
+         "test": "has_biome_tag", "operator": "==", "value": "jungle"
+        }
+      }
+    ]
+  }
+}

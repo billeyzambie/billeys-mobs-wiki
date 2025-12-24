@@ -1,0 +1,30 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:arrowfromsharktooth"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "v",
+        "s",
+        "f"
+      ],
+      "key": {
+        "f": {
+          "item": "feather"
+        },
+        "s": {
+          "item": "stick"
+        },
+        "v": {
+          "item": "billey:shark_tooth"
+        }
+      },
+      "result": {
+       "item": "arrow"
+     }
+    }
+  }
+  

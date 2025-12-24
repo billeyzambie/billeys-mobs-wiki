@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.30",
+  "minecraft:item": {
+    "description": {
+      "identifier": "billey:speed_potion_3",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.potion"
+      }
+    },
+    "components": {
+      "minecraft:custom_components": [
+        "billey:potion_3"
+      ],
+      "minecraft:max_stack_size": 1,
+      "minecraft:icon": "billey.speed_potion",
+      "minecraft:use_animation": "drink",
+      "minecraft:use_modifiers": {
+        "use_duration": 2.0,
+        "movement_modifier": 0.35
+      },
+      "minecraft:food": {
+        "can_always_eat": true,
+        "using_converts_to": "minecraft:glass_bottle"
+      }
+    }
+  }
+}

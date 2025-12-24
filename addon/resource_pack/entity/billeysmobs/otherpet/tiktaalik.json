@@ -1,0 +1,82 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:tiktaalik",
+      "materials": {
+        "default": "entity_alphatest",
+        "cat": "cat"
+      },
+      "textures": {
+        "zero": "textures/entity/billeys_mobs/tiktaalik",
+        "one": "textures/entity/billeys_mobs/tiktaalik1",
+        "two": "textures/entity/billeys_mobs/tiktaalik2",
+        "three": "textures/entity/billeys_mobs/tiktaalik3",
+        "four": "textures/entity/billeys_mobs/tiktaalik4",
+        "five": "textures/entity/billeys_mobs/tiktaalik5",
+        "six": "textures/entity/billeys_mobs/tiktaalik6",
+        "seven": "textures/entity/billeys_mobs/tiktaalik7",
+        "eight": "textures/entity/billeys_mobs/tiktaalik8",
+        "nine": "textures/entity/billeys_mobs/tiktaalik9"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.tiktaalik"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "look": "animation.common.look_at_target",
+        "lookwater": "animation.billeys_mobs.angler.look",
+        "walk": "animation.billeys_mobs.tiktaalik.walk",
+        "sit": "animation.billeys_mobs.tiktaalik.sit",
+        "baby": "animation.cat.baby_transform",
+        "general": "controller.animation.billeys_mobs.tiktaalik",
+        "fin_cont": "controller.animation.billeys_mobs.tiktaalik_fins",
+        "attack_cont": "controller.animation.billeys_mobs.simple_attack",
+        "random_idle_cont": "controller.animation.billeys_mobs.random_idle",
+        "swim": "animation.billeys_mobs.tiktaalik.swim",
+        "random_idle": "animation.billeys_mobs.tiktaalik.blink",
+        "swim2": "animation.billeys_mobs.tiktaalik.swim_pose",
+        "attack": "animation.billeys_mobs.tiktaalik.attack",
+        "hurt": "animation.billeys_mobs.cat.hurt2"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.head_size_x = 9;",
+          "v.head_size_y = 5;",
+          "v.head_size_z = 9;",
+          "v.time_to_idle= 0;"
+        ],
+        "animate": [
+          "new",
+          "general",
+          "attack_cont",
+          {
+            "baby": "q.is_baby"
+          },
+          {
+            "hurt": "q.health < q.max_health"
+          },
+          "look",
+          {
+            "random_idle_cont": "!q.is_in_water"
+          }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.tiktaalik"
+      ],
+      "spawn_egg": {
+        "base_color": "#9BA491",
+        "overlay_color": "#fffa78"
+      }
+    }
+  }
+}

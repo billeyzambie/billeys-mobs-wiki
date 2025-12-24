@@ -1,0 +1,58 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:falcon",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/billfalcon"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.falcon"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        //note: the falcon animations, mostly the flying ones are strangely named
+        "look": "animation.common.look_at_target",
+        "walkcont": "controller.animation.billeys_mobs.falcon_walking",
+        "base": "controller.animation.billeys_mobs.falcon_base",
+        "walk": "animation.billeys_mobs.falcon.walk",
+        "sit": "animation.billeys_mobs.falcon.sit",
+        "sleeping": "animation.billeys_mobs.falcon.sleep",
+        "flying": "animation.billeys_mobs.falcon.fly2",
+        "flying_downwards": "animation.billeys_mobs.falcon.fly",
+        "flap": "animation.billeys_mobs.falcon.fly4",
+        "sitcont": "controller.animation.billeys_mobs.sit",
+        "walk_on_air": "animation.billeys_mobs.falcon.walk2",
+        "cancelvanilladeath": "animation.billeys_mobs.falcon.cancelvanilladeath",
+        "die": "animation.billeys_mobs.falcon.die"
+      },
+      "particle_effects": {
+        "zeelol": "billey:zee"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "animate": [ "new",
+          "base",
+          {
+            "cancelvanilladeath": "!q.is_alive"
+          },
+          {
+            "die": "!q.is_alive"
+          }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs_default"
+      ],
+      "spawn_egg": {
+        "base_color": "#444C56",
+        "overlay_color": "#FFBF00"
+      }
+    }
+  }
+}

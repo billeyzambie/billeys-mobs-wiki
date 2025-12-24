@@ -1,0 +1,99 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "billey:duck_morph",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/duck",
+                "hurt": "textures/entity/billeys_mobs/duck_morph_hurt"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.duck_morph"
+            },
+            "particle_effects": {
+                "zeelol": "billey:zeeduck"
+            },
+            "animations": {
+                //not sure which ones of all these actually work for the morph
+                "hurt": "animation.billeys_mobs.duck.hurt",
+                "move": "animation.billeys_mobs.duck.walk32",
+                "sit": "animation.billeys_mobs.duck.sit",
+                "swim": "animation.billeys_mobs.duck.swim",
+                "look_at_target": "animation.billeys_mobs.duck.look_at_target",
+                "flap_wings": "animation.billeys_mobs.duck.fall",
+                "quack": "animation.billeys_mobs.duck.quack",
+                "sheared": "animation.billeys_mobs.duck.flap",
+                "eat": "animation.billeys_mobs.duck.eat",
+                "random_idle": "animation.billeys_mobs.duck.wiggle_tail",
+                "diphead": "animation.billeys_mobs.duck.pickupbread",
+                "sleep": "animation.billeys_mobs.duck.sleep",
+                "sleeptl": "animation.billeys_mobs.duck.sleep_particle",
+                "gothurt": "animation.billeys_mobs.duck.gothurt",
+                "hitcont": "controller.animation.billeys_mobs.hitanim",
+                "controller.sit": "controller.animation.billeys_mobs.sit_or_sleep",
+                "controller.quack": "controller.animation.billeys_mobs.morph_quack",
+                "controller.sheared": "controller.animation.billeys_mobs.duckidleanim",
+                "controller.swim": "controller.animation.billeys_mobs.swimduck",
+                "controller.sleep": "controller.animation.billeys_mobs.sleep",
+                "controller.random_idle_water": "controller.animation.billeys_mobs.random_idle_water",
+                "controller.random_idle": "controller.animation.billeys_mobs.random_idle",
+                "morph_hurt": "controller.animation.billeys_mobs.duck_morph_hurt"
+            },
+            //Ignore blockception extension's error, the sound effects definitely work
+            "sound_effects": {
+                "crack": "billey.duck.hithat",
+                "crack2": "billey.duck.hithat2",
+                "crack3": "billey.duck.hithat3",
+                "crack4": "billey.duck.hithat4",
+                "crack5": "billey.duck.hithat5",
+                "die": "billey.duck.death",
+                "quack": "billey.duck.say"
+            },
+            "scripts": {
+                "initialize": [
+                    "v.time_to_idle = 0;",
+                    "v.prevhealth = 8;",
+                    "v.attack_time = 0;",
+                    "v.state = 0;",
+                    "v.random_integer = 0;",
+                    "v.just_got_hurt = 0;"
+                ],
+                "animate": [
+                    {"morph_hurt": "q.health <= 8"},
+                    {"hitcont": "q.health <= 8"},
+                    {
+                        "hurt": "q.health < 8"
+                    },
+                    {
+                        "controller.sleep": "!q.is_sleeping"
+                    },
+                    {
+                        "controller.sheared": "!q.is_sleeping"
+                    },
+                    {
+                        "controller.random_idle": "!q.is_sleeping"
+                    },
+                    {
+                        "controller.random_idle_water": "!q.is_sleeping"
+                    },
+                    "look_at_target",
+                    {
+                        "controller.quack": "!q.is_in_ui"
+                    },
+                    {
+                        "flap_wings": "!q.is_in_water && !q.has_rider && !q.is_on_ground"
+                    },
+                    {
+                        "move": "q.modified_move_speed"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.billeys_mobs.morph"
+            ]
+        }
+    }
+}

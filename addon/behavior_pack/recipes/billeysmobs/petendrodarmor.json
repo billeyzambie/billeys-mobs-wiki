@@ -1,0 +1,32 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "billey:petendrodarmor"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "what_does_this_do",
+    "pattern": [
+      "DKD",
+      "KEK",
+      "DSD"
+    ],
+    "key": {
+      "E": {
+        "item": "minecraft:end_rod"
+      },
+      "K": {
+        "item": "billey:kiwi_fur"
+      },
+      "S": {
+        "item": "minecraft:string"
+      },
+      "D": {
+        "item": "minecraft:diamond"
+      }
+    },
+    "result": [
+      { "item": "billey:endrod_pet_armor" }
+    ]
+  }
+}

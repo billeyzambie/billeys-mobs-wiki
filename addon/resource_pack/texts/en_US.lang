@@ -1,0 +1,1307 @@
+﻿##FOR TRANSLATOR
+
+
+##everything in this file that is a note instead of a translation code should start with ##
+##if you are not an addon creator and dont know how lang files work,
+##just translate everything after the equal signs
+
+
+##Credits
+##replace these lines with what you want to be credited as on mcpedl
+##eg. youtube channel link, mcpedl profile link, etc
+##
+##
+
+
+##########################
+
+
+##hey there, read the ##notes for translation tips
+
+
+##make sure to follow vanilla bedrock's style eg.
+##translate spawn, end, and netherite to whatever bedrock(not java) translates them to
+
+
+##if any mob name that is two words in english sounds good as one word in your language
+##translate it to that one word, eg. Italian for banana duck: "Bananatra" instead of "Anatra Banana",
+##though try to make the etymology of the combined word obvious
+
+
+##feel free to ask me any other questions
+
+
+##Mobs
+
+entity.billey:anglerfish.name=Anglerfish
+
+item.spawn_egg.entity.billey:anglerfish.name=Anglerfish Spawn Egg
+
+entity.billey:swordfish.name=Swordfish
+
+item.spawn_egg.entity.billey:swordfish.name=Swordfish Spawn Egg
+
+entity.billey:zombie_cat.name=Zombie Cat
+
+item.spawn_egg.entity.billey:zombie_cat.name=Zombie Cat Spawn Egg
+
+entity.billey:skeleton_cat.name=Skeleton Cat
+
+item.spawn_egg.entity.billey:skeleton_cat.name=Skeleton Cat Spawn Egg
+
+entity.billey:mercat.name=Mercat
+
+item.spawn_egg.entity.billey:mercat.name=Mercat Spawn Egg
+##translate it to either mermaid cat, fishcat(as
+##long as it doesnt also mean catfish),
+##watercat, or whatever sounds best in your language
+
+entity.billey:orca.name=Orca (W.I.P.)
+
+item.spawn_egg.entity.billey:orca.name=Orca (W.I.P.) Spawn Egg
+
+entity.billey:pigeon.name=Pigeon
+
+item.spawn_egg.entity.billey:pigeon.name=Pigeon Spawn Egg
+
+entity.billey:pizzafish.name=Pizzafish
+
+item.spawn_egg.entity.billey:pizzafish.name=Pizzafish Spawn Egg
+
+entity.billey:poopstain.name=Pigeon Poop
+
+item.spawn_egg.entity.billey:poopstain.name=Pigeon Poop
+##make sure to not translate it to something that
+##the game will censor
+
+entity.billey:gwshark.name=Shark
+
+item.spawn_egg.entity.billey:gwshark.name=Shark Spawn Egg
+
+entity.billey:picklepet.name=Picklepet
+
+item.spawn_egg.entity.billey:picklepet.name=Picklepet Spawn Egg
+##literally translate pickle and pet and stick them together, if they sound bad sticked together,
+##or make no sense in your language then just translate it to pickle pet
+##or walking pickle or alive pickle whatever sounds best
+
+entity.billey:endercat.name=Endercat
+
+item.spawn_egg.entity.billey:endercat.name=Endercat Spawn Egg
+##translate end to whatever bedrock edition translates it to in your language
+##so it doesn't look out of place compared to the rest of the game
+
+entity.billey:flyingcat.name=Angel Cat
+
+item.spawn_egg.entity.billey:flyingcat.name=Angel Cat Spawn Egg
+
+entity.billey:endflyingcat.name=End Angel Cat
+
+item.spawn_egg.entity.billey:endflyingcat.name=End Angel Cat Spawn Egg
+
+entity.billey:duck.name=Duck
+
+item.spawn_egg.entity.billey:duck.name=Duck Spawn Egg
+
+entity.billey:flyingpig.name=Angel Pig
+
+item.spawn_egg.entity.billey:flyingpig.name=Angel Pig Spawn Egg
+
+entity.billey:penguin.name=Penguin
+
+item.spawn_egg.entity.billey:penguin.name=Penguin Spawn Egg
+
+entity.billey:zombified_cat.name=Withered Cat
+
+item.spawn_egg.entity.billey:zombified_cat.name=Withered Cat Spawn Egg
+##wither in this context has no relation to the wither or wither skeletons,
+##it's just the word for rotten in the context of plants
+
+entity.billey:snail.name=Snail
+
+item.spawn_egg.entity.billey:snail.name=Snail Spawn Egg
+
+entity.billey:piranha.name=Piranha
+
+item.spawn_egg.entity.billey:piranha.name=Piranha Spawn Egg
+
+entity.billey:banana_duck.name=Banana Duck
+
+item.spawn_egg.entity.billey:banana_duck.name=Banana Duck Spawn Egg
+
+entity.billey:cucumbeel.name=Cucumbeel
+
+item.spawn_egg.entity.billey:cucumbeel.name=Cucumbeel Spawn Egg
+##translate to any sort of good sounding combination of cucumber/pickle and eel, if there
+##isn't one then just cucumber eel(or pickle eel if that sounds better)
+
+entity.billey:pickle_cat.name=Pickle Cat
+
+item.spawn_egg.entity.billey:pickle_cat.name=Pickle Cat Spawn Egg
+
+entity.billey:velvet_worm.name=Velvet Worm
+
+item.spawn_egg.entity.billey:velvet_worm.name=Velvet Worm Spawn Egg
+
+entity.billey:hamster.name=Hamster
+
+item.spawn_egg.entity.billey:hamster.name=Hamster Spawn Egg
+
+entity.billey:hammerhead_shark.name=Hammerhead Shark
+
+item.spawn_egg.entity.billey:hammerhead_shark.name=Hammerhead Shark Spawn Egg
+
+entity.billey:catfish.name=Catfish
+
+item.spawn_egg.entity.billey:catfish.name=Catfish Spawn Egg
+
+entity.billey:kiwi.name=Kiwi
+
+entity.billey:amogus.name=Amogus
+##transliterate "Amogus" into your writing system
+
+item.spawn_egg.entity.billey:kiwi.name=Kiwi Spawn Egg
+##if there is a good sounding combination of kiwi the bird and kiwi the fruit
+##in your language, translate it to that,
+##otherwise, translate to kiwi (the bird)
+
+entity.billey:duck_centipede.name=Duck Centipede
+
+item.spawn_egg.entity.billey:duck_centipede.name=§cDuck Centipede Spawn Egg§r
+##do not remove the §c it's for red text
+
+entity.unknown.name=Custom Mob
+
+entity.billey:betta_fish.name=Betta Fish
+
+item.spawn_egg.entity.billey:betta_fish.name=Betta Fish Spawn Egg
+
+entity.billey:electric_eel.name=Electric Eel
+
+item.spawn_egg.entity.billey:electric_eel.name=Electric Eel Spawn Egg
+
+entity.billey:orange_penguin.name=Orange Penguin
+
+item.spawn_egg.entity.billey:orange_penguin.name=Orange Penguin Spawn Egg
+##if the phrase "Orange Penguin" turns out to be too long
+##you may use some blend of "orange" and "penguin", eg. oranguin in english
+##also, make sure its etymology is obvious
+
+entity.billey:goose.name=Goose
+
+item.spawn_egg.entity.billey:goose.name=Goose Spawn Egg
+
+entity.billey:flyingpickle_cat.name=Pickle Angel Cat
+
+item.spawn_egg.entity.billey:flyingpickle_cat.name=Pickle Angel Cat Spawn Egg
+
+entity.billey:terraphin.name=Terraphin
+
+item.spawn_egg.entity.billey:terraphin.name=Terraphin Spawn Egg
+##translate to a blend/mix of your word for dophlin, whale, cetacean or porpoise
+##and your word for land, legs, terrain or walking.
+##if you cant come up with something and your language's word for dolphin
+##is something like dolfin or delfin, simply translate it to that
+##but replace "dol" with "terra" or "tera"
+##eg. dolphin in greek is delfini, so terraphin would be terrafini
+
+item.spawn_egg.entity.billey:pigeon_vibe.name=Pigeon Vibe
+##you can leave this untranslated or only translate "pigeon" if you want
+
+entity.billey:mergoose.name=Mergoose
+
+item.spawn_egg.entity.billey:mergoose.name=Mergoose Spawn Egg
+##translate to a good sounding combination of your word for goose and your word for either fish, water or mermaid
+
+entity.billey:woodlouse.name=Pill Bug
+
+item.spawn_egg.entity.billey:woodlouse.name=Pill Bug Spawn Egg
+
+entity.billey:deinonychus.name=Deinonychus
+
+item.spawn_egg.entity.billey:deinonychus.name=Deinonychus Spawn Egg
+
+entity.billey:yutyrannus.name=Yutyrannus
+
+item.spawn_egg.entity.billey:yutyrannus.name=Yutyrannus Spawn Egg
+
+entity.billey:stick_bug.name=Stick Bug
+
+entity.billey:stick_bug_attack.name=getting stick bugged
+
+entity.billey:stick_bug_attack2.name=getting stick bugged
+##if you can't translate "getting stick bugged"
+##just translate it to the same thing you translated stick bug to
+
+item.spawn_egg.entity.billey:stick_bug.name=Stick Bug Spawn Egg
+
+item.spawn_egg.entity.billey:random_biome_fish.name=§eRandom Fish of Current Biome Spawn Egg§r
+
+item.spawn_egg.entity.billey:duck_zombie.name=§eDuck Zombie Spawn Egg§r
+##it's a zombie that has a duck on it's head and holds a duck,
+##not a zombie duck
+
+item.spawn_egg.entity.billey:glowing_betta_fish.name=§eGlowing Betta Fish Spawn Egg§r
+##the §e are for yellow text, dont remove them
+
+entity.billey:tiktaalik.name=Tiktaalik
+
+item.spawn_egg.entity.billey:tiktaalik.name=Tiktaalik Spawn Egg
+
+entity.billey:rat.name=Rat
+
+item.spawn_egg.entity.billey:rat.name=Rat Spawn Egg
+
+entity.billey:netherrat.name=Netherrat
+
+item.spawn_egg.entity.billey:netherrat.name=Netherrat Spawn Egg
+
+entity.billey:banana_slipper.name=slipping on a banana peel
+
+entity.billey:slime_wyvern.name=Slime Wyvern
+
+item.spawn_egg.entity.billey:slime_wyvern.name=Slime Wyvern Spawn Egg
+
+entity.billey:rat_king.name=Rat King
+
+entity.billey:rat_king_chef_hitbox.name=Rat King Chef Hitbox
+
+item.spawn_egg.entity.billey:rat_king.name=§cRat King Spawn Egg§r
+##do not remove the §c it's for red text
+
+entity.billey:rat_minion.name=Rat Minion
+
+entity.billey:pygmy_dunkleosteus.name=Pygmy Dunkleosteus
+
+item.spawn_egg.entity.billey:pygmy_dunkleosteus.name=Pygmy Dunkleosteus Spawn Egg
+
+entity.billey:plushie.name=Billey's Mobs Plushie
+
+entity.billey:duckatrice.name=Duckatrice
+
+item.spawn_egg.entity.billey:duckatrice.name=Duckatrice Spawn Egg
+
+entity.billey:duckatrice_boss.name=Duckatrice Boss
+
+item.spawn_egg.entity.billey:duckatrice_boss.name=§cDuckatrice Boss Spawn Egg§r
+
+entity.billey:duck_minion.name=Duck Minion
+
+entity.billey:deinonychus_minion.name=Deinonychus Minion
+
+entity.billey:pigeon_minion.name=Pigeon Minion
+
+entity.billey:yutyrannus_minion.name=Yutyrannus Minion
+
+entity.billey:duckatrice_egg.name=Duckatrice Egg
+
+entity.billey:giraffe_cat.name=Giraffe Cat
+
+item.spawn_egg.entity.billey:giraffe_cat.name=Giraffe Cat Spawn Egg
+
+entity.billey:berry_goose.name=Berry Goose
+
+item.spawn_egg.entity.billey:berry_goose.name=Berry Goose Spawn Egg
+
+
+##Items
+
+item.billey:pizzapiece=Sea Pizza
+
+item.billey:picklepet_fertilizer=Picklepet Fertilizer
+
+item.billey:cat_dust=Happy Powder
+
+item.billey:zcat_dust=Sad Powder
+
+item.billey:wcat_dust=Funny Powder
+
+item.billey:scat_dust=Boring Powder
+
+item.billey:cat_bottle=Happy Potion
+
+item.billey:zcat_bottle=Sad Potion
+
+item.billey:wcat_bottle=Funny Potion
+
+item.billey:scat_bottle=Boring Potion
+
+item.billey:swordcooked=Swordfish Steak
+
+item.billey:swordmeat=Swordfish Fillet
+
+item.billey:swordfin=Swordfish Fin
+
+item.billey:swordtail=Swordfish Tail
+
+item.billey:swordfish=Fish Sword
+
+item.billey:swordstick=Swordfish Stick
+
+item.billey:anglerlight=Anglerfish Light
+
+item.billey:colorful_dust=Colorful Powder
+
+item.billey:colorful_bottle=Colorful Potion
+
+item.billey:colorless_dust=Colorless Powder
+
+item.billey:colorless_bottle=Colorless Potion
+
+item.billey:leather_pet_armor=Leather Duck Armor
+
+item.billey:golden_pet_armor=Gold Duck Armor
+
+item.billey:chain_pet_armor=Chainmail Duck Armor
+
+item.billey:iron_pet_armor=Iron Duck Armor
+
+item.billey:diamond_pet_armor=Diamond Duck Armor
+
+item.billey:netherite_pet_armor=Netherite Duck Armor
+
+item.billey:endrod_pet_armor=End Rod Duck Armor
+
+item.billey:velvet_slime=Velvet Slime Ball
+
+item.billey:raw_hamster=Raw Hamster
+
+item.billey:cooked_hamster=Cooked Hamster
+
+item.billey:pet_hat=Pet Hat
+
+item.billey:raw_catfish=Raw Catfish
+
+item.billey:cooked_catfish=Cooked Catfish
+
+item.billey:cocoa_beans_catfish=Catfish with Cocoa Beans
+
+item.billey:chocolate_catfish=Chocolate Catfish
+
+item.billey:pickle_juice=Bottle of Pickle Juice
+
+item.billey:shark_tooth=Shark Tooth
+
+item.billey:golden_swordfish=Golden Fish Sword
+
+item.billey:sand_banana=Desert Banana
+
+item.billey:raw_snail=Raw Weakness Snail
+
+item.billey:raw_snail_s=Raw Slowness Snail
+
+item.billey:raw_snail_w=Raw Withering Snail
+
+item.billey:cooked_snail=Cooked Strength Snail
+
+item.billey:cooked_snail_s=Cooked Swiftness Snail
+
+item.billey:cooked_snail_w=Cooked Regeneration Snail
+##make sure your translations of the effects match the official bedrock translations
+
+item.billey:snail_helmet=Snail Helmet
+##helmet made out of snail shells, not a helmet for snails
+
+item.billey:yeet_duck=Throw a Duck
+
+item.billey:snail_shell=Snail Shell
+
+item.billey:kiwi_fur=Kiwi Feathers
+
+item.billey:duck_hat=Duck Hat
+##its a hat for players that looks like a duck, not a hat for ducks,
+##translate it to something that would not also mean "hat for ducks"
+##if it's possible
+
+item.billey:betta_fish=Raw Betta Fish
+
+item.billey:cooked_betta_fish=Cooked Betta Fish
+
+item.billey:diamond_nugget=Diamond Nugget
+
+item.billey:copper_nugget=Copper Nugget
+
+item.billey:chicken_nugget=Chicken Nugget
+
+item.billey:poultry_orange=Poultry Orange
+
+item.billey:orange_peel=Orange Peel
+
+item.billey:mercat_milk=Mercat Milk
+
+item.billey:fermented_mercat_milk=Fermented Mercat Milk
+
+item.billey:throwable_mercat_milk=Throwable Mercat Milk
+
+item.billey:terraphin_staff=Terraphin Staff
+
+item.billey:terraphin_furball=Terraphin Furball
+
+item.billey:raw_mergoose_tongue=Raw Mergoose Tongue
+
+item.billey:cooked_mergoose_tongue=Cooked Mergoose Tongue
+
+item.billey:mergoose_spikes=Mergoose Spikes
+
+item.billey:shark_tooth_sword=Shark Tooth Sword
+
+item.billey:piranha=Live Piranha
+
+item.billey:raw_piranha=Raw Piranha
+
+item.billey:cooked_piranha=Cooked Piranha
+
+item.billey:piranha_launcher=Piranha Launcher
+
+item.billey:loaded_piranha_launcher=Loaded Piranha Launcher
+
+item.billey:deinonychus_feather=Deinonychus Feather
+
+item.billey:yutyrannus_feather=Yutyrannus Feather
+
+item.billey:power_banana=Power Banana
+
+item.billey:potato_stick=Potato Stick
+
+item.billey:mergoose_sword=Mergoose Sword
+
+item.billey:untaming_stick=Untaming Stick
+
+item.billey:ratatouille=Ratatouille
+
+item.billey:shark_scales=Shark Scales
+
+item.billey:shark_helmet=Shark Helmet
+
+item.billey:shark_chestplate=Shark Chestplate
+
+item.billey:shark_leggings=Shark Leggings
+
+item.billey:shark_boots=Shark Boots
+
+item.billey:rat_beer=Rat Beer
+
+item.billey:spicy_ratatouille=Spicy Ratatouille
+
+item.billey:warped_wine=Warped Wine
+
+item.billey:banana_peel=Banana Peel
+
+item.billey:banana_peel_player=Banana Peel §7§o(Affects Players)§r
+
+item.billey:quest=§gBilley's Mobs Advancements
+
+item.billey:to_level1=Reset Mob's Level to §9Level §d1§r
+
+item.billey:to_level2=Set Mob's Level to §9Level §d2§r
+
+item.billey:to_level3=Set Mob's Level to §9Level §d3§r
+
+item.billey:to_level4=Set Mob's Level to §9Level §d4§r
+
+item.billey:to_level5=Set Mob's Level to §9Level §d5§r
+
+item.billey:to_level6=Set Mob's Level to §9Level §d6§r
+
+item.billey:to_level7=Set Mob's Level to §9Level §d7§r
+
+item.billey:to_level8=Set Mob's Level to §9Level §d8§r
+
+item.billey:to_level9=Set Mob's Level to §9Level §d9§r
+
+item.billey:to_level10=Set Mob's Level to §9Level §d10§r
+
+item.billey:penguin_feather=Penguin Feather
+
+item.billey:penguin_boots=Penguin Boots
+
+item.billey:ice_cream=Ice Cream
+
+item.billey:big_stone=§6Stone of the Big & Slow
+
+item.billey:small_stone=§9Stone of the Small & Quick
+
+item.billey:normal_stone=§7Stone of the Normal
+
+item.billey:duck_container=Bucket of Duck
+
+item.billey:mercat_container=Bucket of Mercat
+
+item.billey:laser_pointer=Laser Pointer
+
+item.billey:shark_hammer=Shark Hammer
+
+item.billey:pigeon_backpack=Pigeon Backpack
+
+item.billey:rat_potion=Rat Potion
+
+item.billey:info_book=Billey's Mobs Info Book
+
+item.billey:tiktaalik_slime=Tiktaalik Slime
+
+item.billey:empty_morph_potion=Empty Morph Potion
+
+item.billey:duck_morph_potion=Duck Morph Potion
+
+item.billey:royal_rat_chef_hat=Pet Royal Chef Hat
+
+item.billey:rat_crown=Rat Crown
+
+item.billey:catfish_syringe=Catfish Syringe
+
+item.billey:catfish_blood=Catfish Blood
+
+item.billey:catfish_antibodies=Catfish Antibodies
+
+item.billey:pygmy_dunkleosteus_scutes=Pygmy Dunkleosteus Scutes
+
+item.billey:scroll=§6Billey's Mobs Advancements§r
+
+item.billey:slime_wyvern_plushie=Slime Wyvern Plushie
+
+item.billey:pet_chef_hat=Pet Chef Hat
+
+item.billey:rubber_ducky=Rubber Ducky
+
+item.billey:pet_bowtie=Pet Bowtie
+
+item.billey:pet_bowtie_attachable=Pet Bowtie... YOU SHOULDN'T HAVE THIS
+
+item.billey:anniversary_pet_hat_6=Billey's Mobs 6 Year Anniversary Pet Hat
+
+item.billey:duckatrice_amber=Duckatrice Amber
+
+item.billey:pet_straw_hat=Pet Straw Hat
+
+item.billey:mercat_plushie=Mercat Plushie
+
+item.billey:giraffe_cat_treat=Giraffe Cat Treat
+
+item.billey:gooseberries=Gooseberries
+
+item.billey:golden_gooseberries=Golden Gooseberries
+
+item.billey:instant_health_potion_3=Potion of Healing III
+
+item.billey:jump_boost_potion_3=Potion of Leaping III §7(1:00)§r
+
+item.billey:regeneration_potion_3=Potion of Regeneration III §7(1:00)§r
+
+item.billey:speed_potion_3=Potion of Swiftness III §7(1:00)§r
+
+item.billey:strength_potion_3=Potion of Strength III §7(1:00)§r
+
+
+##Blocks
+
+tile.billey:velvet_slime_block.name=Velvet Slime Block
+
+tile.billey:blue_velvet_slime_block.name=Blue Velvet Slime Block
+
+tile.billey:mixed_velvet_slime_block.name=Mixed Velvet Slime Block
+
+tile.billey:zambie.name=§b...
+
+tile.billey:banana_peel_block.name=Banana Peel
+
+tile.billey:banana_peel_player_block.name=Banana Peel
+
+
+##Other
+
+advancements.toast.task=Advancement Made!
+
+chat.advancement.task=§e%1§f has made the advancement §a[%2]§r
+
+challenges.toast.task=§9Challenge Completed!
+
+chat.challenge.task=§e%1§f has completed the challenge §d[%2]§r
+
+quests.toast.task=§aQuest Completed!
+
+chat.quest.task=§e%1§f has completed the quest §b[%2]§r
+##%1 is the name of the player, §a/d/b[%2]§f is the name of the completed advancement in color
+##dont change them
+
+
+##do not translate all of the ride texts the same way, some mobs cant
+##be exitted by jumping
+action.hint.exit.billey:duck=Jump or sneak get off the Duck
+
+action.hint.exit.billey:banana_duck=Jump or sneak get off the Banana Duck
+
+action.hint.exit.billey:goose=Jump or sneak get off the Goose
+
+action.hint.exit.billey:berry_goose=Jump or sneak get off the Berry Goose
+
+action.hint.exit.billey:orca=Jump or sneak get off the Orca
+
+action.hint.exit.billey:terraphin=Jump or sneak get off the Terraphin
+
+action.hint.exit.billey:yutyrannus=Jump or sneak get off the Yutyrannus
+
+action.hint.exit.billey:duckatrice=Sneak get off the Duckatrice. Jump to start flying
+
+action.hint.exit.billey:cucumbeel=Sneak to get off the Cucumbeel
+##you cant jump off a cucumbeel because they are controlled similarly
+##to vanilla horses, unlike orcas which cant be controlled and
+##the ducks which are controlled like pigs
+
+action.hint.exit.billey:hammerhead_shark=Sneak to get off the Hammerhead Shark
+##the cucumbeel note also applies to hammerhead sharks
+
+action.interact.equip=Equip
+
+action.interact.pet=Pet
+
+action.interact.wander=Wander
+
+action.interact.follow=Follow
+
+action.interact.pick_up=Pick Up
+
+action.interact.use=Use
+
+action.interact.untame=Untame
+
+action.interact.billeys_mobs.boost=Boost
+
+action.interact.get_info=Get Info
+
+action.interact.cook=Cook
+
+action.interact.brew=Brew
+
+action.interact.make_ice_cream=Make Ice Cream
+
+action.interact.put_in_bucket=Put in Bucket
+
+action.interact.suck=Suck
+
+action.interact.squish=Squish
+
+action.interact.evolve=Evolve
+
+action.interact.ride=Ride
+
+action.interact.change_the_weather=Change the Weather
+
+action.interact.start_ladder=Start Ladder
+
+action.interact.stop_ladder=Stop Ladder
+
+advancements.billeys_mobs.golden_duck=Shiny Duck
+
+advancements.billeys_mobs.golden_duck.desc=Breed a duck and a penguin to get a golden duck. Use a book or a feather on it for info.
+
+advancements.billeys_mobs.angry_duck=HONK!
+
+advancements.billeys_mobs.feathered_warrior=Duck Warrior
+
+advancements.billeys_mobs.feathered_warrior.desc=Equip a duck with armor. §7§oBanana ducks included.§r
+
+advancements.billeys_mobs.feathered_army=Duck Army
+
+advancements.billeys_mobs.feathered_army.desc=Equip 50 ducks with armor. §7§oBanana ducks included.§r
+
+advancements.billeys_mobs.howrude=How Rude...
+
+advancements.billeys_mobs.kindness=Pizzafish Transplantation
+
+advancements.billeys_mobs.ornithologist=Ornithologist
+
+advancements.billeys_mobs.ornithologist.desc=Get all 5 of the secret banana duck variants.
+
+advancements.billeys_mobs.color=Pretty
+
+advancements.billeys_mobs.smelly_fish=Radioactive Fish
+
+advancements.billeys_mobs.undeadcat=Feline Necromancer
+
+advancements.billeys_mobs.spookycat=Spooky Cat
+
+advancements.billeys_mobs.killcenti=Centipede Slayer
+
+advancements.billeys_mobs.killcenti.desc=Kill the duck centipede boss.
+
+advancements.billeys_mobs.chocolate_catfish=Le Fishe au Chocolat
+##dont change this unless you are translating the addon to french,
+##if that then change it to Le Poisson au Chocolat
+
+advancements.billeys_mobs.chocolate_catfish.desc=Eat a chocolate catfish.
+
+advancements.billeys_mobs.ratatouille=Ratatouille
+
+advancements.billeys_mobs.ratatouille.desc=Make a rat cook ratatouille for you and then eat it.
+
+advancements.billeys_mobs.bduckbreeder=Banana Duck Breeder
+
+advancements.billeys_mobs.bduckbreeder.desc=Get one of the secret banana duck variants.
+
+advancements.billeys_mobs.cum=Cover me in Come
+
+advancements.billeys_mobs.cum.desc=Use a bucket of milk on a slime wyvern.
+
+advancements.billeys_mobs.slime_wyvern_level_10=Slime Wyvern Overlord
+
+advancements.billeys_mobs.slime_wyvern_level_10.desc=Level up a slime wyvern to level 10.
+
+advancements.billeys_mobs.mercat_napper=Mercat Napper
+
+advancements.billeys_mobs.mercat_napper.desc=Sleep 20 nights with a mercat. Sleeping without one resets the counter but not sleeping doesn't.
+
+advancements.billeys_mobs.info.rewards=Rewards upon completion:
+
+advancements.billeys_mobs.info.rewards.xp=%1- %2 §aX§eP§r
+
+advancements.billeys_mobs.info.rewards.bananas=%1- %2 §bPower Bananas§r
+
+advancements.billeys_mobs.info.rewards.item=%1- §d%2§r
+
+advancements.billeys_mobs.info.is_hidden=This advancement is secret. Only players who have completed it can see it. 
+
+advancements.billeys_mobs.info.is_completed=You have made this advancement.
+
+advancements.billeys_mobs.info.players_who_have_completed=First players who made this advancement in this world:
+
+advancements.billeys_mobs.info.be_the_first=No one in your world has made this advancement yet. Be the first to get your name here!
+
+billmobs.wander=§a
+##the text that appears before the mob's name in the "Mob is now wandering" message
+
+billmobs.wander2= will now wander.
+##the text that appears after the mob's name in the "Mob is now wandering" message
+
+billmobs.follow=§a
+##the text that appears before the mob's name in the "Mob is now following" message
+
+billmobs.follow2= will now follow.
+##the text that appears after the mob's name in the "Mob is now following" message
+##dont translate it to "will now follow "you"" because the 
+##message is visible to all players around the mob
+
+billmobs.untame=§b
+##the text that appears before the mob's name in the "Mob can now be tamed by someone else." message
+
+billmobs.untame2= can now be tamed by someone else. §7It will still belong to you until someone tames it.
+##the text that appears after the mob's name in the "Mob can now be tamed by someone else." message
+
+rawtext.billeys_mobshonk=honk
+
+itemGroup.name.horseArmor=Animal Equipment
+
+chat.billeys_mobs.mobsamogus=Congratulations you found the secret mob, other easter eggs: breed a banana duck with a kiwi, name a pigeon or a kiwi "Perry", a duck or a catfish or a banana duck "Pizza", an anglerfish "Sugar" or a betta fish "Tofu". Also you can tame the "Amogus" with seeds
+
+chat.billeys_mobs.bettainfo=These can also be earned in survival by crossbreeding betta fish variants, you'll get hints when you complete advancements
+
+chat.billeys_mobs.betta1=white + black yellow = yellow
+
+chat.billeys_mobs.betta2=white + dark cyan = cyan
+
+chat.billeys_mobs.betta3=yellow + cyan = green
+
+chat.billeys_mobs.betta4=black orange + cyan = glowing
+
+chat.billeys_mobs.betta5=red white + white = pinkish white
+
+chat.billeys_mobs.betta6=pinkish white + blue purple = blue
+
+chat.billeys_mobs.betta7=green + glowing = green glowing
+
+chat.billeys_mobs.betta8=Congratulations you've gotten most of them, but there are also a purple one and a purple glowing one, can you get them?
+
+chat.billeys_mobs.betta9=this would look good on a glowing betta fish
+
+chat.billeys_mobs.betta10=don't mix up white and pinkish white, they look almost the same
+
+chat.billeys_mobs.catfishpizza=Try naming a catfish, a cat, a duck or a banana duck "Pizza"
+
+chat.billeys_mobs.ratxd=Try naming a rat or a netherrat "XD", or a terraphin "lol"
+
+chat.billeys_mobsduckarmyinfo=§dChallenge: §fEquip 49 more ducks with armor to get a prize.
+
+chat.billeys_mobsduckarmyinfo2=§dChallenge: §fEquip 50 ducks or banana ducks with armor.
+
+chat.billeys_mobsornithologistinfo=§dChallenge: §fFind the other 4 secret banana duck variants to get a prize.
+
+chat.billeys_mobsornithologistinfo2=§dChallenge: §fFind all 5 secret banana duck variants.
+
+chat.billeys_mobs.piranha64=§7You can only put up to 64 piranhas in a piranha launcher.
+
+chat.billeys_mobs.levelup=§9LEVEL UP! §d%1§f has advanced to §9level §d%2§f!
+
+chat.billeys_mobs.levelup.reset=§d%1§f's §9level§f has been reset to §9level §d1§f.
+
+chat.billeys_mobs.levelup.info=§7%1's health and attack damage, speed and reach have increased.
+
+chat.billeys_mobs.levelup.info.only_health_and_damage=§7%1's health and attack damage have increased.
+
+chat.billeys_mobs.levelup.withering=§a%1 now inflicts withering when attacking.
+
+chat.billeys_mobs.levelup.duck5=§a%1 will now find better items in grass and water.
+
+chat.billeys_mobs.levelup.slime_wyvern10=§a%1 no longer gives slowness when on your head.
+
+chat.billeys_mobs.levelup.oneshot=§a%1 now deals enough damage to one-shot players without armor and most monsters.
+
+chat.billeys_mobs.levelup.big_stone=§d%1§f is now §6Big & Slow!%2§7%1's health and attack damage have increased, but its speed has decreased.
+
+chat.billeys_mobs.levelup.small_stone=§d%1§f is now §9Small & Quick!%2§7%1's speed and has increased, but its health and attack damage have decreased.
+
+chat.billeys_mobs.levelup.normal_stone=§d%1§f is now back to normal. %2§7%1's stats are now the same as a regular level 10 one.
+
+chat.billeys_mobs.levelup.duckatrice=§d%1§f is now a §6DUCKATRICE!%2§7%1's health and attack damage, speed and reach have increased.%2§a%1 can now fly.%2§a%1 can now be ridden if equipped equipped with a saddle.%2§7%1 can no longer find items in grass and water.
+
+chat.billeys_mobs.no=§cWomp womp.
+
+chat.billeys_mobs.player_left=§cOops! Looks like %1 has left!
+
+chat.billeys_mobs.received_pigeon=§aYou have received some items from %1's %2.
+
+chat.billeys_mobs.pigeon_success=§aPigeon mission succeeded.
+
+chat.billeys_mobs.pigeon_fail=§cPigeon mission failed.
+
+ui.billeys_mobs.info.duck_must_be_level_10=%1 must be level 10 to be evolved into a duckatrice.
+
+chat.billeys_mobs.stop_staring_at_duckatrice=§cStop staring at the Duckatrice! It steals your health!
+
+chat.billeys_mobs.stop_staring_at_duck_minion=§cStop staring at the minion! It steals your health!
+
+chat.billeys_mobs.stop_staring_at_duck_minion2=§cStop staring at the minion! It steals your health and also heals the boss!
+
+chat.billeys_mobs.duckatrice_stare_added=§6Your helmet has been granted Duckatrice's Stare %1 at the cost of 3 of your levels.
+
+chat.billeys_mobs.duckatrice_stare_ran_out=§6Your helmet's Duckatrice's Stare has been exhausted. Pet your duckatrice again to replenish it.
+
+chat.billeys_mobs.duckatrice_rise_need_sugar=§fDuckatrices have §alimited stamina§f for going §aupwards§f unless they're on sugar. §aFeed your duckatrice a sweet billey's mobs food§f or some rat beer or warped wine to go upwards freely.
+
+chat.billeys_mobs.anniversary_got_advancements=§9You have been given %1 §e6th Year Anniversary Pet Hats§9 for the advancements you had already completed!
+
+chat.billeys_mobs.anniversary_hat=§9You got a §e6 Year Anniversary Pet Hat§9!
+
+chat.billeys_mobs.pets_still_loading=Pets are still loading. Try again in a few seconds.
+
+## this isn't actually a feature, it was only for a very short amount of time
+chat.billeys_mobs.pet_depressed_untamed=§c%1 has become depressed because you didn't take care of it. It can now be re-tamed by anyone (including yourself).
+
+
+##User Interface
+
+ui.billeys_mobs.select_player=Select Player
+
+ui.billeys_mobs.info.anniversary=§bHappy Billey's Mobs §e6th Year Anniversary§b! Did you know Billey's Mobs is the oldest ongoing bedrock add-on? Claim your §eLIMITED TIME Anniversary Pet Hats§b by completing any Billey's Mobs advancements before 1st March 2025! Anniversary pet hats §ecan be put on any pet§b and make levelable pets §elevel up twice as fast§b!
+
+ui.billeys_mobs.info.body=What do you want to learn about?
+
+ui.billeys_mobs.info.category.recommended=§l§6Recommended
+
+ui.billeys_mobs.info.category.recommended.desc=The best mobs of the add-on
+
+ui.billeys_mobs.info.category.dinosaur=§l§gBirds & Dinosaurs
+
+ui.billeys_mobs.info.category.dinosaur.desc=Pigeons, banana ducks...
+
+ui.billeys_mobs.info.category.other=§l§2Other Land Pets
+
+ui.billeys_mobs.info.category.other.desc=Rats, stick bugs, tiktaailks...
+
+ui.billeys_mobs.info.category.water=§l§9Aquatic Pets
+
+ui.billeys_mobs.info.category.water.desc=Anglerfish, pizzafish, sharks...
+
+ui.billeys_mobs.info.category.boss=§l§4Bosses
+
+ui.billeys_mobs.info.category.boss.desc=Duckatrice and rat king
+
+ui.billeys_mobs.info.category.cat=Cats
+
+ui.billeys_mobs.info.category.cat.desc=Angel cats, mercats...
+
+ui.billeys_mobs.info.category.advancement=§l§5Advancements
+
+ui.billeys_mobs.info.category.advancement.desc=Challenges for you to complete
+
+ui.billeys_mobs.info.category.pet_equipment=§l§tPet Equipment
+
+ui.billeys_mobs.info.category.pet_equipment.desc=Things you can put on your pets.
+
+ui.billeys_mobs.info.category.settings=§l§8Personal Settings
+
+ui.billeys_mobs.info.category.settings.desc=Customize your experience.
+
+ui.billeys_mobs.info.select_mob=Select mob
+
+ui.billeys_mobs.advancements=§l§5Billey's Mobs Advancements
+
+ui.billeys_mobs.advancements.body=Select an advancement to view its info and rewards.
+
+ui.billeys_mobs.pet_equipment=§l§tPet Equipment
+
+ui.billeys_mobs.pet_equipment.body=There are many things you can put on your pets in this add-on! Click on the pet equipment you want to learn about.%1%1By the way, the way to §aremove§f equipment from a pet is attempting to put any equipment of the same slot as the item you want to take off.%1%1For example, to remove a chef hat from a pet you'd use any kind of hat on it, and to remove a bowtie from a pet you'd use another bowtie on it.%1%1You can also forget all this and just use shears.
+
+ui.billeys_mobs.info.category.your_pets=§l§2Your §9Pets
+
+ui.billeys_mobs.info.category.your_pets.desc=View your individual pets.
+
+ui.billeys_mobs.info.category.your_pets.body=Select a pet to view its health, level, location and more.%1%1You can also do this by punching a pet of yours while sneaking. Useful for checking pets' XP while leveling them.
+
+ui.billeys_mobs.info.category.your_pets.body_no_pets=Looks like you don't have any pets yet, tame some and they'll be listed here!
+
+ui.billeys_mobs.advancements.completed=§2Completed
+
+ui.billeys_mobs.advancements.not_completed=Tap to see info.
+
+ui.billeys_mobs.settings.can_hit_own_pet=Be able to hurt your own pets
+
+ui.billeys_mobs.settings.can_hit_other_pet=Be able to hurt other players' pets
+
+ui.billeys_mobs.settings.double_sneak_seconds=Amount of seconds between 2 sneaks for double-sneaking to teleport your following pets to you. Default is 0.5. Bigger number means slower, smaller means faster.
+
+ui.billeys_mobs.pet_stats.owner=Owner
+
+ui.billeys_mobs.pet_stats.health=Health
+
+ui.billeys_mobs.pet_stats.level=Level: §9Level §d%1
+
+ui.billeys_mobs.pet_stats.level_simple=§9Level §d%1
+
+ui.billeys_mobs.pet_stats.xp=XP for Level %1: §9%2§r / §d%3§7 (%4 left)
+
+ui.billeys_mobs.pet_stats.mental_state=Mental State: %1%2
+
+ui.billeys_mobs.pet_stats.position=Position: %1
+
+ui.billeys_mobs.pet_stats.dimension=Dimension: §e%1
+
+ui.billeys_mobs.pet_stats.not_loaded=Pet not currently loaded. You cannot teleport this pet to you and information about it might be inaccurate.
+
+ui.billeys_mobs.pet_stats.learn_more=Learn more
+
+ui.billeys_mobs.pet_stats.teleport_pet=Teleport pet to you
+
+ui.billeys_mobs.pet_stats.teleport_to_pet=Teleport to pet%1§o(Operator-only)§r
+
+ui.billeys_mobs.pet_stats.see_all_your_pets=See all of your pets
+
+ui.billeys_mobs.pet_equipment.get_more=Get 300+ more pet hats!
+
+ui.billeys_mobs.just_cosmetics=Just Cosmetics Add-on
+
+ui.billeys_mobs.just_cosmetics.body=Download the §aJust Cosmetics§r add-on to get hundreds of new cosmetics for you and your pets! §aAll hats from Just Cosmetics can be put on Billey's Mobs pets!§r Get the add-on from §aMCPEDL§r or §aCurseForge!§r
+
+
+##Commands
+
+commands.billeys_mobs.must_be_by_player=This command must be run by a player.
+
+commands.billeys_mobs.no_inventory=§cYou don't have an inventory!
+
+commands.billeys_mobs.giveinfobook.description=Gives you a Billey's Mobs Info Book.
+
+commands.billeys_mobs.giveinfobook.success=§aYou received a Billey's Mobs Info Book!
+
+commands.billeys_mobs.full_inventory=§cThere are no empty slots in your inventory.
+
+commands.billeys_mobs.preparetp.description=Brings your pets with you the next time you teleport.
+
+commands.billeys_mobs.preparetp.success=§aYour following pets will teleport with you if you teleport within 60 seconds!
+
+
+##Mental states
+
+ui.billeys_mobs.mental_state.rock_bottom=Rock Bottom
+ui.billeys_mobs.mental_state.horribly_depressed=Horribly Depressed
+ui.billeys_mobs.mental_state.depressed=Depressed
+ui.billeys_mobs.mental_state.miserable=Miserable
+ui.billeys_mobs.mental_state.sad=Sad
+ui.billeys_mobs.mental_state.slightly_down=Slightly Down
+ui.billeys_mobs.mental_state.ok=OK
+ui.billeys_mobs.mental_state.content=Content
+ui.billeys_mobs.mental_state.happy=Happy
+ui.billeys_mobs.mental_state.delighted=Delighted
+ui.billeys_mobs.mental_state.thrilled=Thrilled
+ui.billeys_mobs.mental_state.euphoric=Euphoric
+ui.billeys_mobs.mental_state.overjoyed=Overjoyed
+ui.billeys_mobs.mental_state.error=Error
+
+##Pet equipment info
+
+ui.billeys_mobs.item_info.pet_hat=§fThe pet hat is §acrafted§f with 4 kiwi feathers and 1 leather and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat. §aDyeable§f by using a dye on the pet wearing it.%1%1If a pet wearing one receives damage that would've normally §akilled§f it, the hat will §aabsorb§f the damage and get destroyed.
+
+ui.billeys_mobs.item_info.pet_chef_hat=§fThe pet chef hat is §acrafted§f with 4 kiwi feathers and 1 wool and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat. §aDyeable§f by using a dye on the pet wearing it.%1%1Enables §arats§f, §anetherrats§f, and §apenguins§f to use their §acooking§f ability. Not functional on other pets but can still be put on them for fun.
+
+ui.billeys_mobs.item_info.royal_rat_chef_hat=§fThe pet royal chef hat is obtained by §akilling a Rat King§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1Similar to the pet chef hat but makes rats and netherrats cook §arat potions§f instead of rat beer and warped wine, more about it in the §aRat King's info§f. Not functional on other pets but can still be put on them for fun.
+
+ui.billeys_mobs.item_info.pet_straw_hat=§fUseless and creative-only for now.
+
+ui.billeys_mobs.item_info.pet_bowtie=§fPets will §aget a bowtie on tame by default§f but you can also craft a bowtie using kiwi feathers and wool, can be put on §aany§f Billey's Mobs §apet§f or vanilla cat. §aDyeable§f by using a dye on the pet wearing it.%1%1Useless but looks cute.
+
+ui.billeys_mobs.item_info.rat_crown=§fThe rat crown is obtained by §akilling a Rat King§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1Makes the pet wearing it §asummon rat minions§f when it attacks. Also causes pets that normally wouldn't defend you to §adefend you anyway§f.
+
+ui.billeys_mobs.item_info.anniversary_pet_hat_6=§fThe 6th year anniversary pet hat §awas§f obtained by completing Billey's Mobs advancements between 20th February and 1st March 2025 but players who got it in time still have it. It can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1The anniversary was celebrated unusually late this year, §aget the next anniversary pet hat§f during §aJanuary 2026§f, exact obtaining method undecided.%1%1Anniversary pet hats make the pet wearing them §alevel up twice as fast§f (if it's levelable).%1%1Did you know Billey's Mobs is the oldest ongoing Bedrock add-on?
+
+ui.billeys_mobs.item_info.slime_wyvern_plushie=§fThe slime wyvern plushie is obtained by completing the §a"Slime Wyvern Overlord" advancement§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1It doesn't do anything on pets but it can also be §aplaced down§f and §aworn by players§f as a helmet. It is enchantable and has infinite durability but no protection.
+
+ui.billeys_mobs.item_info.rubber_ducky=§fThe rubber ducky is §ararely found by ducks in water§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1Makes the pet wearing it §amore likely to combo§f its target by dealing a bit of delayed damage and knockback. Also causes pets that normally wouldn't defend you to §adefend you anyway§f.
+
+ui.billeys_mobs.item_info.mercat_plushie=§fThe mercat plushie is obtained by completing the §a"Mercat Napper" advancement§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1It doesn't do anything on pets but it can also be §aplaced down§f and §aworn by players§f as a helmet. It is enchantable and has infinite durability but no protection.
+
+ui.billeys_mobs.item_info.duck_hat=§fThe duck hat is a hat that looks like a duck and is obtained by §akilling the rare zombie that wears it§f and can be put on §aany§f Billey's Mobs §apet§f or vanilla cat.%1%1It constantly gives the pet wearing it the §aStrength I§f effect. It also randomly quacks and plays the duck hurt and death sound when its wearer is damaged or dies.%1%1It can also be §aworn by players§f as a helmet for the same effect. It is enchantable and has infinite durability but no protection.
+
+##Mob info
+
+
+chat.welcomebillmobs=§dThanks for playing with §eBilley's Mobs Add-on§d! You have been given an §9Info Book. To use it§d, long tap, right click or press whatever you press to §9throw§d things.
+
+chat.billeys_mobs.got_info_book=§fYou have been given a §dBilley's Mobs Info Book§f! Make sure to §l§cread it§r§f to find out how immensely useful some mobs are!
+
+chat.billeys_mobs.turn_on_beta_apis=%1%1%1§6What's wrong?%1§cYou must turn on the §eBeta APIs§c experimental toggle in your world's settings for Billey's Mobs to work properly.%1%1§6Still getting this message?%1§cIf you have turned Beta APIs on and are still getting this message then either your Billey's Mobs version is outdated or you are not in the latest stable(not beta or preview) release of Minecraft, download the latest Billey's Mobs version in discord.gg/mwGue2p or mcpedl.com/billeys-mobs-addon%1%1§6Turning Beta APIs on on Realms%1§cTo turn experimental toggles on a realm, download the realm's world, turn the Beta APIs toggle on and then upload the world back to the realm.%1%1%1
+
+chat.billeys_mobs.open_info=§fOpen the chat to see %1's info.
+
+ui.billeys_mobs.info.leashwild=§cYou are supposed to §etame a mob§c if you want to keep it as a pet, §eall mobs in billey's mobs are tameable§c, to find out what a mob is tamed with §euse a book or a feather on it.
+
+ui.billeys_mobs.info.hurt_pet=§e%1§f is hurt §7(as seen by the fact that it's shivering)§f. Feed it to heal it.
+
+ui.billeys_mobs.info.critically_injured=§c%1's health is very low.
+
+chat.billeys_mobs.owner_hit_pet=You cannot hurt your own pet.
+
+ui.billeys_mobs.info.owner_hit_pet=§cYou cannot hurt your own pet.§f You can turn this feature off in §aPersonal Settings§f in the §aBilley's Mobs Info Book§f. §8If you threw away the info book, say §f!givebilleyinfobook§8 in the chat to get one.
+
+chat.billeys_mobs.other_hit_pet=You cannot hurt other players' pets.
+
+chat.billeys_mobs.not_a_positive_number=§c%1 is not a positive number, dummy!
+
+chat.billeys_mobs.pet_no_longer_exists=§cOops! Looks like %1 no longer exists!
+
+chat.billeys_mobs.pet_unloaded=§cWarning: §fA pet of yours set to follow is no longer in a loaded chunk and is probably no longer be able to follow you!%1 - §e%2 §fat %3
+
+ui.billeys_mobs.info.formore=...
+
+ui.billeys_mobs.short_info.formore=§7For more details about any mob in the add-on, just §euse a book or a feather on one§7 or look it up on your §einfo book§7.
+
+ui.billeys_mobs.info.anglerfish=§e§l=========ANGLERFISH=========%1%1§r§l§6- General%1§r§aAnglerfish§9 spawn in §adeep oceans§9 and §aunderwater caves§9. They can be put in a bucket and §atamed with sea pizza§9, but they don't follow you unless you use a stick on them.%1%1§l§6- Spawning fish with glowstone%1§r§9When you §afeed one glowstone§9 powder or a glowstone block, §ait'll spawn random fish§9 from whatever biome it's in for some seconds, as well as attract some of them. The §amore water§9 around the boosted anglerfish, the §amore fish§9 it'll spawn.%1%1§l§6- Drop%1§r§9You can also §aget an "Anglerfish Light" by killing an anglerfish§9, the anglerfish light makes §asmall fish follow you§9, wild mercats not fear you, and §acan also be put on the offhand§9. Glowstone blocks last 4 times as much as glowstone dust.
+
+ui.billeys_mobs.short_info.anglerfish=§aAnglerfish§f, on death, have a chance to drop an item that attracts fish and can be put on the offhand. Also, feeding an anglerfish glowstone makes it spawn fish. §7You can also put anglerfish in a bucket.
+
+ui.billeys_mobs.info.swordfish=§e§l=========SWORDFISH=========%1%1§r§aSwordfish§9 spawn in §aoceans§9, can be put in a bucket and §atamed with sea pizza§9, but they don't follow you unless you use a stick on them. They currently don't have a use while they are alive but§a when they die they drop several body parts as well as raw meat. The body parts can be used to craft a fish sword which does a lot of damage to fish and can kill multiple fish at once§9.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.swordfish=§aSwordfish§f's drops can be used to craft a fish sword which deals a lot of damage to fish and can kill groups of small fish at once. §7You can also put them in a bucket.
+
+ui.billeys_mobs.info.zombie_cat=§e§l=========ZOMBIE CAT=========%1%1§r§aZombie cats§9 spawn in §ajungles when it's night§9 and are §atamed with raw cod§9,§a raw salmon§9,§a string§9 or§a raw catfish§9. After being tamed they no longer attack vanilla cats and no longer burn in daylight, and §a if you sleep while one is not sitting, you'll get random ores when you wake up§9.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.zombie_cat=§aZombie cats§f are tamed with string or raw fish and bring you random ores, though usually cobblestone and coal, if you sleep while one is standing.
+
+ui.billeys_mobs.info.skeleton_cat=§e§l=========SKELETON CAT=========%1%1§r§aSkeleton cats§9 spawn in §ajungles when it's night§9 and are §atamed with nether wart§9. After being tamed they no longer burn in daylight, and§a if you sleep while one is not sitting, you'll get random nether items when you wake up§9 and you can also dye them.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.skeleton_cat=§aSkeleton cats§f are tamed with netherwart and bring you random nether items if you sleep while one is standing.
+
+ui.billeys_mobs.info.orca=§e§l=========ORCA=========%1%1§r§aOrcas don't spawn naturally§9 and are §atamed with sea pizza§9, but they don't follow you unless you use a stick on them. They currently don't really have any kind of use but§a you can sit on them after taming them and they'll soon get a better use. And also, they can't breathe underwater and will have to jump out of water to breathe§9.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.orca=§aOrcas§f are tamed with sea pizza(from pizzafish which spawn in coral reefs) and after you tame one you can sit on it. Better use(and definitely a better model) coming soon. They also don't spawn naturally due to how bad their model and "AI" are.
+
+ui.billeys_mobs.info.mercat=§e§l=========MERCAT=========%1%1§r§l§6- General%1§r§aMercats§9 spawn in §alakes and rivers§9 that aren't frozen, and are §atamed with raw piranha§9 or§a sea pizza§9. They §acan't breathe underwater§9 and will have to come up to breathe air, can survive indefinitely without water, and can only be made to sit while on land, though like every mob in the add-on you can use a stick to make them walk/swim around instead of following you.%1%1§l§6- Changing the weather%1§r§9If you use a §anautilus shell§9 on a tamed mercat it'll §achange the weather§9. It'll turn clear weather to a §athunderstorm§9, and thunderstroms or rain to clear weather.%1If in §amultiplayer§9, for this to work you need §aat least half§9 of all online players to be §anext to a mercat§9 that is currently changing the weather. This can be achieved by either making the players each use a nautilus shell on their mercat, or by having the players around one's mercat.%1%1§l§6- Sleeping loot%1§r§9You can sleep with a mercat by having one near you not sitting before you sleep. When you wake up, the mercat §awill bring you a random sea related item§9.%1%1§l§6- Other%1§r§9They also §aobliterate groups of small fish, including piranhas§9, after being tamed. By the way, fermented mercat milk will probably be used to craft mercat cheese in the future.%1%1§l§6- Credits%1§r§eMercat texture by BOYOFTHEMONSTERS.
+
+ui.billeys_mobs.short_info.mercat=§aMercats§f are tamed with raw piranha, can change the weather, bring you random items when you sleep.
+
+ui.billeys_mobs.info.pigeon=§e§l=========PIGEON=========%1%1§r§l§6- General%1§r§aPigeons§9 spawn in §aplains§9 and are especially common in §aflower forests§9 and §abirch forests§9. They are §atamed with any kind of seeds§9,§a carrots§9 or§a bread§9.%1%1§l§6- Pooping%1§r§aThey poop randomly, and their poop can either be used to craft bone meal, used to boost pollinating mobs of this add-on(pill bugs and stick bugs), or used with a boring powder in a crafting table to craft a potion of slow falling§9.%1%1§l§6- Finding apples%1§r§9Tamed pigeons will also §afind apples in trees§9, if you haven't made them sit.%1%1§l§6- Sending items to players%1§r§9Pigeons can also be used to send items to other players. To start §acraft a pigeon backpack§9(2 string, 1 kiwi feathers and 2 leather) and §aput it on a pigeon§9. §aPet§9(sneak + long tap or right click or pet button) §athe pigeon while holding item to put it in it§9, §apet it while you're holding an item and the pigeon is full to make the pigeon drop its items§9 and §apet it with an empty hand to select the player to send the pigeon to§9(the players must be in the same dimension as you and not right next to you). The pigeon backpack can also be dyed by using a dye on the pigeon that's wearing it.
+
+ui.billeys_mobs.short_info.pigeon=§aPigeons§f are tamed with seeds or bread and can be used to send items to other players.
+
+ui.billeys_mobs.info.pizzafish=§e§l=========PIZZAFISH=========%1%1§r§l§6- General%1§r§aPizzafish§9 spawn in §acoral reefs§9, can be put in a bucket and §atamed with rotten flesh§9, but they don't follow you unless you use a stick on them.%1%1§l§6- Sea Pizza%1§r§9You can either kill them to get sea pizza or just§a shear them to get sea pizza, they'll eventually regrow their pieces. Sea pizza is quite nutritious and has a chance to give you a lot of regeneration for a few seconds, and it can also be used to tame fish from the add-on, and vanilla fish, so that they won't despawn and won't attack eachother§9. Tamed fish can also be healed and leashed.%1%1§l§6- Credits%1§r§ePizzafish texture by BOYOFTHEMONSTERS.
+
+ui.billeys_mobs.short_info.pizzafish=§aPizzafish§f drop sea pizza when sheared or killed, which can be eaten or used to tame the fish of this add-on so that they don't kill each other or despawn. §7You can also tame them with rotten flesh and put them in a bucket.
+
+ui.billeys_mobs.info.gwshark=§e§l=========SHARK=========%1%1§r§l§6- General%1§r§aSharks§9 spawn in §aoceans§9, can be put in a bucket and §atamed with sea pizza§9, but they don't follow you unless you use a stick on them.%1%1§l§6- Shark Teeth%1§r§aWhen they attack something, they'll drop a few shark teeth, §9which can be used to craft either the §ashark tooth sword§9, which deals a lot of damage for its price, has low durability and has a sweeping edge effect, or used to upgrade a fish sword to a §agolden fish sword§9 which has more durability, deals more damage and cooks small fish.%1%1§l§6- Shark Scales%1§r§9You can get §ashark scales every 10 minutes if you pet(sneak + long tap/right click) a shark§9, with which you can §acraft shark armor§9 which gives you §aspecial effects§9 when worn. The §ashark helmet§9 gives §astrength§9, the §ashark chestplate§9 gives §aconduit power when you are fully submerged§9, and wearing §athe full armor set§9 increases the level of those effects. §aShark armor also increases your swim speed.%1%1§l§6- Credits%1§r§eShark texture and model improvement by BOYOFTHEMONSTERS.
+
+ui.billeys_mobs.short_info.gwshark=§aSharks§f drop shark teeth when they kill something and shark scales when you pet them, both of which can be used to craft special equipment. §7You can also put them in a bucket.
+
+ui.billeys_mobs.info.hammerhead_shark=§e§l=========HAMMERHEAD SHARK=========%1%1§r§l§6- General%1§r§aHammerhead sharks§9 spawn in §aoceans§9, can be put in a bucket and §atamed with sea pizza§9, but they don't follow you unless you use a stick on them.§a When they attack something, they'll drop a few shark teeth, §9which can be used to craft either the §ashark tooth sword§9, which deals a lot of damage for its price, has low durability and has a sweeping edge effect, or used to upgrade a fish sword to a §agolden fish sword§9 which has more durability, deals more damage and cooks small fish. And also, they almost never attack players unprovoked unless a very rare variant of them spawns.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.hammerhead_shark=§aHammerhead sharks§f drop shark teeth when they kill something, with which you craft a sword that deals a lot of damage and has sweeping edge. §7You can also put them in a bucket, and they also have an additional "secret" "use".
+
+ui.billeys_mobs.info.endercat=§e§l=========ENDERCAT=========%1%1§r§aEndercats§9 spawn in §athe End§9 and are §atamed with chorus fruit§9. After being tamed they no longer attack vanilla cats, randomly teleport monsters away, and §a if you sleep while one is not sitting, you'll get random end items when you wake up§9. You can also §afeed them a popped chorus fruit to teleport the nearest monster away§9 but it has §aa cooldown§9 of 3 seconds.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.endercat=§aEndercats§f are tamed with chorus fruit and bring you random end items if you sleep while one is standing. They also randomly teleport monsters.
+
+ui.billeys_mobs.info.flyingcat=§e§l=========ANGEL CAT=========%1%1§r§aAngel cats§9 spawn in §ajungles§9 and are §atamed with raw cod§9,§a raw salmon§9 or§a raw catfish§9. After being tamed, they§a randomly give regeneration to nearby tamed mobs§9 from billey's mobs, as well as vanilla fish, cats and parrots.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.flyingcat=§aAngel cats§f are tamed with raw fish and randomly give nearby pets regeneration.
+
+ui.billeys_mobs.info.endflyingcat=§e§l=========END ANGEL CAT=========%1%1§r§aEnd angel cats§9 spawn in §athe End§9 and are §atamed with chorus fruit§9. After being tamed, they§a randomly give strength and speed to nearby tamed mobs§9 from billey's mobs, as well as vanilla fish, cats and parrots.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.endflyingcat=§aEnd angel cats§f are tamed with chorus fruit and randomly give nearby pets speed and strength.
+
+ui.billeys_mobs.info.picklepet=§e§l=========PICKLEPET=========%1%1§r§aPicklepets§9 spawn in §acoral reefs§9 and are tamed with§a several sea items§9. They don't really have an actual use aside from looking funny and being able to be §amilked with a bottle for pickle juice§9, which can be §adrunk§9 or used to §acraft the colorful potion§9, which can be used on tamed mobs. But you can also use a pickle cat or a cucumbeel for that. They are getting a unique use soon.%1%1§l§6- This is an old mob%1§r§9This mob is either useless because it was added years ago, it will eventually either be improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.picklepet=§aPicklepets§f are tamed with several sea items and can be milked to get pickle juice to drink or to craft the colorful potion.
+
+ui.billeys_mobs.info.duck=§e§l=========DUCK=========%1%1§r§l§6- General%1§r§aDucks§9 spawn in §alakes and rivers§9 and are §atamed with any kind of seeds§9,§a carrots§9,§a melon§9 or§a bread§9.%1%1§l§6- Finding Items%1§r§9After being tamed §aif they're not sitting§9, they'll find §arandom items in grass and water§9, §amostly seeds§9, §afishing loot§9 §aand rarely§9 ore nuggets(including §adiamond nuggets§9).%1%1§l§6- Duck Armor%1§r§9You can also craft §aarmor§9 for them, ducks equipped with armor will §adefend their owner§9, and to §atake off the armor§9 use §adirt§9. §aEnd rod duck armor§9 makes the duck §ashoot end rods to its target§9 that inflict weakness.%1%1§l§6- Rubber Ducky Pet Hat%1§r§9The §aRubber Ducky§9 pet hat is an item rarely found by ducks in water. It can be equipped on §aany pet§9 from this add-on and make it §amore likely to "combo"§9(hit its target without getting hurt back)§a its target§9. It also enables pets that don't usually fight for you, to §afight for you anyway§9, just like any piece of pet equipment that makes the pet stronger does(currently just this and the rat crown).%1%1§l§d- Leveling%1§r§9Ducks can be §aleveled up§9. To §alevel up§9 ducks, you have to §amake them kill mobs§9 (by equipping the duck with armor and then attacking mobs). When a duck levels up, its §ahealth, attack damage, speed and reach increase§9. Leveled ducks will also §afind items in grass and water more often§9, and from §alevel 5 and onwards§9 the items they find will also start becoming §abetter§9. Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. The default level is level 1 and the max is level 10.
+
+ui.billeys_mobs.short_info.duck=§aDucks§f are tamed with seeds or bread and will find random items in grass and water if they aren't sitting. §7They also defend you if you equip them with armor.
+
+ui.billeys_mobs.info.flyingpig=§e§l=========ANGEL PIG=========%1%1§r§aAngel pigs§9 spawn in §aflower forests§9 and are §atamed with golden carrots§9. After being tamed, they§a randomly give resistance to nearby tamed mobs§9 from billey's mobs, as well as vanilla fish, cats and parrots. They also§a randomly give levitation and withering to nearby monsters§9.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.flyingpig=§aAngel pigs§f are tamed with golden carrots and randomly give nearby pets resistance and nearby monsters levitation and withering.
+
+ui.billeys_mobs.info.penguin=§e§l=========PENGUIN=========%1%1§r§l§6- General%1§r§aPenguins§9 spawn in §abeaches§9 and §afrozen oceans§9. They are §atamed with sea pizza§9(obtained by pizzafish that spawn in warm oceans).%1%1§l§6- Ice Cream%1§r§9If you §aput a pet chef hat§9(crafted with kiwi feathers and wool) on a penguin and §agive it sugar§9, it'll make you an §aice cream§9, ice cream gives you §aa few beneficial effects§9, and is even §amore powerful in warm biomes§9 and in the nether. However in cold biomes it gives you detrimental effects instead.%1%1§l§6- Penguin Boots%1§r§9Penguins also §arandomly shed feathers§9 with which you can craft §apenguin boots§9 which give you §alots of speed on snow and ice§9, especially on ice, and even more on packed and blue ice, as well as a little bit of speed on sand.
+
+ui.billeys_mobs.short_info.penguin=§aPenguins§f are tamed with sea pizza, can make ice cream, and randomly shed feathers with which you can craft penguin boots.
+
+ui.billeys_mobs.info.banana_duck=§e§l=========BANANA DUCK=========%1%1§r§l§6- General%1§r§aBanana ducks§9 spawn in §abeaches§9, §adeserts§9, and basically anywhere where there's sand. They are §atamed with bread§9.%1%1§l§6- Bananas%1§r§9After being tamed, you can feed them an§a apple§9 to get a §a"desert banana"§9. Desert bananas give you §arandom amplifier II beneficial effects§9 and can be fed to any tamed mob in the add-on. Eating a desert banana also gives you a §abanana peel§9, which can be §aplaced down§9 and §awhen something steps on it, it'll lose 12 HP / 6 hearts and get slowness§9 and nausea for a few seconds, meaning §a2 banana peels are enough to kill most monsters and§9 also§a players§9 not wearing armor. Banana peels also §adon't affect players and tamed mobs by default§9, but you can §acraft ones that affect players using a single regular one§9.%1%1§l§6- Duck Armor%1§r§9You can also craft §aarmor§9 for banana ducks, banana ducks equipped with armor will §adefend their owner§9, and to §atake off the armor§9 use §adirt§9. §aEnd rod duck armor§9 makes the banana duck §ashoot end rods to its target§9 that inflict weakness.%1%1§l§d- Leveling%1§r§9Banana ducks can be §aleveled up§9. Aside from §atheir health and attack damage increasing§9, leveled banana ducks will also §abecome able to turn more items to sand bananas instead of just apples§9. From §alevel 5 and onwards§9, they can take §asweet berries§9, from §alevel 7§9, §apoultry oranges§9, and in §alevel 10§9, melon slices. The default level is level 1 and the max is level 10.%1%1§l§d- How to Level%1§r§9To §alevel up§9 banana ducks, you have to §amake them kill mobs§9 (by equipping the banana duck with armor and then attacking mobs). Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. Banana ducks also §alevel up by making bananas§9, but the amount of xp that gives them descreases every level.%1%1§l§6- Other%1§r§9There are also §asecret variants§9 of banana ducks, try breeding them in strange places, or try doing something with the other birds of the add-on.%1%1§l§6- Credits%1§r§eBanana duck texture by BOYOFTHEMONSTERS.
+
+ui.billeys_mobs.short_info.banana_duck=§aBanana ducks§f are tamed with bread and if you feed one an apple you get a banana that gives you a random beneficial effect and a banana peel that can be used as a trap.
+
+ui.billeys_mobs.info.rideable_duck=§aGolden ducks and purple banana ducks§9 can be §aridden when they grow up§9 and §acontrolled with a fish sword§9 or a golden fish sword. §aTo§9 make a rideable duck §asit or stand§9, §asneak while holding anything§9.
+
+ui.billeys_mobs.info.snail=§e§l=========SNAIL=========%1%1§r§l§6- General%1§r§aSnails§9 spawn in §amost biomes§9(same as pigs and cows) and are §atamed with apples§9,§a leaves§9 ,§aflowers§9,§a sea pickles§9 and§a many other items§9. There are §a3 types§9 of snail, each one gives a certain §apotion effect§9 for a really long time, ones with §astraight antennas§9 give §aweakness§9, ones with §aslightly tilted antennas§9 give §aslowness§9 and ones with §aquite tilted antennas§9 give §awithering§9. They are mostly useful when you §akill and cook them§9 as they give the effect opposite of what they gave when they were alive after being cooked and can also be used to heal any mob in the add-on, but you can also §atame them and have them defend you§9, and also angel mobs give them a lot of buffs. Keep in mind that moving them around is quite hard since they can't teleport to their owner and are very slow.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.snail=§aSnails§f can be cooked for beneficial effects, or tamed by feeding them leaves or apples. §7They also give a certain potion effect for a really long time whenever they attack.
+
+ui.billeys_mobs.info.piranha=§e§l=========PIRANHA=========%1%1§r§l§6- General%1§r§aPiranhas§9 spawn in §alakes and rivers§9, can be put in a bucket and §atamed with sea pizza§9, but they don't follow you unless you use a stick on them. When they die §athey drop a raw piranha§9 and sometimes a random water related item.%1%1§l§6- Piranha Launcher%1§r§9Raw piranha can be used, along with 3 iron ingots and a piece of redstone powder, §ato craft a piranha launcher. To pick up piranhas, hit them while holding a piranha launcher, a piranha launcher can be loaded with up to 64 piranhas§9.
+
+ui.billeys_mobs.short_info.piranha=§fRaw §apiranhas§f can be used to craft a piranha launcher.
+
+ui.billeys_mobs.info.cucumbeel=§e§l=========CUCUMBEEL=========%1%1§r§l§6- General%1§r§aCucumbeels§9 spawn in §acoral reefs§9 and are §atamed with sea pizza§9, but they don't follow you unless you use a stick on them. After being tamed§a they can be ridden underwater§9 and will give you §a5 seconds of water breathing§9 whenever you jump out of water with one. They can also be milked with a bottle to get §apickle juice§9 to drink or to craft the §acolorful potion§9. You can also §aboost them§9 with §aorange peels§9(obtained from orange penguins, which spawn on top of sand in mesas) and §achocolate catfish§9.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.cucumbeel=§aCucumbeels§f are tamed with sea pizza and can be ridden or milked to get pickle juice to drink or to craft the colorful potion.
+
+ui.billeys_mobs.info.pickle_cat=§e§l=========PICKLE CAT=========%1%1§r§l§6- General%1§r§aPickle cats§9 spawn in §acoral reefs§9 and are §atamed with raw cod§9,§a raw salmon§9,§a sea pizza§9 or§a raw catfish§9. After being tamed, they§a randomly give water breathing to nearby tamed mobs§9 from billey's mobs, as well as vanilla fish, cats and parrots. They can also be milked with a bottle to get §apickle juice§9 to drink or to craft the §acolorful potion§9. You can also §adye them§9.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.pickle_cat=§aPickle cats§f are tamed with sea pizza or raw fish and randomly give nearby pets water breathing.
+
+ui.billeys_mobs.info.velvet_worm=§e§l=========VELVET WORM=========%1%1§r§l§6- General%1§r§aVelvet worms§9 spawn in §ajungles§9 and §ararely in plains§9. They are §atamed §9with§a fermented spider eyes§9, §a spider eyes§9 or §a string§9. %1%1§l§6- Velvet Slime Balls%1§r§9Velvet worms §adestroy cobwebs§9, and §aattack§9 most wild §aarthropods§9(eg. §aspiders§9, silverfish, wild pill bugs and stick bugs) and most of the time §awhen they attack something§9, they drop §avelvet slime balls§9, which can be §athrown§9 or §acrafted§9 into §avelvet slime blocks§9.%1%1§l§6- Velvet Slime Blocks%1§r§aPurple-green§9 velvet slime blocks give §awithering and slowness to monsters§9 that walk over them, §ablue-green ones§9 give §aspeed to players§9 and §amixed ones§9 give §aregeneration and less speed to players§9.%1%1§c-Duck Centipede (Boss)%1§r§aWhen a duck kills one§9 you have a chance to get a Duck Centipede§a boss spawn egg§9 which you §ashouldn't spawn in your house nor right outside§9. Duck centipedes drop §athrowable ducks§9 than can be thrown and attack everything other than other ducks, tamed mobs and the player who threw them. Thrown ducks can also be picked up.
+
+ui.billeys_mobs.short_info.velvet_worm=§aVelvet worms§f are tamed with spider eyes, break cobwebs, attack spiders, and when they attack they drop velvet slime balls which can be thrown or used in crafting.
+
+ui.billeys_mobs.info.duck_centipede=§e§l=========DUCK CENTIPEDE (BOSS)=========%1%1§r§aWhen a duck kills a velvet worm§9 you have a chance to get a Duck Centipede§a boss spawn egg§9 which you §ashouldn't spawn in your house nor right outside§9. Duck centipedes drop §athrowable ducks§9 than can be thrown and attack everything other than other ducks, tamed mobs and the player who threw them. Thrown ducks can also be picked up.
+
+ui.billeys_mobs.info.hamster=§e§l=========HAMSTER=========%1%1§r§aHamsters§9 spawn in §asavannas§9 and §ararely in plains§9. They are §atamed with any kind of seeds§9, or§a carrots§9. They currently don't have any use. §aI'm open to suggestions for uses for hamsters, or for any mob that is currently useless§9. They'll also get more interesting variants.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.hamster=§aHamsters§f are tamed with seeds or carrots and are useless.
+
+ui.billeys_mobs.info.goose=§e§l=========GOOSE=========%1%1§r§l§6- General%1§r§aGeese§9 spawn in §alakes and rivers during the night§9 and are §atamed with melon related items§9.%1%1§l§6- Equipping items%1§r§9After tamed a goose, §ayou can equip it with any item§9 by dropping it while it's standing. To get the item off, drop a§a melon related item or a poultry orage§9. Geese are also able to eat dropped glistering melons and will get beneficial potion effects from them(currently broken). I am aware that geese are currently basically just reskinned foxes and I will soon give them a more unique use.%1%1§l§6- Credits%1§r§eGoose model and texture by BOYOFTHEMONSTERS.
+
+ui.billeys_mobs.short_info.goose=§aGeese§f are tamed with melon items, defend their owner, can equip dropped items, and drop what they are holding if you drop a melon or a poultry orange.
+
+ui.billeys_mobs.info.catfish=§e§l=========CATFISH=========%1%1§r§l§6- General%1§r§aCatfish§9 spawn in §alakes and rivers§9, can be put in a bucket and §atamed with sea pizza or seeds§9, but they don't follow you unless you use a stick on them. Catfish are also immune to detrimental potion effects.%1%1§l§6- Chocolate Catfish%1§r§9When they die §athey drop a raw catfish§9 which can be eaten either cooked or raw to get §astring§9 or used §awith cocoa beans in a crafting table§9 and then §acooked§9 to get a §achocolate catfish§9 which gives a lot of speed for quite some time. Chocolate catfish can also be used to boost terraphins and cucumbeels while riding them for an entire minute.%1%1§l§6- Catfish Antibodies%1§r§9You can get §atemporary immunity to a particular effect§9 by injecting yourself with catfish antibodies §awhile you have the effects§9 you want to get immunity from. The immunity lasts for §a10 minutes§9, and also getting a new immunity clears previous immunities.Catfish antibodies can §aalso be injected in mobs§9, tamed or not, to do the same thing.  Catfish antibodies §acan also§9 make you immune to §abeneficial effects§9 so beware of that unless you're injecting a hostile mob that gives itself beneficial effects. Additionally the injections deals 1 HP or half a heart of damage but cannot be used to kill things other than killing yourself.%1%1§l§6- Obtaining Catfish Antibodies%1§r§9First you have to §acraft a Syringe§9 with 1 kiwi fur, 1 glass and 1 diamond. Then §atame a catfish and use the syringe§9 on it to get §aCatfish Blood§9, the catfish will lose 3 HP or 1.5 hearts of its health. You can then §abrew §9the catfish blood §awith nether wart§9 to get §aCatfish Antibodies§9.%1%1§l§6- Credits%1§r§eCatfish model and texture by BOYOFTHEMONSTERS.
+
+ui.billeys_mobs.short_info.catfish=§aCatfish§f can be used to get temporary immunity to particular effects. §7You can also put them in a bucket and tame them with seeds.
+
+ui.billeys_mobs.info.kiwi=§e§l=========KIWI=========%1%1§r§l§6- General%1§r§aKiwis§9 spawn in §aforests during the night§9 and are §atamed with spider eyes§9. If you kill or §ashear§9 one you get §akiwi feathers§9. With it you can craft equipment for your pets, specifically §aduck armor§9 and the §apet hat§9. Sheared kiwis can also be bone mealed.%1%1§l§6- Pet Hat%1§r§9The pet hat makes a mob §aabsorb any kind of damage once and then the hat gets destroyed§9, and §ato take it off§9 try putting a hat on a mob that's wearing one. The pet hat, leather duck armor and end rod duck armor are §adyeable by dyeing the mob wearing it§9. The pet hat can be put on any Billey's Mobs pet or vanilla cat.%1%1§l§6- Credits%1§r§eKiwi model and texture by BOYOFTHEMONSTERS.
+
+ui.billeys_mobs.short_info.kiwi=§aKiwis§f are tamed with spider eyes. You can shear them for their feathers to craft pet equipment.
+
+ui.billeys_mobs.info.betta_fish=§e§l=========BETTA FISH=========%1%1§r§aBetta fish§9 spawn rarely in §alakes and rivers§9, can be put in a bucket and §atamed with sea pizza§9, but they don't follow you unless you use a stick on them. They currently don't really have any use while they are alive(I'm open to suggestions), but when they die §athey drop a raw betta fish§9 which can be eaten raw to give you levitation or cooked to give quite some nutrition and saturation. You can also breed them to get §asecret variants§9, you get hints when you complete advancements, but you can also just §arandomly breed different variants§9 and you'll probably get something new.%1%1§l§6- This is an old mob%1§r§9This mob is either useless, weird or ugly because it was added years ago, it will eventually either be removed or improved. I promise most other mobs are better.
+
+ui.billeys_mobs.short_info.betta_fish=Raw §abetta fish§f gives levitation when eaten, and breeding betta fish of a differnet variant might result in a new variant.
+
+ui.billeys_mobs.info.electric_eel=§e§l=========ELECTRIC EEL=========%1%1§r§l§6- General%1§r§aElectric eels§9 spawn in §alakes and rivers§9, can be put in a bucket and §atamed with sea pizza§9, but they don't follow you unless you use a stick on them.%1%1§l§6- Turning fish to nuggets%1§r§9Electric eels randomly §aelectrocute mobs§9 near them, more frequently after being tamed. §aWhen a§a cod, a salmon, a tropical §afish§9 or a mob from this add-on §ais killed by an electric eel it drops§9 random items, mostly §aore nuggets§9, including §adiamond nuggets§9. Also, tamed mobs from this add-on are immune to the shock.
+
+ui.billeys_mobs.short_info.electric_eel=§aElectric eels§f turn small fish into ore nuggets by electrocuting them. §7You can also put them in a bucket.
+
+ui.billeys_mobs.info.orange_penguin=§e§l=========ORANGE PENGUIN=========%1%1§r§l§6- General%1§r§aOrange penguins§9 spawn in §abadlands§9 and are §atamed with tropical fish§9 or§a raw betta fish§9.%1%1§l§6- Poultry Oranges%1§r§9After being tamed, §aoranges will randomly grow on their head, punch them§9(they won't get mad don't worry)§a or shear them§9 to take it§a, also, feed §9the orange penguin§a fish or have an angel cat nearby§9 to §aspeed up§9 the orange's growth. §aPoultry oranges§9 can be §aeaten§9, and are slightly better than cooked fish. When you eat a poultry orange you get an §aorange peel§9, which can be used to boost cucumbeels and terraphins while riding them. Poultry oranges can also be used to §abreed or heal any mob in the add-on§9.
+
+ui.billeys_mobs.short_info.orange_penguin=§aOrange penguins§f are tamed with tropical fish or betta fish. Oranges which can be used to breed or heal any mob from the add-on, randomly grow on their head, shear them to get them.
+
+ui.billeys_mobs.info.terraphin=§e§l=========TERRAPHIN=========%1%1§r§l§6- General%1§r§aTerraphins§9 spawn in §aforests§9 and §aflower forests§9. They are §atamed with poultry oranges§9 or§a raw snail§9.%1%1§l§6- Useage%1§r§aThey are getting a less confusing and more useful use soon but currently, §9after being tamed, §athey defend their owner§9, you §acan ride them§9, though §ato control them§9 you need to §acraft terraphin staff§9(fishing rod, happy powder, and either raw withering snail, cooked regeneration snail or a poultry orange). You can §aboost them§9 while riding them with§a orange peels§9,§a chocolate catfish§9 or§a terraphin staff§9. While boosted, they have a lot more speed, health and attack damage. §aWhen the boost finishes§9 they drop a §aterraphin furball§9 which can be §athrown§9 to give §alevitation§9. They also kinda help you find diamond ores and mob spawners but I'm not sure if it works. A terraphin's variant depends on the biome it spawned in, terraphins spawn in any kind of forest, including snowed forests and flower forests §aTry breeding 2 ones of a different variant§9.
+
+ui.billeys_mobs.short_info.terraphin=§aTerraphins§7(two-legged dolphins)§f are tamed with raw snail and can be ridden, they are very fast when fed certain items and give you terraphin furballs. §7They are getting a less confusing and more useful use soon.
+
+ui.billeys_mobs.info.mergoose=§e§l=========MERGOOSE=========%1%1§r§l§6- General%1§r§aMergeese§9 spawn in §alakes and rivers§9 and are §atamed with sea pizza§9, but they don't follow you unless you use a stick on them. §aThey have to breathe air§9 and can survive indefinetly on land, but they'll try crawl back into water. They also have a§a long spiky tongue§9 which they use to stab targets from a quite long distance, their target will almost always not land a single hit on them, even if it's a player, unless it has a ranged attack or a ranged weapon.%1%1§l§6- Mergoose Spikes%1§r§9When they attack something they drop §amergoose spikes§9, which can be §aused on stick bugs§9 to make them deal §atwice as much attack damage temporalily%1%1§l§6- Mergoose Sword%1§r§9Mergoose spikes can also be used to craft a §amergoose sword§9(diamond sword + 8 mergoose spikes), which is like a normal iron sword but it §acan deal damage from quite a long distance if you press the button you press to throw items§9(eg. long tap on mobile, right click on pc). And also after being tamed §amergeese defend their owner§9.
+
+ui.billeys_mobs.short_info.mergoose=§aMergeese§7(fat penguin-dolphin looking things)§f are tamed with sea pizza and drop spikes when they attack with which you craft a mergoose sword.
+
+ui.billeys_mobs.info.woodlouse=§e§l=========PILL BUG=========%1%1§r§l§6- General%1§r§aPill bugs§9(also known as woodlice and rolly pollys) spawn in §aunderground§9 in most biomes and are §atamed with poultry oranges§9,§a apples§9,§a melon§9 or§a sweet berries§9.%1%1§l§6- Speeding Up Crop Growth%1§r§9After being tamed, §athey speed up §9vanilla§a crop growth§9, I recommend putting some in a §afenced crop farm§9 and §amaking them wander around with a stick§9. %1%1§l§6- Turning dirt to grass%1§r§9Pill bugs also §arandomly turn the dirt block under them into a grass block§9.%1%1§l§6- Crossbreeding%1§r§9Most of the time when you §abreed 2 ones of a different variant§9 you'll probably get a §anew non-naturally spawning variant§9(not all possible combinations result in another variant) §athat§9 instead of speeding up crop growth, §aturns full grown wheat into a block that drops a random food item from the add-on§9 and a single wheat seed. You can also §aboost§9 pill bugs with §apigeon poop§9.
+
+ui.billeys_mobs.short_info.woodlouse=§aPill bugs§f are tamed with apples or sweet berries, turn dirt to grass and speed up crop growth, but certain ones do something more interesting.
+
+ui.billeys_mobs.info.deinonychus=§e§l=========DEINONYCHUS=========%1%1§r§l§6- General%1§r§aDeinonychuses§9 spawn in §aswamps§9 and are §atamed with raw chicken§9 or§a raw hamster§9. After being tamed, §athey defend their owner§9.%1%1§l§6- Attack Effects%1§r§9Before they attack something they §a hiss at their target§9, §agiving their target slowness and weakness§9, and §abeneficial effects§9(regeneration, resistance, speed and strength)§a to nearby fellow dinosaurs(including birds§9 from this add-on§a)§9 §aand also to nearby players§9.%1%1§l§6- Deinonychus Feathers%1§r§9Sometimes when they §aget hurt§9 they'll drop a §adeinonychus feather§9 which can either be used in place of a regular feather §ato craft slowness tipped arrows§9 or used with a regular arrow in crafting to turn it into a slowness tipped arrow. You can also §ashear them§9 to get those feathers but it has a 10 minute cooldown.%1%1§l§d- Leveling%1§r§9Deinonychuses can §alevel up§9 by killing mobs, when they level up not only do §atheir health and attack damage increase§9 but the §aslowness and weakness§9 they inflict will §alast for longer§9 and be inflicted to a §alarger radius§9. Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. The default level is level 1 and the max is level 10.
+
+ui.billeys_mobs.short_info.deinonychus=§aDeinonychuses§f are tamed with raw chicken, defend their owner and give fellow dinosaurs(including birds) and players beneficial effects and also stun monsters before they attack something.
+
+ui.billeys_mobs.info.yutyrannus=§e§l=========YUTYRANNUS=========%1%1§r§l§6- General%1§r§aYutyrannuses§9 spawn in §asnowed plains§9. §aBabies§9 are §atamed with raw chicken§9 or§a raw hamster§9 but §aadults can't be tamed normally§9, only with the power banana which can tame any mob in the add-on. Yutyrannuses have §aa lot of health§9 and deal §aa lot of attack damage§9.%1%1§l§6- Attack Effects%1§r§9They also §aget some regeneration whenever they kill something§9 and §aroar at their target§9, §ainflicting withering§9, though their roar doesn't affect tamed mobs from this add-on, other yutyrannuses, and players that have tamed a yutyrannus.%1%1§l§6- Taming%1§r§aTaming one is quite tricky§9 since §awhenever you come too close to a baby, the entire pack will attack you§9. However if you do manage to §atame one it will defend you§9, attack monsters unprovoked, losing little to no health in the process, and §awhen it grows up, if you put a saddle on it you'll be able to ride it§9 and control it, and you'll also be to §aride it on the surface of water§9.%1%1§l§6- Yutyrannus Feathers%1§r§9When a yutyrannus §agets hurt§9 it has a chance to §adrop a yutyrannus feather§9, which can be used to craft §atipping arrows of decay§9. You can also §ashear them§9 to get those feathers but it has a 10 minute cooldown.%1%1§l§d- Leveling%1§r§9Yutyrannuses can §alevel up§9 by killing mobs, when they level §atheir health and attack damage increase§9. Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. However, §ayutyrannus roaring doesn't give it XP§9, meaning in §ahigher levels§9 where the yutyrannus will kill most mobs by roaring, you'll have to §agive it stronger mobs to kill§9, such as endermen, ravagers and iron golems. The default level is level 1 and the max is level 10.%1%1§l§6- Credits%1§r§eYutyrannus model by DARKSIDED SOULZ.
+
+ui.billeys_mobs.short_info.yutyrannus=Only baby §ayutyrannuses§f can be tamed normally, with raw chicken. If you tame one, when it grows up it'll become rideable and extremely strong. §7Adult yutyrannuses, like any other mob in the add-on, can still be tamed with power bananas.
+
+ui.billeys_mobs.info.stick_bug=§e§l=========STICK BUG=========%1%1§r§l§6- General%1§r§aStick bugs§9 spawn in §aforests and jungles§9 and are §atamed with poultry oranges§9,§a apples§9,§a melon§9 or§a sweet berries§9.%1%1§l§6- Potato Sticks%1§r§9After being tamed, they'll randomly §aturn full grown potato crops§9 to a block that drops §aseveral potato sticks§9. Those potato sticks combined give §amore nutrition and saturation that a single baked potato§9 and can be §aeaten instantly§9. Stick bugs can be §aboosted with pigeon poop§9. %1%1§l§6- Attacking mobs without being hurt%1§r§9Stick bugs also §adefend their owner and are immune to projectiles§9, though they have very low health and attack damage but they §abecome invisible before attacking§9, and §amobs won't fight them back§9. Stick bugs can be §amade to temporalily deal twice as much attack damage§9 for an hour with §amergoose spikes§9. You'll know the mergoose spike boost is over when you are able to put mergoose spikes on them again. Stick bugs also §adance to music discs§9.
+
+ui.billeys_mobs.short_info.stick_bug=§aStick bugs§f are tamed with apples or sweet berries and defend their owner without monsters fighting them back. They also turn full grown potato crops to potato sticks which can be eaten instantly.
+
+ui.billeys_mobs.info.rat=§e§l=========RAT=========%1%1§r§l§6- General%1§r§aRats§9 spawn §aunderground in medium light levels§9 and are §atamed with poultry oranges§9,§a apples§9,§a melon§9 or§a sweet berries§9.%1%1§l§6- Robbing Monsters%1§r§9After being tamed, they'll §aattack and steal certain items from monsters§9, §awhen you attack a mob §9that's holding an item rats can steal. Rats will also have a §achance§9 to give the stolen item a §arandom enchantment§9, and they §acan only steal§9 the following items: bow, crossbow, iron axe, iron sword, iron shovel, stone sword, gold sword, gold axe and trident.%1%1§l§6- Cooking%1§r§9If you equip one with a §apet chef hat§9(crafted with kiwi feathers and wool) and §agive it a bowl§9, you'll get a bowl of §aratatouille§9, which gives §aregeneration, resistance and night vision when eaten§9. If you §agive it a glass bottle§9 instead, you'll get a bottle of §arat beer§9, which gives §astrength§9 when drank but also has a chance to give nausea and/or mining fatigue.%1%1§l§6- Putting them on your head%1§r§9You can also §aput them on your head by§9 petting them§a(sneak + right click/long tap)§9 and then walking into them. Rats will §aget off your head§9 either when you §ajump while sneaking§9 or when you hit a mob that's holding an item rats can steal. Also, §awhile rats are on top of your head§9, they are §aimmune to any kind of damage§9.%1%1§l§6- Crossbreeding%1§r§9You can get §acolor patterns§9 by §abreeding§9 two rats §aof a different color§9.%1%1§l§6- Credits%1§r§eModel and texture by HyspiEeze.%1%1§c-Rat King (Boss)%1§r§9The rat king is a boss that can be obtained from rats. It looks like 5 rats, 2 netherrats and a fat crowned rat, all tied together at the end of their tails. Its drops can be equipped on rats to make them more useful. For more info §alook up Rat King in the Info Book in the boss category§9.
+
+ui.billeys_mobs.short_info.rat=§aRats§f are tamed with apples or sweet berries, steal mobs' weapons, can cook for you, and can even be used to summon a boss.
+
+ui.billeys_mobs.info.netherrat=§e§l=========NETHERRAT=========%1%1§r§l§6- General%1§r§aNetherrats§9 spawn in §anether biomes§9 other than the old/default/plain one. They are §atamed with crimson fungus§9 or§a warped fungus§9.%1%1§l§6- Robbing Mobs%1§r§9After taming them, you'll be able to make them §aattack and rob villagers, wandering traders and piglins §9making them drop§a emerald and gold§9, or some of their trades. However, unlike overworld rats, §anetherrats can defend their owner from any kind of mob§9 whether they can rob it or not, but they're still quite weak.%1%1§l§6- Cooking%1§r§9If you equip a netherrat with a §apet chef hat§9(crafted with kiwi feathers and wool) and §agive it a bowl§9, you'll get a bowl of §aspicy ratatouille§9, which gives §aregeneration, resistance and fire resistance when eaten§9 but makes you loose a bit of health. If you §agive it a glass bottle§9 instead, you'll get a bottle of §awarped wine§9, which gives §ahaste§9 when drank but also has a chance to give nausea and/or weakness.%1%1§l§6- Putting them on your head%1§r§9You can also §aput them on your head by§9 petting them§a(sneak + right click/long tap)§9 and then walking into them. Netherrats will §aget off your head§9 either when you §ajump while sneaking§9 or when you hit a mob netherrats can rob. Also, §awhile netherrats are on top of your head§9, they are §aimmune to any kind of damage§9.%1%1§l§6- Crossbreeding%1§r§9You can get §acolor patterns§9 by §abreeding§9 two netherrats §aof a different color§9.%1%1§l§6- Credits%1§r§eOriginal rat model and texture by HypsiEeze.
+
+ui.billeys_mobs.short_info.netherrat=§aNetherrats§f are tamed with crimson or warped fungus, rob trader mobs, and can even cook for you if you equip one with a hat and give it a bowl or a bottle. §7You can also put them on your head.
+
+ui.billeys_mobs.info.slime_wyvern=§e§l=========SLIME WYVERN=========%1%1§r§l§6- General%1§r§aSlime wyverns§9 spawn in §aswamps§9 and are §atamed with slime§9 balls or slime blocks.%1%1§l§6- Putting on your head for slow falling%1§r§9After taming one, you'll be able to §aput it on your head§9 by petting it§a(sneak + right click/long tap)§9. Having a slime wyvern on your head gives you §aslow falling§9 and §aslowness I§9.%1%1§l§6- Other%1§r§9Tamed slime wyverns also §adefend their owner§9 but they'll also §aattack phantoms§9 even if they aren't commanded to.%1%1§l§d- Leveling%1§r§9Slime wyverns can §alevel up§9 by killing mobs, when they level up §atheir health and attack damage increase§9. Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. The default level is level 1 and the max is level 10. On §alevel 10§9 slime wyverns §astop giving you slowness when on your head§9 and instead give only slow falling.%1%1§l§6- Credits%1§r§eSlime wyvern model by HypsiEeze and texture by BOYOFTHEMONSTERS. First Discord Mob Vote winner, submitted by bonecrusher1136.
+
+ui.billeys_mobs.short_info.slime_wyvern=§aSlime wyverns§f are tamed with slime, attack phantoms, and can be put on your head to give you slow falling.
+
+ui.billeys_mobs.info.tiktaalik=§e§l=========TIKTAALIK=========%1%1§r§l§6- General%1§r§aTiktaaliks§9 spawn in §aswamps§9 and are §atamed with raw piranhas§9 or§a sea pizza§9. Tiktaaliks allow you to §amorph§9 into some of this add-on's mobs(only ducks for now).%1%1§l§6- Brewing Morph Potions%1§r§9To start, you have to §amake a tiktaalik kill a§9 large or medium §aslime§9 to get §aTiktaalik Slime§9. Then §abrew the tiktaalik slime with a thick potion§9(thick potions are made by brewing glowstone with water bottles) in a §abrewing stand§9. By doing that you'll get an §aEmpty Morph Potion§9, which you can use to brew morph potions or drink to §aturn back into a player§9.%1%1§l§6- Duck Morph%1§r§9The §aDuck Morph Potion§9 can be made by §abrewing§9 empty morph potions with a §afeather§9. After drinking it you turn into a duck, meaning you'll have §a4 hearts§9 of health but will also §afall slowly§9, §afloat automatically§9 and be §afaster on the surface of water§9. Additionally, §awild ducks will defend you§9 and you can also §aquack by sneaking§9, which also makes wild ducks angry at the mob you're looking at.%1%1§l§6- Hiding your name%1§r§9You can §ahide your nametag§9 by drinking the same morph potion twice.%1%1§l§d- Leveling%1§r§9Tiktaaliks can §alevel up§9 by killing mobs, when they level up §atheir health and attack damage increase§9, and also they drop §atiktaalik slime more often§9. Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. The default level is level 1 and the max is level 10.%1%1§l§6- Credits%1§r§eTiktaalik model by BOYOFTHEMONSTERS. Textures by me, DARKSIDED SOULZ and BOYOFTHEMONSTERS.
+
+ui.billeys_mobs.short_info.tiktaalik=§aTiktaaliks§f are tamed with raw piranha and allow you to morph into some of this add-on's mobs§7(only ducks for now).
+
+ui.billeys_mobs.info.pygmy_dunkleosteus=§e§l=========PYGMY DUNKLEOSTEUS=========%1%1§r§l§6- General%1§r§aPygmy dunkleosteuses§9(or pygmy dunks for short) spawn in §aunderground lakes§9 and §aunderwater caves§9. They are §atamed by letting them kill a tamed pizzafish of yours§9, or(mostly useful in creative mode) by feeding them power bananas. However, pygmy dunks can be §abred and healed with sea pizza§9, and also ones untamed with the untaming stick can be retamed with sea pizza. Tamed pygmy dunks also §adefend their owner§9. You can also §aput§9 pygmy dunks in a §abucket§9.%1%1§l§6- Breeding to get patterns%1§r§9You can get pygmy dunks with §apatterns§9 by §abreeding 2 ones of a different color§9. Most of the patterns resemble §akoi fish§9.%1%1§l§6- Reinforcing Armor and Elytra%1§r§9You can get §apygmy dunk scutes§9 by §abrushing a tamed pygmy dunk§9. You can §areinforce§9 an armor piece by holding pygmy dunk scutes and §along tapping/right clicking§9. Reinforced armor §aprotects you more than regular armor§9, but the reinforcement will only last for §a100 hits§9 before the reinforced armor turns back into regular armor. The §aitems that can be reinforced§9 are the following: §aElytra§9, §aTurtle Shell§9(also known as turtle helmet), §aDuck Hat§9(not pet hat), and all pieces of §aIron Armor§9. I don't know exactly how much extra protection reinforcement provides, but §areinforced iron armor§9 appears to be as good as §adiamond§9.%1%1§l§d- Leveling%1§r§9Pygmy dunks can §alevel up§9 by killing mobs, when they level up §atheir health and attack damage increase§9. Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. The default level is level 1 and the max is level 10. Leveling pygmy dunks currently doesn't unlock any actual extra functionality, but it may soon, such as better scutes.%1%1§l§6- Credits%1§r§ePygmy dunk model by HypsiEeze and texture by BOYOFTHEMONSTERS. Crossbred pattern texture templates by PepsiMAX. Second Discord Mob Vote winner, submitted by Superflitten.
+
+ui.billeys_mobs.short_info.pygmy_dunkleosteus=§aPygmy Dunkleosteuses§f are tamed by lettng them kill tamed pizzafish, and can be used to make elytra and iron armor give more protection. §7You can also breed them to get cool patterns.
+
+ui.billeys_mobs.info.rat_king=§e§l=========RAT KING=========%1%1§r§l§6- General%1§r§9The rat king is a §aboss§9 that can be obtained from rats. It looks like 5 rats, 2 netherrats and a fat crowned rat, all tied together at the end of their tails. Beware though as this fight is §amuch harder than the duck centipede§9. It §adrops§9 2 items on death, a §arat crown§9 and a §arat royal chef hat§9, both of which can be equipped on rats to make them more useful.%1%1§l§6- Summoning%1§r§9To summon a rat king you first have to §atame 5 rats§9 and §a2 netherrats§9, all of §adifferent variants§9. Then, make them sit §aclose to each other§9 and sacrifice them by getting them §astruck by lightning§9. The recommended way to get them struck by lightning is placing a §alightning rod§9(the thing made out of copper) where those rats that will be sacrificed are and then using a §atrident enchanted with channeling, while it's raining§9 to cause a lightning. Then those rats will disappear and a rat king will be summoned.%1%1§l§6- Spoiler-free tips%1§r§aDo not summon§9 a rat king §ainside your house§9, it will kill most of your pets. Also, make sure to §abring a strong pet§9(yutyrannus of any level, or any level 10 pet) into the battle, but a §aparticular action§9 from you will still ocassionally be needed. Also try to bring a variety of weapons.%1%1§l§6- Rat Crown%1§r§9The rat crown can be equipped on §aany pet§9 to make it §asummon temporary rats in battle§9. Additionally the rat crown acts as §aarmor for rats§9, making them receive only 25% of the damage they would normally receive. Also, the summoned rats can rob mobs of their equipment and randomly enchant it, just like normal rats.%1%1§l§6- Rat Royal Chef Hat and Rat Potion%1§r§9The rat royal chef hat can be equipped on rats and netherrats to make them §abrew rat potions§9. To brew a rat potion, a rat must be §agiven an empty bottle§9. The §arat potion§9 can be thrown to temporalily §aturn mobs into useless rats§9, mostly useful against monsters, especially creepers. It doesn't work on tamed mobs and mobs with a max health of 100 HP or higher(such as bosses).%1%1§l§6- Advanced tips for the Rat King battle%1§r§9Hit the chefs while they're cooking, to prevent them from making potions. Some of these potions are quite vicious but others turn your pets into useless rats for 10 seconds. §aKilling those useless rats won't kill your pet§9 but rather simply make it come back instantly.
+
+ui.billeys_mobs.info.duckatrice=§e§l=========DUCKATRICE (PET)=========%1%1§r§l§6- General%1§r§9Duckatrices are §abig, flying ducks§9 that §ado not spawn naturally§9. The way to get a duckatrice is to §akill the Duckatrice Boss§9 and then use the "§aDuckatrice Amber§9" it drops on a §alevel 10 duck§9 of yours. The duckatrice's main use is being a §aflying ride§9. Duckatrices are §aalways tamed§9 and can be §ahealed with§9 anything ducks(seeds, carrots, etc.) or yutyrannuses(meat) can. §aRead the Duckatrice Boss's info book entry for how to summon it§9. %1%1§l§6- Obtaining%1§r§9To get a duckatrice you'll have to §asummon and defeat§9 the §aDuckatrice Boss§9 to get an item called §aDuckatrice Amber§9. Using duckatrice amber on a §alevel 10 duck§9 of yours will transform it into §ayour own pet duckatrice§9. Keep in mind however that the duckatrice is not an objective upgrade as duckatrices don't find items in grass and water like ducks do. After the transformation all data of the duck will be passed on to the duckatrice including owner, nametag, equipment, equipment color, etc. This means that §ayour duckatrice will be the same variant as the that transformed to it§9.%1%1§l§6- Riding%1§r§9To ride your duckatrice, put a §asaddle§9 on it and then right click it, long tap it or press the "Ride" button. The saddle can be removed by attempting to put another saddle on the duckatrice while it's already wearing one. To §astart flying§9 while on the duckatrice, §ajump§9, or fall off some height. §aLook up§9 to go up, look straight to go straight, or look down to go down. Duckatrices have §alimited stamina for going upwards§9 unless you §aboost§9 them with sweet items.%1%1§l§6- Boosting%1§r§9While riding a duckatrice, you can §aboost its speed§9 by feeding it §asweet items from this add-on§9(desert bananas, poultry oranges, penguin ice cream, etc.) or rat beer or warped wine. Length and strength of the speed boost varies by item. Also, duckatrices of higher level get an even stronger speed boost. While boosted, duckatrices can also §ago up freely§9.%1%1§l§6- Duckatrice's Stare Effect%1§r§9If you §apet§9(sneak + right click/long tap/etc.) your duckatrice empty handed, you will lose 1 level and your §ahelmet§9 will be temporalily granted the §aDuckatrice's Stare§9 effect which §adamages mobs that are angry at you if you look at them§9. Higher level duckatrices give higher levels of the stare effect.%1%1§l§d- Leveling%1§r§9Duckatrices can §alevel up§9 by killing mobs, when they level up §atheir health and attack damage increase§9, and some of their other abilities become better as said above. Mobs that level up by killing things §aprogress through leveling more by hitting mobs than by just killing§9, which means that to level up your mob faster, §amake it kill mobs with lots of health§9. Duckatrices after their transformation from a duck are in level 1 and can be leveled up to level 10.%1%1§l§6- Credits%1§r§eDuckatrice model by HypsiEeze and texture by BOYOFTHEMONSTERS. Mandarin variant texture by Essex Norville.
+
+ui.billeys_mobs.short_info.duckatrice=§aDuckatrices§f can be used as a flying ride. §7Since duckatrices don't spawn naturally, wild duckatrices don't exist. Because of this, they spawn already tamed if spawned through a spawn egg.
+
+ui.billeys_mobs.info.duckatrice_boss=§e§l=========DUCKATRICE BOSS=========%1%1§r§l§6- General%1§r§9The §aDuckatrice Boss§9 is a §abig, flying, scary-looking duck§9 that you have to §akill to get §9"§aDuckatrice Amber§9", which allows you to §aturn a level 10 duck of yours into your own pet duckatrice§9(which can fly and is rideable).%1%1§l§6- Summoning%1§r§9To §asummon§9 a duckatrice, get a §aduck§9 to sit next to some §afrogspawn§9(frog eggs) and feed the duck an §aominous potion§9(the potion dropped by illager captains). The frogspawn will then transform into a §aDuckatrice Boss Egg§9 that if §ahit twice§9 within a second, will §asummon the duckatrice boss§9. The egg §acannot be moved§9, meaning you should §achoose the place to do this wisely§9 since it'll also be the place you fight the duckatrice in. The duck you use for the summoning doesn't have to be in level 10 and also doesn't have to be the duck you'll later evolve into a duckatrice. But most importantly, §amake sure to bring strong pets to the battle and a diverse range of weapons§9.%1%1§l§6- Stare Damage%1§r§9If you §astare at the boss§9 while it's angry at you you'll get §adamaged§9, and §athe more you look at it§9 the more damage it will inflict. The boss also heals whenever its stare damages you.%1%1§l§6- Phases%1§r§9The duckatrice boss has §a3 phases§9 depending on how much health it has left. In phase 1 it §achooses whether to fly or not§9 depending on whether or not it can reach you, in phase 2 it §aonly flies§9, and in phase 3 it (mostly) §aonly walks§9. In phases 2 and 3 it also summons hostile §aduck minions§9.
+
+ui.billeys_mobs.info.giraffe_cat=§e§l======GIRAFFE CAT======%1%1§r§l§6- General%1§r§aGiraffe cats§9 spawn in §asavannas§9 and can be §atamed with§9 raw or cooked, §afish, chicken, or hamster§9, or with §aleaves§9.%1%1§l§6- Throwing Pets%1§r§9When a tamed giraffe cat has a §atarget§9 and there's a nearby §atamed pet§9 of the same owner, it will §apick up and yeet the other pet at the enemy§9. If the thrown pet hits the target it will §adeal damage on impact§9 and will continue to attack the target, even if it doesn't usually defend its owner. Pets that are sitting won't be yeeted.%1%1§l§6- Living Ladder%1§r§9If you §ause a ladder§9 on a giraffe cat, it will §aextend its neck§9 and allow you to §ause it as a ladder§9. You can §aincrease or decrease§9 its ladder height up to §a64 blocks§9 by using a ladder on it while not sneaking or sneaking respectively. After climbing above your giraffe cat, it §ateleports to you§9 and returns to normal, even if it was sitting.%1If you don't want that to happen then either let your friends climb it first or make it wander.%1%1§l§6- Digging Up Mobs%1§r§9If the giraffe cat is §astanding on grass§9 or dirt, and §afed a giraffe cat treat§9, it will shove its head in the ground and eventually §adig up a§9 random borrowing critter like a §arat§9, §ahamster§9, or §akiwi§9. Other add-ons can add more mobs to the diggable mobs, see line 428 in scripts/billeys_mobs/giraffe_cat.js in the add-on's behavior pack if you're an add-on creator.%1%1§l§6- Crossbreeding with Cats%1§r§9If you breed a giraffe cat with a cat, the result will be a giraffe cat with the texture of the cat.%1%1§l§d- Leveling%1§r§9Giraffe cats can §alevel up§9 by killing mobs, either directly or by throwing pets. When they level up §atheir health and attack damage increase§9.
+
+ui.billeys_mobs.short_info.giraffe_cat=§aGiraffe cats§f are tamed with raw or cooked fish, chicken or hamster. They can be used as ladders, dig out rodents, and throw your pets at the enemy.
+
+ui.billeys_mobs.info.berry_goose=§e§l======BERRY GOOSE======%1%1§r§l§6- General%1§r§aBerry geese§9 spawn in §ameadowns§9 and §aflower forests§9 and can be §atamed with pumpkin pie§9. After being tamed they can be bred and healed with pumpkin pie but also with bread, pumpkin and pumpkin seeds.%1%1§l§6- Gooseberries%1§r§9A tamed berry goose can §amake gooseberries for you§9 by turning certain foods in your hand into §agooseberries§9. At first it will accept §aapples§9, and as it levels up it can also turn §asweet berries§9 (level §a5+§9), §apoultry oranges§9 (level §a7+§9) and §amelons§9 (level §a10§9) into gooseberries. Making gooseberries slightly drains your XP, but also gives the berry goose random buffs and makes it slightly progress through leveling.%1%1§l§6- Golden Gooseberries%1§r§aGolden gooseberries§9 can be §acrafted§9 by surrounding a gooseberry with 8 gold ingots in a crafting table. They §afeed you more§9 (hunger and saturation) than a normal gooseberry and can be used in brewing to §aupgrade tier II potions of jump boost, swiftness, strength, instant health and regeneration into new tier III potions§9.%1%1§l§6- Gooseberry Thorns%1§r§9Both §agooseberries§9 and §agolden gooseberries§9 give the eater a §atemporary thorny aura§9. While this effect is active, any mob that hits you in melee will §atake damage in return§9, and the more gooseberries you have recently eaten, the §alonger and stronger§9 this aura becomes before it wears off. Berry geese themselves also have built-in §athorns§9: whenever something hits them in melee, the attacker takes damage based on the goose's §alevel§9, making high-level berry geese very punishing to fight up close.%1%1§l§d- Leveling%1§r§9Berry geese have §aten levels§9. They gain XP by §afighting and making gooseberries§9, and whenever they level up their §amax health and attack damage, speed and reach increase§9, as does the damage reflected by their thorns.
+
+ui.billeys_mobs.short_info.berry_goose=§aBerry geese§f are tamed with pumpkin pie and their berries can give you a spiky effect or make potions stronger.
+
+ui.billeys_mobs.info.leveling=...
+
+ui.billeys_mobs.short_info.leveling=§fThis mob §dcan be leveled up§f, leveling is basically the mob getting better at its uses the more it does some of them. Leveling up also increases health and attack damage. §eUse a book or a feather on this mob to learn how to level it up.
+
+ui.billeys_mobs.info.level_up_item=§fCurrently only §dducks§f, §dbanana ducks§f, §dslime wyverns§f, §dtiktaaliks§f, §dyutyrannuses§f and §ddeinonychuses§f can be §dleveled up§f. Use a §dbook or a feather§f on them to learn how §dleveling§f works.
+
+ui.billeys_mobs.info.mergoose_sword=§fTo use the §amergoose sword§f's long range ability, long tap, right click, or do whatever you do when you throw something.
+
+ui.billeys_mobs.info.yeet_duck=§aThrown ducks§f can be picked up by right clicking, long tapping, or pressing "Pick Up".
+
+ui.billeys_mobs.info.banana_peel=§aBanana peels§f can be placed down and when something steps on one it'll be heavily damaged. Banana peels also don't affect players by default but you can craft ones that affect players using a single regular one.
+
+ui.billeys_mobs.info.plushie.no_owner=This plushie was acquired through commands or creative mode.
+
+ui.billeys_mobs.info.plushie0=§b%1§e got a slime wyvern to level 10!
+
+ui.billeys_mobs.info.plushie1=Rubber duckies don't have such a text because they aren't obtained by an advancement. This text will never show up in-game
+
+ui.billeys_mobs.info.plushie2=§b%1§e slept 20 times with a mercat!
+
+ui.billeys_mobs.info.tip1=§bBilley's Mobs Tip §e1§b/§e10§b: §bTaming a mob ensures it won't despawn and that other mobs won't attack it. Vanilla fish can also be tamed, with seeds, carrots or sea pizza.
+
+ui.billeys_mobs.info.tip2=§bBilley's Mobs Tip §e2§b/§e10§b: §bYou can make mobs from billey's mobs, and vanilla cats, fish and parrots, §emove around instead of following you§b by using a stick on them.
+
+ui.billeys_mobs.info.tip3=§bBilley's Mobs Tip §e3§b/§e10§b: §bYou can §euntame§b mobs from billey's mobs, and vanilla cats, fish and parrots, by using an §euntaming stick(craft w/ stick + any feather from billey's mobs§b, or swordfish stick + plain feather) on them. After being untamed, the mob can be tamed with most items most mobs are tamed with.
+
+ui.billeys_mobs.info.tip4=§bBilley's Mobs Tip §e4§b/§e10§b: §bTo make a §erideable mob§b from billey's mobs §esit or stand§b, §esneak while holding anything§b.
+
+ui.billeys_mobs.info.tip5=§bBilley's Mobs Tip §e5§b/§e10§b: §bWhen a mob from billey's mobs is §eshivering, §bit §emeans its health isn't full, feed it§b the item it's tamed with or similar items§e to heal it§b. Once a mob is §efully healed§b, it'll make §egreen particles§b and stop shivering.
+
+ui.billeys_mobs.info.tip6=§bBilley's Mobs Tip §e6§b/§e10§b: §bThe colorful potion is crafted with one colorful powder and a bottle of pickle juice. You can put it on your pets. Also, §ecolor-changing mobs constantly have every beneficial effect, with amplifier I§b.
+
+ui.billeys_mobs.info.tip7=§bBilley's Mobs Tip §e7§b/§e10§b: §bIf you §elose this book§b you can get it back by saying §e!givebilleyinfobook§b in the chat.
+
+ui.billeys_mobs.info.tip8=§bBilley's Mobs Tip §e8§b/§e10§b: §bYou can §eview a mob's health and leveling progress§b by using §esneaking and punching§b as long as you have "Be able to hurt own pet" disabled in the info book.
+
+ui.billeys_mobs.info.tip9=§bBilley's Mobs Tip §e9§b/§e10§b: You can §eforce §bfollowing pets to §eteleport to you§b by double-sneaking
+
+ui.billeys_mobs.info.tip10=§bBilley's Mobs Tip §e10§b/§e10§b: §bYou can use the command §e/preparetp§b or /billey:preparetp to make §eyour following pets come with you when you teleport§b the next time you teleport within a minute of executing the command.

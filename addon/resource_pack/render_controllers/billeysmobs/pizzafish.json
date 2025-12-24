@@ -1,0 +1,36 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs.pizzafish": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [
+        "texture.default"
+      ],
+      "overlay_color": {
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "part_visibility": [
+        {
+          "piece1": "q.variant < 1"
+        },
+        {
+          "piece2_*": "q.variant < 2"
+        },
+        {
+          "piece3_*": "q.variant < 3"
+        },
+        {
+          "piece4_*": "q.variant < 4"
+        },
+        {
+          "piece5": "q.variant < 5"
+        }
+      ]
+    }
+  }
+}

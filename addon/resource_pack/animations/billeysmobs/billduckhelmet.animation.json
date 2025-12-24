@@ -1,0 +1,43 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.duckhelmet.hurt": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 0.32,
+			"bones": {
+				"attachduck_bone": {
+					"rotation": {
+						"0.0": [-10, 0, 0],
+						"0.28": [-10, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"attachduck_bone3": {
+					"rotation": {
+						"0.0": [7.5, 0, 0],
+						"0.28": [7.5, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"duckhat_wing2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.04": [0, 0, -42.5],
+						"0.2": [0, 0, -4],
+						"0.28": [0, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"duckhat_wing": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.04": [0, 0, 42.5],
+						"0.2": [0, 0, 4],
+						"0.28": [0, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

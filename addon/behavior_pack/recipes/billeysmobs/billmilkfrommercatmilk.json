@@ -1,0 +1,35 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "billey:milk_from_mercat"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "group": "what_does_this_do",
+        "pattern": [
+            "mmm",
+            "mcm",
+            "mmm"
+        ],
+        "key": {
+            "m": {
+                "item": "billey:mercat_milk"
+            },
+            "c": {
+                "item": "bucket"
+            }
+        },
+        "result": [
+            {
+                "item": "bucket",
+                "data": 1
+            },
+            {
+                "item": "glass_bottle",
+                "count": 8
+            }
+        ]
+    }
+}

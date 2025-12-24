@@ -1,0 +1,14 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_brewing_mix": {
+    "description": {
+      "identifier": "billey:regeneration_3_from_2"
+    },
+    "tags": [
+      "brewing_stand"
+    ],
+    "input": "minecraft:potion_type:strong_regeneration",
+    "reagent": "billey:golden_gooseberries",
+    "output": "billey:regeneration_potion_3"
+  }
+}

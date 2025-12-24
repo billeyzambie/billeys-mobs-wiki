@@ -1,0 +1,149 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.duckitem.thrown": {
+			"loop": true,
+			"animation_length": 120,
+			"bones": {
+				"throwduck_bone4": {
+					"rotation": {
+						"0.0": [-7.5, 0, 0],
+						"0.28": [-7.5, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"throwduck_bone3": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.28": [10, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"throwduck_bone2": {
+					"rotation": ["q.life_time*360", "q.target_y_rotation", 0],
+					"position": [0, -3, 0]
+				},
+				"throwduckbone": {
+					"rotation": {
+						"0.0": [-10, 0, 0],
+						"0.2": [-10, 0, 0],
+						"0.24": [0, 0, 0]
+					}
+				},
+				"throwduckbone1": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.2": [10, 0, 0],
+						"0.24": [0, 0, 0]
+					}
+				}
+			},
+			"sound_effects": {
+				"0.0": {
+					"effect": "quack"
+				}
+			}
+		},
+		"animation.billeys_mobs.duckitem.thirdperson": {
+			"loop": true,
+			"bones": {
+				"throwduck_bone": {
+					"position": [0, -3, -2.5]
+				},
+				"throwduck_bone2": {
+					"rotation": [15, 0, 0],
+					"position": [0, 0, -2]
+				}
+			}
+		},
+		"animation.billeys_mobs.duckitem.firstperson": {
+			"loop": true,
+			"bones": {
+				"throwduck_bone": {
+					"rotation": ["15-180", "-2.5+180", 15],
+					"position": [0, 7, 2]
+				},
+				"throwduck_bone2": {
+					"rotation": [-15, 0, 12.5],
+					"position": [0, 1, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.duckitem.quack": {
+			"animation_length": 0.32,
+			"bones": {
+				"throwduck_bone4": {
+					"rotation": {
+						"0.0": [-7.5, 0, 0],
+						"0.28": [-7.5, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"throwduck_bone3": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.28": [10, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"throwduckbone": {
+					"rotation": {
+						"0.0": [-10, 0, 0],
+						"0.28": [-10, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"throwduckbone1": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.28": [10, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				}
+			},
+			"sound_effects": {
+				"0.0": {
+					"effect": "quack"
+				}
+			}
+		},
+		"animation.billeys_mobs.duckitem.quack2": {
+			"animation_length": 0.32,
+			"bones": {
+				"throwduck_bone4": {
+					"rotation": {
+						"0.0": [-7.5, 0, 0],
+						"0.28": [-7.5, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"throwduck_bone3": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.28": [10, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"throwduckbone": {
+					"rotation": {
+						"0.0": [-10, 0, 0],
+						"0.28": [-10, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				},
+				"throwduckbone1": {
+					"rotation": {
+						"0.0": [10, 0, 0],
+						"0.28": [10, 0, 0],
+						"0.32": [0, 0, 0]
+					}
+				}
+			},
+			"sound_effects": {
+				"0.0": {
+					"effect": "quack2"
+				}
+			}
+		}
+	}
+}

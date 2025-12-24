@@ -1,0 +1,43 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.picklecat.sit": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["q.is_moving ? 0 : -52.5", 0, 0],
+					"position": [0, "-0.6", 0]
+				},
+				"bodyxd": {
+					"rotation": [0, 0, 0]
+				},
+				"head": {
+					"rotation": ["q.is_moving ? 0 : -2.5", 0, 0],
+					"position": [0, "q.is_moving ? 0 : -1", 0]
+				},
+				"tail3": {
+					"rotation": ["q.is_moving ? 0 : 52.5", 0, 0],
+					"position": [0, 0, "q.is_moving ? 0 : -3"]
+				},
+				"tail4": {
+					"rotation": ["q.is_moving ? 0 : 30", 0, 0],
+					"position": [0, 0, 0]
+				},
+				"backLegL": {
+					"rotation": ["q.is_moving ? 0 : -37.5", 0, 0]
+				},
+				"backLegR": {
+					"rotation": ["q.is_moving ? 0 : -37.5", 0, 0]
+				},
+				"frontLegL": {
+					"rotation": ["q.is_moving ? 0 : 52.5", 0, 0],
+					"position": [0, "q.is_moving ? 0 : -4.9", 0]
+				},
+				"frontLegR": {
+					"rotation": ["q.is_moving ? 0 : 52.5", 0, 0],
+					"position": [0, "q.is_moving ? 0 : -4.9", 0]
+				}
+			}
+		}
+	}
+}

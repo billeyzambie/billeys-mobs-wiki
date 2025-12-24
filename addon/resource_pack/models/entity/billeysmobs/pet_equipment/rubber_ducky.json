@@ -1,0 +1,34 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.billeys_mobs.rubber_ducky",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 4,
+				"visible_bounds_height": 3,
+				"visible_bounds_offset": [0, 0.5, 0]
+			},
+			"bones": [
+				{
+					"name": "hat",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "plushie_whole",
+					"parent": "hat",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{"origin": [-1.5, 3, -3.5], "size": [3, 2, 2], "uv": [22, 7]},
+						{"origin": [-2, 0, -2.5], "size": [4, 3, 5], "uv": [0, 0]},
+						{"origin": [-1, 2, 2.5], "size": [2, 1, 1], "uv": [0, 13]},
+						{"origin": [2, 1, -1.5], "size": [1, 2, 3], "uv": [0, 8]},
+						{"origin": [-3, 1, -1.5], "size": [1, 2, 3], "uv": [0, 8], "mirror": true},
+						{"origin": [-1, 3, -5.5], "size": [2, 1, 2], "uv": [8, 12]}
+					]
+				}
+			]
+		}
+	]
+}

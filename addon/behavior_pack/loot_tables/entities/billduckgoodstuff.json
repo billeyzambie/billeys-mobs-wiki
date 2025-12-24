@@ -1,0 +1,89 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "loot_tables/gameplay/fishing.json",
+                    "weight": 6
+                },
+                {
+                    "type": "loot_table",
+                    "name": "loot_tables/gameplay/fishing/treasure.json",
+                    "weight": 6
+                },
+                {
+                    "type": "loot_table",
+                    "name": "loot_tables/entities/billwoodlousewheat.json",
+                    "weight": 2
+                },
+                {
+                    "type": "item",
+                    "name": "billey:woodlouse_spawn_egg",
+                    "weight": 6
+                },
+                {
+                    "type": "item",
+                    "name": "billey:velvet_worm_spawn_egg",
+                    "weight": 6
+                },
+                {
+                    "type": "item",
+                    "name": "billey:stick_bug_spawn_egg",
+                    "weight": 6
+                },
+                {
+                    "type": "item",
+                    "name": "billey:diamond_nugget",
+                    "weight": 2
+                },
+                {
+                    "type": "item",
+                    "name": "billey:rubber_ducky",
+                    "weight": 3
+                },
+                {
+                    "type": "item",
+                    "name": "carrot",
+                    "weight": 6
+                },
+                {
+                    "type": "item",
+                    "name": "wheat_seeds",
+                    "weight": 6
+                },
+                {
+                    "type": "item",
+                    "name": "melon_seeds",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "pumpkin_seeds",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:raw_hamster",
+                    "weight": 6
+                },
+                {
+                    "type": "item",
+                    "name": "gold_nugget",
+                    "weight": 2
+                },
+                {
+                    "type": "item",
+                    "name": "iron_nugget",
+                    "weight": 6
+                },
+                {
+                    "type": "item",
+                    "name": "billey:piranha",
+                    "weight": 2
+                }
+            ]
+        }
+    ]
+}

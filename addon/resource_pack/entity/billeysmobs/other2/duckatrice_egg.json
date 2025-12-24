@@ -1,0 +1,34 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:duckatrice_egg",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/duckatrice_egg"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.duckatrice_egg"
+            },
+            "animations": {
+                "new": "animation.billeys_mobs.duckproj.body",
+                "wobble": "animation.billeys_mobs.duckatrice_egg.wobble"
+            },
+            "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+                "initialize": [
+                    "v.wobble_sign = 1;",
+                    "v.wobble_axis = 0;" //0 for x and 1 for z
+                ],
+                "animate": [
+                    "new"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

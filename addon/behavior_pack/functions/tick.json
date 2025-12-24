@@ -1,0 +1,8 @@
+//DO NOT DELETE THIS FILE, it only runs 2 functions,
+//and thus has a negligible impact on the performance
+{
+    "values": [
+        "billeyarmoreffects", //also the penguin boot effects
+        "billeyiteminfo"
+    ]
+}

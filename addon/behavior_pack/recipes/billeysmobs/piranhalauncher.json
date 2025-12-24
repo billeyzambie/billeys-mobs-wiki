@@ -1,0 +1,33 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "billey:piranha_launcher"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "group": "what_does_this_do",
+        "pattern": [
+            " I ",
+            "IPR",
+            " I "
+        ],
+        "key": {
+            "R": {
+                "item": "minecraft:redstone"
+            },
+            "P": {
+                "item": "billey:raw_piranha"
+            },
+            "I": {
+                "item": "minecraft:iron_ingot"
+            }
+        },
+        "result": [
+            {
+                "item": "billey:piranha_launcher"
+            }
+        ]
+    }
+}

@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:hammerhead_shark",
+      "materials": { "default": "entity_alphatest" },
+      "textures": {
+        "cartoony": "textures/entity/billeys_mobs/hammerhead_shark",
+        "scalloped": "textures/entity/billeys_mobs/hammerhead_shark1",
+        "great": "textures/entity/billeys_mobs/hammerhead_shark2",
+        "smooth": "textures/entity/billeys_mobs/hammerhead_shark3",
+        "gray": "textures/entity/billeys_mobs/hammerhead_shark4",
+        "albino": "textures/entity/billeys_mobs/hammerhead_shark5",
+        "saturated": "textures/entity/billeys_mobs/hammerhead_shark6"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.hammerhead_shark"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "swim": "animation.billeys_mobs.shark.swim",
+        "look": "animation.billeys_mobs.shark.look",
+        "attack": "animation.billeys_mobs.shark.attack"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 6;",
+				  "v.head_size_y = 4;",
+				  "v.head_size_z = 7;"
+				],
+        "animate": [
+          "new",
+          "look",
+					{
+						"swim": "q.is_in_water ? math.max(0.3,q.modified_move_speed / 0.4) : math.sin(q.life_time * 200) / 2 + 0.5"
+					}
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs.hammerhead_shark" ],
+      "spawn_egg": {
+        "texture": "billey.hammerhead_shark_spawn_egg"
+      }
+    }
+  }
+}

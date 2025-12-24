@@ -1,0 +1,57 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "billey:flyingpickle_cat",
+        "materials": { "default": "cat" },
+        "textures": {
+            "default": "textures/entity/cat/flyingpickle"
+        },
+        "geometry": {
+            "default": "geometry.fpicklecat",
+            "glowing": "geometry.fpicklecatglow"
+        },
+        "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+          "variables": {
+            "variable.head_size_x": "public",
+            "variable.head_size_y": "public",
+            "variable.head_size_z": "public"
+          },
+          "initialize": [
+            "v.head_size_x = 5;",
+            "v.head_size_y = 4;",
+            "v.head_size_z = 5;"
+          ],
+          "animate": [ "new",
+            "look_at_target",
+            "controller.sit",
+            { "sit": "!q.is_tamed && q.mark_variant == 1" },
+            { "idle": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && !q.is_on_ground" },
+            { "baby_transform": "q.is_baby" }
+          ]
+        },
+        "animations": {
+          "new": "animation.billeys_mobs.duckproj.body",
+          "idle": "animation.fcat.idle",
+          "baby_transform": "animation.cat.baby_transform",
+          "sit": "animation.fcat.sit",
+          "look_at_target": "animation.common.look_at_target",
+          "controller.sit": "controller.animation.billeys_mobs.sit",
+          "petted3": "animation.billeys_mobs.cat.petted4"// /playanimation animations dont need tobe listed here
+          //i did it for blockbench
+        },
+        "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ 
+          "controller.render.billeys_mobs_default", 
+          {
+            "controller.render.cucumbeel": "q.is_in_water || !q.is_baby"
+          }
+        ],
+        "spawn_egg": {
+          "texture": "egg_cat_pickle_angel"
+        }
+      }
+    }
+  }

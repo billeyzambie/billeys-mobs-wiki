@@ -1,0 +1,52 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "billey:pet_straw_hat_attachable",
+            "item": {
+                "billey:pet_straw_hat": "q.owner_identifier != 'minecraft:player'"
+            },
+            "materials": {
+                "default": "armor"
+            },
+            "textures": {
+                //attachables can't actually be made dyable unfortunately
+                "white": "textures/entity/billeys_mobs/dyeable_pet_equipment/white",
+                "orange": "textures/entity/billeys_mobs/dyeable_pet_equipment/orange",
+                "magenta": "textures/entity/billeys_mobs/dyeable_pet_equipment/magenta",
+                "light_blue": "textures/entity/billeys_mobs/dyeable_pet_equipment/light_blue",
+                "yellow": "textures/entity/billeys_mobs/dyeable_pet_equipment/yellow",
+                "lime": "textures/entity/billeys_mobs/dyeable_pet_equipment/lime",
+                "pink": "textures/entity/billeys_mobs/dyeable_pet_equipment/pink",
+                "gray": "textures/entity/billeys_mobs/dyeable_pet_equipment/gray",
+                "light_gray": "textures/entity/billeys_mobs/dyeable_pet_equipment/light_gray",
+                "cyan": "textures/entity/billeys_mobs/dyeable_pet_equipment/cyan",
+                "purple": "textures/entity/billeys_mobs/dyeable_pet_equipment/purple",
+                "blue": "textures/entity/billeys_mobs/dyeable_pet_equipment/blue",
+                "brown": "textures/entity/billeys_mobs/dyeable_pet_equipment/brown",
+                "green": "textures/entity/billeys_mobs/dyeable_pet_equipment/green",
+                "red": "textures/entity/billeys_mobs/dyeable_pet_equipment/red",
+                "black": "textures/entity/billeys_mobs/dyeable_pet_equipment/black"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.pet_straw_hat"
+            },
+            "animations": {
+                /*makes it the same size even if the mob is scaled (eg. baby),
+                looks kinda goofy at times but i like it*/
+                "remove_scale": "animation.billeys_mobs.pet_hat.remove_scale"
+            },
+            "scripts": {
+                "pre_animation": [
+                    "v.color = c.owning_entity -> q.property('billey:head_equipment_color');"
+                ],
+                "animate": [
+                    "remove_scale"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.billeys_mobs.pet_hat_dyable"
+            ]
+        }
+    }
+}

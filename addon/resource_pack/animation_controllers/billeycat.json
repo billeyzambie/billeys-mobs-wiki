@@ -1,0 +1,82 @@
+{
+  "format_version": "1.8.0",
+  "animation_controllers": {
+    "controller.animation.bcat.baby": {
+      "states": {
+        "baby": {
+          "parameters": [ "q.is_baby" ],
+          "animations": [
+            {
+              "baby_transform": [
+                {
+                  "0.0": 0.0,
+                  "1.0": 1.0
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "controller.animation.bcat.look_at_target": {
+      "states": {
+        "default": {
+          "animations": [ { "look_at_target": [] },{ "fix": [] } ]
+        }
+      }
+    },
+    "controller.animation.bcat.move": {
+      "states": {
+        "sneaking": {
+          "animations": [ { "sneak": [] } ],
+          "transitions": [
+            { "sprinting": "v.state == 1" },
+            { "sitting": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))" },
+            { "walking": "!q.is_sneaking" },
+            { "lie_down": "v.state == 4" }
+          ]
+        },
+        "sprinting": {
+          "parameters": [ "q.modified_move_speed" ],
+          "animations": [ { "sprint": [] } ],
+          "transitions": [
+            { "sneaking": "q.is_sneaking" },
+            { "sitting": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))" },
+            { "walking": "v.state != 1" },
+            { "lie_down": "v.state == 4" }
+          ]
+        },
+        "sitting": {
+          "animations": [ { "walk": [] } ],
+          "parameters": [ "q.modified_move_speed" ],
+          "transitions": [
+            { "sneaking": "q.is_sneaking" },
+            { "sprinting": "v.state == 1" },
+            { "walking": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) || q.is_riding" },
+            { "lie_down": "v.state == 4" }
+          ]
+        },
+        "walking": {
+          "parameters": [ "q.modified_move_speed" ],
+          "animations": [ { "walk": [] } ],
+          "transitions": [
+            { "sneaking": "q.is_sneaking" },
+            { "sprinting": "v.state == 1" },
+            { "sitting": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))" },
+            { "lie_down": "v.state == 4" }
+          ]
+        },
+        "lie_down": {
+          "parameters": [ "q.modified_move_speed" ],
+          "animations": [ { "lie_down": [] } ],
+          "transitions": [
+            { "sneaking": "q.is_sneaking" },
+            { "sprinting": "v.state == 1" },
+            { "sitting": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))" },
+            { "walking": "v.state != 4" }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:pickle_cat",
+      "materials": { "default": "cat" },
+      "textures": {
+        "default": "textures/entity/cat/pickle"
+      },
+      "geometry": {
+        "default": "geometry.picklecat",
+        "glowing": "geometry.picklecatglow"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.head_size_x = 5;",
+          "v.head_size_y = 4;",
+          "v.head_size_z = 5;"
+        ],
+        "animate": [ "new",
+          {"hat": "q.is_powered"},
+          "raising", "eatcont", "sitcont", "baby", "look_at_target_cont",
+          { "hurt": "q.health < q.max_health" }
+        ]
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "look_at_target_cont": "controller.animation.bcat.look_at_target" ,
+        "baby": "controller.animation.cat.baby" ,
+        "sitcont": "controller.animation.billeys_mobs.sitforcat" ,
+        "eatcont": "controller.animation.billeys_mobs.eat",
+        "raising": "controller.animation.billeys_mobs.eatnoblend",
+        "sneak": "animation.cat.sneak",
+        "hat": "animation.billeys_mobs.cat.hat",
+        "walk": "animation.cat.walk",
+        "sprint": "animation.cat.sprint",
+        "sit": "animation.cat.sit",
+        "hurt": "animation.billeys_mobs.cat.hurt",
+        "stand": "controller.animation.bcat.move",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.cat.baby_transform",
+        "lie_down": "animation.cat.lie_down",
+        "fix": "animation.bcat.fix",
+        "eat": "animation.cat.tailsnek",
+        "beg": "animation.cat.beg",
+        "petted3": "animation.billeys_mobs.cat.petted3"// /playanimation animations dont need tobe listed here
+        //i did it to preview it in blockbench
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ 
+        "controller.render.billeys_mobs_default", 
+        {
+          "controller.render.cucumbeel": "q.is_in_water || !q.is_baby"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "egg_cat_pickle"
+      }
+    }
+  }
+}

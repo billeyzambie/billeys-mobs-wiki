@@ -1,0 +1,39 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs.snail": {
+      "arrays": {
+        "textures": {
+          "array.variants": [
+            "texture.default",
+            "texture.one",
+            "texture.two",
+            "texture.three",
+            "texture.four",
+            "texture.five",
+            "texture.six",
+            "texture.seven"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        { "*": "Material.dye" },
+        { "bone12": "Material.nodye" }
+      ],
+      "part_visibility": [
+        {
+          "bone9": false
+        }
+      ],
+      "textures": [ "array.variants[q.mark_variant]" ],
+      "overlay_color": {
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "billey:petgoldenarmor"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "what_does_this_do",
+    "pattern": [
+      "SMS",
+      "MSM",
+      "SMS"
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:gold_ingot"
+      },
+      "S": {
+        "item": "billey:kiwi_fur"
+      }
+    },
+    "result": [
+      { "item": "billey:golden_pet_armor" }
+    ]
+  }
+}

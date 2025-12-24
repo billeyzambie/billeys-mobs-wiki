@@ -1,0 +1,26 @@
+{
+	"format_version": 2,
+	"header": {
+		"description": "§eYou §c!MUST!§e turn on the experiment \"§c§lBeta APIs§r§e\" or the add-on §cwill not work!\n§rAdds §auseful§r pets and fish to your game, intended to contribute to survival gameplay as much as possible. Made by billeyzambie.",
+		"name": "Billey's Mobs Development",
+		"uuid": "ad3853a7-d812-4c65-ab9c-e5b0a4b3fbce",
+		"min_engine_version": [1, 16, 200],
+		"pack_scope": "world",
+		"version": [ 1, 0, 0 ]
+	},
+	"metadata": {
+		"authors":["billeyzambie"],
+		"url": "https://mcpedl.com/billeys-mobs-addon"
+	},
+	"modules": [{
+		"type": "resources",
+		"uuid": "a33c14f8-5dfb-468d-a115-8eef36e44947",
+		"version": [ 1, 0, 0 ]
+	}],
+	"dependencies": [
+		{
+			"uuid": "a5feb5d2-78b5-4753-ac22-dd37f271b279",		
+			"version": [ 1, 0, 0 ]
+		}
+	]
+}

@@ -1,0 +1,636 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:duckatrice_boss",
+            "is_spawnable": true,
+            "is_summonable": true,
+            
+            "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
+                "billey:is_fly_attacking": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": false
+                },
+                "billey:phase": {
+                    "client_sync": false,
+                    "type": "int",
+                    "default": 1,
+                    "range": [
+                        1,
+                        3
+                    ]
+                }
+            }
+        },
+        "component_groups": {
+            "phase1": {
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 2
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 1,
+                    "must_see": true,
+                    "reselect_targets": true,
+                    "target_search_height": 80.0,
+                    "within_radius": 100.0,
+                    "must_see_forget_duration": 17.0,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    }
+                                ]
+                            },
+                            "max_dist": 35
+                        }
+                    ]
+                },
+                "minecraft:environment_sensor": {
+                    "triggers": {
+                        "event": "to_phase2",
+                        "target": "self",
+                        "filters": {
+                            "test": "actor_health",
+                            "value": 600,
+                            "operator": "<="
+                        }
+                    }
+                },
+                "minecraft:on_target_acquired": {
+                    "event": "target_acquired",
+                    "target": "self"
+                },
+                "minecraft:on_target_escape": {
+                    "event": "target_escape",
+                    "target": "self"
+                }
+            },
+            "phase2": {
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 1
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 1,
+                    "must_see": true,
+                    "reselect_targets": true,
+                    "target_search_height": 80.0,
+                    "within_radius": 100.0,
+                    "must_see_forget_duration": 17.0,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "other",
+                                        "value": "minecraft:is_tamed"
+                                    }
+                                ]
+                            },
+                            "max_dist": 35
+                        }
+                    ]
+                },
+                "minecraft:environment_sensor": {
+                    "triggers": {
+                        "event": "to_phase3",
+                        "target": "self",
+                        "filters": {
+                            "test": "actor_health",
+                            "value": 300,
+                            "operator": "<="
+                        }
+                    }
+                },
+                "minecraft:behavior.summon_entity": {
+                  "priority": 2,
+                  "summon_choices": [
+                    {
+                      "min_activation_range": 3.0,
+                      "max_activation_range": 4.0,
+                      "cooldown_time": 5.0,
+                      "weight": 1,
+                      "cast_duration": 2.0,
+                      "particle_color": "#ff0000ff",
+                      "sequence": [
+                        {
+                          "shape": "circle",
+                          "target": "self",
+                          "base_delay": 1.0,
+                          "delay_per_summon": 0.0,
+                          "num_entities_spawned": 5,
+                          "entity_type": "billey:random_duckatrice_minion",
+                          "size": 3,
+                          "entity_lifespan": -1.0
+                        }
+                      ]
+                    }
+                  ]
+                }
+            },
+            "phase3": {
+                "minecraft:behavior.hurt_by_target": {
+                    "priority": 2
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 1,
+                    "must_see": true,
+                    "reselect_targets": true,
+                    "target_search_height": 80.0,
+                    "within_radius": 100.0,
+                    "must_see_forget_duration": 17.0,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    }
+                                ]
+                            },
+                            "max_dist": 35
+                        }
+                    ]
+                },
+                "minecraft:behavior.summon_entity": {
+                  "priority": 2,
+                  "summon_choices": [
+                    {
+                      "min_activation_range": 3.0,
+                      "max_activation_range": 4.0,
+                      "cooldown_time": 5.0,
+                      "weight": 1,
+                      "cast_duration": 2.0,
+                      "particle_color": "#ff0000ff",
+                      "sequence": [
+                        {
+                          "shape": "circle",
+                          "target": "self",
+                          "base_delay": 1.0,
+                          "delay_per_summon": 0.0,
+                          "num_entities_spawned": 5,
+                          "entity_type": "billey:random_duckatrice_minion",
+                          "size": 3,
+                          "entity_lifespan": -1.0
+                        }
+                      ]
+                    }
+                  ]
+                }
+            },
+            "not_fly_attacking": {
+                "minecraft:movement": {
+                    "value": 0.3
+                },
+                "minecraft:underwater_movement": {
+                    "value": 0.1
+                },
+                "minecraft:behavior.rise_to_liquid_level": {
+                    "priority": 0,
+                    "liquid_y_offset": -10.0,
+                    "rise_delta": 0.05,
+                    "sink_delta": 0.05
+                },
+                "minecraft:navigation.walk": {
+                    "can_float": true,
+                    "avoid_water": false,
+                    "avoid_damage_blocks": true
+                },
+                "minecraft:movement.basic": {},
+                "minecraft:jump.static": {},
+                "minecraft:can_climb": {},
+                "minecraft:behavior.random_stroll": {
+                    "priority": 6,
+                    "speed_multiplier": 1.0
+                },
+                "minecraft:behavior.look_at_player": {
+                    "probability": 0.01,
+                    "priority": 7,
+                    "look_distance": 10.0
+                },
+                "minecraft:behavior.random_look_around": {
+                    "priority": 8
+                },
+                "minecraft:physics": {}
+            },
+            "fly_attacking": {
+                "minecraft:physics": {
+                    "has_gravity": false
+                },
+                "minecraft:movement.basic": {},
+                "minecraft:follow_range": {
+                    "value": 64,
+                    "max": 64
+                },
+                "minecraft:behavior.swoop_attack": {
+                    "priority": 2,
+                    "damage_reach": 1.2,
+                    "delay_range": [
+                        0.5,
+                        1.0
+                    ]
+                },
+                "minecraft:behavior.circle_around_anchor": {
+                    "priority": 3,
+                    "goal_radius": 1.0,
+                    "angle_change": 15.0,
+                    "radius_range": [
+                        2.0,
+                        5.0
+                    ],
+                    "height_offset_range": [
+                        5.0,
+                        10.0
+                    ],
+                    "height_above_target_range": [
+                        0,
+                        2
+                    ]
+                }
+            },
+            "timer_to_fly_attack": {
+                "minecraft:timer": {
+                    "time": 15,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "timer_to_fly_attack_finished",
+                        "target": "self"
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:knockback_resistance": {
+                "value": 0.8
+            },
+            "minecraft:health": {
+                "value": 900,
+                "max": 900
+            },
+            "minecraft:behavior.melee_attack": {
+                "priority": 4,
+                "speed_multiplier": 1.7,
+                "reach_multiplier": 1.5,
+                "track_target": true,
+                "on_attack": {
+                    "event": "on_attack",
+                    "target": "self"
+                },
+                "on_kill": {
+                    "event": "on_kill",
+                    "target": "self"
+                }
+            },
+            "minecraft:attack": {
+                "damage": 18
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/entities/billeyduckatrice_boss.json"
+            },
+            "minecraft:experience_reward": {
+                "on_death": "q.last_hit_by_player ? 100"
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:type_family": {
+                "family": [
+                    "monster",
+                    "duck",
+                    "duckatrice",
+                    "boss",
+                    "duckatrice_boss",
+                    "dinosaur" //since it's a bird
+                ]
+            },
+            "minecraft:boss": {
+                "name": "entity.billey:duckatrice.name",
+                "hud_range": 55
+            },
+            "minecraft:collision_box": {
+                "width": 1.7,
+                "height": 2.0
+            },
+            "minecraft:nameable": {},
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "fall",
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "projectile",
+                        "deals_damage": true,
+                        "on_damage": {
+                            "event": "start_fly_attacking",
+                            "target": "self",
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "int_property",
+                                        "domain": "billey:phase",
+                                        "subject": "self",
+                                        "value": 1
+                                    },
+                                    {
+                                        "test": "has_target",
+                                        "subject": "self"
+                                    },
+                                    {
+                                        "test": "bool_property",
+                                        "domain": "billey:is_fly_attacking",
+                                        "subject": "self",
+                                        "value": false
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "test": "has_damage",
+                                "value": "suffocation"
+                            },
+                            "event": "tp_up"
+                        },
+                        "cause": "all",
+                        "deals_damage": true
+                    }
+                ]
+            },
+            "minecraft:leashable": {
+                "soft_distance": 6.0,
+                "hard_distance": 9.0,
+                "max_distance": 15.0
+            },
+            "minecraft:balloonable": {
+                "mass": 5.0
+            },
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "tp_up": {
+                "queue_command": {
+                   "command": "tp ~ ~1 ~"
+                }
+            },
+            "reset_target": {
+                "reset_target": {}
+            },
+            "target_acquired": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "none_of": [
+                                {
+                                    "test": "rider_count",
+                                    "operator": "not",
+                                    "value": 0,
+                                    "subject": "self"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:shooter",
+                                    "subject": "target"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:can_fly",
+                                    "subject": "target"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:movement.glide",
+                                    "subject": "target"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:behavior.swoop_attack",
+                                    "subject": "target"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                //slow down for the flapping animation
+                                "effect @s slowness 1 255 true"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "timer_to_fly_attack"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "rider_count",
+                                    "operator": "not",
+                                    "value": 0,
+                                    "subject": "self"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:shooter",
+                                    "subject": "target"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:can_fly",
+                                    "subject": "target"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:movement.glide",
+                                    "subject": "target"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:behavior.swoop_attack",
+                                    "subject": "target"
+                                }
+                            ]
+                        },
+                        "trigger": "start_fly_attacking"
+                    }
+                ]
+            },
+            "target_escape": {
+                "filters": {
+                    "test": "int_property",
+                    "domain": "billey:phase",
+                    "subject": "self",
+                    "value": 1
+                },
+                "trigger": "stop_fly_attacking"
+            },
+            "timer_to_fly_attack_finished": {
+                "filters": {
+                    "test": "has_target",
+                    "target": "self"
+                },
+                "trigger": "start_fly_attacking"
+            },
+            "start_fly_attacking": {
+                "filters": {
+                    "test": "int_property",
+                    "domain": "billey:phase",
+                    "subject": "self",
+                    "value": 1
+                },
+                "sequence": [
+                    {
+                        "set_property": {
+                            "billey:is_fly_attacking": true
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "fly_attacking"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "not_fly_attacking",
+                                "timer_to_fly_attack"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "stop_fly_attacking": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "billey:is_fly_attacking": false
+                        }
+                    },
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "fly_attacking",
+                                "timer_to_fly_attack"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "not_fly_attacking"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "test_if_target": {
+                "filters": {
+                    "test": "has_target",
+                    "subject": "self",
+                    "value": false
+                },
+                "trigger": "stop_fly_attacking"
+            },
+            "on_attack": {
+                "filters": {
+                    "test": "int_property",
+                    "domain": "billey:phase",
+                    "subject": "self",
+                    "value": 1
+                },
+                "remove": {
+                    "component_groups": [
+                        "timer_to_fly_attack"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "timer_to_fly_attack"
+                    ]
+                }
+            },
+            "on_kill": {
+                "queue_command": {
+                    "command": [
+                        "playsound random.eat @a ~~~ 1.0 0.75",
+                        "effect @s regeneration 1 4 true"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned": {
+                "add": {
+                    "component_groups": [
+                        "not_fly_attacking",
+                        "phase1"
+                    ]
+                }
+            },
+            "to_phase2": {
+                "add": {
+                    "component_groups": [
+                        "phase2",
+                        "fly_attacking"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "phase1",
+                        "not_fly_attacking",
+                        "timer_to_fly_attack"
+                    ]
+                },
+                "set_property": {
+                    "billey:is_fly_attacking": true,
+                    "billey:phase": 2
+                },
+                "queue_command": {
+                    "command":[
+                        "summon billey:duck_minion ~1 ~ ~ spawn_as_hostile",
+                        "summon billey:pigeon_minion ~-1 ~ ~ spawn_as_hostile",
+                        "summon billey:deinonychus_minion ~ ~ ~1 spawn_as_hostile",
+                        "summon billey:yutyrannus_minion ~ ~ ~-1 spawn_as_hostile"
+                    ]
+                }
+            },
+            "to_phase3": {
+                "add": {
+                    "component_groups": [
+                        "phase3",
+                        "not_fly_attacking"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "phase2",
+                        "fly_attacking"
+                    ]
+                },
+                "set_property": {
+                    "billey:is_fly_attacking": false,
+                    "billey:phase": 3
+                }
+            }
+        }
+    }
+}

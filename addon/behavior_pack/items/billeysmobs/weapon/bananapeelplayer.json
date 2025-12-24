@@ -1,0 +1,29 @@
+{
+    "format_version": "1.20.60",
+    "minecraft:item": {
+      "description": {
+        "identifier": "billey:banana_peel_player",
+        "menu_category": {
+          "category": "items"
+        }
+      },
+      "components": {
+        "minecraft:tags": {
+          "tags": [
+            "billey:can_craft_info_book"
+          ]
+        },
+        "minecraft:max_stack_size": {
+          "value": 64
+        },
+        "minecraft:icon": {
+          "textures": {
+            "default": "billey.banana_peel"
+          }
+        },
+        "minecraft:block_placer": {
+            "block": "billey:banana_peel_player_block"
+        }
+      }
+    }
+  }

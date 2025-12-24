@@ -1,0 +1,25 @@
+{
+	"format_version": "1.21.30",
+	"minecraft:item": {
+	  "description": {
+		"identifier": "billey:anniversary_pet_hat_6",
+		"menu_category": {
+			"category": "equipment",
+			"group": "itemGroup.name.horseArmor"
+		  }
+	  },
+	  "components": {
+		"minecraft:max_stack_size": {
+		  "value": 1
+		},
+		"minecraft:icon": {
+		  "textures": {
+			"default": "billey.anniversary_pet_hat_6"
+		  }
+		},
+		"minecraft:rarity": {
+		  "value": "epic"
+		}
+	  }
+	}
+  }

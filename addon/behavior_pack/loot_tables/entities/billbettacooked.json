@@ -1,0 +1,14 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "billey:cooked_betta_fish",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

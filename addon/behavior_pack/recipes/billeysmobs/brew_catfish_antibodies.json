@@ -1,0 +1,14 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_brewing_mix": {
+        "description": {
+            "identifier": "billey:brew_catfish_antibodies"
+        },
+        "tags": [
+            "brewing_stand"
+        ],
+        "input": "billey:catfish_blood",
+        "reagent": "minecraft:nether_wart",
+        "output": "billey:catfish_antibodies"
+    }
+}

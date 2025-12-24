@@ -1,0 +1,21 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "billey:killpiranha"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "ingredients": [
+            {
+                "item": "billey:piranha"
+            }
+        ],
+        "result": [
+            {
+                "item": "billey:raw_piranha"
+            }
+        ]
+    }
+}

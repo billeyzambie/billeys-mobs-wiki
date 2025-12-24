@@ -1,0 +1,31 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs.anglerfish": {
+      "arrays": {
+        "textures": {
+          "array.variants": [
+            "texture.variant1",
+            "texture.variant2",
+            "texture.variant3",
+            "texture.variant4",
+            "texture.variant5",
+            "texture.variant6",
+            "texture.variant7",
+            "texture.variant8"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "overlay_color": {
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "textures": [ "(q.get_name == 'Sugar' || q.get_name == 'Ζαχαρωτός') ? array.variants[q.life_time * 1.5 + q.variant] : array.variants[q.variant]" ]
+    }
+  }
+}

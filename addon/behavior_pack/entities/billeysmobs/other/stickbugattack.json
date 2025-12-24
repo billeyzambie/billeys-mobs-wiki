@@ -1,0 +1,67 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:stick_bug_attack",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "deals_damage": false
+                }
+            }
+        },
+        "component_groups": {
+            "despawn": {
+                "minecraft:instant_despawn": {
+                }
+            }
+        },
+        "events": {
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on"
+                }
+            },
+            "minecraft:entity_spawned": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=1.6,tag=!tamed,type=!item,type=!xp_orb,type=!billey:stick_bug,family=!inanimate] 2 entity_attack entity @s",
+                                "effect @e[r=1.6,tag=!tamed,type=!item,type=!xp_orb,type=!billey:stick_bug,family=!inanimate] slowness 3 0 true"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "despawn"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

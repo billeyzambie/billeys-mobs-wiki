@@ -1,0 +1,3364 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.billeys_mobs.eat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"eat": "q.is_interested && !q.is_sleeping"
+						}
+					]
+				},
+				"eat": {
+					"animations": [
+						"eat"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_interested || q.is_sleeping"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.giraffe_cat.look_at_target": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"look"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"bend_over": "q.property('billey:should_bend_over') || (v.attack_time && v.attack_time < 0.2)"
+						}
+					]
+				},
+				"bend_over": {
+					"animations": [
+						"bend_over"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.property('billey:should_bend_over') && (!v.attack_time || v.attack_time > 0.2)"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.giraffe_cat.general": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"look_at_target_cont",
+						"sitcont",
+						{
+							"hurt": "q.health < q.max_health"
+						}
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"ladder": "v.is_ladder"
+						},
+						{
+							"digging": "v.is_digging"
+						},
+						{
+							"yeeting": "v.is_yeeting"
+						}
+					]
+				},
+				"ladder": {
+					"animations": [
+						"ladder"
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!v.is_ladder"
+						}
+					]
+				},
+				"digging": {
+					"animations": [
+						"dig",
+						"set_dig_variables"
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!v.is_digging"
+						}
+					]
+				},
+				"yeeting": {
+					"animations": [
+						"yeet",
+						"sitcont"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!v.is_yeeting"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duckatrice.moisturize_teeth": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"moisturizing_teeth": "q.state_time > v.time_to_lick || q.is_in_love || q.has_target"
+						}
+					],
+					"on_entry": [
+						"v.time_to_lick = math.random(60, 180);",
+						"v.is_moisturizing_teeth = 0;"
+					]
+				},
+				"moisturizing_teeth": {
+					"animations": [
+						"moisturize_teeth"
+					],
+					"transitions": [
+						{
+							"wait": "q.any_animation_finished"
+						}
+					],
+					"on_entry": [
+						"v.is_moisturizing_teeth = 1;"
+					]
+				},
+				"wait": {
+					"transitions": [
+						{
+							"default": "!q.is_in_love && !q.has_target"
+						}
+					],
+					"on_entry": [
+						"v.is_moisturizing_teeth = 0;"
+					]
+				}
+			}
+		},
+		//kinda lazy
+		"controller.animation.billeys_mobs.mercat.ritual_or_anything_else": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"general",
+						{
+							"hurt": "q.is_tamed && q.health < q.max_health"
+						},
+						"look_cont",
+						{
+							"spin_cont": "q.is_in_water"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"ritual": "q.property('billey:in_ritual')"
+						}
+					]
+				},
+				"ritual": {
+					"animations": [
+						"ritual"
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true,
+					"on_entry": [
+						"v.body_y_rot_at_start_of_ritual = q.body_y_rotation;"
+					],
+					"transitions": [
+						{
+							"default": "!q.property('billey:in_ritual')"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.fall": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.15,
+					"transitions": [
+						{
+							"falling": "q.is_on_ground"
+						}
+					]
+				},
+				"falling": {
+					"animations": [
+						"fall"
+					],
+					"blend_transition": 0.15,
+					"transitions": [
+						{
+							"default": "!q.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duckatrice.fall": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.15,
+					"transitions": [
+						{
+							"falling": "!q.is_on_ground && !q.is_in_water"
+						}
+					]
+				},
+				"falling": {
+					"animations": [
+						"fall"
+					],
+					"blend_transition": 0.15,
+					"transitions": [
+						{
+							"default": "q.is_on_ground || q.is_in_water"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duckatrice.angry": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"flapping": "q.has_target"
+						}
+					]
+				},
+				"flapping": {
+					"animations": [
+						{
+							"flap": "q.is_on_ground"
+						}
+					],
+					"blend_transition": 0.15,
+					"transitions": [
+						{
+							"angry": "q.state_time >= 1 || !q.is_on_ground"
+						}
+					]
+				},
+				"angry": {
+					"animations": [
+						"angry"
+					],
+					"blend_transition": 0.15,
+					"transitions": [
+						{
+							"default": "!q.has_target"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duckatrice.fly": {
+			"initial_state": "flying",
+			"states": {
+				"flying": {
+					"animations": [
+						"fly"
+					],
+					"transitions": [
+						{
+							"gliding": "q.state_time >= 1 && q.vertical_speed < 0 && q.modified_move_speed >= 0.3"
+						}
+					],
+					"blend_transition": 0.3
+				},
+				"gliding": {
+					"animations": [
+						"glide"
+					],
+					"transitions": [
+						{
+							"flying": "q.state_time >= 0.5 && q.vertical_speed >= 0 || q.modified_move_speed < 0.3"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duckatrice.flying_or_not": {
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"hurt": "q.health < q.max_health"
+						},
+						{
+							"controller.random_idle": "!q.has_target"
+						},
+						"controller.sit",
+						"controller.angry",
+						"controller.fall",
+						"look_at_target",
+						{
+							"move": "q.modified_move_speed * 2 * !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					],
+					"blend_transition": 0.25,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"flying": "v.is_flying"
+						}
+					]
+				},
+				"flying": {
+					"animations": [
+						"controller.fly"
+					],
+					"blend_transition": 0.25,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!v.is_flying"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duckatrice.random_idle": {
+			"initial_state": "quacking",
+			"states": {
+				"default": {
+					"animations": [
+						"eatcont"
+					],
+					"on_entry": [
+						"v.time_to_quack = math.random(4, 10);",
+						"v.quack_random_choice = math.random(-1, 4) + q.is_sitting / 2 > 0;"
+					],
+					"transitions": [
+						{
+							"moisturizing_teeth": "v.is_moisturizing_teeth"
+						},
+						{
+							"quacking": "(q.state_time >= v.time_to_quack) && v.quack_random_choice && !v.is_moisturizing_teeth"
+						},
+						{
+							"wait_to_flap": "(q.state_time >= v.time_to_quack) && !v.quack_random_choice && !v.is_moisturizing_teeth"
+						}
+					]
+				},
+				"quacking": {
+					"animations": [
+						"quack"
+					],
+					"transitions": [
+						{
+							"moisturizing_teeth": "v.is_moisturizing_teeth"
+						},
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				},
+				"wait_to_flap": {
+					"transitions": [
+						{
+							"flapping": "!q.is_moving || q.state_time >= 15"
+						}
+					]
+				},
+				"flapping": {
+					"animations": [
+						{
+							"flap": "q.is_on_ground"
+						}
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_on_ground || q.is_moving|| q.any_animation_finished"
+						}
+					]
+				},
+				"moisturizing_teeth": {
+					"transitions": [
+						{
+							"default": "!v.is_moisturizing_teeth"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.random_idle": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"random_idle": "q.life_time >= v.time_to_idle"
+						}
+					],
+					"on_entry": [
+						"v.time_to_idle = q.life_time + math.random(10,60);"
+					]
+				},
+				"random_idle": {
+					"animations": [
+						"random_idle"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.random_idle_terraphin": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"random_idle": "q.life_time >= v.time_to_idle"
+						}
+					],
+					"on_entry": [
+						"v.time_to_idle = q.life_time + math.random(10,30) / (q.is_sleeping + 1);"
+					]
+				},
+				"random_idle": {
+					"animations": [
+						"random_idle"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.random_idle_water": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"random_idle": "q.life_time >= v.time_to_idle && q.is_in_water"
+						}
+					],
+					"on_entry": [
+						"v.time_to_idle = q.life_time + math.random(5,20);"
+					]
+				},
+				"random_idle": {
+					"animations": [
+						"diphead"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.mercat_spin": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"spin": "q.has_target || !q.is_alive"
+						}
+					]
+				},
+				"spin": {
+					"animations": [
+						"spin"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.has_target && q.is_alive"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.terraphin_groom": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"eatcont",
+						{
+							"move": "q.modified_move_speed * 2.5 * !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						},
+						{
+							"look_at_target": "2/3"
+						},
+						"controller.sit"
+					],
+					"transitions": [
+						{
+							"groom": "!q.has_rider &&!q.is_sleeping &&!q.has_target &&q.modified_move_speed < 0.05 &&!q.is_interested && math.random(-1500,2) - q.is_sitting > 0"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true
+				},
+				"groom": {
+					"animations": [
+						"groom"
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "q.has_rider || q.is_sleeping || q.has_target || q.modified_move_speed >= 0.05 || q.is_interested || q.any_animation_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.terraphin_mouth": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "(q.is_interested || (q.has_rider && q.is_moving) || q.has_target) && !q.is_sleeping"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"eat"
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!(q.is_interested || (q.has_rider && q.is_moving) || q.has_target) || q.is_sleeping"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.bettadance": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"dance1": "(q.life_time > v.timetodance) ? math.random_integer(1,4) == 1"
+						},
+						{
+							"dance2": "(q.life_time > v.timetodance) ? math.random_integer(1,4) == 2"
+						},
+						{
+							"dance3": "(q.life_time > v.timetodance) ? math.random_integer(1,4) == 3"
+						},
+						{
+							"dance4": "(q.life_time > v.timetodance) ? math.random_integer(1,4) == 4"
+						}
+					],
+					"on_entry": [
+						"v.timetodance = q.life_time + math.random(12,80);"
+					]
+				},
+				"dance1": {
+					"animations": [
+						"dance1"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				},
+				"dance2": {
+					"animations": [
+						"dance2"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				},
+				"dance3": {
+					"animations": [
+						"dance3"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				},
+				"dance4": {
+					"animations": [
+						"dance4"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.bananavomit": {
+			"initial_state": "vomit",
+			"states": {
+				"default": {},
+				"vomit": {
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					],
+					"animations": [
+						"pugehenis"
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.falcon_walking": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"walk_on_air": "(math.pow(q.modified_move_speed / 0.15,1/16)) > 1 ? math.pow(q.modified_move_speed / 0.15,1/16) : q.modified_move_speed / 0.15"
+						},
+						{
+							"flap": "0.8"
+						}
+					],
+					"blend_transition": 0.25,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "q.is_on_ground"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						{
+							"walk": "(math.pow(q.modified_move_speed / 0.15,1/16)) > 1 ? math.pow(q.modified_move_speed / 0.15,1/16) : q.modified_move_speed / 0.15"
+						}
+					],
+					"blend_transition": 0.25,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.falcon_base": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"sitcont",
+						"walkcont",
+						{
+							"look": "q.is_alive ? math.min(1 / ((q.max_health-q.health)/3 + 1),1) : 0"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sleep": "q.is_sleeping"
+						},
+						{
+							"flying": "q.can_fly && q.is_alive"
+						}
+					]
+				},
+				"flying": {
+					"animations": [
+						"flying"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"on_entry": [
+						"v.coxx=q.life_time;"
+					],
+					"transitions": [
+						{
+							"default": "(!q.can_fly && q.is_on_ground) || !q.is_alive"
+						},
+						{
+							"flying_downwards": "(q.vertical_speed < -2) && q.can_fly && q.life_time - v.coxx > 0.75"
+						}
+					]
+				},
+				"flying_downwards": {
+					"animations": [
+						"flying_downwards"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"on_entry": [
+						"v.coxx=q.life_time;"
+					],
+					"transitions": [
+						{
+							"default": "!q.can_fly || !q.is_alive"
+						},
+						{
+							"flying": "(q.vertical_speed > 0) || q.life_time - v.coxx > 1.5"
+						}
+					]
+				},
+				"sleep": {
+					"animations": [
+						"sleeping"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_sleeping"
+						},
+						{
+							"flying": "q.can_fly"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.random_attack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"on_entry": [
+						"v.random_attack_choice=math.random_integer(1, 3);"
+					],
+					"transitions": [
+						{
+							"attack1": "v.attack_time && v.random_attack_choice == 1"
+						},
+						{
+							"attack2": "v.attack_time && v.random_attack_choice == 2"
+						},
+						{
+							"attack3": "v.attack_time && v.random_attack_choice == 3"
+						}
+					]
+				},
+				"attack1": {
+					"animations": [
+						"attack1"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished && (v.attack_time == 0)"
+						}
+					]
+				},
+				"attack2": {
+					"animations": [
+						"attack2"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished && (v.attack_time == 0)"
+						}
+					]
+				},
+				"attack3": {
+					"animations": [
+						"attack3"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished && (v.attack_time == 0)"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.attack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack": "v.attack_time"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished && !v.attack_time"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.scale_transition": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"on_entry": [
+						"v.prev_scale = v.curr_scale;"
+					],
+					"animations": [
+						"scale_transition"
+					],
+					"transitions": [
+						{
+							"update": "v.prev_scale != v.curr_scale && q.state_time > 0.15"
+						}
+					],
+					"blend_transition": 0.15
+				},
+				"update": {
+					"transitions": [
+						{
+							"default": "q.state_time > 0.15"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.crack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"crack": "q.health < v.prevhealth"
+						},
+						{
+							"healed": "q.health > v.prevhealth"
+						}
+					],
+					"on_entry": [
+						"v.prevhealth = q.health;"
+					]
+				},
+				"crack": {
+					"transitions": [
+						{
+							"default": "1"
+						}
+					],
+					"sound_effects": [
+						{
+							"effect": "crack"
+						}
+					]
+				},
+				"healed": {
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duck_morph_hurt": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"hurt": "q.health < v.prevhealth"
+						},
+						{
+							"healed": "q.health > v.prevhealth"
+						}
+					],
+					"on_entry": [
+						"v.prevhealth = q.health;",
+						"v.just_got_hurt = 0;"
+					]
+				},
+				"hurt": {
+					"transitions": [
+						{
+							"crack": "q.is_alive && v.random_integer == 1"
+						},
+						{
+							"crack2": "q.is_alive && v.random_integer == 2"
+						},
+						{
+							"crack3": "q.is_alive && v.random_integer == 3"
+						},
+						{
+							"crack4": "q.is_alive && v.random_integer == 4"
+						},
+						{
+							"crack5": "q.is_alive && v.random_integer == 5"
+						},
+						{
+							"dead": "!q.is_alive"
+						}
+					],
+					"on_entry": [
+						"v.random_integer = math.random_integer(1,5);",
+						"v.just_got_hurt = 1;"
+					]
+				},
+				"dead": {
+					"transitions": [
+						{
+							"default": "q.is_alive"
+						}
+					],
+					"sound_effects": [
+						{
+							"effect": "die"
+						}
+					]
+				},
+				"crack": {
+					"transitions": [
+						{
+							"default": "q.life_time > v.time_to_stop_hurt"
+						}
+					],
+					"sound_effects": [
+						{
+							"effect": "crack"
+						}
+					],
+					"on_entry": [
+						"v.time_to_stop_hurt = q.life_time + 0.5;"
+					]
+				},
+				"crack2": {
+					"transitions": [
+						{
+							"default": "q.life_time > v.time_to_stop_hurt"
+						}
+					],
+					"sound_effects": [
+						{
+							"effect": "crack2"
+						}
+					],
+					"on_entry": [
+						"v.time_to_stop_hurt = q.life_time + 0.5;"
+					]
+				},
+				"crack3": {
+					"transitions": [
+						{
+							"default": "q.life_time > v.time_to_stop_hurt"
+						}
+					],
+					"sound_effects": [
+						{
+							"effect": "crack3"
+						}
+					],
+					"on_entry": [
+						"v.time_to_stop_hurt = q.life_time + 0.5;"
+					]
+				},
+				"crack4": {
+					"transitions": [
+						{
+							"default": "q.life_time > v.time_to_stop_hurt"
+						}
+					],
+					"sound_effects": [
+						{
+							"effect": "crack4"
+						}
+					],
+					"on_entry": [
+						"v.time_to_stop_hurt = q.life_time + 0.5;"
+					]
+				},
+				"crack5": {
+					"transitions": [
+						{
+							"default": "q.life_time > v.time_to_stop_hurt"
+						}
+					],
+					"sound_effects": [
+						{
+							"effect": "crack5"
+						}
+					],
+					"on_entry": [
+						"v.time_to_stop_hurt = q.life_time + 0.5;"
+					]
+				},
+				"healed": {
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.crackduckhat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"quackcont"
+					],
+					"transitions": [
+						{
+							"crack": "(q.health < v.prevhealth) ? math.random_integer(1,5) == 1"
+						},
+						{
+							"crack2": "(q.health < v.prevhealth) ? math.random_integer(1,5) == 2"
+						},
+						{
+							"crack3": "(q.health < v.prevhealth) ? math.random_integer(1,5) == 3"
+						},
+						{
+							"crack4": "(q.health < v.prevhealth) ? math.random_integer(1,5) == 4"
+						},
+						{
+							"crack5": "(q.health < v.prevhealth) ? math.random_integer(1,5) == 5"
+						},
+						{
+							"healed": "q.health > v.prevhealth"
+						}
+					],
+					"on_entry": [
+						"v.prevhealth = q.health;"
+					]
+				},
+				"crack": {
+					"transitions": [
+						{
+							"default": "q.all_animations_finished"
+						}
+					],
+					"animations": [
+						"hurt"
+					],
+					"sound_effects": [
+						{
+							"effect": "crack"
+						}
+					]
+				},
+				"crack2": {
+					"transitions": [
+						{
+							"default": "q.all_animations_finished"
+						}
+					],
+					"animations": [
+						"hurt"
+					],
+					"sound_effects": [
+						{
+							"effect": "crack2"
+						}
+					]
+				},
+				"crack3": {
+					"transitions": [
+						{
+							"default": "q.all_animations_finished"
+						}
+					],
+					"animations": [
+						"hurt"
+					],
+					"sound_effects": [
+						{
+							"effect": "crack3"
+						}
+					]
+				},
+				"crack4": {
+					"transitions": [
+						{
+							"default": "q.all_animations_finished"
+						}
+					],
+					"animations": [
+						"hurt"
+					],
+					"sound_effects": [
+						{
+							"effect": "crack4"
+						}
+					]
+				},
+				"crack5": {
+					"transitions": [
+						{
+							"default": "q.all_animations_finished"
+						}
+					],
+					"animations": [
+						"hurt"
+					],
+					"sound_effects": [
+						{
+							"effect": "crack5"
+						}
+					]
+				},
+				"healed": {
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.hitanim": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"crack": "q.health < (v.prevhealth ?? q.health)"
+						},
+						{
+							"healed": "q.health > (v.prevhealth ?? q.health)"
+						}
+					],
+					"on_entry": [
+						"v.prevhealth = q.health;"
+					]
+				},
+				"crack": {
+					"transitions": [
+						{
+							"default": "q.all_animations_finished"
+						}
+					],
+					"animations": [
+						"gothurt"
+					]
+				},
+				"healed": {
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.love": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"open": "q.is_in_love && !v.is_eat_anim"
+						}
+					]
+				},
+				"wait": {
+					"transitions": [
+						{
+							"default": "!q.is_in_love"
+						}
+					]
+				},
+				"open": {
+					"on_entry": [
+						"v.is_eat_anim = 1;"
+					],
+					"on_exit": [
+						"v.is_eat_anim = 0;"
+					],
+					"transitions": [
+						{
+							"wait": "q.all_animations_finished"
+						}
+					],
+					"animations": [
+						"eating"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.kiwidisappear": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"lol": "!q.variant && (q.is_avoiding_mobs || (q.health < q.max_health))"
+						}
+					]
+				},
+				"lol": {
+					"animations": [
+						"albino"
+					],
+					"transitions": [
+						{
+							"default": "q.is_tamed && q.health >= q.max_health"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.deathat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "!q.is_alive"
+						}
+					]
+				},
+				"sit": {
+					"transitions": [
+						{
+							"default": "q.is_alive"
+						}
+					],
+					"sound_effects": [
+						{
+							"effect": "die"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.eatfloor": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"look_at_target"
+					],
+					"transitions": [
+						{
+							"sit": "q.mark_variant == 1"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"eatfloor"
+					],
+					"transitions": [
+						{
+							"wait": "q.any_animation_finished"
+						}
+					]
+				},
+				"wait": {
+					"transitions": [
+						{
+							"default": "q.mark_variant == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.rodent_walk_or_run": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"walk": "q.modified_move_speed * 6"
+						}
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"running": "q.modified_move_speed >= 0.6"
+						}
+					]
+				},
+				"running": {
+					"animations": [
+						{
+							"run": "q.modified_move_speed * 2"
+						}
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "q.modified_move_speed < 0.6"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.climb": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "q.is_wall_climbing"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"climb"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_wall_climbing"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.swim2": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "q.is_swimming"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"swim"
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_swimming"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.swimduck": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"flap_wings": "!q.has_rider && !q.is_on_ground"
+						}
+					],
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "q.is_in_water"
+						}
+					]
+				},
+				"sit": {
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_in_water"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.buckangry": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.15,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "(q.has_target && !q.is_baby && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && v.state != 4 && !q.is_sleeping)"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						{
+							"angry": "1 - math.sin(v.attack_time * 180)"
+						},
+						{
+							"fall": "q.is_on_ground"
+						}
+					],
+					"blend_transition": 0.15,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!(q.has_target && !q.is_baby && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && v.state != 4 && !q.is_sleeping)"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duckangry": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.15,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "(q.has_target && !q.is_baby && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && v.state != 4 && !q.is_sleeping)"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						{
+							"angry": "1 - math.sin(v.attack_time * 180)"
+						}
+					],
+					"blend_transition": 0.15,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!(q.has_target && !q.is_baby && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && v.state != 4 && !q.is_sleeping)"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.climbb": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "q.vertical_speed > 0.1"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"climb"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "q.vertical_speed < 0.1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.mercat_upside_down": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 2,
+					"blend_via_shortest_path": true,
+					"on_entry": [
+						"v.randomercat = math.random_integer(-29,1);",
+						"v.randomercatime = math.random(2,30) + q.life_time;"
+					],
+					"transitions": [
+						{
+							"lol": "v.random_mercat > 0 && v.randomercatime < q.life_time"
+						}
+					]
+				},
+				"lol": {
+					"animations": [
+						"upside_down"
+					],
+					"blend_transition": 2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "v.randomercatime < q.life_time || q.is_avoiding_mobs"
+						}
+					],
+					"on_entry": [
+						"v.randomercatime = math.random(10,30) + q.life_time;"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.mercat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"walk": "math.min(3,q.modified_move_speed * 8)"
+						},
+						"flop"
+					],
+					"blend_transition": 0.05,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"swim": "q.is_in_water"
+						},
+						{
+							"sit": "q.is_sleeping || q.is_laying_down || (q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sit"
+					],
+					"blend_transition": 0.05,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_sleeping && !q.is_laying_down && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && !q.is_in_water"
+						},
+						{
+							"swim": "q.is_in_water"
+						}
+					]
+				},
+				"swim": {
+					"animations": [
+						"swim_cont",
+						"ups_cont"
+					],
+					"blend_transition": 0.05,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_in_water"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.tiktaalik": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"walk": "math.min(1,q.modified_move_speed * 10)"
+						}
+					],
+					"blend_transition": 0.15,
+					"transitions": [
+						{
+							"swim": "q.is_in_water && !q.is_sitting"
+						},
+						{
+							"sit": "q.is_sitting"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sit"
+					],
+					"blend_transition": 0.15,
+					"transitions": [
+						{
+							"default": "!q.is_sitting"
+						}
+					]
+				},
+				"swim": {
+					"animations": [
+						"lookwater",
+						{
+							"swim": "math.max(0.25,q.modified_move_speed * 4)"
+						},
+						"fin_cont"
+					],
+					"blend_transition": 0.15,
+					"transitions": [
+						{
+							"default": "!q.is_in_water || q.is_sitting"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.tiktaalik_fins": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.4,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"swim": "q.is_moving"
+						}
+					]
+				},
+				"swim": {
+					"animations": [
+						"swim2"
+					],
+					"blend_transition": 0.4,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_moving"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.mercat_swim": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"swim": "math.clamp(0.2,1.3,q.modified_move_speed * 4)"
+						},
+						"swim2"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"swim_with_fins": "q.has_target || q.is_sheared || q.modified_move_speed < 0.1"
+						}
+					]
+				},
+				"swim_with_fins": {
+					"animations": [
+						{
+							"swim_with_fins": "math.max(0.2,q.modified_move_speed * 4)"
+						}
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!(q.has_target || q.is_sheared || q.modified_move_speed < 0.1)"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.mercat_look": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"lookwater": "q.is_in_water"
+						}
+					],
+					"blend_transition": 1,
+					"transitions": [
+						{
+							"float": "q.is_sheared"
+						}
+					]
+				},
+				"float": {
+					"animations": [
+						"float"
+					],
+					"blend_transition": 0.5,
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.swim": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.6,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"swim": "q.is_in_water"
+						}
+					]
+				},
+				"swim": {
+					"animations": [
+						"swim"
+					],
+					"blend_transition": 0.6,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_in_water"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.water": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"not_in_water"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"swim": "q.is_in_water"
+						}
+					]
+				},
+				"swim": {
+					"animations": [
+						"water"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_in_water"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.dance": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"dance": "(q.is_in_love || (q.life_time >= v.transition_time) ) &&! q.has_target &&! q.is_sitting&&! q.is_moving&&! q.has_rider"
+						}
+					],
+					"on_entry": [
+						"v.transition_time=q.is_tamed ? (q.life_time + math.random(180,600)) : (q.life_time + math.random(30,90));"
+					]
+				},
+				"dance": {
+					"animations": [
+						"dance"
+					],
+					"blend_transition": 0.5,
+					"transitions": [
+						{
+							"default": "!q.is_in_love && ((q.life_time >= v.transition_time) || q.has_target || q.is_sitting || q.is_moving || q.has_rider)"
+						},
+						{
+							"wait": "q.is_in_love && ((q.life_time >= v.transition_time) || q.has_target || q.is_sitting || q.is_moving || q.has_rider)"
+						}
+					],
+					"on_entry": [
+						"v.transition_time=q.life_time + math.random(9,16);"
+					]
+				},
+				"wait": {
+					"transitions": [
+						{
+							"default": "!q.is_in_love && (q.life_time >= v.transition_time)"
+						}
+					],
+					"on_entry": [
+						"v.transition_time = q.life_time + 0.5;"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.stick_bug_dance": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"controller.sit": "q.is_alive"
+						}
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"dance": "(q.is_in_love || q.is_dancing || (q.life_time >= v.transition_time) ) &&! q.is_moving"
+						}
+					],
+					"on_entry": [
+						"v.transition_time=q.is_tamed ? (q.life_time + math.random(120,480)) : (q.life_time + math.random(30,90));"
+					]
+				},
+				"dance": {
+					"animations": [
+						"dance"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_dancing &&!q.is_in_love && ((q.life_time >= v.transition_time) || q.is_moving)"
+						},
+						{
+							"wait": "!q.is_dancing &&q.is_in_love && ((q.life_time >= v.transition_time) || q.is_moving)"
+						}
+					],
+					"on_entry": [
+						"v.transition_time=q.life_time + math.random(4,9);"
+					]
+				},
+				"wait": {
+					"animations": [
+						{
+							"controller.sit": "q.is_alive"
+						}
+					],
+					"transitions": [
+						{
+							"default": "!q.is_in_love && (q.life_time >= v.transition_time)"
+						}
+					],
+					"on_entry": [
+						"v.transition_time = q.life_time + 0.5;"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.stick_bug_wings": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"hide_wings",
+						"dancecont"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"swim": "q.has_target || q.is_sheared || !q.is_alive || !q.is_on_ground"
+						}
+					]
+				},
+				"swim": {
+					"animations": [
+						"controller.ground"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.has_target &&! q.is_sheared && q.is_alive && q.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.mergoose_tongue": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"attack": "math.sin(v.attack_time * 180)"
+						},
+						{
+							"hold_tongue": "1 - math.sin(v.attack_time * 180)"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"eat": "(q.is_interested && !q.has_target) || !q.is_alive || math.random(-1500,2) > 0"
+						}
+					]
+				},
+				"eat": {
+					"animations": [
+						"eat"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "q.is_alive && (!q.is_interested || q.has_target)"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.kiwi.ground": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"look_at_target"
+					],
+					"blend_transition": 1.25,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"ground": "math.random(-500,1) > 0 && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && !q.is_interested"
+						}
+					]
+				},
+				"ground": {
+					"animations": [
+						"ground"
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "q.anim_time > 0.05"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.kiwi.ground2": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"ground": "v.attack_time > 0"
+						}
+					]
+				},
+				"ground": {
+					"animations": [
+						"ground"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"ground2": "1"
+						}
+					]
+				},
+				"ground2": {
+					"transitions": [
+						{
+							"default": "v.attack_time == 0"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.sleep": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.3,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sleep": "v.state == 4"
+						}
+					]
+				},
+				"sleep": {
+					"animations": [
+						"sleep",
+						"sleeptl"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "v.state != 4"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.picklecatsit": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"fixsit"
+					],
+					"transitions": [
+						{
+							"default": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.sitforcat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"stand"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						},
+						{
+							"sleep": "q.is_sleeping"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sit"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						},
+						{
+							"sleep": "q.is_sleeping"
+						}
+					]
+				},
+				"sleep": {
+					"animations": [
+						"sleep"
+					],
+					"blend_transition": 0.05,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_sleeping && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						},
+						{
+							"sit": "!q.is_sleeping && (q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.sitforpcat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"stand"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && !q.has_rider"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sit"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) || q.has_rider"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.sit": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"sit": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sit"
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"default": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.sit_or_sleep": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						},
+						{
+							"sleep": "q.is_sleeping"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sit"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						},
+						{
+							"sleep": "q.is_sleeping"
+						}
+					]
+				},
+				"sleep": {
+					"animations": [
+						"sleep",
+						"sleeptl"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_sleeping && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						},
+						{
+							"sit": "!q.is_sleeping && (q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.simple_admire": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"admiring": "q.is_admiring"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"admiring": {
+					"animations": [
+						"admire"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_admiring"
+						}
+					],
+					"blend_transition": 0.1
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.should_crawl": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"set_variable": "q.is_moving"
+						}
+					]
+				},
+				"set_variable": {
+					"transitions": [
+						{
+							"default": "!q.is_moving && q.life_time > v.crawl_stop_time"
+						}
+					],
+					"on_entry": [
+						"v.should_crawl=(math.random(0,9) <= 1) || q.is_powered;",
+						"v.crawl_stop_time=q.life_time+7;"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.penguin_movement": {
+			"initial_state": "walking",
+			"states": {
+				"walking": {
+					"animations": [
+						{
+							"walk": "q.modified_move_speed*3"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sitting": "v.sitting"
+						},
+						{
+							"crawling": "v.should_crawl && !v.swimming"
+						},
+						{
+							"swimming": "v.swimming"
+						}
+					]
+				},
+				"crawling": {
+					"animations": [
+						"crawl_pose",
+						{
+							"crawl_move": "q.modified_move_speed*2"
+						},
+						{
+							"fix_emperor": "q.mark_variant == 1"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sitting": "v.sitting"
+						},
+						{
+							"walking": "!v.swimming && !v.should_crawl"
+						},
+						{
+							"swimming": "v.swimming"
+						}
+					]
+				},
+				"sitting": {
+					"animations": [
+						{
+							"sit": "q.mark_variant != 1"
+						},
+						{
+							"sit_emperor": "q.mark_variant == 1"
+						}
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"walking": "!v.sitting && !v.should_crawl"
+						},
+						{
+							"crawling": "!v.sitting && v.should_crawl"
+						}
+					]
+				},
+				"swimming": {
+					"animations": [
+						{
+							"swim": "math.max(0.2,q.modified_move_speed / 2)"
+						},
+						{
+							"fix_emperor": "q.mark_variant == 1"
+						},
+						"swim_pose"
+					],
+					"blend_transition": 0.5,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sitting": "v.sitting"
+						},
+						{
+							"crawling": "q.is_on_ground && !v.sitting && !v.swimming && q.life_time > v.swim_stop_time"
+						}
+					],
+					"on_entry": [
+						"v.swim_stop_time=q.life_time+2;"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.slime_wyvern": {
+			"initial_state": "walking",
+			"states": {
+				"walking": {
+					"animations": [
+						{
+							"walk": "q.modified_move_speed*2"
+						},
+						"on_ground",
+						"look"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"sitting": "v.sitting"
+						},
+						{
+							"flying": "!q.is_on_ground"
+						}
+					]
+				},
+				"sitting": {
+					"animations": [
+						"sit",
+						"look"
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"walking": "!v.sitting"
+						}
+					]
+				},
+				"flying": {
+					"animations": [
+						"fly"
+					],
+					"blend_transition": 0.3,
+					"transitions": [
+						{
+							"walking": "q.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.big_power_up": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"big_power_up": "q.is_stunned && q.model_scale <= 0.1"
+						}
+					]
+				},
+				"big_power_up": {
+					"animations": [
+						{
+							"big_power_up": "1.5"
+						}
+					],
+					"transitions": [
+						{
+							"default": "q.model_scale > 0.1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.on_head": {
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"on_head": "!q.is_baby"
+						},
+						{
+							"sit": "q.is_baby"
+						}
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"fly": "q.vertical_speed"
+						}
+					]
+				},
+				"fly": {
+					"animations": [
+						{
+							"on_head_fly": "!q.is_baby"
+						},
+						{
+							"fly": "q.is_baby"
+						}
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.vertical_speed"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.rodent_sit": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? ((math.random_integer(1,2) == 1) || !v.can_use_sit2)"
+						},
+						{
+							"sit2": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? ((math.random_integer(1,2) == 2) && v.can_use_sit2)"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sit"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				},
+				"sit2": {
+					"animations": [
+						"sit2"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					],
+					"on_entry": [
+						"v.can_use_sit2 = 0;"
+					],
+					"on_exit": [
+						"v.can_use_sit2 = 1;"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.3var": {
+			"initial_state": "var1",
+			"states": {
+				"var1": {
+					"animations": [
+						"var1"
+					],
+					"blend_transition": 0.3,
+					"transitions": [
+						{
+							"var2": "q.variant == 1"
+						},
+						{
+							"var3": "q.variant == 2"
+						}
+					]
+				},
+				"var2": {
+					"animations": [
+						"var2"
+					],
+					"blend_transition": 0.3,
+					"transitions": [
+						{
+							"var1": "q.variant == 0"
+						},
+						{
+							"var3": "q.variant == 2"
+						}
+					]
+				},
+				"var3": {
+					"animations": [
+						"var3"
+					],
+					"blend_transition": 0.3,
+					"transitions": [
+						{
+							"var1": "q.variant == 0"
+						},
+						{
+							"var2": "q.variant == 1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.centipede": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"centipede"
+					],
+					"blend_transition": 0.1,
+					"transitions": [
+						{
+							"sit": "(q.modified_move_speed > 0 || q.is_sheared) && q.is_alive"
+						}
+					]
+				},
+				"sit": {
+					"blend_transition": 1,
+					"transitions": [
+						{
+							"default": "!q.is_alive"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.eatscat": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						"noteating"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "q.is_interested"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"eat"
+					],
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_interested"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.eatnoblend": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.4,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "q.is_interested"
+						}
+					]
+				},
+				"sit": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"animations": [
+						"beg"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_interested"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.ground": {
+			"initial_state": "on_ground",
+			"states": {
+				"falling": {
+					"animations": [
+						"fall"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"on_ground": "q.is_on_ground"
+						}
+					]
+				},
+				"on_ground": {
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"falling": "!q.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.poop": {
+			"initial_state": "on_ground",
+			"states": {
+				"falling": {
+					"animations": [
+						"fall"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"on_ground": "q.is_on_ground"
+						}
+					]
+				},
+				"on_ground": {
+					"animations": [
+						"melt"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"falling": "!q.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.admire": {
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"contsit": "!q.is_riding"
+						}
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"admire": "q.is_admiring"
+						}
+					]
+				},
+				"admire": {
+					"animations": [
+						"admire"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_admiring"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.simple_attack": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack": "v.attack_time"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"attack"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.rat_king_squeeze": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"squeeze": "q.is_moving"
+						}
+					],
+					"blend_transition": 0.25
+				},
+				"squeeze": {
+					"animations": [
+						"squeeze"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_moving"
+						}
+					],
+					"blend_transition": 0.25
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.delayed_attack": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attack": "q.is_delayed_attacking"
+						}
+					]
+				},
+				"attack": {
+					"animations": [
+						"delayed_attack"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.mate": {
+			"states": {
+				"default": {
+					"blend_transition": 0.1,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"mate_male": "v.is_mating && q.property('billey:is_male')"
+						},
+						{
+							"mate_female": "v.is_mating && !q.property('billey:is_male')"
+						}
+					]
+				},
+				"mate_male": {
+					"animations": [
+						"mate_male"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!v.is_mating"
+						},
+						{
+							"mate_female": "!q.property('billey:is_male')"
+						}
+					]
+				},
+				"mate_female": {
+					"animations": [
+						"mate_female"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!v.is_mating"
+						},
+						{
+							"mate_male": "q.property('billey:is_male')"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.netherrat_fly": {
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"move": "q.is_alive && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						},
+						{
+							"contsniff": "!q.is_riding && !q.is_admiring"
+						},
+						{
+							"look_at_target": "q.is_alive && !q.is_admiring"
+						},
+						"fold_wings",
+						"contadmire"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"fly": "!q.is_alive || !q.is_on_ground"
+						}
+					]
+				},
+				"fly": {
+					"animations": [
+						"fly"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "q.is_alive && q.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.rat_king_fly": {
+			"states": {
+				"default": {
+					"animations": [
+						"walk_or_run",
+						"squeeze_cont",
+						"look_at_target",
+						"fold_wings"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"fly": "!q.is_on_ground"
+						}
+					]
+				},
+				"fly": {
+					"animations": [
+						"fly",
+						{
+							"ascend": "math.clamp(v.vertical_speed_smoothened/4,0,1)"
+						},
+						{
+							"descend": "math.clamp(-v.vertical_speed_smoothened/4,0,1)"
+						}
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "q.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.rat_king_cook": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"cook": "q.property('billey:is_cooking') == 1"
+						},
+						{
+							"cook2": "q.property('billey:is_cooking') == 2"
+						},
+						{
+							"cook3": "q.property('billey:is_cooking') == 3"
+						},
+						{
+							"cook4": "q.property('billey:is_cooking') == 4"
+						}
+					]
+				},
+				"cook": {
+					"animations": [
+						"cook"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.property('billey:is_cooking')"
+						}
+					]
+				},
+				"cook2": {
+					"animations": [
+						"cook2"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.property('billey:is_cooking')"
+						}
+					]
+				},
+				"cook3": {
+					"animations": [
+						"cook3"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.property('billey:is_cooking')"
+						}
+					]
+				},
+				"cook4": {
+					"animations": [
+						"cook4"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.property('billey:is_cooking')"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.shearedd": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"sit": "q.is_sheared"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duckidleanim": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"flap": "q.is_sheared"
+						}
+					]
+				},
+				"flap": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.shearedflap": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"sit": "q.is_sheared"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.snail": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"sit": "q.is_sheared || (q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_sheared && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.stunned": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"sit": "q.is_stunned"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "!q.is_stunned"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.sheared": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "q.is_sheared"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.quackitem": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "math.random(-700,2) > 0"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"quack"
+					],
+					"transitions": [
+						{
+							"default": "q.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.quackitem2": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "math.random(-700,2) > 0"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"quack2"
+					],
+					"transitions": [
+						{
+							"default": "q.all_animations_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.hitted": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"animations": [
+						{
+							"controller.quack": "!q.is_baby && v.state != 4 && !q.is_sleeping && q.health >= q.max_health"
+						},
+						{
+							"controller.quackbaby": "q.is_baby && v.state != 4 && !q.is_sleeping && q.health >= q.max_health"
+						}
+					],
+					"transitions": [
+						{
+							"sit": "v.hitted"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"hitted"
+					],
+					"transitions": [
+						{
+							"default": "q.any_animation_finished"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.quack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "q.is_stunned"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"quack"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_stunned"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.morph_quack": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "q.is_sneaking"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"quack"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_sneaking"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.quackbaby": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "q.is_stunned"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"quackbaby"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_stunned"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.shearedbaby": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sit": "q.is_sheared"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"shearedbaby"
+					],
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.saddled": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"sit": "q.is_saddled"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"saddled"
+					],
+					"blend_transition": 0.2,
+					"blend_via_shortest_path": true,
+					"transitions": [
+						{
+							"default": "!q.is_saddled"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.rodent_sniff": {
+			"initial_state": "default",
+			"states": {
+				"default": {
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"sit": "(q.is_sheared) || (q.is_interested && (q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)))"
+						},
+						{
+							"sit2": "q.is_interested && !q.is_moving && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				},
+				"sit": {
+					"animations": [
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "q.any_animation_finished && !q.is_interested"
+						}
+					]
+				},
+				"sit2": {
+					"animations": [
+						{
+							"sit2": "math.max(0,1-q.modified_move_speed*3)"
+						},
+						"sheared"
+					],
+					"blend_transition": 0.2,
+					"transitions": [
+						{
+							"default": "q.is_moving || (q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					],
+					"on_entry": [
+						"v.can_use_sit2 = 0;"
+					],
+					"on_exit": [
+						"v.can_use_sit2 = 1;"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.velvet_attack": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"attacking": "v.attack_time"
+						}
+					],
+					"blend_transition": 0.1
+				},
+				"attacking": {
+					"animations": [
+						"attacking"
+					],
+					"transitions": [
+						{
+							"attacked": "q.life_time >= v.time_to_transition"
+						}
+					],
+					"blend_transition": 0.3,
+					"on_entry": [
+						"v.time_to_transition = q.life_time + 0.2;"
+					]
+				},
+				"attacked": {
+					"animations": [
+						"attacked"
+					],
+					"transitions": [
+						{
+							"default": "!v.attack_time"
+						}
+					]
+				}
+			}
+		}
+	}
+}

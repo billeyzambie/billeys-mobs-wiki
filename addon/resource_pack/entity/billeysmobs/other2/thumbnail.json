@@ -1,0 +1,20 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:thumbnail",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/thumbnail"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.thumbnail"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

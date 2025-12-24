@@ -1,0 +1,58 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.billeys_mobs.giraffe_cat": {
+            "arrays": {
+                "textures": {
+                    "array.other": [
+                        "texture.giraffe",
+                        "texture.giraffe1",
+                        "texture.giraffe2",
+                        "texture.giraffe3",
+                        "texture.giraffe4",
+                        "texture.zombie"
+                    ],
+                    "array.vanilla_cats": [
+                        "texture.white",
+                        "texture.black",
+                        "texture.red",
+                        "texture.siamese",
+                        "texture.british",
+                        "texture.calico",
+                        "texture.persian",
+                        "texture.ragdoll",
+                        "texture.tabby",
+                        "texture.all_black",
+                        "texture.jellie",
+                        "texture.blackorange",
+                        "texture.blackwhite",
+                        "texture.perry",
+                        "texture.pizza",
+                        "texture.sugar",
+                        "texture.lily"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "v.is_cat_hybrid ? array.vanilla_cats[v.variant] : array.other[v.variant]"
+            ],
+            "part_visibility": [
+                {
+                    "snout": "v.has_snout"
+                }
+            ],
+            "overlay_color": {
+                "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+                "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+                "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+                "a": "q.is_illager_captain ? 0.4 : 0.0"
+            }
+        }
+    }
+}

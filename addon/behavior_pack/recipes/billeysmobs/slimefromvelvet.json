@@ -1,0 +1,27 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "billey:slimefromvelvet"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "what_does_this_do",
+    "pattern": [
+      "vvv",
+      "vsv",
+      "vvv"
+    ],
+    "key": {
+      "s": {
+        "item": "slime_ball"
+      },
+      "v": {
+        "item": "billey:velvet_slime"
+      }
+    },
+    "result": {
+     "item": "slime_ball",
+     "count": 5
+   }
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "format_version": "1.20.60",
+    "minecraft:item": {
+        "description": {
+            "identifier": "billey:velvet_slime",
+            "menu_category": {
+                "category": "equipment"
+            }
+        },
+        "components": {
+            "minecraft:icon": {
+                "textures": {
+                    "default": "velvetslime"
+                }
+            },
+            "minecraft:max_stack_size": {
+                "value": 16
+            },
+            "minecraft:throwable": {
+                "do_swing_animation": true
+            },
+            "minecraft:projectile": {
+                "projectile_entity": "billey:velvet_projectile"
+            }
+        }
+    }
+}

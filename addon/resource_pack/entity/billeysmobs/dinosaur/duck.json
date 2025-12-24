@@ -1,0 +1,172 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:duck",
+      "materials": {
+        "default": "entity_alphatest",
+        "skeleton": "skeleton",
+        "dyeable": "cat",
+        "cat": "cat"
+      },
+      "textures": {
+        "white": "textures/entity/billeys_mobs/duck",
+        "brown": "textures/entity/billeys_mobs/duck2",
+        "golden": "textures/entity/billeys_mobs/duck1",
+        "whiteling": "textures/entity/billeys_mobs/duck3",
+        "brownling": "textures/entity/billeys_mobs/duck4",
+        "mandarin": "textures/entity/billeys_mobs/duck12",
+        "blue": "textures/entity/billeys_mobs/duck14",
+        "hatopy": "textures/entity/billeys_mobs/hatopy",
+        "black": "textures/entity/billeys_mobs/duck15",
+        "head": "textures/entity/billeys_mobs/duck16",
+        "whole": "textures/entity/billeys_mobs/duck17",
+        "leather": "textures/entity/billeys_mobs/duckleather",
+        "gold": "textures/entity/billeys_mobs/duckgold",
+        "chain": "textures/entity/billeys_mobs/duckchain",
+        "iron": "textures/entity/billeys_mobs/duckiron",
+        "diamond": "textures/entity/billeys_mobs/duckdiamond",
+        "chest": "textures/entity/billeys_mobs/cuteduckchest",
+        "endrodpetarmor": "textures/entity/bill/endrodarmor",
+        "netherite": "textures/entity/billeys_mobs/ducknetherite"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.duck",
+        "chest": "geometry.billeys_mobs.duckchest",
+        "armor": "geometry.billeys_mobs.duckarmor",
+        "endrod": "geometry.billduckendrod"
+      },
+      "particle_effects": {
+        "zeelol": "billey:zeeduck"
+      },
+      "animations": {
+        "hurt": "animation.billeys_mobs.duck.hurt",
+        "move": "animation.billeys_mobs.duck.walk32",
+        "sit": "animation.billeys_mobs.duck.sit",
+        "swim": "animation.billeys_mobs.duck.swim",
+        "look_at_target": "animation.billeys_mobs.duck.look_at_target",
+        "look_at_target_baby": "animation.billeys_mobs.duckling.look_at_target",
+        "baby_transform": "animation.billeys_mobs.duck.ling",
+        "flap_wings": "animation.billeys_mobs.duck.fall",
+        "quack": "animation.billeys_mobs.duck.quack",
+        "quackbaby": "animation.billeys_mobs.duck.quackbaby",
+        "sheared": "animation.billeys_mobs.duck.flap",
+        "eat": "animation.billeys_mobs.duck.eat",
+        "random_idle": "animation.billeys_mobs.duck.wiggle_tail",
+        "angry": "animation.billeys_mobs.duck.angry",
+        "diphead": "animation.billeys_mobs.duck.pickupbread",
+        "sleep": "animation.billeys_mobs.duck.sleep",
+        "sleeptl": "animation.billeys_mobs.duck.sleep_particle",
+        "gothurt": "animation.billeys_mobs.duck.gothurt",
+        "hitcont": "controller.animation.billeys_mobs.hitanim",
+        "controller.sit": "controller.animation.billeys_mobs.sit_or_sleep",
+        "controller.quack": "controller.animation.billeys_mobs.quack",
+        "controller.quackbaby": "controller.animation.billeys_mobs.quackbaby",
+        "controller.eat": "controller.animation.billeys_mobs.eat",
+        "controller.sheared": "controller.animation.billeys_mobs.duckidleanim",
+        "controller.swim": "controller.animation.billeys_mobs.swimduck",
+        "controller.sleep": "controller.animation.billeys_mobs.sleep",
+        "controller.random_idle_water": "controller.animation.billeys_mobs.random_idle_water",
+        "controller.random_idle": "controller.animation.billeys_mobs.random_idle",
+        "angrycon": "controller.animation.billeys_mobs.duckangry",
+        "new": "animation.billeys_mobs.duckproj.body"
+      },
+      "sound_effects": {
+        "quack": "billey.duck.say",
+        "quackbaby": "billey.duck.saybaby"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.time_to_idle = 0;",
+          "v.prevhealth = 0;",
+          "v.head_size_x = 4;",
+          "v.head_size_y = 3;",
+          "v.head_size_z = 3;",
+          "v.smooth_scale = q.model_scale;",
+          "v.smooth_baby = q.is_baby;"
+        ],
+        "pre_animation": [
+          "v.show_details = q.distance_from_camera < 7;",
+          "v.smooth_scale = v.show_details ? (v.smooth_scale + (q.model_scale - v.smooth_scale) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.model_scale;",
+          "v.smooth_baby = v.show_details ? (v.smooth_baby + (q.is_baby - v.smooth_baby) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.is_baby;"
+        ],
+        "scale": "v.smooth_scale / q.model_scale",
+        "animate": [
+          {
+            "hitcont": "!q.is_stunned"
+          },
+          "new",
+          {
+            "controller.sleep": "!q.is_sleeping"
+          }, //v.state == 4 means sleeping with owner and q.is_sleeping is for sleeping randomly
+          {
+            "controller.sheared": "v.state != 4 && !q.is_sleeping"
+          },
+          {
+            "controller.random_idle": "v.state != 4 && !q.is_sleeping"
+          },
+          {
+            "controller.random_idle_water": "v.state != 4 && !q.is_sleeping"
+          },
+          {
+            "hurt": "(q.health < q.max_health) && q.is_alive"
+          },
+          "angrycon",
+          {
+            "controller.sit": "!q.has_rider"
+          },
+          {
+            "controller.eat": "!q.is_stunned && !q.is_sleeping"
+          },
+          {
+            "controller.swim": "!q.has_rider"
+          },
+          {
+            "look_at_target": "!q.is_baby ? 1 - v.attack_time"
+          },
+          {
+            "controller.quack": "!q.is_baby && v.state != 4 && !q.has_target && !q.is_sleeping && q.health >= q.max_health"
+          },
+          {
+            "controller.quackbaby": "q.is_baby && v.state != 4 && !q.has_target && !q.is_sleeping && q.health >= q.max_health"
+          },
+          {
+            "look_at_target_baby": "v.smooth_baby - math.sin(v.attack_time * 180) * 4"
+          },
+          {
+            "flap_wings": "!q.is_in_water && !q.has_rider && !q.is_on_ground"
+          },
+          {
+            "move": "q.modified_move_speed"
+          },
+          {
+            "baby_transform": "v.smooth_baby"
+          }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.duck",
+        {
+          "controller.render.billeys_mobs.duckarmor": "q.mark_variant > 0 && q.mark_variant != 7"
+        },
+        {
+          "controller.render.billeys_mobs.duckendrod": "q.mark_variant == 7"
+        },
+        {
+          "controller.render.billeys_mobs.duckchest": "q.is_chested"
+        }
+      ],
+      "spawn_egg": {
+        "texture": "billey.duck_spawn_egg"
+      }
+    }
+  }
+}

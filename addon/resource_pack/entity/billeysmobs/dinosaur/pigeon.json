@@ -1,0 +1,109 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:pigeon",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/entity/billeys_mobs/pigeon",
+        "white": "textures/entity/billeys_mobs/pigeon1",
+        "mixed": "textures/entity/billeys_mobs/pigeon2",
+        "gray": "textures/entity/billeys_mobs/pigeon3",
+        "hatopy": "textures/entity/billeys_mobs/hatopy",
+        "blend": "textures/entity/billeys_mobs/pigeon4",
+        "mixedw": "textures/entity/billeys_mobs/pigeon5",
+        "grayw": "textures/entity/billeys_mobs/pigeon6",
+        "blendw": "textures/entity/billeys_mobs/pigeon7",
+        "black": "textures/entity/billeys_mobs/pigeon8",
+        "blackw": "textures/entity/billeys_mobs/pigeon9"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.pigeon"
+      },
+      "animations": {
+        "new2": "animation.billeys_mobs.duckproj.body",
+        "walk": "animation.billeys_mobs.pigeon.walk",
+        "fly": "animation.billeys_mobs.pigeon.fly",
+        "hurt": "animation.billeys_mobs.pigeon.hurt",
+        "sit": "animation.billeys_mobs.pigeon.sit",
+        "sleep": "animation.billeys_mobs.pigeon.sleep",
+        "sleeptl": "animation.billeys_mobs.duck.sleep_particle",
+        "look": "animation.billeys_mobs.pigeon.look",
+        "baby": "animation.cat.baby_transform",
+        "flap": "animation.billeys_mobs.duck.fall",
+        "eat": "animation.billeys_mobs.pigeon.eat",
+        "new": "animation.billeys_mobs.pigeon.new",
+        "idle": "animation.billeys_mobs.pigeon.idle",
+        "death": "animation.billeys_mobs.pigeon.cancelnormaldeathanimation",
+        "random_idle": "animation.billeys_mobs.pigeon.eatfloor",
+        "riding": "animation.billeys_mobs.pigeon.riding",
+        "controller.sit": "controller.animation.billeys_mobs.sit_or_sleep",
+        "controller.eat": "controller.animation.billeys_mobs.eat",
+        "controller.eatfloor": "controller.animation.billeys_mobs.random_idle",
+        "attackcont": "controller.animation.billeys_mobs.attack",
+        "attack": "animation.billeys_mobs.pigeon.attack"
+      },
+      "scripts": {
+        "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.head_size_x = 3;",
+          "v.head_size_y = 3;",
+          "v.head_size_z = 3;"
+        ],
+        "pre_animation": [
+          "v.has_backpack = q.property('billey:has_backpack');"
+        ],
+        "animate": [
+          "new2",
+          "idle",
+          "look",
+          "controller.sit",
+          "controller.eat",
+          "attackcont",
+          {
+            "flap": "!q.is_on_ground && !q.is_riding"
+          },
+          "fly",
+          {
+            "controller.eatfloor": "q.is_on_ground&&!q.is_sitting"
+          },
+          "walk",
+          {
+            "death": "!q.is_alive"
+          },
+          {
+            "sleeptl": "q.is_sleeping"
+          },
+          {
+            "new": "!q.is_alive"
+          },
+          {
+            "hurt": "(q.health < q.max_health) && q.is_alive"
+          },
+          {
+            "baby": "q.is_baby"
+          },
+          {
+            "riding": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 0 : q.is_riding"
+          }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.pigeon"
+      ],
+      "spawn_egg": {
+        "base_color": "#303437",
+        "overlay_color": "#C5D7E4"
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:rat_king_chef_hitbox",
+            "is_spawnable": false,
+            "is_summonable": false
+        },
+        "component_groups": {
+            "despawning": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "cause": "all",
+                    "deals_damage": false
+                }
+            },
+            "minecraft:environment_sensor": {
+                "triggers": {
+                    "event": "despawn",
+                    "target": "self",
+                    "filters": {
+                        "test": "is_riding",
+                        "subject": "self",
+                        "value": false
+                    }
+                }
+            },
+            "minecraft:collision_box": {
+                "width": 0.875,
+                "height": 1
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "rat_king_chef_hitbox",
+                    "inanimate"
+                ]
+            }
+        },
+        "events": {
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawning"
+                    ]
+                }
+            }
+        }
+    }
+}

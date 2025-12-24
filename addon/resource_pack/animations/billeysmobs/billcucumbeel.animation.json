@@ -1,0 +1,55 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.cucumbeel.swim": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["q.has_rider ? q.target_x_rotation : q.target_x_rotation / 2", "q.target_y_rotation + math.sin(q.life_time * 1400) * -1", 0]
+				},
+				"bone": {
+					"rotation": [0, "math.sin(q.life_time * 500) * 5", 0]
+				},
+				"bone3": {
+					"rotation": [0, "math.sin(q.life_time * 500) * 5", 0]
+				},
+				"bone5": {
+					"rotation": [0, "-math.sin(q.life_time * 500) * 15", 0]
+				},
+				"bone6": {
+					"rotation": [0, "-math.sin(q.life_time * 500 + 30) * 15", 0]
+				}
+			}
+		},
+		"animation.cucumbeel.flop": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 1,
+			"bones": {
+				"body": {
+					"rotation": [0, "math.sin(q.life_time * 2800) * -1", "q.life_time * 360"],
+					"position": {
+						"0.0": [0, "math.sin(q.anim_time * -999) * 4 + 5", 0],
+						"1.0": [0, "-5+math.sin(q.anim_time * -999) * 4", 0]
+					},
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.76": [0.8, 0.8, 0.8],
+						"1.0": [0.5, 0.5, 0.5]
+					}
+				},
+				"bone": {
+					"rotation": [0, "math.sin(q.life_time * 999) * 15", 0]
+				},
+				"bone3": {
+					"rotation": [0, "math.sin(q.life_time * 999) * 15", 0]
+				},
+				"bone5": {
+					"rotation": [0, "-math.sin(q.life_time * 999) * 15", 0]
+				},
+				"bone6": {
+					"rotation": [0, "-math.sin(q.life_time * 999) * 15", 0]
+				}
+			}
+		}
+	}
+}

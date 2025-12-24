@@ -1,0 +1,23 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "billey:rubber_ducky_attachable",
+            "item": {
+                "billey:rubber_ducky": "q.owner_identifier != 'minecraft:player'"
+            },
+            "materials": {
+                "default": "armor"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/rubber_ducky"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.rubber_ducky"
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

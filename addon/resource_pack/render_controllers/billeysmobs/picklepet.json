@@ -1,0 +1,64 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.picklepet": {
+      "arrays": {
+        "textures": {
+          "array.variants": [
+            "texture.s1"
+          ]
+        }
+      },
+      "geometry": "Geometry.s1",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "array.variants[q.is_sheared]" ],
+      "overlay_color": {
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },   
+    "controller.render.picklepetglow": {
+      "arrays": {
+        "textures": {
+          "array.variants": [
+            "texture.s1"
+          ]
+        }
+      },
+      "geometry": "Geometry.s1glow",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "array.variants[q.is_sheared]" ],
+      "ignore_lighting": true,
+      "part_visibility": [ { "*": "q.variant > 1 ? q.is_alive : q.is_in_water" } ],
+      "overlay_color": {
+          "r": "-math.sin(q.life_time * 300)",
+          "g": "-math.sin(q.life_time * 300 + 120)",
+          "b": "-math.sin(q.life_time * 300 + 240)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    },   
+    "controller.render.picklepetwater": {
+      "arrays": {
+        "textures": {
+          "array.variants": [
+            "texture.s1"
+          ]
+        }
+      },
+      "geometry": "Geometry.s1glow",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "array.variants[q.is_sheared]" ],
+      "part_visibility": [ { "*": "q.is_in_water ? 0 : q.variant == 1" } ],
+      "overlay_color": {
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs.pigeon": {
+      "arrays": {
+        "textures": {
+          "array.skins": [
+            "texture.default",
+            "texture.mixed",
+            "texture.gray",
+            "texture.blend",
+            "texture.black"
+          ],
+          "array.changer": [
+            "texture.default",
+            "texture.mixed",
+            "texture.gray",
+            "texture.blend",
+            "texture.black",
+            "texture.white",
+            "texture.mixedw",
+            "texture.grayw",
+            "texture.blendw",
+            "texture.blackw"
+          ],
+          "array.sheared": [
+            "texture.white",
+            "texture.mixedw",
+            "texture.grayw",
+            "texture.blendw",
+            "texture.blackw"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" }, { "sack": "Material.cat"} ],
+      "part_visibility": [
+        {
+          "backpack": "v.has_backpack"
+        },
+        {
+          "sack": "v.has_backpack"
+        }
+      ],
+      "textures": [ "(q.get_name == 'Perry' || q.get_name == 'Πέρι') ? (array.changer[q.life_time * 1.5 + q.variant + q.is_sheared * 5]) : (q.is_sheared ? array.sheared[q.variant] : array.skins[q.variant])" ],
+      "overlay_color": {
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

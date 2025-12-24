@@ -1,0 +1,24 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.pigeon.fall": {
+			"loop": true,
+			"bones": {
+				"body2": {
+					"rotation": [90, 0, 0],
+					"scale": [0, 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.pigeon.melt": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [-90, 0, 0],
+					"position": [0, 0, -1.15],
+					"scale": [0, 0, 0]
+				}
+			}
+		}
+	}
+}

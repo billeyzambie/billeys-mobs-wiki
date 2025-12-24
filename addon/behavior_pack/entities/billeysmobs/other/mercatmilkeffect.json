@@ -1,0 +1,60 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:mercat_milk_effect",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "despawned": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "deals_damage": false
+                }
+            },
+            "minecraft:timer": {
+                "time": [
+                    0.05,
+                    0.05
+                ],
+                "looping": false,
+                "time_down_event": {
+                    "event": "lol",
+                    "target": "self"
+                }
+            },
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            }
+        },
+        "events": {
+            "lol": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "function billmercatmilk"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "despawn"
+                    }
+                ]
+            },
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawned"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,891 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:rat_king",
+            "is_spawnable": true,
+            "is_summonable": true,
+            
+            "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
+                /*
+                Phases are mostly used like you'd expect, with the rat king going up a phase
+                whenever its health is decreased to a certain amount.
+                However phase 3 is also used for the temporary flying when the rat king is
+                summoned or when it's hit by a projectile.
+                */
+                "billey:phase": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        1,
+                        3
+                    ],
+                    "default": 1
+                },
+                /*
+                rat king model from the top looks like:
+                    3K4
+                    NcN
+                    1R2
+
+                K: king
+                N: netherrat
+                c: comb
+                R: normal rat
+                1,2,3,4: chefs
+
+                This property's value is the chef that is currently cooking.
+                0 means no chef is cooking.
+                */
+                "billey:is_cooking": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        4
+                    ],
+                    "default": 0
+                },
+                "billey:chef_hits": {
+                    "type": "int",
+                    "range": [
+                        0,
+                        2
+                    ],
+                    "default": 0
+                }
+            }
+        },
+        "component_groups": {
+            "cooking": {
+                "minecraft:timer": {
+                    "time": 5,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "finish_cooking",
+                        "target": "self"
+                    }
+                },
+                "minecraft:addrider": {
+                    "entity_type": "billey:rat_king_chef_hitbox"
+                }
+            },
+            "chef_hitbox": {
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "start_cooking_continue",
+                        "target": "self"
+                    }
+                },
+                "minecraft:rideable": {
+                    "family_types": [
+                        "rat_king_chef_hitbox"
+                    ],
+                    "seats": {
+                        "position": [
+                            0.625,
+                            0.0,
+                            -0.625
+                        ]
+                    }
+                }
+            },
+            "chef2_hitbox": {
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "start_cooking_continue",
+                        "target": "self"
+                    }
+                },
+                "minecraft:rideable": {
+                    "family_types": [
+                        "rat_king_chef_hitbox"
+                    ],
+                    "seats": {
+                        "position": [
+                            -0.625,
+                            0.0,
+                            -0.625
+                        ]
+                    }
+                }
+            },
+            "chef3_hitbox": {
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "start_cooking_continue",
+                        "target": "self"
+                    }
+                },
+                "minecraft:rideable": {
+                    "family_types": [
+                        "rat_king_chef_hitbox"
+                    ],
+                    "seats": {
+                        "position": [
+                            0.625,
+                            0.0,
+                            0.625
+                        ]
+                    }
+                }
+            },
+            "chef4_hitbox": {
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "start_cooking_continue",
+                        "target": "self"
+                    }
+                },
+                "minecraft:rideable": {
+                    "family_types": [
+                        "rat_king_chef_hitbox"
+                    ],
+                    "seats": {
+                        "position": [
+                            -0.625,
+                            0.0,
+                            0.625
+                        ]
+                    }
+                }
+            },
+            "not_cooking": {
+                "minecraft:timer": {
+                    "time": [
+                        3,
+                        5
+                    ],
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "start_cooking",
+                        "target": "self"
+                    }
+                }
+            },
+            "phase1and2": {
+                "minecraft:physics": {},
+                "minecraft:movement.basic": {
+                    "max_turn": 5
+                },
+                "minecraft:movement": {
+                    "value": 0.2
+                },
+                "minecraft:navigation.walk": {
+                    "can_path_over_water": true,
+                    "avoid_damage_blocks": true,
+                    "avoid_water": true
+                },
+                "minecraft:behavior.random_stroll": {
+                    "priority": 7,
+                    "speed_multiplier": 1.0
+                },
+                "minecraft:behavior.run_around_like_crazy": {
+                    "priority": 6,
+                    "speed_multiplier": 1.0
+                },
+                "minecraft:behavior.look_at_player": {
+                    "probability": 0.01,
+                    "priority": 7,
+                    "look_distance": 6.0
+                },
+                "minecraft:behavior.random_look_around": {
+                    "priority": 8
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 2,
+                    "speed_multiplier": 1.5,
+                    "reach_multiplier": 1.1
+                },
+                "minecraft:jump.static": {},
+                "minecraft:follow_range": {
+                    "max": 100,
+                    "value": 100
+                }
+            },
+            "phase1": {
+                "minecraft:environment_sensor": {
+                    "triggers": {
+                        "event": "to_phase2",
+                        "target": "self",
+                        "filters": {
+                            "test": "actor_health",
+                            "value": 500,
+                            "operator": "<="
+                        }
+                    }
+                }
+            },
+            "phase2": {
+                "minecraft:environment_sensor": {
+                    "triggers": {
+                        "event": "to_phase3",
+                        "target": "self",
+                        "filters": {
+                            "test": "actor_health",
+                            "value": 150,
+                            "operator": "<="
+                        }
+                    }
+                }
+            },
+            "phase3": {
+                "minecraft:physics": {
+                    "has_gravity": false
+                },
+                "minecraft:movement.basic": {},
+                "minecraft:follow_range": {
+                    "value": 64,
+                    "max": 64
+                },
+                "minecraft:behavior.swoop_attack": {
+                    "priority": 2,
+                    "damage_reach": 1.2,
+                    "delay_range": [
+                        0.5,
+                        1.0
+                    ]
+                },
+                "minecraft:behavior.circle_around_anchor": {
+                    "priority": 3,
+                    "goal_radius": 1.0,
+                    "angle_change": 15.0,
+                    "radius_range": [
+                        2.0,
+                        5.0
+                    ],
+                    "height_offset_range": [
+                        5.0,
+                        10.0
+                    ],
+                    "height_above_target_range": [
+                        0,
+                        2
+                    ]
+                }
+            },
+            "actual_phase3": {
+                "minecraft:on_death": {
+                    "event": "on_death",
+                    "target": "self"
+                },
+                "minecraft:timer": {
+                    "time": 0.1,
+                    "looping": false,
+                    "time_down_event": {
+                        "event": "load_actual_phase3",
+                        "target": "self"
+                    }
+                }
+            },
+            "actual_phase3_loaded": {
+                "minecraft:timer": {
+                    "time": [
+                        12,
+                        15
+                    ],
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "phase3_finish_cook",
+                        "target": "self"
+                    }
+                },
+                "minecraft:environment_sensor": {
+                    "triggers": {
+                        "event": "stop_flying",
+                        "target": "self",
+                        "filters": {
+                            "test": "actor_health",
+                            "value": 159,
+                            "operator": ">"
+                        }
+                    }
+                }
+            },
+            "temp_flying_timer": {
+                "minecraft:timer": {
+                    "time": 3,
+                    "looping": true,
+                    "time_down_event": {
+                        "event": "stop_flying",
+                        "target": "self"
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:attack": {
+                "damage": 5
+            },
+            "minecraft:fire_immune": {},
+            "minecraft:spell_effects": {
+                "add_effects": [
+                    {
+                        /*
+                        to heal it after being hurt by the lightning used to summon it,
+                        the damage sensor didn't work
+                        */
+                        "visible": false,
+                        "effect": "regeneration",
+                        "duration": 0.5,
+                        "amplifier": 10
+                    }
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "fall",
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "all",
+                        "deals_damage": false,
+                        "on_damage": {
+                            "event": "to_phase2",
+                            "target": "self",
+                            "filters": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:phase",
+                                    "subject": "self",
+                                    "value": 1
+                                },
+                                {
+                                    "test": "has_damage",
+                                    "value": "fatal"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "cause": "all",
+                        "deals_damage": false,
+                        "on_damage": {
+                            "event": "to_phase3",
+                            "target": "self",
+                            "filters": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:phase",
+                                    "subject": "self",
+                                    "value": 2
+                                },
+                                {
+                                    "test": "has_damage",
+                                    "value": "fatal"
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "operator": "not",
+                                    "value": "billey:summoned_phase_3_minion"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "cause": "lightning",
+                        "deals_damage": false
+                    },
+                    {
+                        //for if it got summoned in a tiny pit
+                        "cause": "suffocation",
+                        "deals_damage": false,
+                        "on_damage": {
+                            "event": "tp_up",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "cause": "projectile",
+                        "deals_damage": true,
+                        "on_damage": {
+                            "event": "temp_fly",
+                            "target": "self",
+                            "filters": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:phase",
+                                    "subject": "self",
+                                    "operator": "not",
+                                    "value": 3
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "minecraft:physics": {},
+            "minecraft:experience_reward": {
+                "on_death": "q.last_hit_by_player ? 80"
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/entities/billrat_king.json"
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:type_family": {
+                "family": [
+                    "monster",
+                    "rat",
+                    "rat_king",
+                    "boss"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 2.0,
+                "height": 0.4
+            },
+            "minecraft:knockback_resistance": {
+                "value": 0.75,
+                "max": 0.75
+            },
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 1
+            },
+            "minecraft:boss": {
+                "name": "entity.billey:rat_king.name",
+                "hud_range": 55
+            },
+            "minecraft:health": {
+                "value": 600,
+                "max": 600
+            },
+            "minecraft:behavior.float": {
+                "priority": 0
+            },
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:game_event_movement_tracking": {
+                "emit_flap": true //no idea what this does
+            },
+            "minecraft:conditional_bandwidth_optimization": {},
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 1,
+                "must_see": true,
+                "reselect_targets": true,
+                "target_search_height": 80.0,
+                "within_radius": 100.0,
+                "must_see_forget_duration": 17.0,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "other",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "max_dist": 35
+                    }
+                ]
+            }
+        },
+        "events": {
+            "minecraft:entity_spawned": {
+                "sequence": [
+                    {
+                        "trigger": "to_phase3_base"
+                    },
+                    {
+                        "trigger": "add_temp_flying_timer"
+                    }
+                ]
+            },
+            "to_phase2": {
+                "sequence": [
+                    {
+                        "set_property": {
+                            "billey:phase": "2"
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "phase2"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "phase1"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "scriptevent billey:set_health 500"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "execute @s[tag=!billey:summoned_phase_2_minions] ~~~ summon billey:rat_minion ~~~ spawn_as_hostile",
+                                "execute @s[tag=!billey:summoned_phase_2_minions] ~~~ summon billey:rat_minion ~~~ spawn_as_hostile",
+                                "tag @s add billey:summoned_phase_2_minions"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_phase3_base": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "phase1",
+                                "phase1and2",
+                                "phase2",
+                                "not_cooking",
+                                "cooking",
+                                "chef_hitbox",
+                                "chef2_hitbox",
+                                "chef3_hitbox",
+                                "chef4_hitbox"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "phase3"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:phase": "3"
+                        }
+                    }
+                ]
+            },
+            "to_phase3": {
+                "sequence": [
+                    {
+                        "trigger": "to_phase3_base"
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "scriptevent billey:rat_king_finish_cooking",
+                                "scriptevent billey:set_health 150"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "add_actual_phase3"
+                    }
+                ]
+            },
+            "add_actual_phase3": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "actual_phase3"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "scriptevent billey:cant_set_health",
+                                "execute @s[tag=!billey:summoned_phase_3_minion] ~~~ summon billey:rat_minion ~~~ spawn_as_hostile",
+                                "tag @s add billey:summoned_phase_3_minion"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "phase3_finish_cook": {
+                "queue_command": {
+                    "command": "scriptevent billey:rat_king_finish_cooking"
+                }
+            },
+            "start_cooking": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "not_cooking"
+                            ]
+                        }
+                    },
+                    {
+                        "sequence": [
+                            {
+                                "filters": {
+                                    "test": "int_property",
+                                    "domain": "billey:chef_hits",
+                                    "operator": "<",
+                                    "value": 2
+                                },
+                                "trigger": "start_cooking_front_chefs"
+                            },
+                            {
+                                "filters": {
+                                    "test": "int_property",
+                                    "domain": "billey:chef_hits",
+                                    "value": 2
+                                },
+                                "trigger": "start_cooking_back_chefs"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "start_cooking_back_chefs": {
+                "randomize": [
+                    {
+                        "sequence": [
+                            {
+                                "add": {
+                                    "component_groups": [
+                                        "chef_hitbox"
+                                    ]
+                                }
+                            },
+                            {
+                                "set_property": {
+                                    "billey:is_cooking": 1
+                                }
+                            }
+                        ],
+                        "weight": 1
+                    },
+                    {
+                        "sequence": [
+                            {
+                                "add": {
+                                    "component_groups": [
+                                        "chef2_hitbox"
+                                    ]
+                                }
+                            },
+                            {
+                                "set_property": {
+                                    "billey:is_cooking": 2
+                                }
+                            }
+                        ],
+                        "weight": 1
+                    }
+                ]
+            },
+            "start_cooking_front_chefs": {
+                "randomize": [
+                    {
+                        "sequence": [
+                            {
+                                "add": {
+                                    "component_groups": [
+                                        "chef3_hitbox"
+                                    ]
+                                }
+                            },
+                            {
+                                "set_property": {
+                                    "billey:is_cooking": 3
+                                }
+                            }
+                        ],
+                        "weight": 1
+                    },
+                    {
+                        "sequence": [
+                            {
+                                "add": {
+                                    "component_groups": [
+                                        "chef4_hitbox"
+                                    ]
+                                }
+                            },
+                            {
+                                "set_property": {
+                                    "billey:is_cooking": 4
+                                }
+                            }
+                        ],
+                        "weight": 1
+                    }
+                ]
+            },
+            "start_cooking_continue": {
+                "add": {
+                    "component_groups": [
+                        "cooking"
+                    ]
+                }
+            },
+            "cooking_interrupted": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "cooking",
+                                "chef_hitbox",
+                                "chef2_hitbox",
+                                "chef3_hitbox",
+                                "chef4_hitbox"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "not_cooking"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:is_cooking": 0
+                        }
+                    }
+                ]
+            },
+            "finish_cooking": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "cooking",
+                                "chef_hitbox",
+                                "chef2_hitbox",
+                                "chef3_hitbox",
+                                "chef4_hitbox"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "not_cooking"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": "scriptevent billey:rat_king_finish_cooking"
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:is_cooking": 0
+                        }
+                    }
+                ]
+            },
+            "temp_fly": {
+                "sequence": [
+                    {
+                        "trigger": "to_phase3_base"
+                    },
+                    {
+                        "trigger": "add_temp_flying_timer"
+                    },
+                    {
+                        "queue_command": {
+                            "command": "scriptevent billey:rat_king_finish_cooking"
+                        }
+                    }
+                ]
+            },
+            "add_temp_flying_timer": {
+                "add": {
+                    "component_groups": [
+                        "temp_flying_timer"
+                    ]
+                }
+            },
+            "load_actual_phase3": {
+                "add": {
+                    "component_groups": [
+                        "actual_phase3_loaded"
+                    ]
+                }
+            },
+            "stop_flying": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "phase3",
+                                "temp_flying_timer",
+                                "actual_phase3",
+                                "actual_phase3_loaded"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "phase1",
+                                "phase1and2",
+                                "cooking"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:phase": "1"
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": "scriptevent billey:rat_king_finish_cooking"
+                        }
+                    }
+                ]
+            },
+            "tp_up": {
+                "queue_command": {
+                    "command": "tp ~ ~1 ~"
+                }
+            },
+            "on_death": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "phase3",
+                                "temp_flying_timer",
+                                "actual_phase3",
+                                "cooking",
+                                "chef_hitbox",
+                                "chef2_hitbox",
+                                "chef3_hitbox",
+                                "chef4_hitbox",
+                                "not_cooking"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "phase1and2"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:phase": "1"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

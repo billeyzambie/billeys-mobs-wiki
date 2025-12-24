@@ -1,0 +1,44 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.swordfish.swim": {
+			"loop": true,
+			"bones": {
+				"body_front": {
+					"rotation": ["q.target_x_rotation / 2", "math.sin(q.anim_time * 300) * 12.5 + q.target_y_rotation", 0],
+					"position": [0, -3, -3]
+				},
+				"body_back": {
+					"rotation": [0, "-math.sin(q.anim_time * 300) * 35", 0]
+				},
+				"tailfin": {
+					"rotation": [0, "-math.sin(q.anim_time * 300) * 35", 0]
+				},
+				"leftFin": {
+					"rotation": [0, "math.sin(q.anim_time * 250) * 15", 0]
+				},
+				"rightFin": {
+					"rotation": [0, "-math.sin(q.anim_time * 250) * 15", 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.swordfish.flop": {
+			"loop": true,
+			"bones": {
+				"body_front": {
+					"rotation": [0, 0, "math.cos(q.anim_time * 500) * 90"],
+					"position": [0, -4.3, -2]
+				},
+				"tailfin": {
+					"rotation": [0, "math.cos(q.anim_time * 1500) * 30", 0]
+				},
+				"leftFin": {
+					"rotation": [0, 30, 0]
+				},
+				"rightFin": {
+					"rotation": [0, -30, 0]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,64 @@
+{
+    "format_version": "1.21.0",
+    "minecraft:block": {
+        "description": {
+            "identifier": "billey:banana_peel_player_block"
+        },
+        "components": {
+            "minecraft:custom_components": [
+                "billey:banana_peel"
+            ],
+            "minecraft:material_instances": {
+                "*": {
+                    "texture": "billbanana_peel",
+                    "render_method": "alpha_test",
+                    "ambient_occlusion": true
+                }
+            },
+            "minecraft:placement_filter": {
+                "conditions": [
+                    {
+                        "allowed_faces": [
+                            "up"
+                        ]
+                    }
+                ]
+            },
+            "minecraft:selection_box": {
+                "origin": [
+                    -3,
+                    0,
+                    -3
+                ],
+                "size": [
+                    6,
+                    3,
+                    6
+                ]
+            },
+            "minecraft:collision_box": {
+                "origin": [
+                    -3,
+                    0,
+                    -3
+                ],
+                "size": [
+                    6,
+                    4,
+                    6
+                ]
+            },
+			"minecraft:destructible_by_mining":{
+				"seconds_to_destroy": 0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+            "minecraft:light_dampening": 0,
+            "minecraft:map_color": "#ffa000",
+            "minecraft:loot": "loot_tables/entities/billbananapeel_player.json",
+            "minecraft:geometry": "geometry.billeys_mobs.banana_peel"
+        }
+        //functionality was done with scripts
+    }
+}

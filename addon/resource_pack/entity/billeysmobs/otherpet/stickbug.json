@@ -1,0 +1,76 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:stick_bug",
+            "materials": {
+                "default": "entity_alphatest",
+                "cat": "cat"
+            },
+            "textures": {
+                "normal": "textures/entity/billeys_mobs/stickbug",
+                "gay": "textures/entity/billeys_mobs/stickbug1",
+                "desat": "textures/entity/billeys_mobs/stickbug2"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.stickbug"
+            },
+            "animations": {
+                "new": "animation.billeys_mobs.duckproj.body",
+                "move": "animation.billeys_mobs.stickbug.walk",
+                "look_at_target": "animation.billeys_mobs.stickbug.look",
+                "sit": "animation.billeys_mobs.stickbug.sit",
+                "controller.ground": "controller.animation.billeys_mobs.ground",
+                "fall": "animation.billeys_mobs.stickbug.flap",
+                "general": "animation.billeys_mobs.stickbug.general",
+                "controller.sit": "controller.animation.billeys_mobs.sit",
+                "eat": "animation.billeys_mobs.stickbug.wiggle",
+                "random_idle": "animation.billeys_mobs.stickbug.wiggle",
+                "dance": "animation.billeys_mobs.stickbug.dance",
+                "eatcont": "controller.animation.billeys_mobs.eat",
+                "hurt": "animation.billeys_mobs.stickbug.hurt",
+                "hide_wings": "animation.billeys_mobs.stickbug.hide_wings",
+                "controller.random_idle": "controller.animation.billeys_mobs.random_idle",
+                "dancecont": "controller.animation.billeys_mobs.stick_bug_dance",
+                "wingcont": "controller.animation.billeys_mobs.stick_bug_wings"
+            },
+            "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+                "variables": {
+                    "variable.head_size_x": "public",
+                    "variable.head_size_y": "public",
+                    "variable.head_size_z": "public"
+                },
+                "initialize": [
+                    "v.head_size_x = 3;",
+                    "v.head_size_y = 2;",
+                    "v.head_size_z = 3;",
+                    "v.time_to_idle = 0;",
+                    "v.transition_time = 0;"
+                ],
+                "animate": [
+                    "new",
+                    "general",
+                    {
+                        "hurt": "q.health < q.max_health"
+                    },
+                    "controller.random_idle",
+                    "eatcont",
+                    "wingcont",
+                    {
+                        "move": "q.modified_move_speed * 2 * !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+                    }
+                ]
+            },
+            "enable_attachables": true,
+            "hide_armor": false,
+            "render_controllers": [
+                "controller.render.billeys_mobs.old_hammerhead_shark"
+            ],
+            "spawn_egg": {
+                "overlay_color": "#159F02",
+                "base_color": "#BF9E67"
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+  "format_version": "1.20.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "billey:spicy_ratatouille",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.miscFood"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "minecraft:is_food",
+          "minecraft:is_cooked"
+        ]
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 1.1,
+        "movement_modifier": 0.35
+      },
+      "minecraft:use_animation": {
+        "value": "eat"
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "billey.spicy_ratatouille"
+        }
+      },
+      "minecraft:food": {
+        "nutrition": 3,
+        "using_converts_to": "bowl",
+        "saturation_modifier": 1.2, //normal
+        "can_always_eat": true
+      }
+    }
+    //eating effects, if any, were done with scripts.
+  }
+}

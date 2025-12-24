@@ -1,0 +1,29 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:sharkleggings"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "srs",
+        "sis",
+        "sss"
+      ],
+      "key": {
+        "i": {
+          "item": "iron_leggings"
+        },
+        "s": {
+          "item": "billey:shark_scales"
+        },
+        "r": {
+          "item": "redstone"
+        }
+      },
+      "result": {
+       "item": "billey:shark_leggings"
+     }
+    }
+  }

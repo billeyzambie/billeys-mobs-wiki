@@ -1,0 +1,28 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:block": {
+		"description": {
+			"identifier": "billey:potato_sticks"
+		},
+		"components": {
+            "minecraft:loot": "loot_tables/entities/billpotatosticks.json",
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "billpotatosticks",
+					"render_method": "alpha_test",
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:destructible_by_mining":{
+				"seconds_to_destroy": 0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+			"minecraft:collision_box": false,
+			"minecraft:map_color": "#ffaaff",
+			"minecraft:light_dampening": 0,
+            "minecraft:geometry": "geometry.billeys_mobss_mobs_crop"
+		}
+	}
+}

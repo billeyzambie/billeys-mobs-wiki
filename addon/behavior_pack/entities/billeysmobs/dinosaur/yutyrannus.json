@@ -1,0 +1,3716 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:yutyrannus",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    {
+                        "set_follow_state": "q.is_tamed && q.property('billey:follow_owner_state') == 'unknown'"
+                    },
+                    {
+                        "set_sitting_property": "q.is_tamed"
+                    },
+                    "check_beta_apis",
+                    {
+                        "rainbow_effects": "q.is_illager_captain"
+                    },
+                    {
+                        "stand_up_when_hit": "q.is_tamed"
+                    },
+                    {
+                        "info": "!q.is_tamed"
+                    },
+                    "tame",
+                    "float_in_water",
+                    "rideable",
+                    "ride_attack"
+                ]
+            },
+            "animations": {
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+                "set_follow_state": "animation.billeys_mobs.set_follow_state",
+                "set_sitting_property": "controller.animation.billeys_mobs.set_sitting_property",
+                "rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+                "stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+                "info": "animation.billeys_mobs.info.yutyrannus",
+                "tame": "controller.animation.billeys_mobs.tame",
+                "float_in_water": "controller.animation.billeys_mobs.yuty.float",
+                "rideable": "controller.animation.billeys_mobs.yuty.rideable",
+                "ride_attack": "controller.animation.billeys_mobs.yuty.ride_attack"
+            },
+            
+            "properties": {
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:xp": {
+                    "type": "float",
+                    "range": [
+                        0.0,
+                        1000000.0
+                    ],
+                    "default": 0.0
+                },
+                "billey:level": {
+                    "type": "int",
+                    "range": [
+                        1,
+                        12
+                    ],
+                    "default": 1
+                },
+                "billey:follow_owner_state": {
+                    //only used so scripts can know whether it's following or wandering
+                    "type": "enum",
+                    "default": "unknown",
+                    "values": [
+                        "unknown",
+                        "following",
+                        "wandering"
+                    ]
+                },
+                "billey:is_sitting": {
+                    //only used so scripts can know whether or not it's sitting
+                    "type": "bool",
+                    "default": false
+                }
+            }
+        },
+        "component_groups": {
+            "saddled": {
+                "minecraft:is_saddled": {}
+            },
+            "level1": {
+                //this component group isn't used unless the mob is brought back to level 1
+                //through commands or the creative item
+                "minecraft:health": {
+                    "value": 200,
+                    "max": 200
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 1.7,
+                    "reach_multiplier": 1.3,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 25
+                }
+            },
+            "level2": {
+                "minecraft:health": {
+                    "value": 267,
+                    "max": 267
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 1.8,
+                    "reach_multiplier": 1.4,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 33
+                }
+            },
+            "level3": {
+                "minecraft:health": {
+                    "value": 333,
+                    "max": 333
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 1.85,
+                    "reach_multiplier": 1.45,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 41
+                }
+            },
+            "level4": {
+                "minecraft:health": {
+                    "value": 400,
+                    "max": 400
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 1.95,
+                    "reach_multiplier": 1.55,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 50
+                }
+            },
+            "level5": {
+                "minecraft:health": {
+                    "value": 466,
+                    "max": 466
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 2.0,
+                    "reach_multiplier": 1.6,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 58
+                }
+            },
+            "level6": {
+                "minecraft:health": {
+                    "value": 533,
+                    "max": 533
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 2.1,
+                    "reach_multiplier": 1.7,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 66
+                }
+            },
+            "level7": {
+                "minecraft:health": {
+                    "value": 600,
+                    "max": 600
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 2.15,
+                    "reach_multiplier": 1.75,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 74
+                }
+            },
+            "level8": {
+                "minecraft:health": {
+                    "value": 667,
+                    "max": 667
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 2.25,
+                    "reach_multiplier": 1.85,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 83
+                }
+            },
+            "level9": {
+                "minecraft:health": {
+                    "value": 733,
+                    "max": 733
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 2.3,
+                    "reach_multiplier": 1.9,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 91
+                }
+            },
+            "level10": {
+                "minecraft:health": {
+                    "value": 800,
+                    "max": 800
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 2.4,
+                    "reach_multiplier": 2.0,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:movement": {
+                    "value": 0.3
+                },
+                "minecraft:scale": {
+                    "value": 1
+                },
+                "minecraft:attack": {
+                    "damage": 99
+                }
+            },
+            "big_and_slow": {
+                "minecraft:health": {
+                    "max": 1600,
+                    "value": 1600
+                },
+                "minecraft:attack": {
+                    "damage": 198
+                },
+                "minecraft:movement": {
+                    "value": 0.15
+                },
+                "minecraft:scale": {
+                    "value": 2
+                }
+            },
+            "small_and_quick": {
+                "minecraft:health": {
+                    "max": 400,
+                    "value": 400
+                },
+                "minecraft:attack": {
+                    "damage": 99
+                },
+                "minecraft:movement": {
+                    "value": 0.5
+                },
+                "minecraft:scale": {
+                    "value": 0.5
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 1.75,
+                    "reach_multiplier": 6.0,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                }
+            },
+            "sittable": {
+                "minecraft:sittable": {}
+            },
+            "tamed_component": {
+                "minecraft:is_tamed": {}
+            },
+            "rideable": {
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 3,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "monster"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "creeper"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "piglin"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "zombie_pigman"
+                                    }
+                                ]
+                            },
+                            "max_dist": 1
+                        },
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "rider_count",
+                                        "subject": "self",
+                                        "value": 0
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "monster"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "creeper"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "piglin"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "zombie_pigman"
+                                    }
+                                ]
+                            },
+                            "max_dist": 7
+                        }
+                    ]
+                },
+                "minecraft:behavior.player_ride_tamed": {
+                    "priority": 4
+                },
+                "minecraft:input_ground_controlled": {},
+                "minecraft:rideable": {
+                    "seat_count": 2,
+                    "interact_text": "action.interact.ride",
+                    "family_types": [
+                        "player"
+                    ],
+                    "seats": {
+                        "position": [
+                            0,
+                            1.8,
+                            -0.3
+                        ]
+                    }
+                }
+            },
+            "untamed": { /*This is just for ones untamed by the untaming stick.
+The real tame items of this mob are in the wild component group*/
+                "minecraft:tameable": {
+                    "probability": 1.0,
+                    "tame_event": {
+                        "event": "on_tame"
+                    },
+                    "tame_items": [
+                        "billey:power_banana",
+                        "billey:raw_catfish",
+                        "billey:bettafish",
+                        "billey:pizzapiece",
+                        "salmon",
+                        "fish",
+                        "clownfish",
+                        "sweet_berries",
+                        "rotten_flesh",
+                        "wheat_seeds",
+                        "melon_seeds",
+                        "carrot",
+                        "beetroot_seeds",
+                        "pumpkin_seeds",
+                        "chicken",
+                        "billey:raw_hamster",
+                        "billey:poultry_orange",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
+                        "billey:raw_snail_w",
+                        "billey:raw_piranha",
+                        "bread",
+                        "apple",
+                        "fermented_spider_eye",
+                        "spider_eye",
+                        "string",
+                        "sea_pickle",
+                        "leaves",
+                        "chicken",
+                        "cooked_chicken",
+                        "beef",
+                        "cooked_beef",
+                        "muttonRaw",
+                        "muttonCooked",
+                        "porkchop",
+                        "cooked_porkchop",
+                        "rotten_flesh",
+                        "leaves2",
+                        "tallgrass"
+                    ]
+                }
+            },
+            "electrocuted": {
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/billey_electrocuted.json"
+                }
+            },
+            "noloot": {
+                "minecraft:loot": {
+                    "table": "loot_tables/empty.json"
+                }
+            },
+            "following": {
+                "minecraft:behavior.follow_owner": {
+                    "priority": 4,
+                    "speed_multiplier": 1.0,
+                    "start_distance": 12,
+                    "stop_distance": 5
+                }
+            },
+            "tamed": {
+                "minecraft:healable": {
+                    "items": [
+                        {
+                            "item": "porkchop",
+                            "heal_amount": 3
+                        },
+                        {
+                            "item": "cooked_porkchop",
+                            "heal_amount": 8
+                        },
+                        {
+                            "item": "fish",
+                            "heal_amount": 2
+                        },
+                        {
+                            "item": "salmon",
+                            "heal_amount": 2
+                        },
+                        {
+                            "item": "clownfish",
+                            "heal_amount": 1
+                        },
+                        {
+                            "item": "pufferfish",
+                            "heal_amount": 1
+                        },
+                        {
+                            "item": "cooked_fish",
+                            "heal_amount": 5
+                        },
+                        {
+                            "item": "cooked_salmon",
+                            "heal_amount": 6
+                        },
+                        {
+                            "item": "beef",
+                            "heal_amount": 3
+                        },
+                        {
+                            "item": "cooked_beef",
+                            "heal_amount": 8
+                        },
+                        {
+                            "item": "cooked_chicken",
+                            "heal_amount": 6
+                        },
+                        {
+                            "item": "muttonRaw",
+                            "heal_amount": 2
+                        },
+                        {
+                            "item": "muttonCooked",
+                            "heal_amount": 6
+                        },
+                        {
+                            "item": "rotten_flesh",
+                            "heal_amount": 4
+                        },
+                        {
+                            "item": "rabbit",
+                            "heal_amount": 3
+                        },
+                        {
+                            "item": "cooked_rabbit",
+                            "heal_amount": 5
+                        },
+                        {
+                            "item": "rabbit_stew",
+                            "heal_amount": 10
+                        },
+                        {
+                            "item": "billey:raw_snail",
+                            "heal_amount": 4
+                        },
+                        {
+                            "item": "billey:raw_snail_s",
+                            "heal_amount": 4
+                        },
+                        {
+                            "item": "billey:raw_snail_w",
+                            "heal_amount": 4
+                        },
+                        {
+                            "item": "chicken",
+                            "heal_amount": 6
+                        },
+                        {
+                            "item": "billey:raw_hamster",
+                            "heal_amount": 4
+                        },
+                        {
+                            "item": "billey:poultry_orange",
+                            "heal_amount": 7
+                        },
+                        {
+                            "item": "billey:cooked_snail",
+                            "heal_amount": 6,
+                            "effects": [
+                                {
+                                    "name": "strength",
+                                    "chance": 1.0,
+                                    "duration": 15,
+                                    "amplifier": 1
+                                }
+                            ]
+                        },
+                        {
+                            "item": "billey:cooked_snail_s",
+                            "heal_amount": 6,
+                            "effects": [
+                                {
+                                    "name": "speed",
+                                    "chance": 1.0,
+                                    "duration": 15,
+                                    "amplifier": 1
+                                }
+                            ]
+                        },
+                        {
+                            "item": "billey:cooked_snail_w",
+                            "heal_amount": 6,
+                            "effects": [
+                                {
+                                    "name": "regeneration",
+                                    "chance": 1.0,
+                                    "duration": 15,
+                                    "amplifier": 1
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 4,
+                    "entity_types": {
+                        "filters": {
+                            "none_of": [
+                                {
+                                    "test": "is_owner",
+                                    "subject": "other"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 4,
+                    "entity_types": {
+                        "max_dist": 127,
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "not",
+                                    "value": "creeper"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "mcreeper"
+                                }
+                            ]
+                        }
+                    }
+                },
+                "minecraft:behavior.avoid_mob_type": {
+                    "priority": 0,
+                    "max_flee": 16,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "test": "has_component",
+                                "subject": "other",
+                                "value": "minecraft:explode"
+                            },
+                            "max_dist": 12,
+                            "walk_speed_multiplier": 1.4,
+                            "sprint_speed_multiplier": 1.4
+                        }
+                    ]
+                },
+                "minecraft:persistent": {},
+                "minecraft:behavior.tempt": {
+                    "priority": 5,
+                    "speed_multiplier": 1.0,
+                    "items": [
+                        "cooked_chicken",
+                        "beef",
+                        "cooked_beef",
+                        "muttonRaw",
+                        "muttonCooked",
+                        "porkchop",
+                        "cooked_porkchop",
+                        "rotten_flesh",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
+                        "billey:raw_snail_w",
+                        "billey:cooked_snail",
+                        "billey:cooked_snail_s",
+                        "billey:cooked_snail_w",
+                        "chicken",
+                        "billey:sand_banana",
+                        "billey:raw_hamster",
+                        "rabbit",
+                        "billey:cooked_hamster",
+                        "cooked_rabbit"
+                    ]
+                },
+                "minecraft:behavior.beg": {
+                    "priority": 9,
+                    "look_distance": 4,
+                    "look_time": 0,
+                    "items": [
+                        "cooked_chicken",
+                        "beef",
+                        "cooked_beef",
+                        "muttonRaw",
+                        "muttonCooked",
+                        "porkchop",
+                        "cooked_porkchop",
+                        "rotten_flesh",
+                        "chicken",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
+                        "billey:raw_snail_w",
+                        "billey:cooked_snail",
+                        "billey:cooked_snail_s",
+                        "billey:cooked_snail_w",
+                        "billey:sand_banana",
+                        "billey:raw_hamster",
+                        "rabbit",
+                        "billey:cooked_hamster",
+                        "cooked_rabbit"
+                    ]
+                },
+                "minecraft:is_tamed": {},
+                "minecraft:tameable": {}, //for the script to be able to get the mob's owner
+                "minecraft:sittable": {},
+                "minecraft:behavior.stay_while_sitting": {
+                    "priority": 2
+                }
+            },
+            "kromatik": {
+                "minecraft:is_illager_captain": {},
+                "minecraft:color": {
+                    "value": 0
+                }
+            },
+            "despawned": {
+                "minecraft:instant_despawn": {}
+            },
+            "variant_zero": {
+                "minecraft:variant": {
+                    "value": 0
+                }
+            },
+            "variant_one": {
+                "minecraft:variant": {
+                    "value": 1
+                }
+            },
+            "variant_two": {
+                "minecraft:variant": {
+                    "value": 2
+                }
+            },
+            "variant_three": {
+                "minecraft:variant": {
+                    "value": 3
+                }
+            },
+            "variant_four": {
+                "minecraft:variant": {
+                    "value": 4
+                }
+            },
+            "variant_five": {
+                "minecraft:variant": {
+                    "value": 5
+                }
+            },
+            "variant_six": {
+                "minecraft:variant": {
+                    "value": 6
+                }
+            },
+            "variant_seven": {
+                "minecraft:variant": {
+                    "value": 7
+                }
+            },
+            "variant_eight": {
+                "minecraft:variant": {
+                    "value": 8
+                }
+            },
+            "variant_nine": {
+                "minecraft:variant": {
+                    "value": 9
+                }
+            },
+            "angry": {
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": [
+                        7,
+                        15
+                    ],
+                    "time_down_event": {
+                        "event": "roar",
+                        "target": "self"
+                    }
+                },
+                "minecraft:follow_range": {
+                    "value": 30,
+                    "max": 40
+                },
+                "minecraft:angry": {
+                    "duration": 30,
+                    "broadcast_anger": true,
+                    "broadcast_range": 10,
+                    "calm_event": {
+                        "event": "billey:pet_target_escape",
+                        "target": "self"
+                    },
+                    "broadcast_filters": {
+                        "test": "is_family",
+                        "value": "yutyrannus",
+                        "subject": "self"
+                    },
+                    "broadcast_targets": [
+                        "yutyrannus"
+                    ]
+                }
+            },
+            "angry_baby": {
+                "minecraft:angry": {
+                    "duration": 1,
+                    "broadcast_anger": true,
+                    "broadcast_range": 10,
+                    "calm_event": {
+                        "event": "billey:pet_target_escape",
+                        "target": "self"
+                    },
+                    "broadcast_filters": {
+                        "test": "is_family",
+                        "value": "yutyrannus",
+                        "subject": "self"
+                    },
+                    "broadcast_targets": [
+                        "yutyrannus"
+                    ]
+                }
+            },
+            "wild": {
+                "minecraft:despawn": {
+                    "despawn_from_distance": {},
+                    "remove_child_entities": true
+                }
+            },
+            "scalecg": {
+                "minecraft:scale": {
+                    "value": 0.25
+                }
+            },
+            "baby": {
+                "minecraft:behavior.tempt": {
+                    "priority": 5,
+                    "can_get_scared": true,
+                    "speed_multiplier": 1.0,
+                    "items": [
+                        "chicken",
+                        "billey:raw_hamster",
+                        "rabbit",
+                        "billey:cooked_hamster",
+                        "cooked_rabbit"
+                    ]
+                },
+                "minecraft:behavior.beg": {
+                    "priority": 9,
+                    "look_distance": 4,
+                    "look_time": 0,
+                    "items": [
+                        "chicken",
+                        "billey:raw_hamster",
+                        "rabbit",
+                        "billey:cooked_hamster",
+                        "cooked_rabbit"
+                    ]
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 5,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "any_of": [
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "player"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "monster"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed",
+                                        "operator": "not"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "creeper",
+                                        "operator": "not"
+                                    }
+                                ]
+                            },
+                            "max_dist": 6
+                        }
+                    ]
+                },
+                "minecraft:on_target_acquired": {
+                    "event": "angery_baby",
+                    "target": "self"
+                },
+                "minecraft:on_target_escape": {
+                    "event": "billey:pet_target_escape",
+                    "target": "self"
+                },
+                "minecraft:tameable": {
+                    "probability": 0.67,
+                    "tame_event": {
+                        "event": "on_tame",
+                        "target": "self"
+                    },
+                    "tame_items": [
+                        "billey:power_banana",
+                        "chicken",
+                        "billey:raw_hamster",
+                        "rabbit",
+                        "billey:cooked_hamster",
+                        "cooked_rabbit"
+                    ]
+                },
+                "minecraft:health": {
+                    "value": 12,
+                    "max": 12
+                },
+                "minecraft:attack": {
+                    "damage": 5
+                },
+                "minecraft:behavior.follow_parent": {
+                    "priority": 3,
+                    "speed_multiplier": 1.1
+                },
+                "minecraft:behavior.panic": {
+                    "priority": 1,
+                    "speed_multiplier": 1.3
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 1.0,
+                    "track_target": true,
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:is_baby": {},
+                "minecraft:ambient_sound_interval": {
+                    "event_name": "fgkjkbkffc"
+                },
+                "minecraft:scale": {
+                    "value": 0.25
+                }
+            },
+            "adult": {
+                "minecraft:ambient_sound_interval": {},
+                "minecraft:knockback_resistance": {
+                    "value": 0.8
+                },
+                "minecraft:behavior.nearest_attackable_target": {
+                    "priority": 4,
+                    "attack_interval": 100,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "none_of": [
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "chicken"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "duck"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "player"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "creeper"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "small"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "hamster"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "rabbit"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "yutyrannus"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "inanimate"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed",
+                                        "operator": "not"
+                                    }
+                                ]
+                            },
+                            "max_dist": 5
+                        }
+                    ]
+                },
+                "minecraft:on_target_acquired": {
+                    "event": "billey:pet_target_acquired",
+                    "target": "self"
+                },
+                "minecraft:on_target_escape": {
+                    "event": "billey:pet_target_escape",
+                    "target": "self"
+                },
+                "minecraft:tameable": {
+                    "probability": 1.0,
+                    "tame_event": {
+                        "event": "on_tame",
+                        "target": "self"
+                    },
+                    "tame_items": [
+                        "billey:power_banana"
+                    ]
+                },
+                "minecraft:health": {
+                    "value": 200,
+                    "max": 200
+                },
+                "minecraft:behavior.melee_attack": {
+                    "priority": 3,
+                    "speed_multiplier": 1.7,
+                    "reach_multiplier": 1.3,
+                    "track_target": true,
+                    "on_attack": {
+                        "event": "on_attack",
+                        "target": "self"
+                    },
+                    "on_kill": {
+                        "event": "on_kill",
+                        "target": "self"
+                    }
+                },
+                "minecraft:attack": {
+                    "damage": 25
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/billyutyrannus.json"
+                },
+                "minecraft:experience_reward": {
+                    "on_bred": "Math.Random(1,7)",
+                    "on_death": "q.last_hit_by_player ? Math.Random(1,3) : 0"
+                },
+                "minecraft:breedable": {
+                    "require_tame": true,
+                    "require_full_health": true,
+                    "breeds_with": [
+                        {
+                            "mate_type": "billey:yutyrannus",
+                            "baby_type": "billey:yutyrannus",
+                            "breed_event": {
+                                "event": "minecraft:entity_born",
+                                "target": "baby"
+                            }
+                        }
+                    ],
+                    "breed_items": [
+                        "billey:poultry_orange",
+                        "cooked_chicken",
+                        "beef",
+                        "cooked_beef",
+                        "muttonRaw",
+                        "muttonCooked",
+                        "porkchop",
+                        "cooked_porkchop",
+                        "rotten_flesh",
+                        "chicken",
+                        "billey:raw_hamster",
+                        "rabbit",
+                        "billey:cooked_hamster",
+                        "cooked_rabbit"
+                    ]
+                },
+                "minecraft:behavior.breed": {
+                    "priority": 3,
+                    "speed_multiplier": 1.0
+                }
+            },
+            "can_roar": {
+                "minecraft:target_nearby_sensor": {
+                    "inside_range": 4,
+                    "outside_range": 4.5,
+                    "on_inside_range": {
+                        "event": "roar",
+                        "target": "self"
+                    }
+                }
+            },
+            "growup": {
+                "minecraft:scale_by_age": {
+                    "start_scale": 0.25,
+                    "end_scale": 0.66
+                },
+                "minecraft:ageable": {
+                    "duration": 4800,
+                    "feed_items": [
+                        "cooked_chicken",
+                        "beef",
+                        "cooked_beef",
+                        "muttonRaw",
+                        "muttonCooked",
+                        "porkchop",
+                        "cooked_porkchop",
+                        "rotten_flesh",
+                        "chicken",
+                        "billey:cooked_snail",
+                        "billey:cooked_snail_s",
+                        "billey:cooked_snail_w",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
+                        "billey:raw_snail_w",
+                        "billey:raw_hamster",
+                        "rabbit",
+                        "billey:cooked_hamster",
+                        "cooked_rabbit"
+                    ],
+                    "grow_up": {
+                        "event": "minecraft:ageable_grow_up",
+                        "target": "self"
+                    }
+                }
+            }
+        },
+        "components": {
+            "minecraft:interact": {
+                "interactions": [
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "saddle"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "operator": "not",
+                                        "value": "minecraft:is_saddled"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other"
+                                    }
+                                ]
+                            },
+                            "event": "add_saddle"
+                        },
+                        "use_item": true,
+                        "play_sounds": "saddle",
+                        "interact_text": "action.interact.saddle"
+                    },
+                    {
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "saddle"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_saddled"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other"
+                                    }
+                                ]
+                            },
+                            "event": "remove_saddle"
+                        },
+                        "use_item": false,
+                        "play_sounds": "saddle",
+                        "spawn_items": {
+                            "table": "loot_tables/entities/billeysaddle.json"
+                        },
+                        "interact_text": "action.interact.saddle"
+                    },
+                    {
+                        "interact_text": "item.billey:big_stone",
+                        "use_item": true,
+                        "swing": true,
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "any_of": [
+                                            {
+                                                "test": "is_owner",
+                                                "subject": "other"
+                                            },
+                                            {
+                                                "test": "has_component",
+                                                "value": "minecraft:is_tamed",
+                                                "operator": "not",
+                                                "subject": "self"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "billey:big_stone"
+                                    },
+                                    {
+                                        "test": "int_property",
+                                        "domain": "billey:level",
+                                        "value": 10
+                                    }
+                                ]
+                            },
+                            "event": "big_stone",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "interact_text": "item.billey:small_stone",
+                        "use_item": true,
+                        "swing": true,
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "any_of": [
+                                            {
+                                                "test": "is_owner",
+                                                "subject": "other"
+                                            },
+                                            {
+                                                "test": "has_component",
+                                                "value": "minecraft:is_tamed",
+                                                "operator": "not",
+                                                "subject": "self"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "billey:small_stone"
+                                    },
+                                    {
+                                        "test": "int_property",
+                                        "domain": "billey:level",
+                                        "value": 10
+                                    }
+                                ]
+                            },
+                            "event": "small_stone",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "interact_text": "item.billey:normal_stone",
+                        "use_item": true,
+                        "swing": true,
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "any_of": [
+                                            {
+                                                "test": "is_owner",
+                                                "subject": "other"
+                                            },
+                                            {
+                                                "test": "has_component",
+                                                "value": "minecraft:is_tamed",
+                                                "operator": "not",
+                                                "subject": "self"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "billey:normal_stone"
+                                    },
+                                    {
+                                        "test": "int_property",
+                                        "domain": "billey:level",
+                                        "value": 10,
+                                        "operator": ">"
+                                    }
+                                ]
+                            },
+                            "event": "normal_stone",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "play_sounds": "plop",
+                        "swing": true,
+                        "interact_text": "action.interact.get_info",
+                        "on_interact": {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "feather"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "book"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "billey:info_book"
+                                    }
+                                ]
+                            },
+                            "event": "send_info",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "play_sounds": "plop",
+                        "swing": true,
+                        "interact_text": "action.interact.untame",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "billey:untaming_stick"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    }
+                                ]
+                            },
+                            "event": "untame",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "play_sounds": "plop",
+                        "swing": true,
+                        "interact_text": "action.interact.wander",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "stick"
+                                    },
+                                    {
+                                        "test": "is_sneaking",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:behavior.follow_owner"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    }
+                                ]
+                            },
+                            "event": "eventwander",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "play_sounds": "plop",
+                        "swing": true,
+                        "interact_text": "action.interact.follow",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "stick"
+                                    },
+                                    {
+                                        "test": "is_sneaking",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "operator": "not",
+                                        "value": "minecraft:behavior.follow_owner"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    }
+                                ]
+                            },
+                            "event": "eventfollow",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "interact_text": "action.interact.pet",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "billey:terraphin_staff"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "stick"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "operator": "!=",
+                                        "value": "minecraft:rideable"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "billey:swordfish"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "operator": "!=",
+                                        "value": "billey:golden_swordfish"
+                                    },
+                                    {
+                                        "test": "is_sneaking",
+                                        "subject": "other",
+                                        "value": true
+                                    }
+                                ]
+                            },
+                            "event": "bepetted",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "use_item": true,
+                        "play_sounds": "eat",
+                        "interact_text": "action.interact.feed",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "billey:sand_banana"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "player"
+                                    }
+                                ]
+                            },
+                            "event": "beenfedabanana",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "use_item": true,
+                        "play_sounds": "milk",
+                        "interact_text": "action.interact.use",
+                        "transform_to_item": "glass_bottle",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "billey:colorful_bottle"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    }
+                                ]
+                            },
+                            "event": "kroma",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "use_item": true,
+                        "play_sounds": "milk",
+                        "interact_text": "action.interact.use",
+                        "transform_to_item": "glass_bottle",
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "billey:colorless_bottle"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    }
+                                ]
+                            },
+                            "event": "nokroma",
+                            "target": "self"
+                        }
+                    },
+                    {
+                        "hurt_item": 1,
+                        "play_sounds": "shear",
+                        "interact_text": "action.interact.shear",
+                        "cooldown": 600,
+                        "spawn_items": {
+                            "table": "loot_tables/entities/billyutyrannus.json"
+                        },
+                        "on_interact": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_equipment",
+                                        "subject": "other",
+                                        "domain": "hand",
+                                        "value": "shears"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ]
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:type_family": {
+                "family": [
+                    "yutyrannus",
+                    "mob",
+                    "dinosaur"
+                ]
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0
+            },
+            "minecraft:collision_box": {
+                "width": 1.7,
+                "height": 2.0
+            },
+            "minecraft:nameable": {},
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "subject": "self",
+                            "operator": "==",
+                            "value": true
+                        },
+                        "cause": "lava",
+                        "damage_per_tick": 4
+                    }
+                ]
+            },
+            "minecraft:movement": {
+                "value": 0.3
+            },
+            "minecraft:underwater_movement": {
+                "value": 0.1
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": true
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "operator": "not",
+                                        "value": "billey:can_hit_own_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_owner_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
+                        "on_damage": {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_tamed"
+                                    },
+                                    {
+                                        "test": "is_owner",
+                                        "subject": "other",
+                                        "value": false
+                                    },
+                                    {
+                                        "test": "has_tag",
+                                        "subject": "other",
+                                        "value": "billey:cant_hit_other_pet"
+                                    }
+                                ]
+                            },
+                            "event": "say_other_hit_pet_info"
+                        },
+                        "cause": "all",
+                        "deals_damage": false
+                    },
+                    {
+                        "cause": "all",
+                        "deals_damage": false,
+                        "on_damage_sound_event": "armor.equip_generic",
+                        "on_damage": {
+                            "event": "destroy_head_equipment",
+                            "target": "self",
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "has_damage",
+                                        "value": "fatal"
+                                    },
+                                    {
+                                        "test": "has_equipment",
+                                        "value": "billey:pet_hat",
+                                        "domain": "head"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "cause": "entity_attack",
+                        "on_damage": {
+                            "event": "drop_feather",
+                            "target": "self"
+                        }
+                    }
+                ]
+            },
+            "minecraft:leashable": {
+                "soft_distance": 6.0,
+                "hard_distance": 9.0,
+                "max_distance": 15.0
+            },
+            "minecraft:balloonable": {
+                "mass": 5.0
+            },
+            "minecraft:behavior.rise_to_liquid_level": {
+                "priority": 0,
+                "liquid_y_offset": -10.0,
+                "rise_delta": 0.05,
+                "sink_delta": 0.05
+            },
+            "minecraft:navigation.walk": {
+                "can_float": true,
+                "avoid_water": false,
+                "avoid_damage_blocks": true
+            },
+            "minecraft:movement.basic": {},
+            "minecraft:jump.static": {},
+            "minecraft:can_climb": {},
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 1
+            },
+            "minecraft:behavior.random_stroll": {
+                "priority": 6,
+                "speed_multiplier": 1.0
+            },
+            "minecraft:behavior.look_at_player": {
+                "probability": 0.01,
+                "priority": 7,
+                "look_distance": 10.0
+            },
+            "minecraft:behavior.random_look_around": {
+                "priority": 8
+            },
+            "minecraft:physics": {},
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:conditional_bandwidth_optimization": {}
+        },
+        "events": {
+            "reset_target": {
+                "reset_target": {}
+            },
+            "add_saddle": {
+                "add": {
+                    "component_groups": [
+                        "saddled"
+                    ]
+                }
+            },
+            "remove_saddle": {
+                "remove": {
+                    "component_groups": [
+                        "saddled"
+                    ]
+                }
+            },
+            "destroy_head_equipment": {
+                "queue_command": {
+                    "command": "scriptevent billey:destroy_pet_head_equipment"
+                }
+            },
+            "set_follow_state": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:behavior.follow_owner"
+                        },
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "operator": "not",
+                            "value": "minecraft:behavior.follow_owner"
+                        },
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
+                    }
+                ]
+            },
+            "set_sitting_property_false": {
+                "set_property": {
+                    "billey:is_sitting": false
+                }
+            },
+            "set_sitting_property_true": {
+                "set_property": {
+                    "billey:is_sitting": true
+                }
+            },
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
+                }
+            },
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "send_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.yutyrannus\",\"with\":[\"\\n\"]}]}",
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip4\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
+                    ]
+                }
+            },
+            "untame": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "playsound random.orb @a ~~~ 1.00 0.8 0.5",
+                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.untame\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.untame2\"}] }"
+                            ]
+                        }
+                    },
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "tamed_component"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "untamed"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "drop_feather": {
+                "randomize": [
+                    {
+                        "weight": 1,
+                        "queue_command": {
+                            "command": "loot spawn ~~~ loot \"entities/billyutyrannus\""
+                        }
+                    },
+                    {
+                        "weight": 4
+                    }
+                ]
+            },
+            "get_electrocuted": {
+                "add": {
+                    "component_groups": [
+                        "electrocuted"
+                    ]
+                }
+            },
+            "add_rideable": {
+                "add": {
+                    "component_groups": [
+                        "rideable"
+                    ]
+                }
+            },
+            "remove_rideable": {
+                "remove": {
+                    "component_groups": [
+                        "rideable"
+                    ]
+                }
+            },
+            "roar": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "operator": "not",
+                            "subject": "self",
+                            "value": "minecraft:is_baby"
+                        },
+                        "queue_command": {
+                            "command": [
+                                "playsound mob.dolphin.blowhole @a ~~~ 1.0 0.3"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_component",
+                                    "operator": "not",
+                                    "subject": "self",
+                                    "value": "minecraft:is_baby"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "operator": "not",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 2 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 1 5 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_component",
+                                    "operator": "not",
+                                    "subject": "self",
+                                    "value": "minecraft:is_baby"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 2 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 1 5 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 2
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 3 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 1 6 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 3
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 5 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 2 5 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 4
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 8 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 2 6 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 4
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 10 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 3 5 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 5
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 13 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 3 6 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 6
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 15 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 4 5 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 7
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 18 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 4 6 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 8
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 19 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 5 5 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 9
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 20 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 5 6 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 10
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 23 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 6 6 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 11
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 29 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 6 8 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "subject": "self",
+                                    "domain": "billey:level",
+                                    "value": 12
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "damage @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] 14 entity_attack entity @s",
+                                "effect @e[r=6.5,tag=!tamed,tag=!has_tamed_a_yuty,type=!billey:yutyrannus,type=!item,type=!billey:rat_minion,type=!xp_orb,family=!inanimate] wither 3 6 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "operator": "not",
+                            "subject": "self",
+                            "value": "minecraft:is_baby"
+                        },
+                        "queue_command": {
+                            "command": [
+                                "effect @s slowness 1 5 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "operator": "not",
+                            "subject": "self",
+                            "value": "minecraft:is_baby"
+                        },
+                        "queue_command": {
+                            "command": [
+                                "playanimation @s animation.billeys_mobs.yutyrannus.roar"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "operator": "not",
+                            "subject": "self",
+                            "value": "minecraft:is_baby"
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "can_roar"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "blackstripehat": {
+                "queue_command": {
+                    "command": [
+                        "replaceitem entity @s slot.armor.head 0 minecraft:dried_kelp"
+                    ]
+                }
+            },
+            "eventwander": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "eventwander_silent"
+                    }
+                ]
+            },
+            "eventfollow": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "eventfollow_silent"
+                    }
+                ]
+            },
+            "eventwander_silent": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "following"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "wandering"
+                        }
+                    }
+                ]
+            },
+            "eventfollow_silent": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "following"
+                            ]
+                        }
+                    },
+                    {
+                        "set_property": {
+                            "billey:follow_owner_state": "following"
+                        }
+                    }
+                ]
+            },
+            "on:shear": {
+                "add": {
+                    "component_groups": [
+                        "sheared",
+                        "noloot"
+                    ]
+                }
+            },
+            "on_tame": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=6,tag=!billeyinfolevelyuty,tag=billeyinfotip4_v3] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.leveling\"}]}",
+                                "tag @a[r=6,tag=!billeyinfolevelyuty,tag=billeyinfotip4_v3] add billeyinfolevelyuty"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                                "tellraw @a[r=6,tag=!billeyinfotip4_v3] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip4\"}]}",
+                                "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                                "tag @a[r=6,tag=!billeyinfotip4_v3] add billeyinfotip4_v3"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "tamed",
+                                "following"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "wild",
+                                "albino",
+                                "sheared",
+                                "saddle"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tag @a[r=9,tag=!has_tamed_a_yuty] add has_tamed_a_yuty"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "value": "minecraft:is_baby",
+                            "subject": "self"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "growup"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "scalecg"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "addpanic": {
+                "add": {
+                    "component_groups": [
+                        "nonstoppanic"
+                    ]
+                }
+            },
+            "removepanic": {
+                "remove": {
+                    "component_groups": [
+                        "nonstoppanic"
+                    ]
+                }
+            },
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawned"
+                    ]
+                }
+            },
+            "billey:pet_target_acquired": {
+                "add": {
+                    "component_groups": [
+                        "angry"
+                    ]
+                }
+            },
+            "angery_baby": {
+                "add": {
+                    "component_groups": [
+                        "angry_baby"
+                    ]
+                }
+            },
+            "billey:pet_target_escape": {
+                "remove": {
+                    "component_groups": [
+                        "angry",
+                        "angry_baby"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "can_roar"
+                    ]
+                }
+            },
+            "on_attack": {},
+            "on_kill": {
+                "queue_command": {
+                    "command": [
+                        "playsound random.eat @a ~~~ 1.0 0.75",
+                        "effect @s regeneration 1 2 true"
+                    ]
+                }
+            },
+            "check_level": {
+                "filters": {
+                    "all_of": [
+                        {
+                            "test": "has_component",
+                            "value": "minecraft:is_tamed"
+                        },
+                        {
+                            "test": "has_component",
+                            "operator": "not",
+                            "value": "minecraft:is_baby"
+                        }
+                    ]
+                },
+                "sequence": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 2
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 30.0 //xp_level_2
+                                }
+                            ]
+                        },
+                        "trigger": "to_level2"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 3
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 90.0 //xp_level_3
+                                }
+                            ]
+                        },
+                        "trigger": "to_level3"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 4
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 180.0 //xp_level_4
+                                }
+                            ]
+                        },
+                        "trigger": "to_level4"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 5
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 310.0 //xp_level_5
+                                }
+                            ]
+                        },
+                        "trigger": "to_level5"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 6
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 520.0 //xp_level_6
+                                }
+                            ]
+                        },
+                        "trigger": "to_level6"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 7
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 890.0 //xp_level_7
+                                }
+                            ]
+                        },
+                        "trigger": "to_level7"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 8
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 1650.0 //xp_level_8
+                                }
+                            ]
+                        },
+                        "trigger": "to_level8"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 9
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 3310.0 //xp_level_9
+                                }
+                            ]
+                        },
+                        "trigger": "to_level9"
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "int_property",
+                                    "domain": "billey:level",
+                                    "operator": "<",
+                                    "value": 10
+                                },
+                                {
+                                    "test": "float_property",
+                                    "domain": "billey:xp",
+                                    "operator": ">=",
+                                    "value": 7150.0 //xp_level_10
+                                }
+                            ]
+                        },
+                        "trigger": "to_level10"
+                    }
+                ]
+            },
+            "to_level1": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level1"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "1",
+                            "billey:xp": "0"
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=30] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.reset\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level2": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level2"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "2",
+                            "billey:xp": "30" //xp_level_2
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"2\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"2\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level3": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level3"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "3",
+                            "billey:xp": "90" //xp_level_3
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"3\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"3\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level4": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level4"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "4",
+                            "billey:xp": "180" //xp_level_4
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"4\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"4\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level5": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level5"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "5",
+                            "billey:xp": "310" //xp_level_5
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"5\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"5\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level6": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level6"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "6",
+                            "billey:xp": "520" //xp_level_6
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"6\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"6\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level7": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level7"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "7",
+                            "billey:xp": "890" //xp_level_7
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"7\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"7\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level8": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level8"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "8",
+                            "billey:xp": "1650" //xp_level_8
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"8\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"8\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level9": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level9"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "9",
+                            "billey:xp": "3310" //xp_level_9
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"9\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"9\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "to_level10": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level10"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "10",
+                            "billey:xp": "7150" //xp_level_10
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"10\"}]}}]}",
+                                "tellraw @p {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @p add got_lvl_msg",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"10\"}]}}]}",
+                                "tellraw @a[r=30,tag=!got_lvl_msg] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.info\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+                                "tag @a remove got_lvl_msg",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=30] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "big_stone": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "big_and_slow"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "11",
+                            "billey:xp": "7150" //xp_level_10
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=10] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.big_stone\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"\\n\"}]}}]}",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=10] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "small_stone": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "small_and_quick"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "12",
+                            "billey:xp": "7150" //xp_level_10
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=10] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.small_stone\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"\\n\"}]}}]}",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=10] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "normal_stone": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "level10"
+                            ]
+                        },
+                        "set_property": {
+                            "billey:level": "10",
+                            "billey:xp": "7150" //xp_level_10
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=10] {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.levelup.normal_stone\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"},{\"text\":\"\\n\"}]}}]}",
+                                "effect @s instant_health 1 255 true",
+                                "playsound billey.level_up @a[r=10] ~~~ 1.0 1.1 0.5"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "minecraft:entity_spawned": {
+                "sequence": [
+                    {
+                        "randomize": [
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "kromatik"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 299
+                            }
+                        ]
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "adult",
+                                "wild",
+                                "can_roar"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 2
+                            },
+                            {
+                                "weight": 1,
+                                "filters": {
+                                    "any_of": [
+                                        {
+                                            "test": "has_biome_tag",
+                                            "value": "cold"
+                                        },
+                                        {
+                                            "test": "has_biome_tag",
+                                            "value": "frozen"
+                                        }
+                                    ]
+                                },
+                                "queue_command": {
+                                    "command": [
+                                        "summon billey:yutyrannus ~~~ spawn_baby"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 3,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_zero"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_three"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_six"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_one"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_two"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_four"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_five"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_seven"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_eight"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "spawn_baby": {
+                "sequence": [
+                    {
+                        "randomize": [
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "kromatik"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 299
+                            }
+                        ]
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "wild",
+                                "can_roar"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "baby"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 3,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_zero"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_three"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_six"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_one"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_two"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_four"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_five"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_seven"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 10,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_eight"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "minecraft:entity_born": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "baby",
+                                "tamed",
+                                "growup",
+                                "following",
+                                "can_roar"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 99
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "variant_nine"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "value": "minecraft:is_illager_captain",
+                            "subject": "parent"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "kromatik"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "beenfedabanana": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "particle billey:eatbanana ~ ~1 ~"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 8,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s regeneration 7 1"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s regeneration 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s speed 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s absorption 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s resistance 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s strength 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s water_breathing 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s fire_resistance 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "sequence": [
+                                    {
+                                        "queue_command": {
+                                            "command": [
+                                                "effect @s levitation 1 0 true"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "queue_command": {
+                                            "target": "other",
+                                            "command": [
+                                                "effect @s levitation 1 0 true"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "wearhat": {
+                "add": {
+                    "component_groups": [
+                        "hat"
+                    ]
+                }
+            },
+            "nohat": {
+                "remove": {
+                    "component_groups": [
+                        "hat"
+                    ]
+                },
+                "queue_command": {
+                    "command": [
+                        "replaceitem entity @s slot.armor.head 0 feather"
+                    ]
+                }
+            },
+            "kroma": {
+                "add": {
+                    "component_groups": [
+                        "kromatik"
+                    ]
+                }
+            },
+            "nokroma": {
+                "remove": {
+                    "component_groups": [
+                        "kromatik"
+                    ]
+                }
+            },
+            "do_ambient": {
+                "add": {
+                    "component_groups": [
+                        "yes_ambient"
+                    ]
+                },
+                "remove": {
+                    "component_groups": [
+                        "no_ambient"
+                    ]
+                }
+            },
+            "dont_ambient": {
+                "remove": {
+                    "component_groups": [
+                        "yes_ambient"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "no_ambient"
+                    ]
+                }
+            },
+            "bepetted": {
+                "sequence": [
+                    {
+                        "randomize": [
+                            {
+                                "weight": 13
+                            },
+                            {
+                                "weight": 1
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "playanimation @s animation.billeys_mobs.cat.petted"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "queue_command": {
+                            "target": "other",
+                            "command": [
+                                "playanimation @s animation.billeys_mobsplayer.pet"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 1
+                            },
+                            {
+                                "weight": 99
+                            },
+                            {
+                                "weight": 3,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s resistance 10 1 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s fire_resistance 10 1 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s strength 10 1 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s water_breathing 30 0 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s speed 10 1 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s levitation 1 1 true",
+                                        "effect @s regeneration 30 1 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s speed 1 0"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "minecraft:ageable_grow_up": {
+                "remove": {
+                    "component_groups": [
+                        "baby",
+                        "growup"
+                    ]
+                },
+                "add": {
+                    "component_groups": [
+                        "adult"
+                    ]
+                }
+            }
+        }
+    }
+}

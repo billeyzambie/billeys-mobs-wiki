@@ -1,0 +1,44 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.billeys_mobs.plushie": {
+            "arrays": {
+                "textures": {
+                    "array.textures": [
+                        "texture.slime_wyvern",
+                        "texture.rubber_ducky",
+                        "texture.mercat"
+                    ]
+                },
+                "geometries": {
+                    "array.geometries": [
+                        "Geometry.slime_wyvern",
+                        "Geometry.rubber_ducky",
+                        "Geometry.mercat"
+                    ]
+                }
+            },
+            "geometry": "array.geometries[q.variant]",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "array.textures[q.variant]"
+            ],
+            "overlay_color": {
+                "r": "v.is_enchanted ? 0.25 + 0.125 * math.cos(q.life_time*360)",
+                "g": "0",
+                "b": "v.is_enchanted",
+                "a": "v.is_enchanted ? 0.25 + 0.0625 * math.cos(q.life_time*480)"
+            },
+            "is_hurt_color": {
+                "r": "0",
+                "g": "0",
+                "b": "0",
+                "a": "1"
+            }
+        }
+    }
+}

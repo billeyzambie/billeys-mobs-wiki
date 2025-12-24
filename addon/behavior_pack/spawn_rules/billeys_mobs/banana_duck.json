@@ -1,0 +1,116 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "billey:banana_duck",
+      "population_control": "animal"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": "minecraft:sand",
+        "minecraft:weight": {
+          "default": 40
+        },
+        "minecraft:herd": {
+          "min_size":3,
+          "max_size":6
+        },
+   
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag", "operator":"not", "value": "mesa"
+        }
+      },
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": "minecraft:sand",
+        "minecraft:weight": {
+          "default": 100
+        },
+        "minecraft:herd": {
+          "min_size":1,
+          "max_size":4
+        },
+   
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag", "operator":"==", "value": "nether"
+        }
+      },
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": "minecraft:grass",
+        "minecraft:weight": {
+          "default": 10
+        },
+        "minecraft:herd": {
+          "min_size":2,
+          "max_size":3
+        },
+   
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag", "operator":"==", "value": "jungle"
+        }
+      },
+      {
+        "minecraft:spawns_underground": {},
+        "minecraft:spawns_on_block_filter": "minecraft:sand",
+        "minecraft:weight": {
+          "default": 100
+        },
+        "minecraft:herd": {
+          "min_size":1,
+          "max_size":4
+        },
+   
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag", "operator":"==", "value": "the_end"
+        }
+      }/*,
+      {
+        "minecraft:spawns_underground": {},
+
+        "minecraft:spawns_on_block_prevented_filter": [
+          "minecraft:nether_wart_block",
+          "minecraft:shroomlight"
+        ],
+        "minecraft:difficulty_filter": {
+          "min": "peaceful",
+          "max": "hard"
+        },
+
+        "minecraft:weight": {
+          "default": 20
+        },
+
+        "minecraft:herd": {
+          "min_size": 4,
+          "max_size": 4
+        },
+
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "crimson_forest"
+        }
+      },
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:brightness_filter": {
+          "min": 8,
+          "max": 15,
+          "adjust_for_weather": false
+        },
+        "minecraft:weight": {
+          "default": 10
+        },
+        "minecraft:herd": {
+          "min_size": 2,
+          "max_size": 3
+        },
+        "minecraft:biome_filter": {
+         "test": "has_biome_tag", "operator": "==", "value": "the_end"
+        }
+      }*/
+    ]
+  }
+}

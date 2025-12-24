@@ -1,0 +1,73 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.scale_transition": {
+			"loop": true,
+			"bones": {
+				"ooo": {
+					"scale": "v.prev_scale / v.curr_scale"
+				}
+			}
+		},
+		"animation.billeys_mobs.scale_transition.pop": {
+			"loop": true,
+			"bones": {
+				"pop": {
+					"scale": "v.prev_scale / v.curr_scale"
+				}
+			}
+		},
+		"animation.billeys_mobs.duckproj.body": {
+			"animation_length": 0.24,
+			"bones": {
+				"body": {
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.08": [0.8, 0.8, 0.8],
+						"0.16": [1.2, 1.2, 1.2],
+						"0.2": [1, 1, 1]
+					}
+				}
+			}
+		},
+		"animation.billeys_mobs.duckproj.pop": {
+			"animation_length": 0.2,
+			"bones": {
+				"pop": {
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.08": [0.8, 0.8, 0.8],
+						"0.16": [1.2, 1.2, 1.2],
+						"0.2": [1, 1, 1]
+					}
+				}
+			}
+		},
+		"animation.billeys_mobs.duckproj.ooo": {
+			"animation_length": 0.24,
+			"bones": {
+				"ooo": {
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.08": [0.8, 0.8, 0.8],
+						"0.16": [1.2, 1.2, 1.2],
+						"0.2": [1, 1, 1]
+					}
+				}
+			}
+		},
+		"animation.billeys_mobs.duckproj.death": {
+			"animation_length": 0.24,
+			"bones": {
+				"death": {
+					"scale": {
+						"0.0": [0, 0, 0],
+						"0.08": [0.8, 0.8, 0.8],
+						"0.16": [1.2, 1.2, 1.2],
+						"0.2": [1, 1, 1]
+					}
+				}
+			}
+		}
+	}
+}

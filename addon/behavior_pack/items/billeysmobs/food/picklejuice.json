@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.60",
+  "minecraft:item": {
+      "description": {
+          "identifier": "billey:pickle_juice",
+          "menu_category": {
+              "category": "equipment",
+              "group": "itemGroup.name.miscFood"
+          }
+      },
+      "components": {
+        "minecraft:tags": {
+          "tags": [
+            "billey:can_craft_info_book"
+          ]
+        },
+          "minecraft:max_stack_size": {
+              "value": 64
+          },
+          "minecraft:use_modifiers": {
+              "use_duration": 2.0,
+              "movement_modifier": 0.35
+          },
+          "minecraft:use_animation": {
+              "value": "drink"
+          },
+          "minecraft:icon": {
+              "textures": {
+                  "default": "billpickle_juice"
+              }
+          },
+          "minecraft:food": {
+              "using_converts_to": "glass_bottle",
+              "can_always_eat": true
+          }
+      }
+      //eating effects, if any, were done with scripts.
+  }
+}

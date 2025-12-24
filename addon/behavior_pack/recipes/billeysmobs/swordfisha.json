@@ -1,0 +1,32 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "billey:swordfisha"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "what_does_this_do",
+    "pattern": [
+      " MN",
+      "FMM",
+      "TF "
+    ],
+    "key": {
+      "F": {
+        "item": "billey:swordfin"
+      },
+      "M": {
+        "item": "billey:swordmeat"
+      },
+      "N": {
+        "item": "billey:swordstick"
+      },
+      "T": {
+        "item": "billey:swordtail"
+      }
+    },
+    "result": [
+      { "item": "billey:swordfish" }
+    ]
+  }
+}

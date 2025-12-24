@@ -1,0 +1,35 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:poopstain",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"default": "textures/entity/billeys_mobs/poop"
+			},
+			"geometry": {
+				"default": "geometry.ppoop"
+			},
+			"animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+				"fall": "animation.billeys_mobs.pigeon.fall",
+				"melt": "animation.billeys_mobs.pigeon.melt",
+                "c.fall": "controller.animation.billeys_mobs.poop",
+				"dead": "animation.billeys_mobs.pigeon.dead2"
+			},
+			"scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+				"animate": [ "new",
+                    {"dead": "!q.is_alive"},
+                    "c.fall"
+				]
+			},
+			"render_controllers": ["controller.render.birdpoopxd"],
+			"spawn_egg": {
+				"texture": "billey.pigeon_poop"
+			}
+		}
+	}
+}

@@ -1,0 +1,43 @@
+{
+  "format_version": "1.20.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "billey:swordmeat",
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.rawFood"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "billey:can_craft_info_book",
+          "minecraft:is_food",
+          "minecraft:is_fish",
+          "minecraft:is_meat"
+        ]
+      },
+      "minecraft:max_stack_size": {
+        "value": 64
+      },
+      "minecraft:use_modifiers": {
+        "use_duration": 1.2,
+        "movement_modifier": 0.35
+      },
+      "minecraft:use_animation": {
+        "value": "eat"
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "swordmeat"
+        }
+      },
+      "minecraft:food": {
+        "nutrition": 2,
+        "saturation_modifier": 0.6, //low
+        "can_always_eat": false
+      }
+    }
+    //eating effects, if any, were done with scripts.
+  }
+}

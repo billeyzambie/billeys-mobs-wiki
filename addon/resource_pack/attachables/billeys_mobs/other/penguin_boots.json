@@ -1,0 +1,24 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "billey:penguin_boots",
+        "materials": {
+          "default": "armor",
+          "enchanted": "armor_enchanted"
+        },
+        "textures": {
+          "default": "textures/billeyarmor/penguin_boots",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "geometry": {
+            "default": "geometry.billeys_mobs.penguin_boots"
+        },
+        "scripts": {
+          "parent_setup": "v.boot_layer_visible = 0.0;"
+        },
+        "render_controllers": [ "controller.render.armor" ]
+      }
+    }
+  }
+  

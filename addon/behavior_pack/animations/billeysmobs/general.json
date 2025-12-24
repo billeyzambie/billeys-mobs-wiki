@@ -1,0 +1,387 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.set_follow_state": {
+			"animation_length": 1.0,
+			"loop": true,
+			"timeline": {
+				"0.15": [
+					"@s set_follow_state"
+				]
+			}
+		},
+		"animation.billeys_mobs.check_beta_apis": {
+			"animation_length": 30.0,
+			"loop": false,
+			"timeline": {
+				"0.1": [
+					"/scriptevent billey:add_script_tag"
+				],
+				"15.0": [
+					"/scriptevent billey:add_script_tag"
+				],
+				"15.1": [
+					"/execute @s[tag=!billey_script_working] ~~~ tellraw @a {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.turn_on_beta_apis\",\"with\":[\"\\n\"]}]}",
+					"/tag @s remove billey_script_working"
+				]
+			}
+		},
+		"animation.billeys_mobs.rainbow_effects": {
+			"animation_length": 30.0,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/effect @s regeneration 30 0 true",
+					"/effect @s speed 30 0 true",
+					"/effect @s strength 30 0 true",
+					"/effect @s resistance 30 0 true",
+					"/effect @s absorption 30 0 true"
+				]
+			}
+		},
+		"animation.billeys_mobs.switch_gender": {
+			"animation_length": 0.1,
+			"loop": true,
+			"timeline": {
+				"0.0": [
+					"/tag @s[tag=male] add self",
+					"/execute @s[tag=male] ~~~ event entity @e[tag=!self,tag=in_love,r=1,c=1] become_female",
+					"/tag @s remove self"
+				],
+				"0.05": [
+					"/tag @s[tag=!male] add self",
+					"/execute @s[tag=!male] ~~~ event entity @e[tag=!self,tag=in_love,r=1,c=1] become_male",
+					"/tag @s remove self"
+				]
+			}
+		},
+		"animation.billeys_mobs.mercat.in_ritual_timer": {
+			"animation_length": 11.0,
+			"loop": true,
+			"timeline": {
+				"10.0": "@s finish_ritual"
+			}
+		},
+		"animation.billeys_mobs.penguin.water": {
+			"animation_length": 40.0,
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @s ~~~ detect ~ ~-1 ~ ice 0 effect @s speed 1 8 true",
+				"20.0": "/execute @s ~~~ detect ~ ~-1 ~ ice 0 effect @s speed 1 8 true",
+				"10.0": "/execute @s ~~~ detect ~ ~-1 ~ ice 0 setblock ~ ~-1 ~ flowing_water 0 destroy"
+			}
+		},
+		"animation.billeys_mobs.anglerfish.spawn_fish": {
+			"animation_length": 1.0,
+			"loop_delay": "math.random(0,6)",
+			//ignore the blockception extension's errors
+			//loop delay definitely works on behavior animations
+			"loop": true,
+			"timeline": {
+				"0": "/execute @s ~~~ detect ^ ^0.5 ^3 water 0 summon billey:random_biome_fish ^ ^0.5 ^3"
+			}
+		},
+		"animation.billeys_mobs.anglerfish_boost.clear_effects": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0": "/effect @s clear"
+			}
+		}, /*
+		"animation.billeys_mobs.piranha.attach": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0": "/tp @e[tag=attackedbythrownpiranha,c=1,r=3]"
+			}
+		},
+		"animation.billeys_mobs.piranha.hurt_attached_mob": {
+			"animation_length": 2.5,
+			"loop": true,
+			"timeline": {
+				"0": "/damage @e[tag=attackedbythrownpiranha,c=1,r=2] 4 entity_attack entity @s"
+			}
+		},*/
+		"animation.billeys_mobs.elec.sleep": {
+			"animation_length": 9.0,
+			"loop": true,
+			"timeline": {
+				"8.9": "/scoreboard players remove @s billbanana 1"
+			}
+		},
+		"animation.billeys_mobs.duck.slowfall": {
+			"animation_length": 30.0,
+			"loop": true,
+			"timeline": {
+				"0.0": "/effect @s slow_falling 31 0 true"
+			}
+		},
+		"animation.billeys_mobs.endercat.teleport_monsters": {
+			"animation_length": 1.0,
+			"loop_delay": "math.random(0,10)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @r[type=!player,family=monster,r=8] ~~~ function billendercattp"
+			}
+		},
+		"animation.billeys_mobs.duck.angeldeath": {
+			"animation_length": 2.0,
+			"loop": true,
+			"timeline": {
+				"0.0": "/effect @s slow_falling 31 0 true"
+			}
+		},
+		"animation.billeys_mobs.duckzombie": {
+			"animation_length": 0.1,
+			"loop": false,
+			"timeline": {
+				"0.0": "/summon zombie ~~~ minecraft:as_adult",
+				"0.01": "/replaceitem entity @e[c=1,type=zombie,tag=!hasduck] slot.weapon.mainhand 0 billey:yeet_duck",
+				"0.02": "/replaceitem entity @e[c=1,type=zombie,tag=!hasduck] slot.armor.head 0 billey:duck_hat",
+				"0.03": "/effect @e[c=1,type=zombie,tag=!hasduck] strength 100000 1 true",
+				"0.04": "/effect @e[c=1,type=zombie,tag=!hasduck] resistance 100000 1 true",
+				"0.05": "/ride @e[c=1,type=zombie,tag=!hasduck] summon_rider billey:dropduckhat",
+				"0.06": "/tag @e[c=1,type=zombie,tag=!hasduck] add hasduck",
+				"0.07": "@s despawn"
+			}
+		},
+		"animation.billeys_mobs.kiwi.albino": {
+			"loop": false,
+			"animation_length": 2.0,
+			"timeline": {
+				"1.4": "@s despawn"
+			}
+		},
+		"animation.billeys_mobs.betta.boost": {
+			"loop": false,
+			"animation_length": 2.0,
+			"timeline": {
+				"0.0": "/effect @s speed 1 10 true",
+				"0.1": "/playanimation @s animation.billeys_mobs.bettafish.boost bbobies 0.1 \"!q.modified_move_speed\"",
+				//"0.2": "/say asssss",
+				"0.6": "/effect @s speed 0 255 true",
+				"1.0": "@s finishboost"
+			}
+		},
+		"animation.billeys_mobs.normal_weather": {
+			"animation_length": 30.0,
+			"loop": true,
+			"timeline": {
+				"1.0": "/weather clear",
+				"1.1": "/tp 0 0 0",
+				"1.2": "/kill"
+			}
+		},
+		"animation.billeys_mobs.redstone": {
+			"animation_length": 0.05,
+			"loop": true,
+			"timeline": {
+				"0.0": "/fill ~~~~~~ redstone_torch 0 replace redstone_wire",
+				"0.01": "/fill ~~~~~~ redstone_wire 0 replace redstone_torch",
+				"0.02": "/fill ~~~~~~ redstone_torch 0 replace redstone_wire",
+				"0.03": "/fill ~~~~~~ redstone_wire 0 replace redstone_torch",
+				"0.04": "/fill ~~~~~~ redstone_wire 0 replace redstone_torch"
+			}
+		},
+		"animation.angelcat.heal": {
+			"animation_length": 30.0,
+			"loop_delay": "math.random(0,20)",
+			"loop": true,
+			"timeline": {
+				"10.0": "/effect @e[tag=tamed,r=8] regeneration 3 3 true",
+				"10.5": "/particle minecraft:crop_growth_emitter ~ ~.6 ~",
+				"11.0": "/effect @e[type=billey:snail,r=8] regeneration 3 3 true"
+			}
+		},
+		"animation.billeys_mobs.woodlouse.fertilize": {
+			"animation_length": 10.0,
+			"loop_delay": "math.random(0,10)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ air 0 tag @s add in_air",
+				"0.01": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ water 0 tag @s add in_air",
+				"0.02": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ tallgrass -1 tag @s add in_air",
+				"0.03": "/function billwoodlousefertilize",
+				"0.04": "/execute @s[tag=!in_air] ~~~ particle minecraft:crop_growth_emitter ~ ~.3 ~",
+				"0.05": "/tag @s remove in_air"
+			}
+		},
+		"animation.billeys_mobs.woodlouse.fertilize2": {
+			"animation_length": 10.0,
+			"loop_delay": "math.random(0,10)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ air 0 tag @s add in_air",
+				"0.01": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ water 0 tag @s add in_air",
+				"0.02": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ grass 0 tag @s add in_air",
+				"0.03": "/fill ~~~ ~ ~.1 ~ billey:woodlouse_wheat 0 replace wheat 7",
+				"0.04": "/fill ~~~ ~ ~-.9 ~ farmland 0 replace dirt",
+				"0.05": "/execute @s[tag=!in_air] particle minecraft:crop_growth_emitter ~ ~.3 ~",
+				"0.06": "/tag @s remove in_air"
+			}
+		},
+		"animation.billeys_mobs.woodlouse.fertilize_boosted": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ air 0 tag @s add in_air",
+				"0.01": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ water 0 tag @s add in_air",
+				"0.02": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ tallgrass -1 tag @s add in_air",
+				"0.03": "/function billwoodlousefertilize",
+				"0.04": "/execute @s[tag=!in_air] ~~~ particle minecraft:crop_growth_emitter ~ ~.3 ~",
+				"0.05": "/tag @s remove in_air"
+			}
+		},
+		"animation.billeys_mobs.woodlouse.fertilize2_boosted": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ air 0 tag @s add in_air",
+				"0.005": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ water 0 tag @s add in_air",
+				"0.01": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ grass 0 tag @s add in_air",
+				"0.015": "/fill ~~~ ~ ~.1 ~ billey:woodlouse_wheat 0 replace wheat 7",
+				"0.02": "/fill ~~~ ~ ~-.9 ~ farmland 0 replace dirt",
+				"0.025": "/execute @s[tag=!in_air] particle minecraft:crop_growth_emitter ~ ~.3 ~",
+				"0.03": "/tag @s remove in_air"
+			}
+		},
+		"animation.billeys_mobs.stickbug.fertilize": {
+			"animation_length": 10,
+			"loop_delay": "math.random(0,10)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ air 0 tag @s add in_air",
+				"0.01": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ water 0 tag @s add in_air",
+				"0.02": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ grass 0 tag @s add in_air",
+				"0.03": "/fill ~~~ ~ ~.1 ~ billey:potato_sticks 0 replace potatoes 7",
+				"0.04": "/fill ~~~ ~ ~-.9 ~ farmland 0 replace dirt",
+				"0.05": "/execute @s[tag=!in_air] particle minecraft:crop_growth_emitter ~ ~.3 ~",
+				"0.06": "/tag @s remove in_air"
+			}
+		},
+		"animation.billeys_mobs.stickbug.fertilize_boosted": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ air 0 tag @s add in_air",
+				"0.005": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ water 0 tag @s add in_air",
+				"0.01": "/execute @s ~ ~.1 ~ detect ~ ~.1 ~ grass 0 tag @s add in_air",
+				"0.015": "/fill ~~~ ~ ~.1 ~ billey:potato_sticks 0 replace potatoes 7",
+				"0.02": "/fill ~~~ ~ ~-.9 ~ farmland 0 replace dirt",
+				"0.025": "/execute @s[tag=!in_air] particle minecraft:crop_growth_emitter ~ ~.3 ~",
+				"0.03": "/tag @s remove in_air"
+			}
+		},
+		"animation.billeys_mobs.pickle_cat.give_water_breathing": {
+			"animation_length": 30.0,
+			"loop_delay": "math.random(0,20)",
+			"loop": true,
+			"timeline": {
+				"10.0": "/effect @e[tag=tamed,r=8] water_breathing 10 0",
+				"10.5": "/particle minecraft:crop_growth_emitter ~ ~.25 ~"
+			}
+		},
+		"animation.banana_duck.ornithologist": {
+			"animation_length": 2.0,
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @p[r=5,tag=zerobduck] ~~~ execute @s[tag=!billeyadv_ornithologist] ~~~ execute @s[tag=onebduck] ~~~ execute @s[tag=fourbduck] ~~~ execute @s[tag=threebduck] ~~~ execute @s[tag=twobduck] ~~~ execute @s[tag=fivebduck] ~~~ scriptevent billey:advancement ornithologist"
+			}
+		},
+		"animation.angelpig.monsterenergydrink": {
+			"animation_length": 15.0,
+			"loop_delay": "math.random(0,20)",
+			"loop": true,
+			"timeline": {
+				"7.0": "/effect @e[family=monster,r=10] wither 2 4 true",
+				"7.1": "/kill @e[type=billey:poopstain,r=3]",
+				"7.2": "/effect @e[family=monster,r=10] levitation 1 6",
+				"7.3": "/particle minecraft:crop_growth_emitter ~ ~.7 ~",
+				"7.4": "/particle minecraft:crop_growth_emitter ~ ~.7 ~",
+				"7.5": "/effect @e[tag=tamed,r=8] resistance 7 2 true",
+				"7.6": "/effect @e[type=billey:snail,r=8] resistance 7 2 true"
+			}
+		},
+		"animation.billeys_mobs.pigeon.apple": {
+			"animation_length": 20.0,
+			"loop_delay": "math.random(0,10)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @s ~~~ detect ~ ~-1 ~ leaves 0 playanimation @s animation.billeys_mobs.pigeon.eatfloor",
+				"0.1": "/execute @s ~~~ detect ~ ~-1 ~ leaves 0 function billpigeonapple"
+			}
+		},
+		"animation.billeys_mobs.duck.find_stuff": {
+			"animation_length": 10.0,
+			//find stuff more often as the duck levels up
+			//but slowly stop finding regular stuff once the duck reaches level 5
+			//since ducks in level 5 and higher find "good stuff" instead 
+			"loop_delay": "math.random(10,140) / (math.ceil(q.property('billey:level') < 5 ? 1 + (q.property('billey:level')-1) / 2 : 2 - (q.property('billey:level')-5)/2.5))",
+			"loop": true,
+			"timeline": {
+				"5.0": "/execute @s ~~~ detect ~~~ tallgrass -1 playanimation @s animation.billeys_mobs.duck.pickupbread",
+				"5.1": "/execute @s ~~~ detect ~~~ tallgrass -1 loot spawn ~~~ loot \"entities/billduckgrass\"",
+				"6.0": "/execute @s ~~~ detect ~~~ water -1 playanimation @s animation.billeys_mobs.duck.pickupbread",
+				"6.1": "/execute @s ~~~ detect ~~~ water -1 loot spawn ~~~ loot \"entities/billduckwater\""
+			}
+		},
+		"animation.billeys_mobs.duck.find_good_stuff": {
+			"animation_length": 10.0,
+			"loop_delay": "math.random(10,70) / (math.ceil((q.property('billey:level')-4)/2))",
+			"loop": true,
+			"timeline": {
+				"5.0": "/execute @s ~~~ detect ~~~ tallgrass -1 playanimation @s animation.billeys_mobs.duck.pickupbread",
+				"5.1": "/execute @s ~~~ detect ~~~ tallgrass -1 loot spawn ~~~ loot \"entities/billduckgoodstuff\"",
+				"6.0": "/execute @s ~~~ detect ~~~ water -1 playanimation @s animation.billeys_mobs.duck.pickupbread",
+				"6.1": "/execute @s ~~~ detect ~~~ water -1 loot spawn ~~~ loot \"entities/billduckgoodstuff\""
+			}
+		},
+		"animation.endangelcat.snail": {
+			"animation_length": 20.0,
+			"loop_delay": "math.random(0,20)",
+			"loop": true,
+			"timeline": {
+				"5.8": "/effect @e[tag=tamed,r=8] strength 14 2 true",
+				"5.9": "/effect @e[tag=tamed,r=8] speed 14 1 true",
+				"6.0": "/effect @e[type=billey:snail,r=8] strength 14 5 true",
+				"6.1": "/effect @e[type=billey:snail,r=8] speed 14 4 true",
+				"6.2": "/particle minecraft:crop_growth_emitter ~ ~.6 ~"
+			}
+		},
+		"animation.billeys_mobs.penguin.land": {
+			"animation_length": 10.0,
+			"loop": true,
+			"timeline": {
+				"0.0": "/fill ~1 ~1 ~1 ~-1 ~2 ~-1 flowing_water 0 replace ice"
+			}
+		},
+		"animation.billeys_mobs.duckzombiegetduck": {
+			"animation_length": 1.0,
+			"loop": true,
+			"timeline": {
+				"0.0": "/replaceitem entity @e[family=zombie,c=1,r=2.1] slot.weapon.mainhand 0 billey:yeet_duck"
+			}
+		},
+		"animation.billeys_mobs.break_ice": {
+			"animation_length": 1,
+			"loop": true,
+			"timeline": {
+				"0.0": "/fill ~1 ~1 ~1 ~-1 ~2 ~-1 flowing_water 0 replace ice"
+			}
+		},
+		"animation.cucumba.goup": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @p[rx=-15] ~~~ effect @e[type=billey:cucumbeel,c=1] levitation 1 4 true"
+			}
+		},
+		"animation.cucumba.slow": {
+			"animation_length": 0.2,
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @p[rx=0] ~~~ effect @e[type=billey:cucumbeel,c=1] levitation 1 1 true"
+			}
+		}
+	}
+}

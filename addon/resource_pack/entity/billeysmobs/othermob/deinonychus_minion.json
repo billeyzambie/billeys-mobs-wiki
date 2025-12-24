@@ -1,0 +1,82 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "billey:deinonychus_minion",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+          "of_potion": "textures/entity/billeys_mobs/deinonychus_minion",
+          "friendly": "textures/entity/billeys_mobs/deinonychus_minion_friendly",
+          "hostile": "textures/entity/billeys_mobs/deinonychus_minion"
+      },
+        "geometry": {
+          "default": "geometry.billeys_mobs.deinonychus"
+        },
+        "animations": {
+          "controller.sit": "controller.animation.billeys_mobs.sit",
+          "hurt": "animation.billeys_mobs.cat.hurt2",
+          "sit": "animation.billeys_mobs.deinonychus.sit",
+          "eat": "animation.billeys_mobs.deinonychus.open_mouth",
+          "eatcont": "controller.animation.billeys_mobs.eat",
+          "attackcont": "controller.animation.billeys_mobs.random_attack",
+          "look": "animation.billeys_mobs.deinonychus.look",
+          "walk": "animation.billeys_mobs.deinonychus.walk",
+          "controller.ground": "controller.animation.billeys_mobs.ground",
+          "fall": "animation.billeys_mobs.deinonychus.fall",
+          "attack1": "animation.billeys_mobs.deinonychus.attack",
+          "attack2": "animation.billeys_mobs.deinonychus.attack2",
+          "attack3": "animation.billeys_mobs.deinonychus.attack2",
+          "idle": "animation.billeys_mobs.deinonychus.idle",
+          "roar": "animation.billeys_mobs.deinonychus.roar",
+          "tail": "animation.billeys_mobs.deinonychus.tail"
+        },
+        "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+          "variables": {
+            "variable.head_size_x": "public",
+            "variable.head_size_y": "public",
+            "variable.head_size_z": "public"
+          },
+          "initialize": [
+            "v.colordelay=math.random_integer(0,1)*math.random_integer(0,360);",
+            "v.head_size_x = 3;",
+            "v.head_size_y = 3;",
+            "v.head_size_z = 4;",
+          "v.smooth_scale = q.model_scale;",
+          "v.smooth_baby = q.is_baby;"
+        ],
+        "pre_animation": [
+          "v.show_details = q.distance_from_camera < 7;",
+          "v.smooth_scale = v.show_details ? (v.smooth_scale + (q.model_scale - v.smooth_scale) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.model_scale;",
+          "v.smooth_baby = v.show_details ? (v.smooth_baby + (q.is_baby - v.smooth_baby) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.is_baby;"
+        ],
+        "scale": "v.smooth_scale / q.model_scale",
+          "animate": [
+            "idle",
+            "attackcont",
+            "tail",
+            "controller.ground",
+            "controller.sit",
+            { "eatcont": "q.is_alive" },
+            {
+              "walk": "q.modified_move_speed * 4"
+            },
+            {
+              "look": "q.is_alive"
+            }
+          ]
+        },
+        "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.rat_minion"
+      ],
+        "spawn_egg": {
+          "base_color": "#9b897d",
+          "overlay_color": "#91bde3"
+        }
+      }
+    }
+  }

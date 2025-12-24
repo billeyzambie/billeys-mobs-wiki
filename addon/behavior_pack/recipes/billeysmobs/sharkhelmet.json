@@ -1,0 +1,32 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:sharkhelmet"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "srs",
+        "sis",
+        "tst"
+      ],
+      "key": {
+        "i": {
+          "item": "iron_helmet"
+        },
+        "s": {
+          "item": "billey:shark_scales"
+        },
+        "t": {
+          "item": "billey:shark_tooth"
+        },
+        "r": {
+          "item": "redstone"
+        }
+      },
+      "result": {
+       "item": "billey:shark_helmet"
+     }
+    }
+  }

@@ -1,0 +1,135 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:rat",
+            "materials": {
+                "default": "villager_v2_masked",
+                "dont_show_patterns": "entity_alphatest",
+                "dyeable": "cat"
+            },
+            "textures": {
+                "zero": "textures/entity/billeys_mobs/rat",
+                "one": "textures/entity/billeys_mobs/rat1",
+                "two": "textures/entity/billeys_mobs/rat2",
+                "three": "textures/entity/billeys_mobs/rat3",
+                "four": "textures/entity/billeys_mobs/rat4",
+                "five": "textures/entity/billeys_mobs/rat5",
+                "zeroa": "textures/entity/billeys_mobs/rata",
+                "onea": "textures/entity/billeys_mobs/rat1a",
+                "twoa": "textures/entity/billeys_mobs/rat2a",
+                "threea": "textures/entity/billeys_mobs/rat3a",
+                "zerob": "textures/entity/billeys_mobs/ratb",
+                "oneb": "textures/entity/billeys_mobs/rat1b",
+                "twob": "textures/entity/billeys_mobs/rat2b",
+                "threeb": "textures/entity/billeys_mobs/rat3b",
+                "zeroc": "textures/entity/billeys_mobs/ratc",
+                "onec": "textures/entity/billeys_mobs/rat1c",
+                "twoc": "textures/entity/billeys_mobs/rat2c",
+                "threec": "textures/entity/billeys_mobs/rat3c",
+                "zerod": "textures/entity/billeys_mobs/ratd",
+                "oned": "textures/entity/billeys_mobs/rat1d",
+                "twod": "textures/entity/billeys_mobs/rat2d",
+                "threed": "textures/entity/billeys_mobs/rat3d",
+                "foura": "textures/entity/billeys_mobs/rat4a",
+                "fourb": "textures/entity/billeys_mobs/rat4b",
+                "fourc": "textures/entity/billeys_mobs/rat4c",
+                "fourd": "textures/entity/billeys_mobs/rat4d"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.rat"
+            },
+            "animations": {
+                "new": "animation.billeys_mobs.duckproj.body",
+                "sit": "animation.billeys_mobs.rat.sit",
+                "move": "controller.animation.billeys_mobs.rodent_walk_or_run",
+                "sit2": "animation.billeys_mobs.rat.sit2",
+                "walk": "animation.billeys_mobs.rat.walk",
+                "sheared": "animation.billeys_mobs.rat.sniff",
+                "random_idle": "animation.billeys_mobs.rat.wiggle_ears",
+                "run": "animation.billeys_mobs.rat.run",
+                "hurt": "animation.billeys_mobs.cat.hurt",
+                "look_at_target": "animation.common.look_at_target",
+                "contsit": "controller.animation.billeys_mobs.rodent_sit",
+                "contsniff": "controller.animation.billeys_mobs.rodent_sniff",
+                "contadmire": "controller.animation.billeys_mobs.admire",
+                "contrandom_idle": "controller.animation.billeys_mobs.random_idle",
+                "death2": "animation.billeys_mobs.kiwi.cancelvanilladeath",
+                "death": "animation.billeys_mobs.rat.die",
+                "player_head": "animation.billeys_mobs.rat.player_head",
+                "admire": "animation.billeys_mobs.rat.cook",
+                "contmate": "controller.animation.billeys_mobs.mate",
+                "mate_male": "animation.billrat.mate_male",
+                "mate_female": "animation.billrat.mate_female"
+            },
+            "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+                "initialize": [
+                    "v.head_size_x = 4;",
+                    "v.head_size_y = 3;",
+                    "v.head_size_z = 3;",
+                    "v.time_to_idle = 0;",
+                    //hamsters' animation code was written 2.5 years ago
+                    //i dont remember if this variable actually has something to do with twerking
+                    //it probably doesnt
+                    "v.can_use_sit2 = 1;",
+                    "v.smooth_scale = q.model_scale;",
+                    "v.smooth_baby = q.is_baby;"
+                ],
+                "pre_animation": [
+                    "v.mark_variant = q.property('billey:mark_variant');",
+                    "v.is_mating = q.is_in_love && q.property('billey:mob_nearby') && !q.is_sitting;",
+                    "v.show_details = q.distance_from_camera < 7;",
+                    "v.smooth_scale = v.show_details ? (v.smooth_scale + (q.model_scale - v.smooth_scale) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.model_scale;",
+                    "v.smooth_baby = v.show_details ? (v.smooth_baby + (q.is_baby - v.smooth_baby) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.is_baby;"
+                ],
+                "scale": "v.smooth_scale / q.model_scale",
+                "animate": [
+                    "new",
+                    {
+                        "contsniff": "!q.is_riding && !q.is_admiring"
+                    },
+                    "contrandom_idle",
+                    {
+                        "death2": "!q.is_alive"
+                    },
+                    {
+                        "death": "!q.is_alive"
+                    },
+                    {
+                        "sit": "!q.is_admiring && q.is_riding"
+                    },
+                    {
+                        "player_head": "q.is_riding && q.property('billey:sit_on_head')"
+                    },
+                    "contadmire",
+                    {
+                        "look_at_target": "q.is_alive && !q.is_admiring"
+                    },
+                    {
+                        "hurt": "q.health < q.max_health"
+                    },
+                    "contmate",
+                    {
+                        "move": "q.is_alive && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+                    }
+                ]
+            },
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+                "controller.render.billeys_mobs.rat"
+            ],
+            "spawn_egg": {
+                "base_color": "#718794",
+                "overlay_color": "#ffd1b3"
+            }
+            //"animation.billeys_mobs.rat.player_head_duck_hat"
+        }
+    }
+}

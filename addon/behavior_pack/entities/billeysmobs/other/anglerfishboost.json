@@ -1,0 +1,71 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:anglerfish_boost",
+            "is_summonable": true,
+            "is_spawnable": false,
+            "animations": {
+                "clear_effects": "animation.billeys_mobs.anglerfish_boost.clear_effects"
+            },
+            "scripts": {
+                "animate": [
+                    "clear_effects"
+                ]
+            }
+        },
+        "component_groups": {
+            "despawn":{
+                "minecraft:instant_despawn": {
+                }
+            }
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "height": 0,
+                "width": 0
+            },
+            "minecraft:type_family": {
+                "family": [
+                    "anglerfish_boost", "inanimate"
+                ]
+            },
+            "minecraft:damage_sensor": {
+                "triggers": [
+                    {
+                        "cause": "all",
+                        "deals_damage": false
+                    }
+                ]
+            }
+        },
+        "events": {
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on"
+                }
+            },
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawn"
+                    ]
+                }
+            }
+        }
+    }
+}

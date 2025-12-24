@@ -1,0 +1,31 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "billey:fermercat3"
+      },
+      "tags": [
+        "crafting_table"
+      ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "MMM",
+        "MCM",
+        "MMM"
+      ],
+      "key": {
+        "M": {
+          "item": "billey:mercat_milk"
+        },
+        "C": {
+          "item": "billey:colorful_dust"
+        }
+      },
+      "result": [
+        {
+          "item": "billey:fermented_mercat_milk",
+          "count": 8
+        }
+      ]
+    }
+  }

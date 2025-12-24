@@ -1,0 +1,141 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:goose",
+      "materials": {
+        "default": "entity_alphatest",
+        "cat": "cat"
+      },
+      "textures": {
+        "zero": "textures/entity/billeys_mobs/goose",
+        "baby": "textures/entity/billeys_mobs/gooseling",
+        "one": "textures/entity/billeys_mobs/goose1",
+        "two": "textures/entity/billeys_mobs/goose2",
+        "three": "textures/entity/billeys_mobs/goose3",
+        "four": "textures/entity/billeys_mobs/goose4",
+        "five": "textures/entity/billeys_mobs/goose5",
+        "six": "textures/entity/billeys_mobs/goose6",
+        "seven": "textures/entity/billeys_mobs/goose7"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.goose"
+      },
+      "particle_effects": {
+        "zeelol": "billey:zeeduck"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "hurt": "animation.billeys_mobs.duck.hurt",
+        "shrinkitem": "animation.billeys_mobs.duck.shrinkitem",
+        "shrinkitem2": "animation.billeys_mobs.duck.shrinkitem2",
+        "glisteringmelon": "animation.billeys_mobs.duck.glisteringmelon",
+        "move": "animation.billeys_mobs.duck.walk32",
+        "sit": "animation.billeys_mobs.duck.sit2",
+        "swim": "animation.billeys_mobs.duck.swim",
+        "look_at_target": "animation.billeys_mobs.duck.look_at_target",
+        "look_at_target_baby": "animation.common.look_at_target",
+        "baby_transform": "animation.billeys_mobs.duck.ling2",
+        "flap_wings": "animation.billeys_mobs.duck.fall",
+        "sheared": "animation.billeys_mobs.duck.quack",
+        "shearedbaby": "animation.billeys_mobs.duck.quackbaby",
+        "saddled": "animation.billeys_mobs.duck.flap",
+        "eat": "animation.billeys_mobs.duck.eat",
+        "gothurt": "animation.billeys_mobs.duck.gothurt",
+        "hitcont": "controller.animation.billeys_mobs.hitanim",
+        "angry": "animation.billeys_mobs.duck.angrygoose",
+        "sleep": "animation.billeys_mobs.duck.sleep2",
+        "sleeptl": "animation.billeys_mobs.duck.sleep_particle",
+        "controller.sit": "controller.animation.billeys_mobs.sit_or_sleep",
+        "controller.sheared": "controller.animation.billeys_mobs.sheared",
+        "controller.shearedbaby": "controller.animation.billeys_mobs.shearedbaby",
+        "controller.eat": "controller.animation.billeys_mobs.eat",
+        "controller.saddled": "controller.animation.billeys_mobs.saddled",
+        "controller.swim": "controller.animation.billeys_mobs.swim",
+        "angrycon": "controller.animation.billeys_mobs.duckangry",
+        "controller.sleep": "controller.animation.billeys_mobs.sleep"
+      },
+      "sound_effects": {
+        "quack": "billey.goose.say",
+        "quackbaby": "billey.goose.saybaby"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.head_size_x = 2;",
+          "v.head_size_y = 3;",
+          "v.head_size_z = 3;"
+        ],
+        "animate": [
+          "new",
+          {
+            "glisteringmelon": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glistering_melon_slice') || q.is_item_name_any('slot.weapon.mainhand', 0, 'billey:glistering_melon_goose')"
+          },
+          {
+            "shrinkitem": "q.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_sword')"
+          },
+          {
+            "shrinkitem2": "!q.equipped_item_any_tag('slot.weapon.mainhand', 'minecraft:is_sword')"
+          },
+          "angrycon",
+          {
+            "hitcont": "!q.is_sheared"
+          },
+          {
+            "eat": "q.is_item_equipped"
+          },
+          {
+            "controller.sleep": "!q.is_sleeping"
+          },
+          {
+            "controller.saddled": "v.state != 4 && !q.is_sleeping"
+          },
+          {
+            "hurt": "(q.health < q.max_health) && q.is_alive"
+          },
+          {
+            "controller.sit": "!q.has_rider"
+          },
+          {
+            "controller.sheared": "!q.is_item_equipped && !q.is_baby && v.state != 4 && !q.is_sleeping && q.health >= q.max_health"
+          },
+          {
+            "controller.shearedbaby": "!q.is_item_equipped && q.is_baby && v.state != 4 && !q.is_sleeping && q.health >= q.max_health"
+          },
+          {
+            "controller.eat": "!q.is_sheared && !q.is_item_equipped"
+          },
+          {
+            "look_at_target": "!q.is_baby"
+          },
+          {
+            "look_at_target_baby": "q.is_baby"
+          },
+          {
+            "flap_wings": "!q.is_in_water && !q.is_saddled && !q.has_rider && !q.is_on_ground"
+          },
+          {
+            "move": "q.modified_move_speed * 1.5"
+          },
+          {
+            "baby_transform": "q.is_baby"
+          }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.goose" //in the billey.json file
+      ],
+      "spawn_egg": {
+        "base_color": "#FEFFFF",
+        "overlay_color": "#FF6E04"
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:duckyeetitem",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": { "minecraft:is_hidden_when_invisible": {},
+            "minecraft:scale": {
+                "value": 0
+            },
+            "minecraft:health": {
+                "max": 0,
+                "value": 0
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/entities/billyeetduck.json"
+            }
+        }
+    }
+}

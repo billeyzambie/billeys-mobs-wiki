@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "billey:pet_hat"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "group": "what_does_this_do",
+    "pattern": [
+      " l ",
+      "lsl",
+      " l "
+    ],
+    "key": {
+      "s": {
+        "item": "billey:kiwi_fur"
+      },
+      "l": {
+        "item": "leather"
+      }
+    },
+    "result": {
+      "item": "billey:pet_hat"
+    }
+  }
+}

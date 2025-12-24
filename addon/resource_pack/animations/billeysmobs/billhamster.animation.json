@@ -1,0 +1,259 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.hamster.shake_ass": {
+			"loop": true,
+			"bones": {
+				"boner": {
+					"scale": ["1 + math.sin(q.life_time * 1584) * 0.01", 1, "1 + math.sin(q.life_time * 1584) * 0.01"]
+				},
+				"bone": {
+					"rotation": ["math.abs(math.sin(q.life_time * 792)) * 10", 0, 0],
+					"position": [0, 0, "-math.max(0,math.sin(q.life_time * 792)) * 0.5 - math.abs(math.sin(q.life_time * 792)) * 0.5"]
+				}
+			}
+		},
+		"animation.billeys_mobs.hamster.walk": {
+			"loop": true,
+			"anim_time_update": "q.modified_distance_moved / 10",
+			"bones": {
+				"boner": {
+					"position": [0, "math.abs(math.sin(q.life_time * 720) * 0.1)", 0]
+				},
+				"leg2": {
+					"rotation": ["-math.sin(q.anim_time*720)*10", 0, 0],
+					"position": [0, "math.cos(q.anim_time*720)/4+1/4", "-math.sin(q.anim_time*720)/2"]
+				},
+				"leg3": {
+					"rotation": ["math.sin(q.anim_time*720)*10", 0, 0],
+					"position": [0, "-math.cos(q.anim_time*720)/4+1/4", "math.sin(q.anim_time*720)/2"]
+				},
+				"leg0": {
+					"rotation": ["math.sin(q.anim_time*720)*10", 0, 0],
+					"position": [0, "-math.cos(q.anim_time*720)/4+1/4", "math.sin(q.anim_time*720)/2"]
+				},
+				"leg1": {
+					"rotation": ["-math.sin(q.anim_time*720)*10", 0, 0],
+					"position": [0, "-math.cos(q.anim_time*720+180)/4+1/4", "math.sin(q.anim_time*720+180)/2"]
+				},
+				"left_foot": {
+					"rotation": ["-math.cos(q.anim_time*720)*5-5", 0, 0]
+				},
+				"right_foot": {
+					"rotation": ["math.cos(q.anim_time*720)*5-5", 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.hamster.run": {
+			"loop": true,
+			"anim_time_update": "q.modified_distance_moved * 20",
+			"bones": {
+				"boner": {
+					"rotation": ["-(math.sin(q.life_time * 1152) * 30)", 0, 0],
+					"position": [0, "math.sin(q.life_time * 1152) * 2 - math.sin(q.life_time * 1152 + 0.32) * 2+1", 0]
+				},
+				"head": {
+					"rotation": ["(math.sin(q.life_time * 1152) * 30)", 0, 0]
+				},
+				"bone": {
+					"rotation": ["math.cos(q.life_time * 1152) * 25", 0, 0],
+					"position": [0, 0, 0]
+				},
+				"leg2": {
+					"rotation": ["math.cos(q.life_time * 1152) * 18.5", 0, 0]
+				},
+				"front_legs": {
+					"rotation": ["math.cos(q.life_time * 1152) * 50", 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.hamster.hurt": {
+			"loop": true,
+			"bones": {
+				"boner": {
+					"position": ["math.sin(q.life_time * 2000) / 12", 0, 0]
+				},
+				"ear1": {
+					"rotation": [0, 0, 32.5]
+				},
+				"ear0": {
+					"rotation": [0, 0, -32.5]
+				},
+				"head": {
+					"rotation": ["35 * (q.max_health-q.health)/(q.max_health)", 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.hamster.run_static": {
+			"loop": true,
+			"bones": {
+				"boner": {
+					"rotation": ["-(math.sin(q.life_time * 1152) * 30)", 0, 0],
+					"position": [0, "math.sin(q.life_time * 1152) * 2 - math.sin(q.life_time * 1152 + 0.32) * 2+2", -0.5]
+				},
+				"head": {
+					"rotation": ["(math.sin(q.life_time * 1152) * 30)", 0, 0]
+				},
+				"bone": {
+					"rotation": ["math.cos(q.life_time * 1152) * 25", 0, 0],
+					"position": [0, 0, -0.3],
+					"scale": 1
+				},
+				"leg2": {
+					"rotation": ["math.cos(q.life_time * 1152) * 18.5", 0, 0]
+				},
+				"front_legs": {
+					"rotation": ["math.cos(q.life_time * 1152) * 50", 0, 0]
+				},
+				"stretchy": {
+					"scale": [1, 0.95, 1.2]
+				},
+				"ball": {
+					"rotation": ["math.mod(q.life_time * 288,576)", 0, 0]
+				},
+				"whole": {
+					"position": [0, "math.abs(math.sin(q.life_time * 1152 + 0.125) * 3)", 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.hamster.new": {
+			"loop": true,
+			"bones": {
+				"whole": {
+					"rotation": [10, 0, 0],
+					"position": [0, -0.025, 0]
+				},
+				"boner": {
+					"rotation": [-90, 0, 0]
+				},
+				"head": {
+					"rotation": [90, 0, 0],
+					"position": [0, -1, -2]
+				},
+				"bone": {
+					"rotation": [-10, 0, 0],
+					"position": [0, 0.025, -0.4]
+				},
+				"leg0": {
+					"rotation": [20, 0, 0]
+				},
+				"leg1": {
+					"rotation": [17.5, 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.hamster.sniff": {
+			"animation_length": 0.88,
+			"bones": {
+				"boner": {
+					"scale": [1, 1, "1 + math.sin(q.life_time * 1425) * 0.01"]
+				},
+				"sniffer": {
+					"scale": [1, 1, "1 + math.sin(q.life_time * 1425) * 0.15 + 0.05"]
+				}
+			}
+		},
+		"animation.billeys_mobs.hamster.sit": {
+			"loop": true,
+			"bones": {
+				"boner": {
+					"position": [0, -1.05, 0]
+				},
+				"leg2": {
+					"position": [0.5, 0, 0]
+				},
+				"leg3": {
+					"position": [-0.5, 0, 0]
+				},
+				"leg0": {
+					"rotation": [-30, -40, 0],
+					"position": [0.5, 0, 0]
+				},
+				"leg1": {
+					"rotation": [-30, 40, 0],
+					"position": [-0.5, 0, 0]
+				},
+				"ball": {
+					"position": [0, 0.9, 0.225]
+				},
+				"leg2a": {
+					"position": [0, 1, 0]
+				},
+				"left_foot": {
+					"rotation": [0, -37.5, 0],
+					"position": [0.75, 0, -0.6]
+				},
+				"leg2a2": {
+					"position": [0, 1, 0]
+				},
+				"right_foot": {
+					"rotation": [0, 37.5, 0],
+					"position": [-0.75, 0, -0.6]
+				}
+			}
+		},
+		"animation.billeys_mobs.hamster.run_in_ball": {
+			"loop": true,
+			"anim_time_update": "q.modified_distance_moved * 20",
+			"bones": {
+				"boner": {
+					"rotation": ["-(math.sin(q.life_time * 1152) * 30)", 0, 0],
+					"position": [0, "math.sin(q.life_time * 1152) * 2 - math.sin(q.life_time * 1152 + 0.32) * 2 + 2", -1]
+				},
+				"head": {
+					"rotation": ["(math.sin(q.life_time * 1152) * 30)", 0, 0]
+				},
+				"bone": {
+					"rotation": ["math.cos(q.life_time * 1152) * 25", 0, 0],
+					"position": [0, 0, -1],
+					"scale": 1
+				},
+				"leg2": {
+					"rotation": ["math.cos(q.life_time * 1152) * 18.5", 0, 0]
+				},
+				"front_legs": {
+					"rotation": ["math.cos(q.life_time * 1152) * 50", 0, 0]
+				},
+				"stretchy": {
+					"scale": [1, 0.95, 1.2]
+				},
+				"ball": {
+					"rotation": ["math.mod(q.life_time * 288,576)", 0, 0],
+					"position": [0, -2, 1]
+				},
+				"whole": {
+					"position": [0, "math.abs(math.sin(q.life_time * 576 + 0.125) * 3)", 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.hamster.sit2": {
+			"loop": true,
+			"bones": {
+				"boner": {
+					"rotation": [-90, 0, 0],
+					"position": [0, 0.7, -1],
+					"scale": [1, 1, 0.9]
+				},
+				"head": {
+					"rotation": [90, 0, 0],
+					"position": [0, -1.55, -0.5]
+				},
+				"leg0": {
+					"rotation": [120, 0, 0],
+					"position": [0, 0, -1]
+				},
+				"leg1": {
+					"rotation": [120, 0, 0],
+					"position": [0, 0, -1]
+				},
+				"ball": {
+					"position": [0, -3.5, -3.75],
+					"scale": [1, 1, "1/0.9"]
+				},
+				"back_legs": {
+					"position": [0, 0, 1]
+				}
+			}
+		}
+	}
+}

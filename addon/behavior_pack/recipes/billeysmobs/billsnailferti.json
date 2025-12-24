@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+      "identifier": "billey:snailferti"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "ingredients": [
+      {
+        "item": "billey:snail_shell"
+      },
+      {
+        "item": "billey:snail_shell"
+      },
+      {
+        "item": "billey:snail_shell"
+      }
+    ],
+    "result": [
+      {
+        "item": "minecraft:bone_meal",
+        "count": 2
+      }
+    ]
+  }
+}

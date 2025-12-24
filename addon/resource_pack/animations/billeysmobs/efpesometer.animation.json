@@ -1,0 +1,13 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.efpesometer.new": {
+			"loop": true,
+			"bones": {
+				"bone2": {
+					"rotation": [0, 0, "-3/q.frame_alpha"]
+				}
+			}
+		}
+	}
+}

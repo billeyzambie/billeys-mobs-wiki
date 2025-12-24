@@ -1,0 +1,39 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:plushie",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+            "textures": {
+                "slime_wyvern": "textures/entity/billeys_mobs/plushies/slime_wyvern",
+                "rubber_ducky": "textures/entity/billeys_mobs/rubber_ducky",
+                "mercat": "textures/entity/billeys_mobs/plushies/mercat"
+            },
+            "geometry": {
+                "slime_wyvern": "geometry.billeys_mobs.slime_wyvern_plushie",
+                "rubber_ducky": "geometry.billeys_mobs.rubber_ducky",
+                "mercat": "geometry.billeys_mobs.mercat_plushie"
+            },
+            "animations": {
+                "quantize_rotation": "animation.billeys_mobs.plushie.quantize_rotation"
+            },
+            "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+                "initialize": [
+                    "v.plushie_random_sign = 1;"
+                ],
+                "pre_animation": [
+                    "v.is_enchanted = q.property('billey:is_enchanted');"
+                ],
+                "animate": [
+                    "quantize_rotation"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.billeys_mobs.plushie"
+            ]
+        }
+    }
+}

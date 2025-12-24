@@ -1,0 +1,125 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:ice_cream_effects",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "component_groups": {
+            "despawned": {
+                "minecraft:instant_despawn": {}
+            }
+        },
+        "components": {
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "deals_damage": false
+                }
+            },
+            "minecraft:timer": {
+                "time": [
+                    0.05,
+                    0.05
+                ],
+                "looping": false,
+                "time_down_event": {
+                    "event": "lol",
+                    "target": "self"
+                }
+            },
+            "minecraft:collision_box": {
+                "width": 0,
+                "height": 0
+            }
+        },
+        "events": {
+            "lol": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "none_of": [
+                                {
+                                    "test": "has_biome_tag",
+                                    "value": "cold"
+                                },
+                                {
+                                    "test": "has_biome_tag",
+                                    "value": "frozen"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] speed 10 1 true",
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] jump_boost 10 0 true",
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] haste 10 0 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_biome_tag",
+                                    "value": "warm"
+                                },
+                                {
+                                    "test": "has_biome_tag",
+                                    "value": "nether"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] speed 10 2 true",
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] jump_boost 10 1 true",
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] haste 10 2 true",
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] regeneration 10 0 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_biome_tag",
+                                    "value": "cold"
+                                },
+                                {
+                                    "test": "has_biome_tag",
+                                    "value": "frozen"
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] slowness 10 0 true",
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] nausea 15 0 true",
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] mining_fatigue 10 1 true",
+                                "effect @e[tag=billey_just_ate_ice_cream,c=1] wither 10 0 true"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tag @e[tag=billey_just_ate_ice_cream,c=1] remove billey_just_ate_ice_cream"
+                            ]
+                        }
+                    },
+                    {
+                        "trigger": "despawn"
+                    }
+                ]
+            },
+            "despawn": {
+                "add": {
+                    "component_groups": [
+                        "despawned"
+                    ]
+                }
+            }
+        }
+    }
+}

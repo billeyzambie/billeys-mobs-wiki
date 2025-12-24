@@ -1,0 +1,144 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.picklepet.sit": {
+			"loop": true,
+			"bones": {
+				"bodyA": {
+					"position": [0, -1.2, 0]
+				},
+				"rightLegA": {
+					"rotation": [-90, 25, 0],
+					"position": [0, -0.5, -1]
+				},
+				"leftLegA": {
+					"rotation": [-90, -25, 0],
+					"position": [0, -0.5, -1]
+				},
+				"rightArmA": {
+					"rotation": [-15, 15, 0]
+				},
+				"leftArmA": {
+					"rotation": [-15, -15, 0]
+				},
+				"body": {
+					"position": [0, -1, 0]
+				},
+				"rightLeg": {
+					"rotation": [-90, 0, 0],
+					"position": [0, -0.5, -1]
+				},
+				"leftLeg": {
+					"rotation": [-90, 0, 0],
+					"position": [0, -0.5, -1]
+				},
+				"bodyB": {
+					"position": [0, -1.1, 0]
+				},
+				"rightLegB": {
+					"rotation": [-90, 15, 0],
+					"position": [0.5, -1.8, -1]
+				},
+				"leftLegB": {
+					"rotation": [-90, -15, 0],
+					"position": [-0.5, -1.8, -1]
+				}
+			}
+		},
+		"animation.picklepet.walk": {
+			"loop": true,
+			"bones": {
+				"leftArm": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 35 + 180.0) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"rightArm": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 35) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"leftLeg": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 40 + 180.0) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"rightLeg": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 40) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"leftArmA": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 35 + 180.0) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"rightArmA": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 35) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"leftLegA": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 40 + 180.0) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"rightLegA": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 40) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"leftArmB": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 35 + 180.0) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"rightArmB": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 35) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"leftLegB": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 40 + 180.0) * 35 * q.modified_move_speed", 0, 0]
+				},
+				"rightLegB": {
+					"rotation": ["Math.cos(q.modified_distance_moved * 40) * 35 * q.modified_move_speed", 0, 0]
+				}
+			}
+		},
+		"animation.picklepet.var1": {
+			"loop": true,
+			"bones": {
+				"bodyA": {
+					"scale": 0.01
+				},
+				"bodyB": {
+					"scale": 0.01
+				}
+			}
+		},
+		"animation.picklepet.var2": {
+			"loop": true,
+			"bones": {
+				"bodyB": {
+					"scale": 0.01
+				},
+				"body": {
+					"scale": 0.25
+				}
+			}
+		},
+		"animation.picklepet.var3": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"position": [0, 2.8, 0],
+					"scale": [1.31, 1, 1.31]
+				},
+				"topthing1": {
+					"scale": 0.01
+				},
+				"rightLeg": {
+					"rotation": [0, 0, 90]
+				},
+				"leftLeg": {
+					"rotation": [0, 0, -90],
+					"position": [0, 0.5, 0],
+					"scale": 1
+				},
+				"rightArm": {
+					"position": [1, 0, 0]
+				},
+				"topthing2": {
+					"scale": 0.01
+				},
+				"leftArm": {
+					"position": [-1, 0, 0]
+				},
+				"bodyA": {
+					"scale": 0.01
+				}
+			}
+		}
+	}
+}

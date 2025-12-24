@@ -1,0 +1,45 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "billey:mergoose_sword"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "ingredients": [
+            {
+                "item": "billey:mergoose_spikes"
+            },
+            {
+                "item": "billey:mergoose_spikes"
+            },
+            {
+                "item": "billey:mergoose_spikes"
+            },
+            {
+                "item": "billey:mergoose_spikes"
+            },
+            {
+                "item": "iron_sword"
+            },
+            {
+                "item": "billey:mergoose_spikes"
+            },
+            {
+                "item": "billey:mergoose_spikes"
+            },
+            {
+                "item": "billey:mergoose_spikes"
+            },
+            {
+                "item": "billey:mergoose_spikes"
+            }
+        ],
+        "result": [
+            {
+                "item": "billey:mergoose_sword"
+            }
+        ]
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "billey:end_rod_projectile2",
+        "materials": {
+          "default": "arrow"
+        },
+        "textures": {
+          "default": "textures/entity/bill/endrodarmor"
+        },
+        "geometry": {
+          "default": "geometry.billduckproj"
+        },
+        "animations": {
+          "move": "animation.arrow.move",
+          "new": "animation.billeys_mobs.duckproj.body"
+        },
+        "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+          "pre_animation": [
+            "v.shake = q.shake_time - q.frame_alpha;",
+            "v.shake_power = v.shake > 0.0 ? -Math.sin(v.shake * 200.0) * v.shake : 0.0;"
+          ],
+          "animate": [
+            "move", "new"
+          ]
+        },
+        "render_controllers": [ "controller.render.arrow" ]
+      }
+    }
+  }
+  

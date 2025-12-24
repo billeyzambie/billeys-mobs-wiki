@@ -1,0 +1,84 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:entity": {
+      "description": {
+        "identifier": "billey:mergoose_sword",
+        "runtime_identifier": "minecraft:egg",
+        "is_spawnable": false,
+        "is_summonable": true,
+        "is_experimental": false
+      },
+      "component_groups": {
+          "despawned": {
+              "minecraft:instant_despawn": {}
+          }
+      },
+      "components": {
+        "minecraft:collision_box": {
+          "width": 0.25,
+          "height": 0.25
+        },
+        "minecraft:projectile": {
+          "on_hit": {
+            "impact_damage": {
+              "damage": 8,
+              "knockback": true
+            },
+            "remove_on_hit": {}
+          },
+          "destroy_on_hurt": true,
+          "crit_particle_on_hurt": true,
+          "anchor": 1,
+          "power": 5.0,
+          "gravity": 0.0,
+          "angle_offset": 0.0
+        },
+        "minecraft:timer": {
+            "time": 0.1,
+            "looping": true,
+            "time_down_event": {
+                "event": "despawn",
+                "target": "self"
+            }
+        },
+        "minecraft:physics": {
+          "has_collision": false
+        },
+        "minecraft:conditional_bandwidth_optimization": {
+          "default_values": {
+            "max_optimized_distance": 80.0,
+            "max_dropped_ticks": 10,
+            "use_motion_prediction_hints": true
+          }
+        }
+      },
+      "events": {
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on"
+                }
+            },
+        "despawn": {
+            "add": {
+                "component_groups": [
+                    "despawned"
+                ]
+            }
+        }
+      }
+    }
+  }

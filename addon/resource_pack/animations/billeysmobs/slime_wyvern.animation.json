@@ -1,0 +1,441 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.slimewyvern.on_ground": {
+			"loop": true,
+			"bones": {
+				"Right_Hand": {
+					"rotation": [0, 0, -47.5]
+				},
+				"Right_Claws": {
+					"rotation": [0, 0, 47.5]
+				},
+				"Right_Finger": {
+					"rotation": [0, 0, 165]
+				},
+				"Left_Hand": {
+					"rotation": [0, 0, 47.5]
+				},
+				"Left_Claws": {
+					"rotation": [0, 0, -47.5]
+				},
+				"Left_Finger": {
+					"rotation": [0, 0, -165]
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.look": {
+			"loop": true,
+			"bones": {
+				"Neck": {
+					"rotation": ["q.target_x_rotation / 2", "q.target_y_rotation", 0]
+				},
+				"Head": {
+					"rotation": ["q.target_x_rotation / 2", 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.fly": {
+			"loop": true,
+			"anim_time_update": "math.max(q.anim_time + q.delta_time * 0.7,q.modified_distance_moved / 15)",
+			"bones": {
+				"ooo": {
+					"position": [0, "math.cos(720*q.anim_time)/8", 0]
+				},
+				"Tail_Base": {
+					"rotation": ["-math.cos(720*q.anim_time)*5", "v.turn_value*q.target_y_rotation/2", 0]
+				},
+				"Tail_Shaft": {
+					"rotation": ["-math.cos(720*q.anim_time+30)*5", "v.turn_value*q.target_y_rotation/2", 0]
+				},
+				"Tail_Tip": {
+					"rotation": ["-math.cos(720*q.anim_time+60)*5", 0, 0]
+				},
+				"Right_Hand": {
+					"rotation": [0, 0, "-math.sin(q.anim_time*720)*30"]
+				},
+				"Right_Finger": {
+					"rotation": [0, 0, "math.cos(q.anim_time*720)*30"]
+				},
+				"Left_Hand": {
+					"rotation": [0, 0, "math.sin(q.anim_time*720)*30"]
+				},
+				"Left_Finger": {
+					"rotation": [0, 0, "-math.cos(q.anim_time*720)*30"]
+				},
+				"Left_Leg": {
+					"rotation": [-40, 0, 0],
+					"position": [0, 2, 1]
+				},
+				"Right_Leg": {
+					"rotation": [-40, 0, 0],
+					"position": [0, 2, 1]
+				},
+				"whole": {
+					"rotation": ["q.target_x_rotation", 0, "math.clamp(v.turn_value*q.target_y_rotation/2,-15,15)"]
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.walk": {
+			"loop": true,
+			"anim_time_update": "q.modified_distance_moved / 10",
+			"bones": {
+				"Right_Hand": {
+					"rotation": [0, "-math.sin(q.anim_time*720)*22.5", "math.max(0,math.cos(q.anim_time*720)*22)"]
+				},
+				"Right_Claws": {
+					"rotation": [0, 0, 0]
+				},
+				"Left_Hand": {
+					"rotation": [0, "-math.sin(q.anim_time*720)*22.5", "math.min(0,math.cos(q.anim_time*720)*22)"]
+				},
+				"Left_Claws": {
+					"rotation": [0, 0, 0]
+				},
+				"Neck": {
+					"rotation": ["12.5+math.sin(q.anim_time*480)*2", 0, 0]
+				},
+				"Tail_Base": {
+					"rotation": [0, "-math.sin(q.anim_time*720+30)*5", 0]
+				},
+				"Tail_Shaft": {
+					"rotation": [0, "-math.sin(q.anim_time*720+60)*5", 0]
+				},
+				"Left_Leg": {
+					"rotation": ["-math.sin(q.anim_time*720)*22.5", 0, 0],
+					"position": [0, "math.max(0,math.cos(q.anim_time*720))", "-math.sin(q.anim_time*720)/2-1/2"]
+				},
+				"left_toes": {
+					"rotation": ["math.cos(q.anim_time*720)*11-11", 0, 0]
+				},
+				"Right_Leg": {
+					"rotation": ["math.sin(q.anim_time*720)*22.5", 0, 0],
+					"position": [0, "-math.min(0,math.cos(q.anim_time*720))", "math.sin(q.anim_time*720)/2-1/2"]
+				},
+				"right_toes": {
+					"rotation": ["-math.cos(q.anim_time*720)*11-11", 0, 0]
+				},
+				"ooo": {
+					"rotation": [0, 0, "-math.sin(q.anim_time*720)*2.5"],
+					"position": [0, "math.abs(math.sin(q.anim_time*720)/2)", 0]
+				},
+				"Head": {
+					"rotation": [-12.5, 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.sit": {
+			"loop": true,
+			"bones": {
+				"Right_Hand": {
+					"rotation": [0, 15, -15]
+				},
+				"Right_Claws": {
+					"rotation": [0, 0, 15]
+				},
+				"Right_Finger": {
+					"rotation": [0, 0, 165]
+				},
+				"Left_Hand": {
+					"rotation": [0, -15, 15]
+				},
+				"Left_Claws": {
+					"rotation": [0, 0, -15]
+				},
+				"Left_Finger": {
+					"rotation": [0, 0, -165]
+				},
+				"Body": {
+					"position": [0, -6, 0]
+				},
+				"Left_Leg": {
+					"rotation": [-90, -25, 0],
+					"position": [0, -6, 1]
+				},
+				"left_toes": {
+					"position": [0, 0.01, 0],
+					"scale": [1, 1, 0.5]
+				},
+				"Right_Leg": {
+					"rotation": [-90, 25, 0],
+					"position": [0, -6, 1]
+				},
+				"right_toes": {
+					"position": [0, 0.01, 0],
+					"scale": [1, 1, 0.6]
+				},
+				"Tail_Base": {
+					"rotation": [-10, 0, 0]
+				},
+				"Tail_Shaft": {
+					"rotation": [2.5, 0, 0]
+				},
+				"Tail_Tip": {
+					"rotation": [5, 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.idle": {
+			"loop": true,
+			"bones": {
+				"Neck": {
+					"rotation": [0, 0, "math.cos(q.anim_time*60)"]
+				},
+				"Tail_Base": {
+					"rotation": [0, "math.cos(q.anim_time*60)", 0]
+				},
+				"Tail_Shaft": {
+					"rotation": [0, "math.cos(q.anim_time*60+30)", 0]
+				},
+				"Right_Hand": {
+					"rotation": [0, 0, "1-math.cos(q.anim_time*90)"]
+				},
+				"Right_Finger": {
+					"rotation": [0, 0, "1-math.cos(q.anim_time*90+30)"]
+				},
+				"Left_Hand": {
+					"rotation": [0, 0, "-1+math.cos(q.anim_time*90)"]
+				},
+				"Left_Finger": {
+					"rotation": [0, 0, "-1+math.cos(q.anim_time*90+30)"]
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.attack": {
+			"animation_length": 0.5,
+			"bones": {
+				"Body": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.2083": [10, 0, 0],
+						"0.5": [0, 0, 0]
+					}
+				},
+				"Neck": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-5, 0, 0],
+						"0.1667": [32.5, 0, 0],
+						"0.4583": [0, 0, 0]
+					}
+				},
+				"Head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [5, 0, 0],
+						"0.1667": [-15, 0, 0],
+						"0.4583": [0, 0, 0]
+					}
+				},
+				"Jaw": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [45, 0, 0],
+						"0.25": [-1, 0, 0],
+						"0.4583": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.eat": {
+			"loop": true,
+			"bones": {
+				"Head": {
+					"rotation": [-7.5, 0, 0]
+				},
+				"Jaw": {
+					"rotation": [15, 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.hurt": {
+			"loop": true,
+			"bones": {
+				"whole": {
+					"position": ["math.sin(q.life_time * 2000) / 15", 0, 0]
+				},
+				"Tail_Base": {
+					"rotation": ["-(1 - q.health/q.max_health) * 45 * !q.is_sitting", 0, 0]
+				},
+				"Tail_Shaft": {
+					"rotation": ["(-5-math.sin(270*(1 - q.health/q.max_health)) * 40) * !q.is_sitting", 0, 0]
+				},
+				"Neck": {
+					"rotation": ["(1 - q.health/q.max_health) * 45 + 15", 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.hiss": {
+			"animation_length": 0.83333,
+			"bones": {
+				"ooo": {
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.125": ["math.sin(q.life_time * 2000) / 5", 0, 0],
+						"0.5": ["math.sin(q.life_time * 2000) / 5", 0, 0],
+						"0.6667": [0, 0, 0]
+					}
+				},
+				"Head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [-7, 0, 0],
+						"0.0833": [-20, 0, 0],
+						"0.5833": [-20, 0, 0],
+						"0.6667": [0, 0, 0]
+					}
+				},
+				"Jaw": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [10, 0, 0],
+						"0.0833": [30, 0, 0],
+						"0.5417": [30, 0, 0],
+						"0.6667": [0, 0, 0]
+					}
+				},
+				"Right_Hand": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 0, 15],
+						"0.0833": [0, 0, 20],
+						"0.375": [0, 0, 20],
+						"0.8333": [0, 0, 0]
+					}
+				},
+				"Right_Finger": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 0, -15],
+						"0.0833": [0, 0, -20],
+						"0.3333": [0, 0, -20],
+						"0.8333": [0, 0, 0]
+					}
+				},
+				"Left_Hand": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 0, -15],
+						"0.0833": [0, 0, -20],
+						"0.4167": [0, 0, -20],
+						"0.8333": [0, 0, 0]
+					}
+				},
+				"Left_Finger": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [0, 0, 15],
+						"0.0833": [0, 0, 20],
+						"0.3333": [0, 0, 20],
+						"0.8333": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.on_head": {
+			"loop": true,
+			"bones": {
+				"ooo": {
+					"position": [-6, 1.5, 0]
+				},
+				"Tail_Base": {
+					"rotation": [-15, 0, 0]
+				},
+				"Tail_Shaft": {
+					"rotation": [-15, 0, 0]
+				},
+				"Right_Hand": {
+					"rotation": [0, 20, -75]
+				},
+				"Right_Claws": {
+					"rotation": [-20, 0, 75]
+				},
+				"Right_Finger": {
+					"rotation": [0, 0, 152.5]
+				},
+				"Left_Hand": {
+					"rotation": [0, -20, 75]
+				},
+				"Left_Claws": {
+					"rotation": [-20, 0, -75]
+				},
+				"Left_Finger": {
+					"rotation": [0, 0, -152.5]
+				},
+				"Left_Leg": {
+					"rotation": [-90, -27.5, 0],
+					"position": [0, 0, -1]
+				},
+				"left_toes": {
+					"position": [0, 0.01, 0],
+					"scale": [1, 1, 0.5]
+				},
+				"Right_Leg": {
+					"rotation": [-90, 27.5, 0],
+					"position": [0, 0, -1]
+				},
+				"right_toes": {
+					"position": [0, 0.01, 0],
+					"scale": [1, 1, 0.5]
+				},
+				"Neck": {
+					"rotation": ["q.target_x_rotation / 2", "q.target_y_rotation", 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.on_head_fly": {
+			"loop": true,
+			"bones": {
+				"ooo": {
+					"position": [-6, 6.5, -1]
+				},
+				"Right_Hand": {
+					"rotation": [0, 0, "-math.sin(q.anim_time*720)*30"]
+				},
+				"Right_Finger": {
+					"rotation": [0, 0, "math.cos(q.anim_time*720)*30"]
+				},
+				"Left_Hand": {
+					"rotation": [0, 0, "math.sin(q.anim_time*720)*30"]
+				},
+				"Left_Finger": {
+					"rotation": [0, 0, "-math.cos(q.anim_time*720)*30"]
+				},
+				"Left_Leg": {
+					"position": [0, 1, 0]
+				},
+				"left_toes": {
+					"position": [0, 0.01, 0]
+				},
+				"Right_Leg": {
+					"position": [0, 1, 0]
+				},
+				"right_toes": {
+					"position": [0, 0.01, 0]
+				},
+				"Body": {
+					"position": [0, -1, 0]
+				},
+				"Head": {
+					"rotation": ["q.target_x_rotation / 2", 0, 0]
+				},
+				"Tail_Base": {
+					"rotation": ["-math.cos(720*q.anim_time)*5", "q.target_y_rotation/2", 0]
+				},
+				"Tail_Shaft": {
+					"rotation": ["-math.cos(720*q.anim_time+30)*5", "q.target_y_rotation/2", 0]
+				},
+				"Tail_Tip": {
+					"rotation": ["-math.cos(720*q.anim_time+60)*5", 0, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.slimewyvern.mate_male": {
+			"loop": "hold_on_last_frame",
+			"animation_length": 15
+		},
+		"animation.billeys_mobs.slimewyvern.mate_female": {
+			"loop": true
+		}
+	}
+}

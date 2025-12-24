@@ -1,0 +1,77 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:rat_king",
+            "materials": {
+                "default": "entity_alphatest",
+                "eyes": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/rat_king"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.rat_king"
+            },
+            "animations": {
+                "new": "animation.billeys_mobs.duckproj.death",
+                "walk_or_run": "controller.animation.billeys_mobs.rodent_walk_or_run",
+                "squeeze": "animation.billeys_mobs.rat_king.move",
+                "squeeze_cont": "controller.animation.billeys_mobs.rat_king_squeeze",
+                "walk": "animation.billeys_mobs.rat_king.walk",
+                "run": "animation.billeys_mobs.rat_king.run",
+                "cook": "animation.billeys_mobs.rat_king.cook",
+                "cook2": "animation.billeys_mobs.rat_king.cook2",
+                "cook3": "animation.billeys_mobs.rat_king.cook3",
+                "cook4": "animation.billeys_mobs.rat_king.cook4",
+                "cook_cont": "controller.animation.billeys_mobs.rat_king_cook",
+                "attack": "animation.billeys_mobs.rat_king.attack",
+                "attackcont": "controller.animation.billeys_mobs.simple_attack",
+                "delayed_attack": "animation.billeys_mobs.rat_king.spin",
+                "look_at_target": "animation.common.look_at_target",
+                "fold_wings": "animation.billeys_mobs.rat_king.fold_wings",
+                "ascend": "animation.billeys_mobs.rat_king.ascend",
+                "descend": "animation.billeys_mobs.rat_king.descend",
+                "fly": "animation.billeys_mobs.rat_king.fly",
+                "movement_cont": "controller.animation.billeys_mobs.rat_king_fly",
+                "die": "animation.billeys_mobs.rat_king.die",
+                "cancel_vanilla_death": "animation.billeys_mobs.kiwi.cancelvanilladeath"
+            },
+            "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+                "initialize": [
+                    "v.vertical_speed_smoothened = q.vertical_speed;"
+                ],
+                "pre_animation": [
+                    /*Vanilla's q.vertical_speed is in 20 fps because that's
+                    how often minecraft physics gets updated,
+                    this is a smoothened version of it*/
+                    "v.vertical_speed_smoothened = v.vertical_speed_smoothened + (q.vertical_speed - v.vertical_speed_smoothened) * (1.0 - math.exp(-q.delta_time * 10));"
+                ],
+                "animate": [
+                    "new",
+                    "attackcont",
+                    {
+                        "die": "!q.is_alive"
+                    },
+                    {
+                        "cancel_vanilla_death": "!q.is_alive"
+                    },
+                    "movement_cont",
+                    {
+                        "cook_cont": "q.is_alive && q.property('billey:phase') != 3"
+                    }
+                ]
+            },
+            "enable_attachables": true,
+            "hide_armor": false,
+            "render_controllers": [
+                "controller.render.billeys_mobs.rat_king"
+            ],
+            "spawn_egg": {
+                "base_color": "#718794",
+                "overlay_color": "#FFFF7F"
+            }
+        }
+    }
+}

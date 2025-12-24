@@ -1,0 +1,59 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.snek.new": {
+			"loop": true,
+			"bones": {
+				"bone": {
+					"rotation": [0, -180, 0],
+					"position": [0, 0, 16]
+				},
+				"bone2": {
+					"rotation": [0, "math.sin(q.life_time * v.p) * v.e", 0]
+				},
+				"bone3": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s) * v.e", 0]
+				},
+				"bone4": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 2) * v.e", 0]
+				},
+				"bone5": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 3) * v.e", 0]
+				},
+				"bone6": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 4) * v.e", 0]
+				},
+				"bone7": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 5) * v.e", 0]
+				},
+				"bone8": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 6) * v.e", 0]
+				},
+				"bone9": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 7) * v.e", 0]
+				},
+				"bone10": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 8) * v.e", 0]
+				},
+				"bone11": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 9) * v.e", 0]
+				},
+				"bone12": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 10) * v.e", 0]
+				},
+				"bone13": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 11) * v.e", 0]
+				},
+				"bone14": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 12) * v.e", 0]
+				},
+				"bone15": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 13) * v.e", 0]
+				},
+				"bone16": {
+					"rotation": [0, "math.sin(q.life_time * v.p + v.s * 14) * v.e", 0]
+				}
+			}
+		}
+	}
+}

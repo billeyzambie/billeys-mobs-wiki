@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "billey:petleatherarmor"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "what_does_this_do",
+    "pattern": [
+      "SMS",
+      "MSM",
+      "SMS"
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:leather"
+      },
+      "S": {
+        "item": "billey:kiwi_fur"
+      }
+    },
+    "result": [
+      { "item": "billey:leather_pet_armor" }
+    ]
+  }
+}

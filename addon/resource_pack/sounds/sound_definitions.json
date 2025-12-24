@@ -1,0 +1,474 @@
+{
+    "format_version": "1.14.0",
+    "sound_definitions": {
+        "billey.kiwi.say": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/kiwisay1",
+                "sounds/billeysmobs/kiwisay2"
+            ]
+        }, //4556 6168 1779 1844, 5/2025, 216
+        //have fun
+        "billey.fish.die": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/die"
+            ]
+        },
+        "billey.fish.hurt": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/hurt"
+            ]
+        },
+        "billey.mercat.hit": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/mercathit"
+            ]
+        },
+        "billey.mercat.say": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/mercatsay1",
+                "sounds/billeysmobs/mercatsay2",
+                "sounds/billeysmobs/mercatsay3"
+            ]
+        },
+        "billey.pigeon.say": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/pigeonsay1",
+                "sounds/billeysmobs/pigeonsay2",
+                "sounds/billeysmobs/pigeonsay3",
+                "sounds/billeysmobs/pigeonsay4"
+            ]
+        },
+        "billey.banana.burp": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/bananaburp"
+            ]
+        },
+        "billey.terraphin.death": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/terraphindeath"
+            ]
+        },
+        "billey.terraphin.say": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/terraphinsay1",
+                "sounds/billeysmobs/terraphinsay2",
+                "sounds/billeysmobs/terraphinsay3",
+                "sounds/billeysmobs/terraphinsay4"
+            ]
+        },
+        "billey.terraphin.hurt": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/terraphinsay1",
+                "sounds/billeysmobs/terraphinhurt2",
+                "sounds/billeysmobs/terraphinsay3",
+                "sounds/billeysmobs/terraphinhurt1"
+            ]
+        },
+        "billey.pigeon.hit": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/pigeonhurt1",
+                "sounds/billeysmobs/pigeonhurt2"
+            ]
+        },
+        "billey.duck.say": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/ducksay",
+                    "volume": 0.3
+                }
+            ]
+        },
+        "billey.duck.sayquiet": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/ducksay",
+                    "volume": 0.25
+                }
+            ]
+        },
+        "billey.duck.sayhalfvolume": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/ducksay",
+                    "volume": 0.125
+                }
+            ]
+        },
+        "billey.duck.honk": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckhonk",
+                    "volume": 0.5
+                }
+            ]
+        },
+        "billey.goose.say": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/goosesay",
+                    "volume": 0.5
+                },
+                {
+                    "name": "sounds/billeysmobs/goosesay1",
+                    "volume": 0.5
+                },
+                {
+                    "name": "sounds/billeysmobs/goosesay2",
+                    "volume": 0.5
+                }
+            ]
+        },
+        "billey.berry_goose.say": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/berrygoosesay",
+                    "volume": 0.5
+                },
+                {
+                    "name": "sounds/billeysmobs/berrygoosesay1",
+                    "volume": 0.5
+                },
+                {
+                    "name": "sounds/billeysmobs/berrygoosesay2",
+                    "volume": 0.5
+                }
+            ]
+        },
+        "billey.goose.saybaby": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/goosesay",
+                    "volume": 0.5,
+                    "pitch": 1.5
+                },
+                {
+                    "name": "sounds/billeysmobs/goosesay1",
+                    "volume": 0.5,
+                    "pitch": 1.5
+                },
+                {
+                    "name": "sounds/billeysmobs/goosesay2",
+                    "volume": 0.5,
+                    "pitch": 1.5
+                }
+            ]
+        },
+        "billey.duck.angry": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckangry",
+                    "volume": 0.5
+                }
+            ]
+        },
+        "billey.duck.saybaby": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/ducksaybaby",
+                    "volume": 0.4
+                }
+            ]
+        },
+        "billey.duck.saybanana": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/ducksaybanana",
+                    "volume": 0.3
+                }
+            ]
+        },
+        "billey.duck.saybananaquiet": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/ducksaybanana",
+                    "volume": 0.25
+                }
+            ]
+        },
+        "billey.duck.diebanana": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/bananadie",
+                    "volume": 0.5
+                }
+            ]
+        },
+        "billey.duck.hit": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckhurt",
+                    "volume": 0.75
+                }
+            ]
+        },
+        "billey.duck.hithat": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckhurt",
+                    "volume": 0.6
+                }
+            ]
+        },
+        "billey.duck.hithat2": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckhurt",
+                    "volume": 0.6,
+                    "pitch": 0.8
+                }
+            ]
+        },
+        "billey.duck.hithat3": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckhurt",
+                    "volume": 0.6,
+                    "pitch": 0.9
+                }
+            ]
+        },
+        "billey.duck.hithat4": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckhurt",
+                    "volume": 0.6,
+                    "pitch": 1.1
+                }
+            ]
+        },
+        "billey.duck.hithat5": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckhurt",
+                    "volume": 0.6,
+                    "pitch": 1.2
+                }
+            ]
+        },
+        "billey.duck.death": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckdeathnew",
+                    "volume": 0.5
+                },
+                {
+                    "name": "sounds/billeysmobs/duckdeath",
+                    "volume": 0.5
+                }
+            ]
+        },
+        "billey.duck.deathat": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckdeathnew",
+                    "volume": 0.45
+                },
+                {
+                    "name": "sounds/billeysmobs/duckdeath",
+                    "volume": 0.45
+                }
+            ]
+        },
+        "billey.penguin.say": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/penguinsay1",
+                "sounds/billeysmobs/penguinsay2",
+                "sounds/billeysmobs/penguinsay3",
+                "sounds/billeysmobs/penguinsay4"
+            ]
+        },
+        "billey.penguin.hit": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/penguinhurt1",
+                "sounds/billeysmobs/penguinsay2",
+                "sounds/billeysmobs/penguinhurt2"
+            ]
+        },
+        "billey.penguin.die": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/penguinsay1",
+                "sounds/billeysmobs/penguinsay2",
+                "sounds/billeysmobs/penguinsay3",
+                "sounds/billeysmobs/penguinsay4",
+                "sounds/billeysmobs/penguinhurt1",
+                "sounds/billeysmobs/penguinhurt2"
+            ]
+        },
+        "billey.orange.say": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/orangesay1",
+                "sounds/billeysmobs/orangesay2",
+                "sounds/billeysmobs/orangesay3",
+                "sounds/billeysmobs/orangesay4"
+            ]
+        },
+        "billey.orange.hit": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/orangehurt1",
+                "sounds/billeysmobs/orangesay2",
+                "sounds/billeysmobs/orangehurt2"
+            ]
+        },
+        "billey.orange.die": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/orangesay1",
+                "sounds/billeysmobs/orangesay2",
+                "sounds/billeysmobs/orangesay3",
+                "sounds/billeysmobs/orangesay4",
+                "sounds/billeysmobs/orangehurt1",
+                "sounds/billeysmobs/orangehurt2"
+            ]
+        },
+        "billey.elec.short": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/elec_short"
+            ]
+        },
+        "billey.elec.die": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/elec_die"
+            ]
+        },
+        "billey.elec.long": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/elec_long"
+            ]
+        },
+        "billey.banana.slip": {
+            "category": "neutral",
+            "sounds": [
+                "sounds/billeysmobs/slip"
+            ]
+        },
+        "billey.duckatrice.quack": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckatrice_ambient",
+                    "volume": 0.3
+                }
+            ]
+        },
+        "billey.duckatrice.hurt": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckatrice_hurt",
+                    "volume": 0.3
+                }
+            ]
+        },
+        "billey.duckatrice.summon": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/duckatrice_summon",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.grow": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/grow",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.shrink": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/shrink",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.grow2": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/grow2",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.shrink2": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/shrink2",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.fury_start": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/fury_start",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.fury_end": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/fury_end",
+                    "volume": 1.0
+                }
+            ]
+        },
+        "billey.level_up": {
+            "category": "neutral",
+            "sounds": [
+                {
+                    "name": "sounds/billeysmobs/level_up",
+                    "volume": 1.0
+                }
+            ]
+        }
+    }
+}

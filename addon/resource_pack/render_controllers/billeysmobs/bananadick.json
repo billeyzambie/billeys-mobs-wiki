@@ -1,0 +1,37 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs.banana_duck": {
+      "arrays": {
+        "textures": {
+          "array.skins": [
+            "texture.default",
+            "texture.second",
+            "texture.golden",
+            "texture.green",
+            "texture.purple",
+            "texture.white",
+            "texture.inverted"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [
+        {
+          "*": "q.variant == 5 ? Material.dyeable : Material.default"
+        }
+      ],
+      "textures": [
+        "(q.get_name == 'Pizza' || q.get_name == 'Πίτσα') ? array.skins[q.life_time * 1.5 + q.variant] : array.skins[q.variant]"
+      ],
+      //4556616817791844, 5/2025, 216
+      //have fun
+      "overlay_color": {
+        "r": "q.variant == 2 ? math.sin(q.life_time * 250 + q.variant * 234) : math.sin(q.life_time * 200 + q.variant * 234)",
+        "g": "q.variant == 2 ? math.sin(q.life_time * 200 + q.variant * 234 + 120) : math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+        "b": "q.variant == 2 ? math.sin(q.life_time * 150 + q.variant * 234 + 240) : math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

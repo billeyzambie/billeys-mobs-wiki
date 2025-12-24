@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "billey:piranha_projectile",
+        "materials": { "default": "entity_alphatest" },
+        "textures": {
+          "default": "textures/entity/billeys_mobs/piranha",
+          "gay": "textures/entity/billeys_mobs/piranha1",
+          "desat": "textures/entity/billeys_mobs/piranha2"
+        },
+        "geometry": {
+          "default": "geometry.billeys_mobs.piranha"
+        },
+        "animations": {
+          "new": "animation.billeys_mobs.duckproj.body",
+          "thrown": "animation.billeys_mobs.piranha.thrown",
+          "flop": "animation.billeys_mobs.piranha.flop",
+          "swim": "animation.billeys_mobs.piranha.swim"
+        },
+        "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+          "animate": [ "new",
+            "thrown"
+          ]
+        },
+        "render_controllers": [ "controller.render.item_sprite" ]
+      }
+    }
+  }

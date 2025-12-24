@@ -1,0 +1,27 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "billey:orangeonastick3"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "ingredients": [
+            {
+                "item": "minecraft:fishing_rod"
+            },
+            {
+                "item": "billey:cooked_snail_w"
+            },
+            {
+                "item": "billey:cat_dust"
+            }
+        ],
+        "result": [
+            {
+                "item": "billey:terraphin_staff"
+            }
+        ]
+    }
+}

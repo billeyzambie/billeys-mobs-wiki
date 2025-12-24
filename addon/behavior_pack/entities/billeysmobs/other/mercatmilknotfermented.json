@@ -1,0 +1,116 @@
+{
+    "format_version": "1.12.0",
+    "minecraft:entity": {
+      "description": {
+        "identifier": "billey:throwable_mercat_milk",
+        "runtime_identifier": "minecraft:arrow",
+        "is_spawnable": false,
+        "is_summonable": true,
+        "is_experimental": false
+      },
+      "component_groups": {
+      "electrocuted": {
+         
+                  "minecraft:loot": {
+                      "table": "loot_tables/entities/billey_electrocuted.json"
+                  }
+    },
+    "despawn": {
+        "minecraft:transformation": {
+            "into": "billey:despawn"
+        }
+    }
+      },
+      "components": {
+        "minecraft:collision_box": {
+          "width": 0.25,
+          "height": 0.25
+        },
+        "minecraft:type_family": {
+          "family": [
+            "thrown_duck"
+          ]
+        },
+        "minecraft:projectile": {
+          "on_hit": {
+            "definition_event": {
+              "affect_projectile": true,
+              "event_trigger": {
+                "event": "spawnduck",
+                "target": "self"
+              }
+            },
+            "particle_on_hit": {
+              "particle_type": "iconcrack",
+              "on_other_hit": true,
+              "num_particles": 6,
+              "on_entity_hit": true
+            }
+          },
+          "crit_particle_on_hurt": true,
+          "anchor": 1,
+          "stop_on_hurt": true,
+          "destroyOnHurt": true,
+          "power": 1.0,
+          "gravity": 0.02,
+          "angle_offset": 0.0
+        },
+        "minecraft:physics": {
+          "has_collision": true
+        },
+        "minecraft:conditional_bandwidth_optimization": {
+          "default_values": {
+            "max_optimized_distance": 80.0,
+            "max_dropped_ticks": 10,
+            "use_motion_prediction_hints": true
+          }
+        }
+      },
+      "events": {
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on"
+                }
+            },
+        "spawnduck": {
+            "queue_command": {
+                "command": [
+                    "effect @e[r=1.5] weakness 0 255 true",
+                    "effect @e[r=1.5] slowness 0 255 true",
+                    "effect @e[r=1.5] wither 0 255 true",
+                    "event entity @s despawn"
+                ]
+            }
+        },
+        "minecraft:entity_spawned": {
+            "queue_command": {
+                "command": [
+                    "playsound random.bow @a ~~~ 1.0 0.5"
+                ]
+            }
+        },
+        "despawn": {
+            "add": {
+                "component_groups": [
+                    "despawn"
+                ]
+            }
+        }
+      }
+    }
+  }
+  

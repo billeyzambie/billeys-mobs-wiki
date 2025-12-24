@@ -1,0 +1,46 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "billey:anniversary_pet_hat_6_attachable",
+            "item": {
+                "billey:anniversary_pet_hat_6": "q.owner_identifier != 'minecraft:player'"
+            },
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/anniversary_pet_hat_6"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.anniversary_pet_hat"
+            },
+            "animations": {
+                "move_one_pixel_down": "animation.billeys_mobs.pet_hat.move_one_down",
+                "stretch": "animation.billeys_mobs.pet_hat.stretch"
+            },
+            "scripts": {
+                "initialize": [
+                    "v.stretch = q.owner_identifier == 'billey:duck';",
+                    "v.stretch = v.stretch || q.owner_identifier == 'billey:penguin';",
+                    "v.move_one_down = v.stretch;",
+                    "v.move_one_down = v.move_one_down || q.owner_identifier == 'billey:banana_duck';",
+                    "v.move_one_down = v.move_one_down || q.owner_identifier == 'billey:pigeon';",
+                    "v.move_one_down = v.move_one_down || q.owner_identifier == 'billey:goose';",
+                    "v.move_one_down = v.move_one_down || q.owner_identifier == 'billey:kiwi';"
+                ],
+                "animate": [
+                    {
+                        "move_one_pixel_down": "v.move_one_down"
+                    },
+                    {
+                        "stretch": "v.stretch"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

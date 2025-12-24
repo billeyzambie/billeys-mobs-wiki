@@ -1,0 +1,110 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.billeys_mobs.bettafishlocators",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 1.5,
+				"visible_bounds_offset": [0, 0.25, 0]
+			},
+			"bones": [
+				{
+					"name": "ooo",
+					"pivot": [0, 0, 0]
+				},
+				{
+					"name": "body",
+					"parent": "ooo",
+					"pivot": [0, 1.25, 0]
+				},
+				{
+					"name": "bone4",
+					"parent": "body",
+					"pivot": [-0.5, 1.25, -0.5]
+				},
+				{
+					"name": "bone5",
+					"parent": "bone4",
+					"pivot": [0.5, 1.25, -0.5]
+				},
+				{
+					"name": "head",
+					"parent": "bone5",
+					"pivot": [0, 1.25, -0.5],
+					"locators": {
+						"lead": [0, 1.25, -0.5]
+					}
+				},
+				{
+					"name": "opaque2",
+					"parent": "head",
+					"pivot": [0, -0.025, 0]
+				},
+				{
+					"name": "fin",
+					"parent": "head",
+					"pivot": [0.5, 0.25, -0.6],
+					"rotation": [0, 0, -35]
+				},
+				{
+					"name": "ish",
+					"parent": "head",
+					"pivot": [-0.5, 0.25, -0.6],
+					"rotation": [0, 0, 35]
+				},
+				{
+					"name": "back_body",
+					"parent": "body",
+					"pivot": [0, 1.25, -0.5]
+				},
+				{
+					"name": "opaque1",
+					"parent": "back_body",
+					"pivot": [0, -0.025, 0]
+				},
+				{
+					"name": "tail",
+					"parent": "back_body",
+					"pivot": [0, 1.25, 2.15]
+				},
+				{
+					"name": "bone3",
+					"parent": "tail",
+					"pivot": [0, 1.25, 2.5],
+					"rotation": [47.5, 0, 0]
+				},
+				{
+					"name": "bone2",
+					"parent": "tail",
+					"pivot": [0, 1.25, 2.5],
+					"rotation": [-47.5, 0, 0]
+				},
+				{
+					"name": "bone",
+					"parent": "back_body",
+					"pivot": [0, 2.25, 0.35],
+					"rotation": [-25, 0, 0]
+				},
+				{
+					"name": "bone7",
+					"parent": "bone",
+					"pivot": [0, 2.25, 0.35]
+				},
+				{
+					"name": "bone8",
+					"parent": "bone7",
+					"pivot": [0, 1.18738, -0.13141]
+				},
+				{
+					"name": "bone6",
+					"parent": "back_body",
+					"pivot": [0, 0.25, 0.35],
+					"rotation": [25, 0, 0]
+				}
+			]
+		}
+	]
+}

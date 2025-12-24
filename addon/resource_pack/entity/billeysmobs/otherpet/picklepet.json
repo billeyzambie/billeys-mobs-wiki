@@ -1,0 +1,53 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:picklepet",
+      "materials": { "default": "entity_alphatest" },
+      "textures": {
+        "s1": "textures/entity/billeys_mobs/picklepet"
+      },
+      "geometry": {
+        "s1": "geometry.picklepetwater",
+        "s1glow": "geometry.picklepetglow"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "move": "animation.picklepet.walk",
+        "sit": "animation.picklepet.sit",
+        "var1": "animation.picklepet.var1",
+        "var2": "animation.picklepet.var2",
+        "var3": "animation.picklepet.var3",
+        "idle": "animation.humanoid.bob",
+        "controller.sit": "controller.animation.billeys_mobs.sit",
+        "controller.var": "controller.animation.billeys_mobs.3var"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.head_size_x = 4;",
+          "v.head_size_y = 4;",
+          "v.head_size_z = 4;"
+        ],
+        "animate": [ "new",
+          "idle",
+          "controller.sit",
+          "controller.var",
+          { "move": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))" }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.picklepet", "controller.render.picklepetglow", "controller.render.picklepetwater"],
+      "spawn_egg": {
+        "base_color": "#5B6725",
+        "overlay_color": "#C6C285"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:item": {
+      "description": {
+        "identifier": "billey:info_book",
+        "menu_category": {
+          "category": "equipment"
+        }
+      },
+      "components": {
+        "minecraft:max_stack_size": {
+          "value": 1
+        },
+        "minecraft:icon": {
+          "textures": {
+            "default": "billey.info_book"
+          }
+        },
+        "minecraft:rarity": {
+          "value": "rare"
+        }
+      }
+    }
+  }

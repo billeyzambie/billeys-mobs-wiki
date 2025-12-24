@@ -1,0 +1,27 @@
+{
+  "format_version": "1.21.60",
+  "billey:velvet_slime_block": {
+    "sound": "slime"
+  },
+  "billey:blue_velvet_slime_block": {
+    "sound": "slime"
+  },
+  "billey:zambie" : {
+     "sound" : "grass"
+  },
+   "billey:woodlouse_wheat" : {
+      "sound" : "grass"
+   },
+   "billey:mixed_velvet_slime_block": {
+     "sound": "slime"
+   },
+   "billey:banana_peel_block": {
+    "sound": "slime"
+   },
+   "billey:banana_peel_player_block": {
+    "sound": "slime"
+   },
+   "billey:fish_tank": {
+    "sound": "glass"
+   }
+}

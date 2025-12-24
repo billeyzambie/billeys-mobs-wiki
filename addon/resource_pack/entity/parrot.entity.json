@@ -1,0 +1,56 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "minecraft:parrot",
+            "materials": {
+                "default": "parrot",
+                "cat": "cat"
+            },
+            "textures": {
+                "blue": "textures/entity/parrot/parrot_blue",
+                "green": "textures/entity/parrot/parrot_green",
+                "red_blue": "textures/entity/parrot/parrot_red_blue",
+                "yellow_blue": "textures/entity/parrot/parrot_yellow_blue",
+                "grey": "textures/entity/parrot/parrot_grey"
+            },
+            "geometry": {
+                "default": "geometry.parrot"
+            },
+            "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+                "animate": [ "new",
+                    "move", "setup", {"baby": "q.is_baby"}
+                ],
+                "pre_animation": [
+                    "v.state = q.is_dancing ? 3 : ((q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) ? 2 : (!q.is_on_ground && !q.is_jumping && !q.is_riding ? 0 : 1));",
+                    "v.dance.x = Math.cos(q.life_time * 57.3 * 20.0);",
+                    "v.dance.y = -Math.sin(q.life_time * 57.3 * 20.0);",
+                    "v.wing_flap = ((math.sin(q.wing_flap_position * 57.3) + 1) * q.wing_flap_speed);"
+                ]
+            },
+            "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+                "baby": "animation.billeys_mobs.kiwi.baby",
+                "moving": "animation.parrot.moving",
+                "base": "animation.parrot.base",
+                "dance": "animation.parrot.dance",
+                "sitting": "animation.parrot.sitting",
+                "flying": "animation.parrot.flying",
+                "standing": "animation.parrot.standing",
+                "look_at_target": "animation.common.look_at_target",
+                "setup": "controller.animation.parrot.setup",
+                "move": "controller.animation.parrot.move"
+            },
+            "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+                "controller.render.parrot"
+            ],
+            "spawn_egg": {
+                "texture": "spawn_egg",
+                "texture_index": 43
+            }
+        }
+    }
+}

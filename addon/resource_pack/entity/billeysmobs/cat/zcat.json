@@ -1,0 +1,64 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:zombie_cat",
+      "materials": { "default": "cat" },
+      "textures": {
+        "wild": "textures/entity/cat/zcat",
+        "tamed": "textures/entity/cat/zcat_tame"
+      },
+      "geometry": {
+        "default": "geometry.cat"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "sneak": "animation.cat.sneak",
+        "walk": "animation.cat.walk",
+        "sprint": "animation.cat.sprint",
+        "sit": "animation.cat.sit",
+        "stand": "controller.animation.bcat.move",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.cat.baby_transform",
+        "lie_down": "animation.cat.lie_down",
+        "sleep": "animation.cat.lie_down",
+        "fix": "animation.cat.fix",
+        "eat": "animation.cat.tailsnek",
+        "beg": "animation.cat.beg",
+        "look_at_target_cont": "controller.animation.bcat.look_at_target",
+        "sitcont": "controller.animation.billeys_mobs.sitforcat",
+        "baby": "controller.animation.bcat.baby",
+        "eatcont": "controller.animation.billeys_mobs.eat",
+        "hurt": "animation.billeys_mobs.cat.hurt",
+        "raising": "controller.animation.billeys_mobs.eatnoblend"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.head_size_x = 5;",
+          "v.head_size_y = 4;",
+          "v.head_size_z = 5;"
+        ],
+        "animate": [ "new",
+          "look_at_target_cont",
+          "sitcont",
+          "baby",
+          "eatcont",
+          "raising",
+          { "hurt": "q.health < q.max_health" }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.zcat" ],
+      "spawn_egg": {
+        "texture": "egg_cat_zombie"
+      }
+    }
+  }
+}

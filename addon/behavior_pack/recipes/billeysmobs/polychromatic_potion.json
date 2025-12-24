@@ -1,0 +1,20 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "billey:colorful_potion"
+    },
+     "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "billey:pickle_juice"
+      },
+      {
+        "item": "billey:colorful_dust"
+      }
+    ],
+    "result": [
+      { "item": "billey:colorful_bottle" }
+    ]
+  }
+}

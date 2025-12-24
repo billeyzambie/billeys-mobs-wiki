@@ -1,0 +1,22 @@
+{
+    "format_version": "1.10.0",
+    "animations": {
+        "animation.billeys_mobs.morph_hide_player": {
+            "loop": true,
+            "bones": {
+                "waist": {
+                    "scale": 0
+                },
+                "head": {
+                    "scale": 0
+                },
+                "rightLeg": {
+                    "scale": 0
+                },
+                "leftLeg": {
+                    "scale": 0
+                }
+            }
+        }
+    }
+}

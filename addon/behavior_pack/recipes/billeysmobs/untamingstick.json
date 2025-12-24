@@ -1,0 +1,29 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+        "description": {
+            "identifier": "billey:untaming_stick"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "group": "what_does_this_do",
+        "pattern": [
+            "f",
+            "s"
+        ],
+        "key": {
+            "s": {
+                "item": "billey:swordstick"
+            },
+            "f": {
+                "item": "feather"
+            }
+        },
+        "result": [
+            {
+                "item": "billey:untaming_stick"
+            }
+        ]
+    }
+}

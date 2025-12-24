@@ -1,0 +1,202 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.billeys_mobs.rat": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "array.base": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five"
+                    ],
+                    "array.patterns": [
+                        "texture.zeroa",
+                        "texture.onea",
+                        "texture.twoa",
+                        "texture.threea",
+                        "texture.zerob",
+                        "texture.oneb",
+                        "texture.twob",
+                        "texture.threeb",
+                        "texture.zeroc",
+                        "texture.onec",
+                        "texture.twoc",
+                        "texture.threec",
+                        "texture.zerod",
+                        "texture.oned",
+                        "texture.twod",
+                        "texture.threed",
+                        "texture.foura",
+                        "texture.fourb",
+                        "texture.fourc",
+                        "texture.fourd"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "q.variant == 5 ? Material.dont_show_patterns : Material.default"
+                }
+            ],
+            "textures": [
+                "q.get_name == 'XD' ? array.base[q.life_time] : array.base[q.variant]",
+                "q.get_name == 'XD' ? array.patterns[q.life_time*1.25] : array.patterns[v.mark_variant]"
+            ],
+            "overlay_color": {
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+                "a": "q.is_illager_captain ? 0.4 : 0.0"
+            }
+        },
+        "controller.render.billeys_mobs.netherrat": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "array.base": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five"
+                    ],
+                    "array.patterns": [
+                        "texture.zeroa",
+                        "texture.onea",
+                        "texture.twoa",
+                        "texture.threea",
+                        "texture.zerob",
+                        "texture.oneb",
+                        "texture.twob",
+                        "texture.threeb",
+                        "texture.zeroc",
+                        "texture.onec",
+                        "texture.twoc",
+                        "texture.threec",
+                        "texture.zerod",
+                        "texture.oned",
+                        "texture.twod",
+                        "texture.threed",
+                        "texture.foura",
+                        "texture.fourb",
+                        "texture.fourc",
+                        "texture.fourd",
+                        "texture.fivea",
+                        "texture.fiveb",
+                        "texture.fivec",
+                        "texture.fived"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                },
+                {
+                    "eyes": "Material.eyes"
+                }
+            ],
+            "textures": [
+                "q.get_name == 'XD' ? array.base[q.life_time] : array.base[q.variant]",
+                "q.get_name == 'XD' ? array.patterns[q.life_time*1.25] : array.patterns[v.mark_variant]"
+            ],
+            "overlay_color": {
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+                "a": "q.is_illager_captain ? 0.4 : 0.0"
+            }
+        },
+        "controller.render.billeys_mobs.shark": {
+            "geometry": "Geometry.default",
+            "arrays": {
+                "textures": {
+                    "array.base": [
+                        "texture.zero",
+                        "texture.one",
+                        "texture.two",
+                        "texture.three",
+                        "texture.four",
+                        "texture.five"
+                    ]
+                }
+            },
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "q.get_name == 'XD' ? array.base[q.life_time] : array.base[q.variant]"
+            ],
+            "part_visibility": [
+                {
+                    "hide_on_hat": "!q.is_saddled"
+                }
+            ],
+            "overlay_color": {
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+                "a": "q.is_illager_captain ? 0.4 : 0.0"
+            }
+        },
+        "controller.render.billeys_mobs.rat_minion": {
+            "arrays": {
+                "textures": {
+                    "array.variants": [
+                        "texture.of_potion",
+                        "texture.hostile",
+                        "texture.friendly"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "textures": [
+                "array.variants[q.variant]"
+            ],
+            "is_hurt_color": {
+                "r": "1",
+                "g": "0",
+                "b": "0",
+                "a": "(!q.is_alive || q.life_time - (v.hidden_hurt_start_time ?? 0) > 1 ) ? 0.5 : 0"
+            }
+        },
+        "controller.render.billeys_mobs.rat_king": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                },
+                {
+                    "eyes*": "Material.eyes"
+                }
+            ],
+            "textures": [
+                "texture.default"
+            ],
+            "is_hurt_color": {
+                "r": "1",
+                "g": "0",
+                "b": "0",
+                "a": "q.life_time > 0.55 ? 0.5"
+            },
+            "on_fire_color": {
+                "r": "1",
+                "g": "1",
+                "b": "0",
+                "a": "0.5 - q.life_time"
+            }
+        }
+    }
+}

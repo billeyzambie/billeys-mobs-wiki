@@ -1,0 +1,29 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:pigeon_backpack"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "s s",
+        "lkl"
+      ],
+      "key": {
+        "l": {
+          "item": "minecraft:leather"
+        },
+        "k": {
+          "item": "billey:kiwi_fur"
+        },
+        "s": {
+          "item": "minecraft:string"
+        }
+      },
+      "result": [
+        { "item": "billey:pigeon_backpack" }
+      ]
+    }
+  }
+  

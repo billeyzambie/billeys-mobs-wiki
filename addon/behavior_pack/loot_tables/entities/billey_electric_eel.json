@@ -1,0 +1,73 @@
+{
+    "pools": [
+        {
+          "rolls": 1,
+          "entries": [
+            {
+              "type": "item",
+              "name": "coal",
+              "weight": 10
+            },
+            {
+              "type": "item",
+              "name": "cooked_fish",
+              "weight": 10
+            },
+            {
+              "type": "item",
+              "name": "billey:cooked_betta_fish",
+              "weight": 10
+            },
+            {
+              "type": "item",
+              "name": "charcoal",
+              "weight": 10
+            },
+            {
+              "type": "item",
+              "name": "iron_nugget",
+              "weight": 30
+            },
+            {
+              "type": "item",
+              "name": "billey:diamond_nugget",
+              "weight": 10
+            },
+            {
+              "type": "item",
+              "name": "billey:copper_nugget",
+              "weight": 10
+            },
+            {
+              "type": "item",
+              "name": "billey:chicken_nugget",
+              "weight": 15
+            }
+          ]
+        },
+        {
+          "rolls": 3,
+          "entries": [
+            {
+              "type": "item",
+              "name": "billey:copper_nugget",
+              "weight": 1
+            },
+            {
+              "type": "item",
+              "name": "iron_nugget",
+              "weight": 2
+            },
+            {
+              "type": "item",
+              "name": "billey:chicken_nugget",
+              "weight": 2
+            },
+            {
+              "type": "empty",
+              "weight": 3
+            }
+          ]
+        }
+    ]
+  }

@@ -1,0 +1,201 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.tiktaalik.walk": {
+			"loop": true,
+			"animation_length": 1,
+			"anim_time_update": "q.anim_time + q.delta_time * 1.6",
+			"bones": {
+				"body": {
+					"rotation": [0, "5*math.cos(q.anim_time*360)", 0],
+					"scale": {
+						"0.0": [1, 1, 1],
+						"0.25": [1, 1, 1],
+						"0.5": [1, 1, 1],
+						"0.75": [1, 1, 1],
+						"1.0": [1, 1, 1]
+					}
+				},
+				"body1": {
+					"rotation": [0, "-5*math.sin(q.anim_time*360)", 0]
+				},
+				"tail": {
+					"rotation": [0, "-7.5*math.sin(-22.5+q.anim_time*360)", 0]
+				},
+				"right_leg2": {
+					"rotation": {
+						"0.0": [-33.75, 0, 0],
+						"0.0417": [-45, 0, 0],
+						"0.125": [0, 0, 0],
+						"0.625": [0, 0, 0],
+						"0.75": [45, 0, 0],
+						"1.0": [-33.75, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 1.14, 0.11],
+						"0.125": [0, 0.1, -1],
+						"0.625": [0, 0.1, 2],
+						"0.9167": [0, 2, 0.95],
+						"1.0": [0, 1.14, 0.11]
+					}
+				},
+				"left_leg2": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.125": [0, 0, 0],
+						"0.25": [45, 0, 0],
+						"0.5": [-45, 0, 0],
+						"0.625": [0, 0, 0],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0.1, 1.2],
+						"0.125": [0, 0.1, 2],
+						"0.375": [0, 2, 1.06],
+						"0.625": [0, 0.1, -1],
+						"1.0": [0, 0.1, 1.2]
+					}
+				},
+				"left_leg": {
+					"rotation": {
+						"0.0": [0, -5, 0],
+						"0.25": [7.5, -2.67, -7.5],
+						"0.5": [0, 0, 0],
+						"0.625": [22.5, 0, 0],
+						"0.9167": [-45, 0, 0],
+						"1.0": [0, -5, 0]
+					},
+					"position": {
+						"0.0": [0, 0.1, -2],
+						"0.25": [-0.5, -0.25, -0.13],
+						"0.5": [-0.5, 0.1, 2],
+						"0.75": [0.5, 1, -0.11],
+						"1.0": [0, 0.1, -2]
+					}
+				},
+				"right_leg": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [22.5, 0, 0],
+						"0.375": [-45, 0, 0],
+						"0.5": [0, 5, 0],
+						"0.75": [7.5, 2.33, 7.5],
+						"1.0": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0.5, 0.1, 2],
+						"0.25": [-0.5, 1, 0.12],
+						"0.5": [0, 0.1, -2],
+						"0.75": [0.5, -0.25, -0.13],
+						"1.0": [0.5, 0.1, 2]
+					}
+				}
+			}
+		},
+		"animation.billeys_mobs.tiktaalik.swim": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [0, "math.sin(q.life_time * 480)*3", 0]
+				},
+				"head": {
+					"rotation": [0, "math.sin(q.life_time * 480-30)", 0]
+				},
+				"body1": {
+					"rotation": [0, "math.sin(q.life_time * 480+ 30)*7", 0]
+				},
+				"tail": {
+					"rotation": [0, "math.sin(q.life_time * 480 + 60)*15", 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.tiktaalik.swim_pose": {
+			"loop": true,
+			"bones": {
+				"right_leg2": {
+					"rotation": [60, 7.5, 0]
+				},
+				"left_leg2": {
+					"rotation": [60, 7.5, 0]
+				},
+				"left_leg": {
+					"rotation": [60, 7.5, 0]
+				},
+				"right_leg": {
+					"rotation": [60, 7.5, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.tiktaalik.attack": {
+			"animation_length": 0.4583,
+			"bones": {
+				"head": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0417": [5, 0, 0],
+						"0.1667": [-22.5, 0, 0],
+						"0.4583": [0, 0, 0]
+					}
+				},
+				"jaw": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.0833": [45, 0, 0],
+						"0.1667": [-1, 0, 0],
+						"0.4583": [0, 0, 0]
+					}
+				}
+			}
+		},
+		"animation.billeys_mobs.tiktaalik.sit": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": [0, 22.5, 0],
+					"position": [2.2961, -1, 0]
+				},
+				"body1": {
+					"rotation": [0, 47.5, 0],
+					"position": [-1.09896, 0, -2.46346]
+				},
+				"tail": {
+					"rotation": [-5, 42.5, 0],
+					"position": [-0.477, -0.02118, -0.71979]
+				},
+				"right_leg2": {
+					"position": [0, 1, 0]
+				},
+				"left_leg2": {
+					"position": [0, 1, 0]
+				},
+				"left_leg": {
+					"position": [0, 1, 0]
+				},
+				"right_leg": {
+					"position": [0, 1, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.tiktaalik.blink": {
+			"animation_length": 0.25,
+			"bones": {
+				"eyes": {
+					"position": {
+						"0.0": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.0833": {
+							"post": [0, -0.98, 0],
+							"lerp_mode": "catmullrom"
+						},
+						"0.25": {
+							"post": [0, 0, 0],
+							"lerp_mode": "catmullrom"
+						}
+					}
+				}
+			}
+		}
+	}
+}

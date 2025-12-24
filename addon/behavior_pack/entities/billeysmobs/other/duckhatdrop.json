@@ -1,0 +1,48 @@
+{
+    "format_version": "1.16.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:dropduckhat",
+            "is_spawnable": false,
+            "is_summonable": true,
+            "animations": {
+                "uhh": "controller.animation.billeys_mobs.duckhat.exdehe",
+                "give_duck": "animation.billeys_mobs.duckzombiegetduck"
+            },
+            "scripts": {
+                "animate": [
+                    "uhh",
+                    "give_duck"
+                ]
+            }
+        },
+        "components": {
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:type_family": {
+                "family": [
+                    "inanimate",
+                    "zombie"
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.0,
+                "height": 0.0
+            },
+            "minecraft:scale": {
+                "value": 0
+            },
+            "minecraft:loot": {
+                "table": "loot_tables/entities/billeyduckhat.json"
+            },
+            "minecraft:damage_sensor": {
+                "triggers": {
+                    "deals_damage": false
+                }
+            },
+            "minecraft:health": {
+                "value": 1,
+                "max": 1
+            }
+        }
+    }
+}

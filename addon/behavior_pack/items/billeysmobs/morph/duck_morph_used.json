@@ -1,0 +1,24 @@
+{
+	"format_version": "1.20.60",
+	"minecraft:item": {
+		"description": {
+			"identifier": "billey:duck_morph",
+            "menu_category": {
+                "category": "none",
+                "is_hidden_in_commands": true
+            }
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+            "minecraft:allow_off_hand": true,
+			"minecraft:icon": {
+			  "textures": {
+				"default": "billey.duck_morph"
+			  }
+			},
+			"minecraft:display_name": {
+				"value": "You have become a duck.\n§7Drink an Empty Morph Potion to reverse.\n"
+			}
+		}
+	}
+}

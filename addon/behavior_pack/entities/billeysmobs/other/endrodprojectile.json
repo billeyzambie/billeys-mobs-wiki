@@ -1,0 +1,63 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "billey:end_rod_projectile",
+      "runtime_identifier": "minecraft:arrow",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+
+    "components": { "minecraft:is_hidden_when_invisible": {},
+      "minecraft:collision_box": {
+        "width": 0.01,
+        "height": 0.01
+      },
+        "minecraft:type_family": {
+          "family": ["endrodprojectilexd"]
+        },
+      "minecraft:projectile": {
+        "on_hit": {
+          /*
+          "impact_damage": {
+            "damage": 4,
+            "knockback": true,
+            "should_bounce": true
+          },
+          "mob_effect": {
+            "effect": "weakness",
+            "durationeasy": 200,
+            "durationnormal": 200,
+            "durationhard": 200,
+            "amplifier": 2
+          },*/
+          "remove_on_hit": {
+          },
+          "particle_on_hit": {
+            "particle_type": "largeexplode",
+            "on_other_hit": true
+          }
+        },
+        "hit_sound": "bullet.hit",
+        "destroyOnHurt": true,
+        "crit_particle_on_hurt": true,
+        "anchor": 1,
+        "power": 2.5,
+        "gravity": 0.03,
+        "angle_offset": 0.0,
+        "homing": true
+      },
+      "minecraft:physics": {
+        "has_collision": false
+      },
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 80.0,
+          "max_dropped_ticks": 10,
+          "use_motion_prediction_hints": true
+        }
+      }
+    }
+  }
+}

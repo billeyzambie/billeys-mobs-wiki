@@ -1,0 +1,23 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:entity": {
+        "description": {
+            "runtime_identifier": "minecraft:egg",
+            "identifier": "billey:rat_potion",
+            "is_spawnable": false,
+            "is_summonable": true
+        },
+        "components": {
+            "minecraft:collision_box": {
+                "width": 0.25,
+                "height": 0.25
+            },
+            "minecraft:projectile": {
+                "power": 0.5,
+                "gravity": 0.05,
+                "hit_sound": "glass"
+            },
+            "minecraft:physics": {}
+        }
+    }
+}

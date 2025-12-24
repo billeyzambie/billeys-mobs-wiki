@@ -1,0 +1,28 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "billey:colorful_dust"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "what_does_this_do",
+    "ingredients": [
+      {
+        "item": "billey:cat_dust"
+      },
+      {
+        "item": "billey:scat_dust"
+      },
+      {
+        "item": "billey:zcat_dust"
+      },
+      {
+        "item": "billey:wcat_dust"
+      }
+    ],
+    "result": [
+      { "item": "billey:colorful_dust",
+        "count": 1 }
+    ]
+  }
+}

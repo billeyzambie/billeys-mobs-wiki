@@ -1,0 +1,106 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:betta_fish",
+      "materials": {
+        "default": "slime_outer",
+        "opaque": "entity",
+        "glow": "entity_emissive_alpha"
+      },
+      "textures": {
+        "default": "textures/entity/billeys_mobs/billbettafish",
+        "zero": "textures/entity/billeys_mobs/billbettafish",
+        "one": "textures/entity/billeys_mobs/billbettafish1",
+        "two": "textures/entity/billeys_mobs/billbettafish2",
+        "three": "textures/entity/billeys_mobs/billbettafish3",
+        "four": "textures/entity/billeys_mobs/billbettafish4",
+        "five": "textures/entity/billeys_mobs/billbettafish5",
+        "six": "textures/entity/billeys_mobs/billbettafish6",
+        "seven": "textures/entity/billeys_mobs/billbettafish7",
+        "eight": "textures/entity/billeys_mobs/billbettafish8",
+        "nine": "textures/entity/billeys_mobs/billbettafish9",
+        "ten": "textures/entity/billeys_mobs/billbettafish10",
+        "eleven": "textures/entity/billeys_mobs/billbettafish11",
+        "twelve": "textures/entity/billeys_mobs/billbettafish12",
+        "thirteen": "textures/entity/billeys_mobs/billbettafish13",
+        "fourteen": "textures/entity/billeys_mobs/billbettafish14",
+        "fifteen": "textures/entity/billeys_mobs/billbettafish15",
+        "sixteen": "textures/entity/billeys_mobs/billbettafish16",
+        "seventeen": "textures/entity/billeys_mobs/billbettafish17",
+        "eighteen": "textures/entity/billeys_mobs/billbettafish18",
+        "nineteen": "textures/entity/billeys_mobs/billbettafish19",
+        "twenty": "textures/entity/billeys_mobs/billbettafish20",
+        "twentyone": "textures/entity/billeys_mobs/billbettafish21"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.bettafish",
+        "locators": "geometry.billeys_mobs.bettafishlocators"
+      },
+      "particle_effects": {
+        "radiaziona": "billey:radiation",
+        "radiaziona_": "billey:purple_radiation"
+      },
+      "animations": {
+        "radiation": "animation.billeys_mobs.bettafish.radiation",
+        "radiation2": "animation.billeys_mobs.bettafish.radiation2",
+        "flip": "animation.billeys_mobs.bettafish.flip",
+        "boost": "animation.billeys_mobs.bettafish.boost",
+        "flop": "animation.billeys_mobs.bettafish.flop",
+        "swim": "animation.billeys_mobs.bettafish.swim",
+        "death1": "animation.billeys_mobs.bettafish.cancelvanilladeathanim",
+        "death": "animation.billeys_mobs.bettafish.die",
+        "dance1": "animation.billeys_mobs.bettafish.dance1",
+        "dance2": "animation.billeys_mobs.bettafish.dance2",
+        "dance3": "animation.billeys_mobs.bettafish.dance3",
+        "dance4": "animation.billeys_mobs.bettafish.dance4",
+        "pet": "animation.billeys_mobs.bettafish.pet",
+        "dance": "controller.animation.billeys_mobs.bettadance"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.mirror = math.random_integer(0,1) ? -1 : 1;",
+          "v.colordelay=math.random_integer(0,1)*math.random_integer(0,360);",
+          "v.head_size_x = 1;",
+          "v.head_size_y = 2;",
+          "v.head_size_z = 2;"
+        ],
+        "animate": [
+          { "dance": "q.variant == 16 || q.variant == 17 || q.variant == 14 || q.variant == 15" },
+          "pet",
+          { "radiation": "q.variant == 11 || q.variant == 12" },
+          { "radiation2": "q.variant == 15 || q.variant == 17" },
+          { "death1": "!q.is_alive" },
+          { "death": "!q.is_alive" },
+          { "swim": "q.is_in_water * 1.75" },
+          { "flop": "!q.is_in_water&&q.is_alive" },
+          { "flip": "!q.is_in_water" }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ { "controller.render.billeys_mobs.bettafish": "q.variant != 12 && q.variant != 2 && q.variant != 15" },
+        { "controller.render.billeys_mobs.bettaglowfins": "q.variant == 12 || q.variant == 2  || q.variant == 15" },
+        { "controller.render.billeys_mobs.bettaglowbody": "q.variant == 12 || q.variant == 2  || q.variant == 15" },
+        "controller.render.billeys_mobs.bettafishlocators"  ],
+      "spawn_egg": {
+        "base_color": "#063CBF",
+        "overlay_color": "#b43152"
+      }
+    }
+  }
+}
+//how to make your vs code smooth:
+//  1. press ctrl+p
+//  2. type >preferences:open settings (UI)
+//  3. press enter
+//  4. set cursor blinking to smooth
+//  5. turn on cursor smooth caret animation
+//  6. enjoy
+//  7. credit https://youtube.com/watch?v=PWCkrHHyvjE

@@ -1,0 +1,12 @@
+execute @a[tag=!billeyinfoleveling,hasitem={item=billey:to_level1,location=slot.weapon.mainhand}] ~~~ function billeylevelingshortinfo
+execute @a[tag=!billeyinfoleveling,hasitem={item=billey:to_level2,location=slot.weapon.mainhand}] ~~~ function billeylevelingshortinfo
+execute @a[tag=!billeyinfoleveling,hasitem={item=billey:to_level3,location=slot.weapon.mainhand}] ~~~ function billeylevelingshortinfo
+execute @a[tag=!billeyinfoleveling,hasitem={item=billey:to_level4,location=slot.weapon.mainhand}] ~~~ function billeylevelingshortinfo
+execute @a[tag=!billeyinfoleveling,hasitem={item=billey:to_level5,location=slot.weapon.mainhand}] ~~~ function billeylevelingshortinfo
+execute @a[tag=!billeyinfoleveling,hasitem={item=billey:to_level6,location=slot.weapon.mainhand}] ~~~ function billeylevelingshortinfo
+execute @a[tag=!billeyinfoleveling,hasitem={item=billey:to_level7,location=slot.weapon.mainhand}] ~~~ function billeylevelingshortinfo
+execute @a[tag=!billeyinfoleveling,hasitem={item=billey:to_level8,location=slot.weapon.mainhand}] ~~~ function billeylevelingshortinfo
+execute @a[tag=!billeyinfoleveling,hasitem={item=billey:to_level9,location=slot.weapon.mainhand}] ~~~ function billeylevelingshortinfo
+execute @a[tag=!billeyinfoleveling,hasitem={item=billey:to_level10,location=slot.weapon.mainhand}] ~~~ function billeylevelingshortinfo
+execute @a[tag=!billeyinfomergoose_sword,hasitem={item=billey:mergoose_sword,location=slot.weapon.mainhand}] ~~~ function billeymergooseswordinfo
+execute @a[tag=!billeyinfobanana_peel,hasitem={item=billey:banana_peel,location=slot.weapon.mainhand}] ~~~ function billeybananapeelinfo

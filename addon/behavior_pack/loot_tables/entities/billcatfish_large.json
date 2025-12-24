@@ -1,0 +1,68 @@
+//unused because it for some reason crashed the game, all catfish expect tiny ones
+//use the billcatfish.json file and tiny catfish dont drop anything
+{
+  "pools": [
+    {
+      "pools": [
+        {
+          "type": "item",
+          "name": "billey:raw_catfish",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 1,
+                "max": 1
+              }
+            },
+            {
+              "function": "furnace_smelt",
+              "conditions": [
+                {
+                  "condition": "entity_properties",
+                  "entity": "this",
+                  "properties":{
+                    "on_fire": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "bone_meal",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "bone_meal",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "string",
+          "weight": 1
+        },
+        {
+          "type": "item",
+          "name": "bone",
+          "weight": 1
+        }
+      ]
+    }
+  ]
+}

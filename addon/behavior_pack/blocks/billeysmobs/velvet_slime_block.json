@@ -1,0 +1,33 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:block": {
+		"description": {
+			"identifier": "billey:velvet_slime_block",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:custom_components": [
+				"billey:on_step_on_detrimental"
+			],
+			"minecraft:material_instances": {
+				"*": {
+					"texture": "velvetslimeblock",
+					"render_method": "blend",
+					"ambient_occlusion": false
+				}
+			},
+			"minecraft:map_color": "#75ea31",
+			"minecraft:destructible_by_mining":{
+				"seconds_to_destroy": 0
+			},
+			"minecraft:destructible_by_explosion": {
+				"explosion_resistance": 0
+			},
+            "minecraft:light_dampening": 0,
+			"minecraft:geometry": "geometry.billeys_mobs.slimeblock",
+			"tag:slime": {}
+		}
+	}
+}

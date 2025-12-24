@@ -1,0 +1,58 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:gwshark",
+      "materials": {
+        "default": "entity_alphatest",
+        "cat": "cat"
+      },
+      "textures": {
+        "zero": "textures/entity/billeys_mobs/gwshark",
+        "one": "textures/entity/billeys_mobs/shark1",
+        "two": "textures/entity/billeys_mobs/shark2",
+        "three": "textures/entity/billeys_mobs/shark3",
+        "four": "textures/entity/billeys_mobs/shark4",
+        "five": "textures/entity/billeys_mobs/shark"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.gwshark"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "swim": "animation.billeys_mobs.shark.swim",
+        "look": "animation.billeys_mobs.shark.look",
+        "attack": "animation.billeys_mobs.shark.attack"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 10;",
+				  "v.head_size_y = 5;",
+				  "v.head_size_z = 11;"
+				],
+        "animate": [
+          "new",
+          "look",
+					{
+						"swim": "q.is_in_water ? math.max(0.3,q.modified_move_speed / 0.4) : math.sin(q.life_time * 200) / 2 + 0.5"
+					}
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.shark"
+        //in the rat file
+      ],
+      "spawn_egg": {
+        "texture": "billey.shark_spawn_egg"
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "billey:yeet_duck",
+            "materials": {
+                "default": "entity_alphatest",
+                "enchanted": "entity_alphatest_glint"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/duck",
+                "enchanted": "textures/misc/enchanted_item_glint"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.duckitem"
+            },
+            "sound_effects": {
+                "quack": "billey.duck.sayhalfvolume",
+                "quack2": "billey.duck.sayquiet"
+            },
+            "animations": {
+                "firstperson": "animation.billeys_mobs.duckitem.firstperson",
+                "quack": "animation.billeys_mobs.duckitem.quack",
+                "quack2": "animation.billeys_mobs.duckitem.quack2",
+                "new": "animation.billeys_mobs.duckproj.pop",
+                "quackcont": "controller.animation.billeys_mobs.quackitem",
+                "quackcont2": "controller.animation.billeys_mobs.quackitem2",
+                "thirdperson": "animation.billeys_mobs.duckitem.thirdperson"
+            },
+            "scripts": {
+                "animate": [ "new",
+                    {
+                        "quackcont": "context.is_first_person"
+                    },
+                    {
+                        "quackcont2": "!context.is_first_person && !q.is_in_ui"
+                    },
+                    {
+                        "firstperson": "context.is_first_person"
+                    },
+                    {
+                        "thirdperson": "!context.is_first_person"
+                    }
+                ]
+            },
+            "render_controllers": [
+                "controller.render.item_default"
+            ]
+        }
+    }
+}//go to the add-on's mcpedl page right now and comment potato i dare you

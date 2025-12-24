@@ -1,0 +1,21 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:melongolden"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "A"
+      ],
+      "key": {
+        "A": {
+          "item": "billey:glistering_melon_goose"
+        }
+      },
+      "result": {
+       "item": "glistering_melon_slice"
+     }
+    }
+  }

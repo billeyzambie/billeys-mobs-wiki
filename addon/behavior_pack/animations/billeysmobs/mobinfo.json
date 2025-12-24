@@ -1,0 +1,566 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.info.anglerfish": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			//ignore the blockception extension's errors,
+			//start delay definitely works on behavior animations
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoanglerfish_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.anglerfish\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoanglerfish_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoanglerfish_v2] add billeyinfoanglerfish_v2",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoanglerfish_v2,tag=!billeyinfoanglerfish2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoanglerfish_v2,tag=!billeyinfoanglerfish2] add billeyinfoanglerfish2"
+			}
+		},
+		"animation.billeys_mobs.info.zombie_cat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfozombie_cat] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.zombie_cat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfozombie_cat] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfozombie_cat] add billeyinfozombie_cat",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfozombie_cat,tag=!billeyinfozombie_cat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfozombie_cat,tag=!billeyinfozombie_cat2] add billeyinfozombie_cat2"
+			}
+		},
+		"animation.billeys_mobs.info.skeleton_cat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoskeleton_cat] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.skeleton_cat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoskeleton_cat] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoskeleton_cat] add billeyinfoskeleton_cat",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoskeleton_cat,tag=!billeyinfoskeleton_cat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoskeleton_cat,tag=!billeyinfoskeleton_cat2] add billeyinfoskeleton_cat2"
+			}
+		},
+		"animation.billeys_mobs.info.swordfish": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoswordfish] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.swordfish\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoswordfish] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoswordfish] add billeyinfoswordfish",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoswordfish,tag=!billeyinfoswordfish2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoswordfish,tag=!billeyinfoswordfish2] add billeyinfoswordfish2"
+			}
+		},
+		"animation.billeys_mobs.info.mercat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfomercat_v3] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.mercat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfomercat_v3] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfomercat_v3] add billeyinfomercat_v3",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfomercat_v3,tag=!billeyinfomercat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfomercat_v3,tag=!billeyinfomercat2] add billeyinfomercat2"
+			}
+		},
+		"animation.billeys_mobs.info.orca": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoorca] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.orca\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoorca] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoorca] add billeyinfoorca",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoorca,tag=!billeyinfoorca2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoorca,tag=!billeyinfoorca2] add billeyinfoorca2"
+			}
+		},
+		"animation.billeys_mobs.info.pigeon": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfopigeon_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.pigeon\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfopigeon_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfopigeon_v2] add billeyinfopigeon_v2",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfopigeon_v2,tag=!billeyinfopigeon2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfopigeon_v2,tag=!billeyinfopigeon2] add billeyinfopigeon2"
+			}
+		},
+		"animation.billeys_mobs.info.pizzafish": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfopizzafish] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.pizzafish\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfopizzafish] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfopizzafish] add billeyinfopizzafish",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfopizzafish,tag=!billeyinfopizzafish2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfopizzafish,tag=!billeyinfopizzafish2] add billeyinfopizzafish2"
+			}
+		},
+		"animation.billeys_mobs.info.endercat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoendercat] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.endercat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoendercat] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoendercat] add billeyinfoendercat",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoendercat,tag=!billeyinfoendercat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoendercat,tag=!billeyinfoendercat2] add billeyinfoendercat2"
+			}
+		},
+		"animation.billeys_mobs.info.gwshark": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfogwshark_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.gwshark\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfogwshark_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfogwshark_v2] add billeyinfogwshark_v2",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfogwshark_v2,tag=!billeyinfogwshark2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfogwshark_v2,tag=!billeyinfogwshark2] add billeyinfogwshark2"
+			}
+		},
+		"animation.billeys_mobs.info.flyingcat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoflyingcat] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.flyingcat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoflyingcat] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoflyingcat] add billeyinfoflyingcat",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoflyingcat,tag=!billeyinfoflyingcat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoflyingcat,tag=!billeyinfoflyingcat2] add billeyinfoflyingcat2"
+			}
+		},
+		"animation.billeys_mobs.info.picklepet": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfopicklepet] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.picklepet\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfopicklepet] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfopicklepet] add billeyinfopicklepet",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfopicklepet,tag=!billeyinfopicklepet2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfopicklepet,tag=!billeyinfopicklepet2] add billeyinfopicklepet2"
+			}
+		},
+		"animation.billeys_mobs.info.endflyingcat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoendflyingcat] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.endflyingcat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoendflyingcat] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoendflyingcat] add billeyinfoendflyingcat",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoendflyingcat,tag=!billeyinfoendflyingcat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoendflyingcat,tag=!billeyinfoendflyingcat2] add billeyinfoendflyingcat2"
+			}
+		},
+		"animation.billeys_mobs.info.duck": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoduck_v3] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.duck\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoduck_v3] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoduck_v3] add billeyinfoduck_v3",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoduck_v3,tag=!billeyinfoduck2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoduck_v3,tag=!billeyinfoduck2] add billeyinfoduck2"
+			}
+		},
+		"animation.billeys_mobs.info.flyingpig": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoflyingpig] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.flyingpig\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoflyingpig] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoflyingpig] add billeyinfoflyingpig",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoflyingpig,tag=!billeyinfoflyingpig2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoflyingpig,tag=!billeyinfoflyingpig2] add billeyinfoflyingpig2"
+			}
+		},
+		"animation.billeys_mobs.info.penguin": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfopenguin_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.penguin\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfopenguin_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfopenguin_v2] add billeyinfopenguin_v2",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfopenguin_v2,tag=!billeyinfopenguin2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfopenguin_v2,tag=!billeyinfopenguin2] add billeyinfopenguin2"
+			}
+		},
+		"animation.billeys_mobs.info.snail": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfosnail] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.snail\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfosnail] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfosnail] add billeyinfosnail",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfosnail,tag=!billeyinfosnail2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfosnail,tag=!billeyinfosnail2] add billeyinfosnail2"
+			}
+		},
+		"animation.billeys_mobs.info.piranha": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfopiranha] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.piranha\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfopiranha] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfopiranha] add billeyinfopiranha",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfopiranha,tag=!billeyinfopiranha2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfopiranha,tag=!billeyinfopiranha2] add billeyinfopiranha2"
+			}
+		},
+		"animation.billeys_mobs.info.banana_duck": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfobanana_duck_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.banana_duck\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfobanana_duck_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfobanana_duck_v2] add billeyinfobanana_duck_v2",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfobanana_duck_v2,tag=!billeyinfobanana_duck2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfobanana_duck_v2,tag=!billeyinfobanana_duck2] add billeyinfobanana_duck2"
+			}
+		},
+		"animation.billeys_mobs.info.cucumbeel": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfocucumbeel] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.cucumbeel\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfocucumbeel] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfocucumbeel] add billeyinfocucumbeel",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfocucumbeel,tag=!billeyinfocucumbeel2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfocucumbeel,tag=!billeyinfocucumbeel2] add billeyinfocucumbeel2"
+			}
+		},
+		"animation.billeys_mobs.info.pickle_cat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfopickle_cat] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.pickle_cat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfopickle_cat] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfopickle_cat] add billeyinfopickle_cat",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfopickle_cat,tag=!billeyinfopickle_cat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfopickle_cat,tag=!billeyinfopickle_cat2] add billeyinfopickle_cat2"
+			}
+		},
+		"animation.billeys_mobs.info.velvet_worm": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfovelvet_worm_v3] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.velvet_worm\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfovelvet_worm_v3] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfovelvet_worm_v3] add billeyinfovelvet_worm_v3",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfovelvet_worm_v3,tag=!billeyinfovelvet_worm2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfovelvet_worm_v3,tag=!billeyinfovelvet_worm2] add billeyinfovelvet_worm2"
+			}
+		},
+		"animation.billeys_mobs.info.hamster": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfohamster] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.hamster\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfohamster] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfohamster] add billeyinfohamster",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfohamster,tag=!billeyinfohamster2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfohamster,tag=!billeyinfohamster2] add billeyinfohamster2"
+			}
+		},
+		"animation.billeys_mobs.info.goose": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfogoose] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.goose\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfogoose] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfogoose] add billeyinfogoose",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfogoose,tag=!billeyinfogoose2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfogoose,tag=!billeyinfogoose2] add billeyinfogoose2"
+			}
+		},
+		"animation.billeys_mobs.info.catfish": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfocatfish_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.catfish\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfocatfish_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfocatfish_v2] add billeyinfocatfish_v2",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfocatfish_v2,tag=!billeyinfocatfish2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfocatfish_v2,tag=!billeyinfocatfish2] add billeyinfocatfish2"
+			}
+		},
+		"animation.billeys_mobs.info.hammerhead_shark": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfohammerhead_shark] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.hammerhead_shark\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfohammerhead_shark] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfohammerhead_shark] add billeyinfohammerhead_shark",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfohammerhead_shark,tag=!billeyinfohammerhead_shark2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfohammerhead_shark,tag=!billeyinfohammerhead_shark2] add billeyinfohammerhead_shark2"
+			}
+		},
+		"animation.billeys_mobs.info.kiwi": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfokiwi_v3] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.kiwi\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfokiwi_v3] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfokiwi_v3] add billeyinfokiwi_v3",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfokiwi_v3,tag=!billeyinfokiwi2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfokiwi_v3,tag=!billeyinfokiwi2] add billeyinfokiwi2"
+			}
+		},
+		"animation.billeys_mobs.info.betta_fish": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfobetta_fish] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.betta_fish\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfobetta_fish] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfobetta_fish] add billeyinfobetta_fish",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfobetta_fish,tag=!billeyinfobetta_fish2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfobetta_fish,tag=!billeyinfobetta_fish2] add billeyinfobetta_fish2"
+			}
+		},
+		"animation.billeys_mobs.info.electric_eel": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoelectric_eel] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.electric_eel\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoelectric_eel] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoelectric_eel] add billeyinfoelectric_eel",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoelectric_eel,tag=!billeyinfoelectric_eel2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoelectric_eel,tag=!billeyinfoelectric_eel2] add billeyinfoelectric_eel2"
+			}
+		},
+		"animation.billeys_mobs.info.orange_penguin": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoorange_penguin_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.orange_penguin\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoorange_penguin_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoorange_penguin_v2] add billeyinfoorange_penguin_v2",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoorange_penguin_v2,tag=!billeyinfoorange_penguin2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoorange_penguin_v2,tag=!billeyinfoorange_penguin2] add billeyinfoorange_penguin2"
+			}
+		},
+		"animation.billeys_mobs.info.terraphin": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoterraphin] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.terraphin\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoterraphin] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoterraphin] add billeyinfoterraphin",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoterraphin,tag=!billeyinfoterraphin2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoterraphin,tag=!billeyinfoterraphin2] add billeyinfoterraphin2"
+			}
+		},
+		"animation.billeys_mobs.info.mergoose": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfomergoose_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.mergoose\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfomergoose_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfomergoose_v2] add billeyinfomergoose_v2",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfomergoose_v2,tag=!billeyinfomergoose2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfomergoose_v2,tag=!billeyinfomergoose2] add billeyinfomergoose2"
+			}
+		},
+		"animation.billeys_mobs.info.woodlouse": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfowoodlouse_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.woodlouse\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfowoodlouse_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfowoodlouse_v2] add billeyinfowoodlouse_v2",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfowoodlouse_v2,tag=!billeyinfowoodlouse2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfowoodlouse_v2,tag=!billeyinfowoodlouse2] add billeyinfowoodlouse2"
+			}
+		},
+		"animation.billeys_mobs.info.deinonychus": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfodeinonychus_v3] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.deinonychus\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfodeinonychus_v3] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfodeinonychus_v3] add billeyinfodeinonychus_v3",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfodeinonychus_v3,tag=!billeyinfodeinonychus2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfodeinonychus_v3,tag=!billeyinfodeinonychus2] add billeyinfodeinonychus2"
+			}
+		},
+		"animation.billeys_mobs.info.yutyrannus": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoyutyrannus] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.yutyrannus\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoyutyrannus] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoyutyrannus] add billeyinfoyutyrannus",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoyutyrannus,tag=!billeyinfoyutyrannus2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoyutyrannus,tag=!billeyinfoyutyrannus2] add billeyinfoyutyrannus2"
+			}
+		},
+		"animation.billeys_mobs.info.stick_bug": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfostick_bug] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.stick_bug\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfostick_bug] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfostick_bug] add billeyinfostick_bug",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfostick_bug,tag=!billeyinfostick_bug2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfostick_bug,tag=!billeyinfostick_bug2] add billeyinfostick_bug2"
+			}
+		},
+		"animation.billeys_mobs.info.slime_wyvern": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoslime_wyvern] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.slime_wyvern\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoslime_wyvern] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoslime_wyvern] add billeyinfoslime_wyvern",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoslime_wyvern,tag=!billeyinfoslime_wyvern2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoslime_wyvern,tag=!billeyinfoslime_wyvern2] add billeyinfoslime_wyvern2"
+			}
+		},
+		"animation.billeys_mobs.info.tiktaalik": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfotiktaalik] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.tiktaalik\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfotiktaalik] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfotiktaalik] add billeyinfotiktaalik",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfotiktaalik,tag=!billeyinfotiktaalik2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfotiktaalik,tag=!billeyinfotiktaalik2] add billeyinfotiktaalik2"
+			}
+		},
+		"animation.billeys_mobs.info.berry_goose": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfoberry_goose] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.berry_goose\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfoberry_goose] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfoberry_goose] add billeyinfoberry_goose",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfoberry_goose,tag=!billeyinfoberry_goose2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfoberry_goose,tag=!billeyinfoberry_goose2] add billeyinfoberry_goose2"
+			}
+		},
+		"animation.billeys_mobs.info.rat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinforat_v2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.rat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinforat_v2] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinforat_v2] add billeyinforat_v2",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinforat_v2,tag=!billeyinforat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinforat_v2,tag=!billeyinforat2] add billeyinforat2"
+			}
+		},
+		"animation.billeys_mobs.info.netherrat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfonetherrat] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.netherrat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfonetherrat] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfonetherrat] add billeyinfonetherrat",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfonetherrat,tag=!billeyinfonetherrat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfonetherrat,tag=!billeyinfonetherrat2] add billeyinfonetherrat2"
+			}
+		},
+		"animation.billeys_mobs.info.pygmy_dunkleosteus": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfopygmy_dunkleosteus] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.pygmy_dunkleosteus\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfopygmy_dunkleosteus] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfopygmy_dunkleosteus] add billeyinfopygmy_dunkleosteus",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfopygmy_dunkleosteus,tag=!billeyinfopygmy_dunkleosteus2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfopygmy_dunkleosteus,tag=!billeyinfopygmy_dunkleosteus2] add billeyinfopygmy_dunkleosteus2"
+			}
+		},
+		"animation.billeys_mobs.info.giraffe_cat": {
+			"animation_length": 40.0,
+			"start_delay": "math.random(0,2)",
+			"loop": true,
+			"timeline": {
+				"0.0": "/execute @a[r=10,tag=!billeyinfogiraffe_cat] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.giraffe_cat\"}]}",
+				"0.05": "/execute @a[r=10,tag=!billeyinfogiraffe_cat] ~~~ playsound random.orb @s",
+				"0.1": "/tag @a[r=10,tag=!billeyinfogiraffe_cat] add billeyinfogiraffe_cat",
+				"30.0": "/execute @a[r=20,tag=!welcomebillmobs_v2] ~~~ function welcomebillmobs",
+				"7.0": "/execute @a[r=10,tag=billeyinfogiraffe_cat,tag=!billeyinfogiraffe_cat2] ~~~ tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.short_info.formore\"}]}",
+				"7.05": "/tag @a[r=10,tag=billeyinfogiraffe_cat,tag=!billeyinfogiraffe_cat2] add billeyinfogiraffe_cat2"
+			}
+		}
+	}
+}

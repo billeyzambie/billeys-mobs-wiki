@@ -1,0 +1,164 @@
+{
+  //this file is very inefficiently/messily coded,
+  //if you're new to making addons you're better off
+  //not reading it at all
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "billey:poopstain",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "despawn": {
+        "minecraft:instant_despawn": {}
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": [
+          "poop",
+          "inanimate"
+        ]
+      },
+      "minecraft:timer": {
+        "time": [
+          600,
+          900
+        ],
+        "looping": true,
+        "time_down_event": {
+          "event": "melt",
+          "target": "self"
+        }
+      },
+      "minecraft:damage_sensor": {
+        "triggers": [
+          {
+            "on_damage": {
+              "event": "melt"
+            },
+            "deals_damage": false
+          }
+        ]
+      },
+      "minecraft:hurt_on_condition": {
+        "damage_conditions": [
+          {
+            "filters": {
+              "test": "in_lava",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "lava",
+            "damage_per_tick": 1
+          },
+          {
+            "filters": {
+              "test": "in_water_or_rain",
+              "subject": "self",
+              "operator": "==",
+              "value": true
+            },
+            "cause": "drowning",
+            "damage_per_tick": 1
+          }
+        ]
+      },
+      "minecraft:breathable": {
+        "total_supply": 0,
+        "suffocate_time": 0
+      },
+      "minecraft:collision_box": {
+        "width": 0.25,
+        "height": 0.1
+      },
+      "minecraft:nameable": {},
+      "minecraft:health": {
+        "value": 10,
+        "max": 10
+      },      
+      "minecraft:movement": {
+        "value": 0.0
+      },
+      "minecraft:interact": {
+        "interactions": [
+          {
+            "interact_text": "action.interact.pick_up",
+            "on_interact": {
+              "event": "melt"
+            },
+            "swing": true
+          }
+        ]
+      },
+      "minecraft:leashable": {
+        "soft_distance": 4.0,
+        "hard_distance": 6.0,
+        "max_distance": 10.0,
+        "on_leash": {
+          "event": "minecraft:on_leash",
+          "target": "self"
+        },
+        "on_unleash": {
+          "event": "minecraft:on_unleash",
+          "target": "self"
+        }
+      },
+      "minecraft:balloonable": {
+        "mass": 0.1
+      },
+      "minecraft:navigation.walk": {
+        "can_path_over_water": true,
+        "avoid_damage_blocks": true
+      },
+      "minecraft:movement.basic": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:jump.static": {},
+      "minecraft:can_climb": {},
+      "minecraft:behavior.panic": {
+        "priority": 1,
+        "speed_multiplier": 1.5
+      },
+      "minecraft:behavior.mount_pathing": {
+        "priority": 2,
+        "speed_multiplier": 1.5,
+        "target_dist": 0.0,
+        "track_target": true
+      },
+      "minecraft:behavior.tempt": {
+        "priority": 4,
+        "speed_multiplier": 1.0,
+        "items": [
+          "diamond"
+        ]
+      },
+      "minecraft:physics": {},
+      "minecraft:push_through": {
+        "value": 1
+      }
+    },
+    "events": {
+      "melt": {
+        "queue_command": {
+          "command": [
+            "loot spawn ~~~ loot \"entities/billbirdpoopitem\"",
+            "event entity @s despawn"
+          ]
+        }
+      },
+      "despawn": {
+        "add": {
+          "component_groups": [
+            "despawn"
+          ]
+        }
+      }
+    }
+  }
+}

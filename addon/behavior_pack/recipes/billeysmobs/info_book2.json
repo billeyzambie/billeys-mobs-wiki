@@ -1,0 +1,21 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+      "description": {
+      "identifier": "billey:info_book2"
+      },
+       "tags": [ "crafting_table" ],
+      "ingredients": [
+        {
+          "item": "minecraft:book"
+        },
+        {
+          "tag": "billey:can_craft_info_book"
+        }
+      ],
+      "result": {
+       "item": "billey:info_book"
+     }
+    }
+  }
+  

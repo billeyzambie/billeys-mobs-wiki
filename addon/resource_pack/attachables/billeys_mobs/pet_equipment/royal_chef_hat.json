@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "billey:royal_rat_chef_hat_attachable",
+            "item": {
+                "billey:royal_rat_chef_hat": "q.owner_identifier != 'minecraft:player'"
+            },
+            "materials": {
+                "default": "armor"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/rat_royal_chef_hat"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.pet_chef_hat"
+            },
+            "animations": {
+                /*makes it the same size even if the mob is scaled (eg. baby),
+                looks kinda goofy at times but i like it*/
+                "remove_scale": "animation.billeys_mobs.pet_hat.remove_scale"
+            },
+            "scripts": {
+                "animate": [
+                    "remove_scale"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.default"
+            ]
+        }
+    }
+}

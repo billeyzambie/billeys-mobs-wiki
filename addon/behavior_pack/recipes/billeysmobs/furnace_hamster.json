@@ -1,0 +1,14 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_furnace": {
+    "description": {
+    "identifier": "billey:furnace_hamster"
+    },
+
+   
+    "tags": ["furnace", "smoker", "campfire"],
+    "input": "billey:raw_hamster",
+    "output": "billey:cooked_hamster"
+  }
+ 
+}

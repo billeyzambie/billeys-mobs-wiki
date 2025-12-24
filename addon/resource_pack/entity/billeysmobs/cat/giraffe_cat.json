@@ -1,0 +1,120 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:giraffe_cat",
+            "materials": {
+                "default": "entity_alphatest"
+            },
+            "textures": {
+                "giraffe": "textures/entity/billeys_mobs/giraffe_cat/giraffe",
+                "giraffe1": "textures/entity/billeys_mobs/giraffe_cat/giraffe1",
+                "giraffe2": "textures/entity/billeys_mobs/giraffe_cat/giraffe2",
+                "giraffe3": "textures/entity/billeys_mobs/giraffe_cat/giraffe3",
+                "giraffe4": "textures/entity/billeys_mobs/giraffe_cat/giraffe4",
+                "zombie": "textures/entity/billeys_mobs/giraffe_cat/zombie",
+                "white": "textures/entity/billeys_mobs/giraffe_cat/white",
+                "black": "textures/entity/billeys_mobs/giraffe_cat/tuxedo",
+                "red": "textures/entity/billeys_mobs/giraffe_cat/redtabby",
+                "siamese": "textures/entity/billeys_mobs/giraffe_cat/siamesecat",
+                "british": "textures/entity/billeys_mobs/giraffe_cat/britishshorthair",
+                "calico": "textures/entity/billeys_mobs/giraffe_cat/calico",
+                "persian": "textures/entity/billeys_mobs/giraffe_cat/persian",
+                "ragdoll": "textures/entity/billeys_mobs/giraffe_cat/ragdoll",
+                "tabby": "textures/entity/billeys_mobs/giraffe_cat/tabby",
+                "jellie": "textures/entity/billeys_mobs/giraffe_cat/jellie",
+                "blackorange": "textures/entity/billeys_mobs/giraffe_cat/blackorange",
+                "blackwhite": "textures/entity/billeys_mobs/giraffe_cat/blackwhite",
+                "perry": "textures/entity/billeys_mobs/giraffe_cat/perry",
+                "pizza": "textures/entity/billeys_mobs/giraffe_cat/pizza",
+                "sugar": "textures/entity/billeys_mobs/giraffe_cat/sugar",
+                "all_black": "textures/entity/billeys_mobs/giraffe_cat/allblackcat",
+                "lily": "textures/entity/billeys_mobs/giraffe_cat/lily"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.giraffe_cat"
+            },
+            "animations": {
+                "new": "animation.billeys_mobs.duckproj.body",
+                "general_cont": "controller.animation.billeys_mobs.giraffe_cat.general",
+                "look_at_target_cont": "controller.animation.billeys_mobs.giraffe_cat.look_at_target",
+                "look": "animation.billeys_mobs.giraffe_cat.look",
+                "bend_over": "animation.billeys_mobs.giraffe_cat.bend_over",
+                "sitcont": "controller.animation.billeys_mobs.sitforcat",
+                "eatcont": "controller.animation.billeys_mobs.eat",
+                "raising": "controller.animation.billeys_mobs.eatnoblend",
+                "sneak": "animation.cat.sneak",
+                "walk": "animation.cat.walk",
+                "sprint": "animation.cat.sprint",
+                "sit": "animation.billeys_mobs.giraffe_cat.sit",
+                "yeet": "animation.billeys_mobs.giraffe_cat.yeet",
+                "dig": "animation.billeys_mobs.giraffe_cat.dig",
+                "set_dig_variables": "animation.billeys_mobs.giraffe_cat.set_dig_variables",
+                "ladder": "animation.billeys_mobs.giraffe_cat.ladder",
+                "hurt": "animation.billeys_mobs.cat.hurt",
+                "stand": "controller.animation.bcat.move",
+                "baby_transform": "animation.cat.baby_transform",
+                "lie_down": "animation.cat.lie_down",
+                "fix": "animation.bcat.fix",
+                "eat": "animation.cat.tailsnek",
+                "beg": "animation.cat.beg"
+            },
+            "scripts": {
+                "should_update_bones_and_effects_offscreen": "v.is_ladder || v.is_yeeting || q.graphics_mode_is_any('raytraced')",
+                "variables": {
+                    "variable.head_size_x": "public",
+                    "variable.head_size_y": "public",
+                    "variable.head_size_z": "public"
+                },
+                "initialize": [
+                    "v.head_size_x = 5;",
+                    "v.head_size_y = 4;",
+                    "v.head_size_z = 5;",
+                    "v.smooth_ladder_height = q.property('billey:ladder_height');",
+                    "v.smooth_scale = q.model_scale;",
+                    "v.smooth_baby = q.is_baby;",
+                    "v.digging_amplitude_multiplier = math.random(0.5, 2);",
+                    "v.digging_frequency_multiplier = math.random(0.5, 4);",
+                    "v.digging_angle_offset = math.random(-20, 20);",
+                    "v.smooth_digging_amplitude_multiplier = v.digging_amplitude_multiplier;",
+                    "v.smooth_digging_frequency_multiplier = v.digging_frequency_multiplier;",
+                    "v.smooth_digging_angle_offset = v.digging_angle_offset;"
+                ],
+                "pre_animation": [
+                    "v.is_cat_hybrid = q.property('billey:is_cat_hybrid');",
+                    "v.has_snout = q.property('billey:has_snout');",
+                    "v.variant = q.property('billey:variant');",
+                    "v.is_ladder = q.property('billey:is_ladder');",
+                    "v.is_digging = q.property('billey:is_digging');",
+                    "v.is_yeeting = q.property('billey:is_yeeting');",
+                    "v.ladder_height = q.property('billey:ladder_height');",
+                    "v.smooth_ladder_height = v.smooth_ladder_height + (v.ladder_height - v.smooth_ladder_height) * (1.0 - math.exp(-q.delta_time * 10));",
+                    "v.show_details = q.distance_from_camera < 7;",
+                    "v.smooth_scale = v.show_details ? (v.smooth_scale + (q.model_scale - v.smooth_scale) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.model_scale;",
+                    "v.smooth_baby = v.show_details ? (v.smooth_baby + (q.is_baby - v.smooth_baby) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.is_baby;",
+                    "v.smooth_digging_amplitude_multiplier = v.is_digging ? (v.smooth_digging_amplitude_multiplier + (v.digging_amplitude_multiplier - v.smooth_digging_amplitude_multiplier) * (1.0 - math.exp(-q.delta_time))) : v.digging_amplitude_multiplier;",
+                    "v.smooth_digging_frequency_multiplier = v.is_digging ? (v.smooth_digging_frequency_multiplier + (v.digging_frequency_multiplier - v.smooth_digging_frequency_multiplier) * (1.0 - math.exp(-q.delta_time))) : v.digging_frequency_multiplier;",
+                    "v.smooth_digging_angle_offset = v.is_digging ? (v.smooth_digging_angle_offset + (v.digging_angle_offset - v.smooth_digging_angle_offset) * (1.0 - math.exp(-q.delta_time))) : v.digging_angle_offset;"
+                ],
+                "scale": "v.smooth_scale / q.model_scale",
+                "animate": [
+                    "new",
+                    "raising",
+                    "eatcont",
+                    {
+                        "baby_transform": "v.smooth_baby"
+                    },
+                    "general_cont"
+                ]
+            },
+            "enable_attachables": true,
+            "hide_armor": false,
+            "render_controllers": [
+                "controller.render.billeys_mobs.giraffe_cat"
+            ],
+            "spawn_egg": {
+                "texture": "billey.giraffe_cat_spawn_egg"
+            }
+        }
+    }
+}

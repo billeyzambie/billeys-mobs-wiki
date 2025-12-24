@@ -1,0 +1,3751 @@
+{
+    "format_version": "1.8.0",
+    "minecraft:entity": {
+        "description": {
+            "identifier": "billey:electric_eel",
+            "runtime_identifier": "minecraft:cod",
+            "is_spawnable": true,
+            "is_summonable": true,
+            "scripts": {
+                "animate": [
+                    "check_beta_apis",
+                    {
+                        "rainbow_effects": "q.is_illager_captain"
+                    },
+                    {
+                        "info": "!q.is_tamed"
+                    },
+                    "tame",
+                    "electrocute_on_scare",
+                    "tired_system"
+                ]
+            },
+            "animations": {
+                "check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+                "rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+                "stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+                "info": "animation.billeys_mobs.info.electric_eel",
+                "tired_system": "animation.billeys_mobs.elec.sleep",
+                "tame": "controller.animation.billeys_mobs.tame",
+                "electrocute_on_scare": "controller.animation.billeys_mobs.eelflee"
+            },
+            
+            "properties": {
+                "billey:in_tank": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": false
+                },
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                }
+            }
+        },
+        "component_groups": {
+            "tamed_component": {
+                "minecraft:is_tamed": {}
+            },
+            "untamed": { /*This is just for ones untamed by the untaming stick.
+The real tame items of this mob are in the wild component group*/
+                "minecraft:tameable": {
+                    "probability": 1.0,
+                    "tame_event": {
+                        "event": "tamed_yay"
+                    },
+                    "tame_items": [
+                        "billey:power_banana",
+                        "billey:raw_catfish",
+                        "billey:bettafish",
+                        "billey:pizzapiece",
+                        "salmon",
+                        "fish",
+                        "rotten_flesh",
+                        "wheat_seeds",
+                        "melon_seeds",
+                        "carrot",
+                        "beetroot_seeds",
+                        "pumpkin_seeds",
+                        "chicken",
+                        "billey:raw_hamster",
+                        "billey:poultry_orange",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
+                        "billey:raw_snail_w",
+                        "billey:raw_piranha",
+                        "bread",
+                        "apple",
+                        "fermented_spider_eye",
+                        "spider_eye",
+                        "string"
+                    ]
+                }
+            },
+            "following": {
+                "minecraft:behavior.follow_owner": {
+                    "can_teleport": false,
+                    "priority": 0,
+                    "speed_multiplier": 1.25,
+                    "start_distance": 7,
+                    "stop_distance": 5
+                }
+            },
+            "awake": {
+                "minecraft:behavior.melee_attack": {
+                    "require_complete_path": true,
+                    "priority": 2,
+                    "speed_multiplier": 1,
+                    "track_target": true
+                },
+                "minecraft:navigation.generic": {
+                    "is_amphibious": false,
+                    "can_path_over_water": false,
+                    "can_swim": true,
+                    "can_walk": false,
+                    "can_breach": false,
+                    "can_sink": false
+                },
+                "minecraft:behavior.random_swim": {
+                    "speed_multiplier": 1.0,
+                    "priority": 3,
+                    "xz_dist": 16,
+                    "y_dist": 2,
+                    "interval": 0
+                },
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": [
+                        10,
+                        30
+                    ],
+                    "time_down_event": {
+                        "event": "flap",
+                        "target": "self"
+                    }
+                }
+            },
+            "asleep": {
+                "minecraft:is_sheared": {},
+                "minecraft:navigation.generic": {
+                    "is_amphibious": false,
+                    "can_path_over_water": false,
+                    "can_swim": false,
+                    "can_walk": true,
+                    "can_breach": false,
+                    "can_sink": true
+                },
+                "minecraft:behavior.random_swim": {
+                    "speed_multiplier": 1.0,
+                    "priority": 3,
+                    "xz_dist": 16,
+                    "y_dist": 0,
+                    "interval": 0
+                },
+                "minecraft:timer": {
+                    "looping": true,
+                    "time": [
+                        30,
+                        120
+                    ],
+                    "time_down_event": {
+                        "event": "wake_up",
+                        "target": "self"
+                    }
+                }
+            },
+            "adult": {
+                "minecraft:experience_reward": {
+                    "on_death": "q.last_hit_by_player ? Math.Random(1,3) : 0",
+                    "on_bred": "Math.Random(1,3)"
+                }
+            },
+            "baby_tamed": {
+                "minecraft:ageable": {
+                    "duration": 4800,
+                    "feed_items": [
+                        "wheat_seeds",
+                        "beetroot_seeds",
+                        "melon_seeds",
+                        "pumpkin_seeds",
+                        "spider_eye",
+                        "carrot",
+                        "seagrass",
+                        "billey:pizzapiece",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
+                        "billey:cooked_snail",
+                        "billey:cooked_snail_s",
+                        "billey:cooked_snail_w",
+                        "billey:raw_snail_w"
+                    ],
+                    "grow_up": {
+                        "event": "grow_up",
+                        "target": "self"
+                    }
+                }
+            },
+            "baby_wild": {
+                "minecraft:ageable": {
+                    "duration": 4800,
+                    "feed_items": [
+                        "wheat_seeds",
+                        "beetroot_seeds",
+                        "melon_seeds",
+                        "pumpkin_seeds",
+                        "carrot",
+                        "seagrass",
+                        "billey:raw_snail",
+                        "billey:raw_snail_s",
+                        "billey:cooked_snail",
+                        "billey:cooked_snail_s",
+                        "billey:cooked_snail_w",
+                        "billey:raw_snail_w"
+                    ],
+                    "grow_up": {
+                        "event": "grow_up",
+                        "target": "self"
+                    }
+                }
+            },
+            "baby": {
+                "minecraft:is_baby": {},
+                "minecraft:scale": {
+                    "value": 0.5
+                },
+                "minecraft:health": {
+                    "value": 5,
+                    "max": 5
+                }
+            },
+            "kromatik": {
+                "minecraft:is_illager_captain": {}
+            },
+            "zero": {
+                "minecraft:variant": {
+                    "value": 0
+                }
+            },
+            "one": {
+                "minecraft:variant": {
+                    "value": 1
+                }
+            },
+            "two": {
+                "minecraft:variant": {
+                    "value": 2
+                },
+                "minecraft:is_dyeable": {
+                    "interact_text": "action.interact.dye"
+                }
+            },
+            "three": {
+                "minecraft:variant": {
+                    "value": 3
+                }
+            },
+            "four": {
+                "minecraft:variant": {
+                    "value": 4
+                }
+            },
+            "five": {
+                "minecraft:variant": {
+                    "value": 5
+                }
+            },
+            "six": {
+                "minecraft:variant": {
+                    "value": 6
+                }
+            },
+            "seven": {
+                "minecraft:variant": {
+                    "value": 7
+                }
+            },
+            "eight": {
+                "minecraft:variant": {
+                    "value": 8
+                }
+            },
+            "nine": {
+                "minecraft:variant": {
+                    "value": 9
+                }
+            },
+            "ten": {
+                "minecraft:variant": {
+                    "value": 10
+                }
+            },
+            "eleven": {
+                "minecraft:variant": {
+                    "value": 11
+                }
+            },
+            "twelve": {
+                "minecraft:variant": {
+                    "value": 12
+                }
+            },
+            "thirteen": {
+                "minecraft:variant": {
+                    "value": 13
+                }
+            },
+            "fourteen": {
+                "minecraft:variant": {
+                    "value": 14
+                }
+            },
+            "fifteen": {
+                "minecraft:variant": {
+                    "value": 15
+                }
+            },
+            "sixteen": {
+                "minecraft:variant": {
+                    "value": 16
+                }
+            },
+            "seventeen": {
+                "minecraft:variant": {
+                    "value": 17
+                }
+            },
+            "eighteen": {
+                "minecraft:variant": {
+                    "value": 18
+                }
+            },
+            "nineteen": {
+                "minecraft:variant": {
+                    "value": 19
+                }
+            },
+            "twenty": {
+                "minecraft:variant": {
+                    "value": 20
+                }
+            },
+            "twentyone": {
+                "minecraft:variant": {
+                    "value": 21
+                }
+            },
+            "scale4": {
+                "minecraft:scale": {
+                    "value": 0.7
+                },
+                "minecraft:health": {
+                    "value": 5,
+                    "max": 5
+                }
+            },
+            "scale5": {
+                "minecraft:scale": {
+                    "value": 0.8
+                },
+                "minecraft:health": {
+                    "value": 5,
+                    "max": 5
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/picklepet.json"
+                }
+            },
+            "scale6": {
+                "minecraft:scale": {
+                    "value": 0.9
+                },
+                "minecraft:health": {
+                    "value": 6,
+                    "max": 6
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/billbettafish.json"
+                }
+            },
+            "scale7": {
+                "minecraft:scale": {
+                    "value": 1
+                },
+                "minecraft:health": {
+                    "value": 7,
+                    "max": 7
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/fish.json"
+                }
+            },
+            "scale8": {
+                "minecraft:scale": {
+                    "value": 1.1
+                },
+                "minecraft:health": {
+                    "value": 7,
+                    "max": 7
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/billey_electric_eel.json"
+                }
+            },
+            "scale9": {
+                "minecraft:scale": {
+                    "value": 1.2
+                },
+                "minecraft:health": {
+                    "value": 7,
+                    "max": 7
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/billey_electric_eel.json"
+                }
+            },
+            "scale10": {
+                "minecraft:scale": {
+                    "value": 1.3
+                },
+                "minecraft:health": {
+                    "value": 7,
+                    "max": 7
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/billey_electric_eel.json"
+                }
+            },
+            "scale11": {
+                "minecraft:scale": {
+                    "value": 1.4
+                },
+                "minecraft:health": {
+                    "value": 8,
+                    "max": 8
+                },
+                "minecraft:loot": {
+                    "table": "loot_tables/entities/billey_electric_eel.json"
+                }
+            },
+            "dead": {
+                "minecraft:transformation": {
+                    "into": "billey:despawn",
+                    "delay": 0.01
+                }
+            },
+            "wild": {
+                "minecraft:behavior.avoid_mob_type": {
+                    "priority": 1,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "any_of": [
+                                    {
+                                        "all_of": [
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "player"
+                                            },
+                                            {
+                                                "test": "has_equipment",
+                                                "subject": "other",
+                                                "domain": "hand",
+                                                "operator": "!=",
+                                                "value": "billey:anglerlight"
+                                            },
+                                            {
+                                                "test": "has_component",
+                                                "subject": "self",
+                                                "value": "minecraft:is_sheared",
+                                                "operator": "not"
+                                            },
+                                            {
+                                                "test": "in_water",
+                                                "subject": "other"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "all_of": [
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "value": "eatscod"
+                                            },
+                                            {
+                                                "test": "is_family",
+                                                "subject": "other",
+                                                "operator": "!=",
+                                                "value": "angler"
+                                            },
+                                            {
+                                                "test": "in_water",
+                                                "subject": "other"
+                                            },
+                                            {
+                                                "test": "has_component",
+                                                "subject": "self",
+                                                "value": "minecraft:is_sheared",
+                                                "operator": "not"
+                                            },
+                                            {
+                                                "test": "has_component",
+                                                "subject": "other",
+                                                "value": "minecraft:is_tamed",
+                                                "operator": "not"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            "max_dist": 4,
+                            "walk_speed_multiplier": 1.2,
+                            "sprint_speed_multiplier": 1.3
+                        }
+                    ]
+                },
+                "minecraft:shareables": {
+                    "all_items": false,
+                    "all_items_max_amount": 1,
+                    "items": [
+                        {
+                            "item": "minecraft:chicken",
+                            "priority": 0,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "minecraft:clownfish",
+                            "priority": 0,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "minecraft:fish",
+                            "priority": 0,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "minecraft:rotten_flesh",
+                            "priority": 0,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "minecraft:salmon",
+                            "priority": 0,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:swordmeat",
+                            "priority": 0,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:swordcooked",
+                            "priority": 0,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "minecraft:bone",
+                            "priority": 1,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "minecraft:feather",
+                            "priority": 1,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "minecraft:dye", //ink sac
+                            "priority": 1,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:shark_tooth",
+                            "priority": 1,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:shark_scales",
+                            "priority": 1,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:swordfin",
+                            "priority": 1,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:swordtail",
+                            "priority": 1,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:swordstick",
+                            "priority": 1,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:anglerlight",
+                            "priority": 1,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:betta_fish",
+                            "priority": 0,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:raw_catfish",
+                            "priority": 0,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:pizzapiece",
+                            "priority": 0,
+                            "max_amount": 1
+                        },
+                        {
+                            "item": "billey:raw_piranha",
+                            "priority": 0,
+                            "max_amount": 1
+                        }
+                    ]
+                },
+                "minecraft:behavior.eat_carried_item": {
+                    "priority": 4,
+                    "delay_before_eating": 0
+                },
+                "minecraft:behavior.pickup_items": {
+                    "priority": 0,
+                    "max_dist": 10,
+                    "goal_radius": 2,
+                    "speed_multiplier": 1.1
+                },
+                "minecraft:behavior.equip_item": {
+                    "priority": 2
+                },
+                "minecraft:despawn": {
+                    "despawn_from_distance": {}
+                },
+                "minecraft:type_family": {
+                    "family": [
+                        "fish",
+                        "electriceel",
+                        "electric_eel",
+                        "wildcod",
+                        "mob"
+                    ]
+                },
+                "minecraft:tameable": {
+                    "probability": 0.69420666,
+                    "tame_items": [
+                        "billey:power_banana",
+                        "billey:pizzapiece",
+                        "spider_eye"
+                    ],
+                    "tame_event": {
+                        "event": "tamed_yay",
+                        "target": "self"
+                    }
+                }
+            },
+            "tamed": {
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 1,
+                    "entity_types": {
+                        "filters": {
+                            "test": "has_tag",
+                            "subject": "self",
+                            "value": "billey:brave"
+                        }
+                    }
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 2,
+                    "entity_types": {
+                        "max_dist": 127,
+                        "filters": {
+                            "test": "has_tag",
+                            "subject": "self",
+                            "value": "billey:brave"
+                        }
+                    }
+                },
+                "minecraft:type_family": {
+                    "family": [
+                        "electriceel",
+                        "electric_eel",
+                        "fish",
+                        "mob"
+                    ]
+                },
+                "minecraft:behavior.avoid_mob_type": {
+                    "priority": 1,
+                    "entity_types": [
+                        {
+                            "filters": {
+                                "all_of": [
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "eatscod"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "wildcod"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "value": "wildpiranha"
+                                    },
+                                    {
+                                        "test": "is_family",
+                                        "subject": "other",
+                                        "operator": "!=",
+                                        "value": "angler"
+                                    },
+                                    {
+                                        "test": "in_water",
+                                        "subject": "other"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "self",
+                                        "value": "minecraft:is_sheared",
+                                        "operator": "not"
+                                    },
+                                    {
+                                        "test": "has_component",
+                                        "subject": "other",
+                                        "value": "minecraft:is_tamed",
+                                        "operator": "not"
+                                    }
+                                ]
+                            },
+                            "max_dist": 4,
+                            "walk_speed_multiplier": 1.2,
+                            "sprint_speed_multiplier": 1.3
+                        }
+                    ]
+                },
+                "minecraft:persistent": {},
+                "minecraft:leashable": {
+                    "soft_distance": 6.0,
+                    "hard_distance": 8.0,
+                    "max_distance": 12.0
+                },
+                "minecraft:healable": {
+                    "items": [
+                        {
+                            "item": "billey:cooked_snail",
+                            "heal_amount": 4,
+                            "effects": [
+                                {
+                                    "name": "strength",
+                                    "chance": 1.0,
+                                    "duration": 15,
+                                    "amplifier": 1
+                                }
+                            ]
+                        },
+                        {
+                            "item": "billey:cooked_snail_s",
+                            "heal_amount": 4,
+                            "effects": [
+                                {
+                                    "name": "speed",
+                                    "chance": 1.0,
+                                    "duration": 15,
+                                    "amplifier": 1
+                                }
+                            ]
+                        },
+                        {
+                            "item": "billey:cooked_snail_w",
+                            "heal_amount": 4,
+                            "effects": [
+                                {
+                                    "name": "regeneration",
+                                    "chance": 1.0,
+                                    "duration": 15,
+                                    "amplifier": 1
+                                }
+                            ]
+                        },
+                        {
+                            "item": "wheat_seeds",
+                            "heal_amount": 1
+                        },
+                        {
+                            "item": "melon_seeds",
+                            "heal_amount": 1
+                        },
+                        {
+                            "item": "pumpkin_seeds",
+                            "heal_amount": 1
+                        },
+                        {
+                            "item": "beetroot",
+                            "heal_amount": 1
+                        },
+                        {
+                            "item": "seagrass",
+                            "heal_amount": 1
+                        },
+                        {
+                            "item": "billey:pizzapiece",
+                            "heal_amount": 4
+                        },
+                        {
+                            "item": "spider_eye",
+                            "heal_amount": 4
+                        }
+                    ]
+                },
+                "minecraft:is_tamed": {},
+                "minecraft:tameable": {} //for the script to be able to get and set owner
+            }
+        },
+        "components": {
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "event": "exit_fish_tank",
+                        "target": "self",
+                        "filters": [
+                            {
+                                "test": "is_riding",
+                                "subject": "self",
+                                "value": false
+                            },
+                            {
+                                "test": "bool_property",
+                                "subject": "self",
+                                "domain": "billey:in_tank",
+                                "value": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            "minecraft:block_sensor": {
+                "sensor_radius": 0,
+                "on_break": [{
+                    "block_list": [
+                        "billey:fish_tank"
+                    ],
+                    "on_block_broken": "exit_fish_tank"
+                }]
+            },
+            "minecraft:is_hidden_when_invisible": {},
+            "minecraft:interact": [
+                {
+                    "play_sounds": "plop",
+                    "swing": true,
+                    "interact_text": "action.interact.get_info",
+                    "on_interact": {
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "feather"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "book"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "billey:info_book"
+                                }
+                            ]
+                        },
+                        "event": "send_info",
+                        "target": "self"
+                    }
+                },
+                {
+                    "play_sounds": "plop",
+                    "swing": true,
+                    "interact_text": "action.interact.untame",
+                    "on_interact": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "billey:untaming_stick"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_owner",
+                                    "subject": "other",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        "event": "untame",
+                        "target": "self"
+                    }
+                },
+                {
+                    "interact_text": "action.interact.pet",
+                    "on_interact": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "operator": "!=",
+                                    "value": "billey:swordfish"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "operator": "!=",
+                                    "value": "billey:golden_swordfish"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_sleeping",
+                                    "subject": "self",
+                                    "value": false
+                                },
+                                {
+                                    "test": "is_sneaking",
+                                    "subject": "other",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        "event": "bepetted",
+                        "target": "self"
+                    }
+                },
+                {
+                    "use_item": true,
+                    "play_sounds": "eat",
+                    "interact_text": "action.interact.feed",
+                    "on_interact": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "billey:sand_banana"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                }
+                            ]
+                        },
+                        "event": "beenfedabanana",
+                        "target": "self"
+                    }
+                },
+                {
+                    "use_item": true,
+                    "play_sounds": "milk",
+                    "interact_text": "action.interact.use",
+                    "transform_to_item": "glass_bottle",
+                    "on_interact": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "billey:colorful_bottle"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_owner",
+                                    "subject": "other",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        "event": "kroma",
+                        "target": "self"
+                    }
+                },
+                {
+                    "use_item": true,
+                    "play_sounds": "milk",
+                    "interact_text": "action.interact.use",
+                    "transform_to_item": "glass_bottle",
+                    "on_interact": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "billey:colorless_bottle"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_owner",
+                                    "subject": "other",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        "event": "nokroma",
+                        "target": "self"
+                    }
+                },
+                {
+                    "play_sounds": "plop",
+                    "swing": true,
+                    "interact_text": "action.interact.wander",
+                    "on_interact": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "stick"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:behavior.follow_owner"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_owner",
+                                    "subject": "other",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        "event": "eventwander",
+                        "target": "self"
+                    }
+                },
+                {
+                    "play_sounds": "plop",
+                    "swing": true,
+                    "interact_text": "action.interact.follow",
+                    "on_interact": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "stick"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "not",
+                                    "value": "minecraft:behavior.follow_owner"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "player"
+                                },
+                                {
+                                    "test": "is_owner",
+                                    "subject": "other",
+                                    "value": true
+                                }
+                            ]
+                        },
+                        "event": "eventfollow",
+                        "target": "self"
+                    }
+                }
+            ], //dqw4w9wgxcq
+            "minecraft:damage_sensor": [
+                {
+                    "on_damage": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_owner",
+                                    "subject": "other",
+                                    "value": true
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "subject": "other",
+                                    "operator": "not",
+                                    "value": "billey:can_hit_own_pet"
+                                }
+                            ]
+                        },
+                        "event": "say_owner_hit_pet_info"
+                    },
+                    "cause": "all",
+                    "deals_damage": false
+                },
+                {
+                    "on_damage": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "value": "minecraft:is_tamed"
+                                },
+                                {
+                                    "test": "is_owner",
+                                    "subject": "other",
+                                    "value": false
+                                },
+                                {
+                                    "test": "has_tag",
+                                    "subject": "other",
+                                    "value": "billey:cant_hit_other_pet"
+                                }
+                            ]
+                        },
+                        "event": "say_other_hit_pet_info"
+                    },
+                    "cause": "all",
+                    "deals_damage": false
+                },
+                {
+                    "on_damage": {
+                        "filters": {
+                            "none_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "eatscod"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "billey:swordfish"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "hand",
+                                    "value": "billey:golden_swordfish"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "piranha"
+                                },
+                                {
+                                    "all_of": [
+                                        {
+                                            "test": "has_component",
+                                            "subject": "self",
+                                            "value": "minecraft:is_sheared"
+                                        },
+                                        {
+                                            "test": "has_damage",
+                                            "value": "fatal",
+                                            "operator": "not"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "event": "electrocute_event"
+                    }
+                },
+                {
+                    "on_damage": {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "other",
+                            "domain": "hand",
+                            "value": "billey:swordfish"
+                        },
+                        "event": "dokillgroup"
+                    },
+                    "deals_damage": false
+                },
+                {
+                    "on_damage": {
+                        "filters": {
+                            "test": "has_equipment",
+                            "subject": "other",
+                            "domain": "hand",
+                            "value": "billey:golden_swordfish"
+                        },
+                        "event": "burnearby"
+                    },
+                    "deals_damage": false
+                },
+                {
+                    "on_damage": {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_family",
+                                            "subject": "other",
+                                            "value": "eatscod"
+                                        },
+                                        {
+                                            "test": "is_family",
+                                            "subject": "other",
+                                            "value": "piranha"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "test": "has_damage",
+                                    "value": "fatal"
+                                }
+                            ]
+                        },
+                        "event": "die"
+                    },
+                    "deals_damage": false
+                },
+                {
+                    "cause": "all",
+                    "deals_damage": false,
+                    "on_damage_sound_event": "armor.equip_generic",
+                    "on_damage": {
+                        "event": "destroy_head_equipment",
+                        "target": "self",
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_damage",
+                                    "value": "fatal"
+                                },
+                                {
+                                    "test": "has_equipment",
+                                    "value": "billey:pet_hat",
+                                    "domain": "head"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ],
+            "minecraft:type_family": {
+                "family": [
+                    "bettafish",
+                    "fish",
+                    "mob"
+                ]
+            },
+            "minecraft:behavior.nearest_attackable_target": {
+                "priority": 0,
+                "entity_types": [
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "value": "wildangler"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "not",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "is_family",
+                            "subject": "other",
+                            "value": "anglerfish_boost"
+                        },
+                        "max_dist": 127,
+                        "must_see": false
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "test": "has_equipment",
+                                    "subject": "other",
+                                    "domain": "any",
+                                    "value": "billey:anglerlight"
+                                },
+                                {
+                                    "test": "is_family",
+                                    "subject": "other",
+                                    "operator": "not",
+                                    "value": "inanimate"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "subject": "self",
+                                    "operator": "not",
+                                    "value": "minecraft:is_tamed"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            "minecraft:collision_box": {
+                "width": 0.25,
+                "height": 0.25
+            },
+            "minecraft:breathable": {
+                "total_supply": 15,
+                "suffocate_time": 0,
+                "breathes_air": false,
+                "breathes_water": true
+            },
+            "minecraft:hurt_on_condition": {
+                "damage_conditions": [
+                    {
+                        "filters": {
+                            "test": "in_lava",
+                            "subject": "self",
+                            "operator": "==",
+                            "value": true
+                        },
+                        "cause": "lava",
+                        "damage_per_tick": 4
+                    }
+                ]
+            },
+            "minecraft:underwater_movement": {
+                "value": 0.08
+            },
+            "minecraft:movement": {
+                "value": 0.08
+            },
+            "minecraft:navigation.generic": {
+                "is_amphibious": false,
+                "can_path_over_water": false,
+                "can_swim": true,
+                "can_walk": false,
+                "can_breach": false,
+                "can_sink": false
+            },
+            "minecraft:movement.sway": {
+                "sway_amplitude": 0.0
+            },
+            "minecraft:behavior.swim_idle": {
+                "priority": 5
+            },
+            "minecraft:behavior.random_swim": {
+                "speed_multiplier": 1.0,
+                "priority": 3,
+                "xz_dist": 16,
+                "y_dist": 2,
+                "interval": 0
+            },
+            "minecraft:behavior.swim_wander": {
+                "priority": 4,
+                "speed_multiplier": 0.014,
+                "interval": 60
+            },
+            "minecraft:physics": {
+                "has_gravity": false
+            },
+            "minecraft:pushable": {
+                "is_pushable": true,
+                "is_pushable_by_piston": true
+            },
+            "minecraft:attack": {
+                "damage": [
+                    0,
+                    1
+                ]
+            },
+            "minecraft:nameable": {},
+            "minecraft:behavior.hurt_by_target": {
+                "priority": 2,
+                "entity_types": {
+                    "filters": {
+                        "test": "has_tag",
+                        "subject": "self",
+                        "value": "billey:brave"
+                    }
+                }
+            },
+            "minecraft:on_target_acquired": {
+                "event": "billey:pet_target_acquired",
+                "target": "self"
+            },
+            "minecraft:on_target_escape": {
+                "event": "billey:pet_target_escape",
+                "target": "self"
+            }
+        },
+        "events": {
+            "enter_fish_tank": {
+                "set_property": {
+                    "billey:in_tank": true
+                }
+            },
+            "exit_fish_tank": {
+                "set_property": {
+                    "billey:in_tank": false
+                }
+            },
+            "reset_target": {
+                "reset_target": {}
+            },
+            "billey:pet_target_acquired": {},
+            "billey:pet_target_escape": {},
+            "destroy_head_equipment": {
+                "queue_command": {
+                    "command": "scriptevent billey:destroy_pet_head_equipment"
+                }
+            },
+            "say_owner_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+                        "tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.owner_hit_pet\"}]}",
+                        "tag @s add billey:has_hurt_own_pet"
+                    ]
+                }
+            },
+            "say_other_hit_pet_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
+                }
+            },
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "send_info": {
+                "queue_command": {
+                    "target": "other",
+                    "command": [
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.electric_eel\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"ui.billeys_mobs.info.formore\"}]}",
+                        "tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
+                    ]
+                }
+            },
+            "untame": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "playsound random.orb @a ~~~ 1.00 0.8 0.5",
+                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.untame\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.untame2\"}] }"
+                            ]
+                        }
+                    },
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "tamed_component"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "untamed"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "eventwander": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "following"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "eventfollow": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "following"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "wake_up": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "asleep"
+                            ]
+                        },
+                        "add": {
+                            "component_groups": [
+                                "awake"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "effect @s slowness 0 255 true",
+                                "effect @s regeneration 5 2 true",
+                                "effect @s speed 8 3 true"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "sleep": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "asleep"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "awake"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "effect @s slowness 3000 3 true"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "electrocute_event": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "scoreboard objectives add billbanana dummy billbanana"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "scoreboard players add @s billbanana 1",
+                                "event entity @s[scores={billbanana=13..}] sleep",
+                                "scoreboard players set @s[scores={billbanana=13..}] billbanana 0",
+                                "scoreboard players set @s[scores={billbanana=..-10}] billbanana -10"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "function billeyelectriceel"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 1"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 0.91"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 0.85"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 0.725"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 0.8"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 0.75"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 0.95"
+                                    ]
+                                }
+                            }, //////////////\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 1.09"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 1.15"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 1.275"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 1.2"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 1.25"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "execute @e[c=2,r=4,tag=!tamed,type=!billey:electric_eel] ~~~ detect ~~~ water 0 playsound billey.elec.short @a ~~~ 1 1.05"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "blackstripehat": {
+                "queue_command": {
+                    "command": [
+                        "replaceitem entity @s slot.armor.head 0 minecraft:dried_kelp"
+                    ]
+                }
+            },
+            "flap": {
+                "sequence": [
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:is_tamed"
+                        },
+                        "trigger": "electrocute_event"
+                    },
+                    {
+                        "queue_command": {
+                            "command": [
+                                "execute @e[r=1,tag=!tamed] ~~~ detect ~~~ water 0 effect @s[type=!billey:electric_eel] fatal_poison 2 2 true"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "subject": "self",
+                            "value": "minecraft:is_tamed"
+                        },
+                        "queue_command": {
+                            "command": [
+                                "execute @e[r=2.5,tag=!tamed] ~~~ detect ~~~ water 0 effect @s[type=!billey:electric_eel] fatal_poison 2 2 true"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "finishboost": {
+                "remove": {
+                    "component_groups": [
+                        "sheared"
+                    ]
+                }
+            },
+            "beenfedabanana": {
+                "sequence": [
+                    {
+                        "queue_command": {
+                            "command": [
+                                "particle billey:eatbanana ~ ~.5 ~"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 8,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s regeneration 7 1"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s regeneration 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s speed 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s absorption 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s resistance 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s strength 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s water_breathing 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s fire_resistance 10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "sequence": [
+                                    {
+                                        "queue_command": {
+                                            "command": [
+                                                "effect @s levitation 1 0 true"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "queue_command": {
+                                            "target": "other",
+                                            "command": [
+                                                "effect @s levitation 1 0 true"
+                                            ]
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bepetted": {
+                "sequence": [
+                    {
+                        "randomize": [
+                            {
+                                "weight": 5
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "playanimation @s animation.billeys_mobs.bettafish.pet",
+                                        "effect @s slowness 1 5 true"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "queue_command": {
+                            "target": "other",
+                            "command": [
+                                "playanimation @s animation.billeys_mobsplayer.pet"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 1
+                            },
+                            {
+                                "weight": 99,
+                                "queue_command": {
+                                    "command": [
+                                        "playsound mob.cat.purr @a ~~~"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "queue_command": {
+                                    "command": [
+                                        "playsound mob.cat.purr @a ~~~",
+                                        "effect @s resistance 10 1 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "queue_command": {
+                                    "command": [
+                                        "playsound mob.cat.purr @a ~~~",
+                                        "effect @s fire_resistance 10 1 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "queue_command": {
+                                    "command": [
+                                        "playsound mob.cat.purr @a ~~~",
+                                        "effect @s strength 10 1 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "queue_command": {
+                                    "command": [
+                                        "playsound mob.cat.purr @a ~~~",
+                                        "effect @s water_breathing 30 0 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 3,
+                                "queue_command": {
+                                    "command": [
+                                        "playsound mob.cat.purr @a ~~~",
+                                        "effect @s speed 10 1 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "playsound mob.cat.purr @a ~~~",
+                                        "effect @s levitation 1 1 true",
+                                        "effect @s regeneration 30 1 true"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "playsound mob.cat.purr @a ~~~",
+                                        "effect @s speed 1 0"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "kroma": {
+                "add": {
+                    "component_groups": [
+                        "kromatik"
+                    ]
+                }
+            },
+            "burnearby": {
+                "trigger": "electrocute_event",
+                "queue_command": {
+                    "command": [
+                        "function billburncod"
+                    ]
+                }
+            },
+            "dokillgroup": {
+                "trigger": "electrocute_event",
+                "queue_command": {
+                    "command": [
+                        "function billkillcod"
+                    ]
+                }
+            },
+            "nokroma": {
+                "remove": {
+                    "component_groups": [
+                        "kromatik"
+                    ]
+                }
+            },
+            "minecraft:entity_spawned": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "awake"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 18,
+                                "add": {
+                                    "component_groups": [
+                                        "baby",
+                                        "wild",
+                                        "baby_wild"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale4",
+                                        "wild"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale5",
+                                        "wild"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 48,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale6",
+                                        "wild"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 48,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale7",
+                                        "wild"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 40,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale8",
+                                        "wild"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 30,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale9",
+                                        "wild"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale10",
+                                        "wild"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale11",
+                                        "wild"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "zero"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "one"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "three"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "four"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 299
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "kromatik"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 299
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "kromatik"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 299
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "effect @s speed 1000000 4 true",
+                                        "effect @s resistance 1000000 2 true",
+                                        "effect @s regeneration 1000000 1 true"
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 799
+                            },
+                            {
+                                "weight": 1,
+                                "queue_command": {
+                                    "command": [
+                                        "summon billey:electric_eel George ~~~",
+                                        "event entity @e[name=George,c=1,type=billey:electric_eel] kroma",
+                                        "effect @e[name=George,c=1,type=billey:electric_eel] speed 1000000 4 true",
+                                        "effect @e[name=George,c=1,type=billey:electric_eel] resistance 1000000 2 true",
+                                        "effect @e[name=George,c=1,type=billey:electric_eel] regeneration 1000000 3 true",
+                                        "tp ~ 0 ~",
+                                        "kill"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "die": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "dead"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "target": "other",
+                            "command": [
+                                "effect @s[type=billey:anglerfish] regeneration 1 4 true"
+                            ]
+                        }
+                    },
+                    {
+                        "queue_command": {
+                            "target": "other",
+                            "command": [
+                                "function billeyelectriceel"
+                            ]
+                        }
+                    }
+                ]
+            }, //////////////\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+            "tamed_yay": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "tamed"
+                            ]
+                        },
+                        "remove": {
+                            "component_groups": [
+                                "wild"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "value": "minecraft:is_baby"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "baby_tamed"
+                            ]
+                        }
+                    }
+                ]
+            },
+            "grow_up": {
+                "sequence": [
+                    {
+                        "remove": {
+                            "component_groups": [
+                                "baby",
+                                "baby_tamed",
+                                "baby_wild"
+                            ]
+                        }
+                    },
+                    {
+                        "randomize": [
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale4"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale5"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 48,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale6"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 48,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale7"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 40,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale8"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 30,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale9"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 4,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale10"
+                                    ]
+                                }
+                            },
+                            {
+                                "weight": 1,
+                                "add": {
+                                    "component_groups": [
+                                        "adult",
+                                        "scale11"
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "minecraft:entity_born": {
+                "sequence": [
+                    {
+                        "add": {
+                            "component_groups": [
+                                "baby"
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "wild",
+                                "baby_wild"
+                            ]
+                        },
+                        "filters": {
+                            "none_of": [
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:is_tamed",
+                                    "subject": "parent"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:is_tamed",
+                                    "subject": "other"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "add": {
+                            "component_groups": [
+                                "tamed",
+                                "baby_tamed"
+                            ]
+                        },
+                        "filters": {
+                            "any_of": [
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:is_tamed",
+                                    "subject": "parent"
+                                },
+                                {
+                                    "test": "has_component",
+                                    "value": "minecraft:is_tamed",
+                                    "subject": "other"
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 7,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 7,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettasix"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 8,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 8,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 7,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 7,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaeighteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 6,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 6,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 9,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 9,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettatwo"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 9,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 9,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaten"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 6,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 6,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 10,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 10,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaeleven"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 2,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 2,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 11,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 11,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettatwelve",
+                                "execute @p[tag=!billeysmellfish] ~~~ function billeysmellfish",
+                                "tag @p[tag=!billeysmellfish] add billeysmellfish"
+                            ]
+                        }
+                    }, //
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 12,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 12,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 17,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 17,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettafifteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 8,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 8,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettasixteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 6,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 6,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 17,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 17,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettafourteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 10,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 10,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 17,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 17,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettathirteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 11,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 11,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaten"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 14,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 14,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaseventeen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 3,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 3,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaeight"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 14,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 14,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 11,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 11,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettasix"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 9,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 9,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaseven"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaeight"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 6,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 6,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 11,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 11,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaseven"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 4,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 4,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettathree"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 1,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 1,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 8,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 8,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettathirteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 10,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 10,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaone"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 13,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 14,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 14,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettazero"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 6,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 6,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 11,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 11,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettaseven"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 14,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 14,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 1,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 1,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettanine"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 0,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 0,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 5,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettathree"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 0,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 0,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 3,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 3,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettafour"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "all_of": [
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 0,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 0,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "any_of": [
+                                        {
+                                            "test": "is_variant",
+                                            "value": 16,
+                                            "subject": "other"
+                                        },
+                                        {
+                                            "test": "is_variant",
+                                            "value": 16,
+                                            "subject": "parent"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "queue_command": {
+                            "command": [
+                                "tag @s add bettafourteen"
+                            ]
+                        }
+                    }, //totags
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettazero"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "zero"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettaeighteen"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "eighteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettanineteen"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "nineteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettatwenty"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "twenty"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettatwentyone"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "twentyone"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettaone"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "one"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettatwo"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "two"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettathree"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "three"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettafour"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "four"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettafive"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "five"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettasix"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "six"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettaseven"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "seven"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettaeight"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "eight"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettanine"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "nine"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettaten"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "ten"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettaeleven"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "eleven"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettatwelve"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "twelve"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettathirteen"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "thirteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettafourteen"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "fourteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettafifteen"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "fifteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettasixteen"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "sixteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettaseventeen"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "seventeen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_component",
+                            "value": "minecraft:is_illager_captain",
+                            "subject": "parent"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "kromatik"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "has_tag",
+                            "value": "bettathirteen"
+                        },
+                        "add": {
+                            "component_groups": [
+                                "thirteen"
+                            ]
+                        }
+                    },
+                    {
+                        "filters": {
+                            "test": "is_variant",
+                            "value": 2
+                        },
+                        "add": {
+                            "component_groups": [
+                                "two"
+                            ]
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

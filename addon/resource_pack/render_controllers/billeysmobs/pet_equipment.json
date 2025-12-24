@@ -1,0 +1,77 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.billeys_mobs.pet_hat_dyable": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "arrays": {
+                "textures": {
+                    "array.colors": [
+                        "texture.white",
+                        "texture.orange",
+                        "texture.magenta",
+                        "texture.light_blue",
+                        "texture.yellow",
+                        "texture.lime",
+                        "texture.pink",
+                        "texture.gray",
+                        "texture.light_gray",
+                        "texture.cyan",
+                        "texture.purple",
+                        "texture.blue",
+                        "texture.brown",
+                        "texture.green",
+                        "texture.red",
+                        "texture.black"
+                    ]
+                }
+            },
+            "textures": [
+                "array.colors[v.color]"
+            ],
+            "color": {
+                "r": "1",
+                "g": "0",
+                "b": "0",
+                "a": "1"
+            }
+        },
+        "controller.render.billeys_mobs.pet_bowtie": {
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "arrays": {
+                "textures": {
+                    "array.colors": [
+                        "texture.white",
+                        "texture.orange",
+                        "texture.magenta",
+                        "texture.light_blue",
+                        "texture.yellow",
+                        "texture.lime",
+                        "texture.pink",
+                        "texture.gray",
+                        "texture.light_gray",
+                        "texture.cyan",
+                        "texture.purple",
+                        "texture.blue",
+                        "texture.brown",
+                        "texture.green",
+                        "texture.red",
+                        "texture.black"
+                    ]
+                }
+            },
+            "textures": [
+                "array.colors[v.color]"
+            ]
+        }
+    }
+}

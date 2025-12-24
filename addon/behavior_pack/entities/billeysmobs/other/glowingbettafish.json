@@ -1,0 +1,20 @@
+{
+	"format_version": "1.16.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "billey:glowing_betta_fish",
+			"is_spawnable": true,
+			"is_experimental": false,
+			"is_summonable": true
+		},
+		"components": {
+			"minecraft:collision_box": {
+				"width": 0,
+				"height": 0
+			},
+			"minecraft:transformation": {
+				"into": "billey:betta_fish<spawnvariant>"
+			}
+		}
+	}
+}

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs.berry_goose": {
+      "arrays": {
+        "textures": {
+          "array.variants": [
+            "texture.variant0",
+            "texture.variant1",
+            "texture.variant2",
+            "texture.variant3",
+            "texture.variant4",
+            "texture.variant5",
+            "texture.variant6",
+            "texture.variant7",
+            "texture.variant8",
+            "texture.variant9",
+            "texture.variant10",
+            "texture.variant11",
+            "texture.variant12"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default", "hairs": "Material.blend" } ],
+      "overlay_color": {
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      },
+      "textures": [ "array.variants[q.variant]" ]
+    }
+  }
+}

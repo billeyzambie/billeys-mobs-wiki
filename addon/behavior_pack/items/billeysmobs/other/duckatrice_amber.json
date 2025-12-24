@@ -1,0 +1,24 @@
+{
+    "format_version": "1.21.30",
+    "minecraft:item": {
+        "description": {
+            "identifier": "billey:duckatrice_amber",
+            "menu_category": {
+                "category": "items"
+            }
+        },
+        "components": {
+            "minecraft:max_stack_size": {
+                "value": 64
+            },
+            "minecraft:icon": {
+                "textures": {
+                    "default": "billey.duckatrice_amber"
+                }
+            },
+            "minecraft:rarity": {
+              "value": "epic"
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "billey:velvetslimeblock"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "what_does_this_do",
+    "pattern": [
+      "vvv",
+      "vsv",
+      "vvv"
+    ],
+    "key": {
+      "s": {
+        "item": "sea_pickle"
+      },
+      "v": {
+        "item": "billey:velvet_slime"
+      }
+    },
+    "result": {
+     "item": "billey:velvet_slime_block"
+   }
+  }
+}

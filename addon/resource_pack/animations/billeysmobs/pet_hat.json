@@ -1,0 +1,64 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.pet_hat.remove_scale": {
+			"loop": true,
+			"bones": {
+				"hat": {
+					"rotation": [0, "1 / q.model_scale / 16", 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.pet_hat.move_one_down": {
+			"loop": true,
+			"bones": {
+				"hat_body": {
+					"position": [0, -1, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.pet_hat.stretch": {
+			"loop": true,
+			"bones": {
+				"hat_body": {
+					"scale": [1.1, 1, 1]
+				}
+			}
+		},
+		"animation.billeys_mobs.move_hat_to_pet_position": {
+			"loop": true,
+			"bones": {
+				"hat_whole": {
+					"position": [0, -8, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.scale_hat_from_player_to_pet": {
+			"loop": true,
+			"bones": {
+				"hat": {
+					"scale": ["v.head_size_x / 8", "(v.head_size_x + v.head_size_z) / 2 / 8", "v.head_size_z / 8"]
+				}
+			}
+		},
+		"animation.billeys_mobs.scale_hat_from_player_to_pet_including_y": {
+			"loop": true,
+			"bones": {
+				"hat": {
+					"scale": ["v.head_size_x / 8", "v.head_size_y / 8", "v.head_size_z / 8"]
+				}
+			}
+		},
+		"animation.billeys_mobs.pet_hat.scale_top_hat": {
+			"loop": true,
+			"bones": {
+				"hat_bone": {
+					"scale": ["v.head_size_x / 4 + 0.5", 1, "v.head_size_z / 4 + 0.5"]
+				},
+				"hat_bone2": {
+					"scale": ["v.head_size_x / 4 + 0.5", "(v.head_size_x / 4 + 0.5 + v.head_size_z / 4 + 0.5) / 2", "v.head_size_z / 4 + 0.5"]
+				}
+			}
+		}
+	}
+}

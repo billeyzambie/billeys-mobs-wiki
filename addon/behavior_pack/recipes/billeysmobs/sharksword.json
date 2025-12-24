@@ -1,0 +1,26 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:sharksword"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "AAA",
+        "AAA",
+        " S "
+      ],
+      "key": {
+        "S": {
+          "item": "stick"
+        },
+        "A": {
+          "item": "billey:shark_tooth"
+        }
+      },
+      "result": {
+       "item": "billey:shark_tooth_sword"
+     }
+    }
+  }

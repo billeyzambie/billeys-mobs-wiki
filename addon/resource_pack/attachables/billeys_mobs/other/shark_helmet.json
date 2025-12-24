@@ -1,0 +1,31 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "billey:shark_helmet",
+        "materials": {
+          "default": "armor",
+          "enchanted": "armor_enchanted"
+        },
+        "textures": {
+          "default": "textures/billeyarmor/shark",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "animations": {
+            "controller": "controller.animation.billeys_mobs.crackduckhat",
+            "hurt": "animation.billeys_mobs.shark_armor.attack"
+        },
+        "geometry": {
+          "default": "geometry.billeys_mobs.shark_armor_helmet"
+        },
+        "scripts": {
+        "parent_setup": "variable.helmet_layer_visible = 0.0;",
+          "animate": [
+            "controller"
+          ]
+        },
+        "render_controllers": [ "controller.render.armor" ]
+      }
+    }
+  }
+  

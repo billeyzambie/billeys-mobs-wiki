@@ -1,0 +1,23 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:nug_chicken"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "AAA",
+        "AAA",
+        "AAA"
+      ],
+      "key": {
+        "A": {
+          "item": "billey:chicken_nugget"
+        }
+      },
+      "result": {
+       "item": "cooked_chicken"
+     }
+    }
+  }

@@ -1,0 +1,28 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "billey:slow_falling_from_pigeon_poop"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "ingredients": [
+            {
+                "item": "potion"
+            },
+            {
+                "item": "billey:poopstain_spawn_egg"
+            },
+            {
+                "item": "billey:scat_dust"
+            }
+        ],
+        "result": [
+            {
+                "item": "potion",
+                "data": 41
+            }
+        ]
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:penguin_boots"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "srs",
+        "sis",
+        "sss"
+      ],
+      "key": {
+        "i": {
+          "item": "iron_boots"
+        },
+        "s": {
+          "item": "billey:penguin_feather"
+        },
+        "r": {
+          "item": "redstone"
+        }
+      },
+      "result": {
+       "item": "billey:penguin_boots"
+     }
+    }
+  }

@@ -1,0 +1,23 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:orange_from_peels"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "AAA",
+        "AAA",
+        "AAA"
+      ],
+      "key": {
+        "A": {
+          "item": "billey:orange_peel"
+        }
+      },
+      "result": {
+       "item": "billey:poultry_orange"
+     }
+    }
+  }

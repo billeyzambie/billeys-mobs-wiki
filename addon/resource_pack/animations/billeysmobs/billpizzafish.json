@@ -1,0 +1,36 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.pizzafish.swim": {
+			"loop": true,
+			"animation_length": 5,
+			"bones": {
+				"body": {
+					"rotation": [0, "math.sin(q.anim_time*360)*15", 0]
+				},
+				"body2": {
+					"rotation": [0, "math.sin(q.anim_time*360-30)*5", 0]
+				},
+				"tail": {
+					"rotation": [0, "math.sin(q.anim_time*360+45)*30", 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.pizzafish.flop": {
+			"loop": true,
+			"animation_length": 5,
+			"bones": {
+				"body": {
+					"rotation": {
+						"0.0": [0, 0, -90],
+						"2.25": [0, 0, -90],
+						"2.5": [0, 0, 90],
+						"4.75": [0, 0, 90],
+						"5.0": [0, 0, 270]
+					},
+					"position": [0, -2.25, 0]
+				}
+			}
+		}
+	}
+}

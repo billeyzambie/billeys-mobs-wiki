@@ -1,0 +1,93 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:anglerfish",
+			"materials": {
+				"default": "entity_emissive_alpha",
+				"glow": "wither_boss_armor"
+			},
+			"textures": {
+				"variant1": "textures/entity/billeys_mobs/angler",
+				"variant2": "textures/entity/billeys_mobs/angler2",
+				"variant3": "textures/entity/billeys_mobs/angler3",
+				"variant4": "textures/entity/billeys_mobs/angler4",
+				"variant5": "textures/entity/billeys_mobs/angler5",
+				"variant6": "textures/entity/billeys_mobs/angler6",
+				"variant7": "textures/entity/billeys_mobs/angler7",
+				"variant8": "textures/entity/billeys_mobs/angler8",
+				"glow1": "textures/entity/billeys_mobs/anglerlight",
+				"glow2": "textures/entity/billeys_mobs/anglerlight2",
+				"glow3": "textures/entity/billeys_mobs/anglerlight3",
+				"glow4": "textures/entity/billeys_mobs/anglerlight4",
+				"glow5": "textures/entity/billeys_mobs/anglerlight5",
+				"glow6": "textures/entity/billeys_mobs/anglerlight6",
+				"glow7": "textures/entity/billeys_mobs/anglerlight7",
+				"glow8": "textures/entity/billeys_mobs/anglerlight8",
+				"sugar1": "textures/entity/billeys_mobs/sugarlight",
+				"sugar2": "textures/entity/billeys_mobs/sugarlight2",
+				"sugar3": "textures/entity/billeys_mobs/sugarlight3",
+				"sugar4": "textures/entity/billeys_mobs/sugarlight4",
+				"sugar5": "textures/entity/billeys_mobs/sugarlight5",
+				"sugar6": "textures/entity/billeys_mobs/sugarlight6",
+				"sugar7": "textures/entity/billeys_mobs/sugarlight7"
+			},
+			"geometry": {
+				"default": "geometry.billeys_mobs.angler",
+				"glow": "geometry.billeys_mobs.anglerglow"
+			},
+			"animations": {
+				"new": "animation.billeys_mobs.duckproj.body",
+				"flop": "animation.billeys_mobs.angler.flop",
+				"death": "animation.billeys_mobs.angler.death",
+				"swim": "animation.billeys_mobs.angler.swim",
+				"look": "animation.billeys_mobs.angler.look",
+				"glow_effect_7": "animation.billeys_mobs.angler.sugar",
+				"attack": "animation.billeys_mobs.angler.attack" // /playanimation animations dont need to be listed here
+				//i did it for blockbench
+			},
+			"scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 7;",
+				  "v.head_size_y = 7;",
+				  "v.head_size_z = 7;"
+				],
+				"animate": [
+					"new",
+					{
+						"death": "!q.is_alive"
+					},
+					{
+						"swim": "q.is_in_water ? math.max(0.3,q.modified_move_speed / 0.2) : 1"
+					},
+					"swim",
+					"glow_effect_7",
+					{
+						"look": "q.is_in_water"
+					},
+					{
+						"flop": "!q.is_in_water && q.is_alive"
+					}
+				]
+			},
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+				"controller.render.billeys_mobs.anglerfish",
+				{
+					"controller.render.billeys_mobs.angler_light": "q.is_sheared"
+				}
+			],
+			"spawn_egg": {
+				"base_color": "#583F44",
+				"overlay_color": "#B19F9B"
+			}
+		}
+	}
+}

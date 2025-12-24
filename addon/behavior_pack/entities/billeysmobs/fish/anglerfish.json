@@ -1,0 +1,2235 @@
+{
+	"format_version": "1.8.0",
+	"minecraft:entity": {
+		"description": {
+			"identifier": "billey:anglerfish",
+			"runtime_identifier": "minecraft:cod",
+			"is_spawnable": true,
+			"is_summonable": true,
+			"is_experimental": false,
+			"scripts": {
+				"animate": [
+					"check_beta_apis",
+					{
+						"rainbow_effects": "q.is_illager_captain"
+					},
+					{
+						"info": "!q.is_tamed"
+					},
+					"tame",
+					{
+						"spawn_fish": "q.is_sheared"
+					}
+				]
+			},
+			"animations": {
+				"check_beta_apis": "animation.billeys_mobs.check_beta_apis",
+				"rainbow_effects": "animation.billeys_mobs.rainbow_effects",
+				"stand_up_when_hit": "controller.animation.billeys_mobs.stand_up_when_hit",
+				"info": "animation.billeys_mobs.info.anglerfish",
+				"spawn_fish": "animation.billeys_mobs.anglerfish.spawn_fish",
+				"tame": "controller.animation.billeys_mobs.tame"
+			},
+            
+            "properties": {
+                "billey:in_tank": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": false
+                },
+                "billey:is_billey_mob": {
+                    "client_sync": true,
+                    "type": "bool",
+                    "default": true
+                },
+                "billey:head_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                //pets' leg slot is used for bowties
+                "billey:legs_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:chest_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:feet_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                },
+                "billey:body_equipment_color": {
+                    "client_sync": true,
+                    "type": "int",
+                    "range": [
+                        0,
+                        15
+                    ],
+                    "default": 0
+                }
+            }
+		},
+		"component_groups": {
+			"tamed_component": {
+				"minecraft:is_tamed": {}
+			},
+			"untamed": { /*This is just for ones untamed by the untaming stick.
+The real tame items of this mob are in the wild component group*/
+				"minecraft:tameable": {
+					"probability": 1.0,
+					"tame_event": {
+						"event": "tamed_yay"
+					},
+					"tame_items": [
+						"billey:power_banana",
+						"billey:raw_catfish",
+						"billey:bettafish",
+						"billey:pizzapiece",
+						"salmon",
+						"fish",
+						"rotten_flesh",
+						"wheat_seeds",
+						"melon_seeds",
+						"carrot",
+						"beetroot_seeds",
+						"pumpkin_seeds",
+						"chicken",
+						"billey:raw_hamster",
+						"billey:poultry_orange",
+						"billey:raw_snail",
+						"billey:raw_snail_s",
+						"billey:raw_snail_w",
+						"billey:raw_piranha",
+						"bread",
+						"apple",
+						"fermented_spider_eye",
+						"spider_eye",
+						"string"
+					]
+				}
+			},
+			"electrocuted": {
+				"minecraft:loot": {
+					"table": "loot_tables/entities/billey_electrocuted.json"
+				}
+			},
+			"following": {
+				"minecraft:behavior.follow_owner": {
+					"can_teleport": false,
+					"priority": 0,
+					"speed_multiplier": 1.25,
+					"start_distance": 7,
+					"stop_distance": 5
+				}
+			},
+			"kromatik": {
+				"minecraft:is_illager_captain": {}
+			},
+			"alive": {
+				"minecraft:experience_reward": {
+					"on_bred": "Math.Random(1,7)",
+					"on_death": "q.last_hit_by_player ? Math.Random(1,3) : 0"
+				},
+				"minecraft:scale": {
+					"value": 1
+				},
+				"minecraft:interact": [
+					{
+						"play_sounds": "eat",
+						"swing": true,
+						"use_item": true,
+						"interact_text": "action.interact.billeys_mobs.boost",
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "glowstone_dust"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "not",
+										"value": "minecraft:is_sheared"
+									}
+								]
+							},
+							"event": "boost",
+							"target": "self"
+						}
+					},
+					{
+						"play_sounds": "plop",
+						"swing": true,
+						"use_item": true,
+						"interact_text": "action.interact.billeys_mobs.boost",
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "glowstone"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "not",
+										"value": "minecraft:is_sheared"
+									}
+								]
+							},
+							"event": "boost_long",
+							"target": "self"
+						}
+					},
+					{
+						"play_sounds": "plop",
+						"swing": true,
+						"interact_text": "action.interact.get_info",
+						"on_interact": {
+							"filters": {
+								"any_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "feather"
+									},
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "book"
+									},
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "billey:info_book"
+									}
+								]
+							},
+							"event": "send_info",
+							"target": "self"
+						}
+					},
+					{
+						"play_sounds": "plop",
+						"swing": true,
+						"interact_text": "action.interact.untame",
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "billey:untaming_stick"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_owner",
+										"subject": "other",
+										"value": true
+									}
+								]
+							},
+							"event": "untame",
+							"target": "self"
+						}
+					},
+					{
+						"interact_text": "action.interact.pet",
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"operator": "!=",
+										"value": "billey:swordfish"
+									},
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"operator": "!=",
+										"value": "billey:golden_swordfish"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_sleeping",
+										"subject": "self",
+										"value": false
+									},
+									{
+										"test": "is_sneaking",
+										"subject": "other",
+										"value": true
+									}
+								]
+							},
+							"event": "bepetted",
+							"target": "self"
+						}
+					},
+					{
+						"use_item": true,
+						"play_sounds": "eat",
+						"interact_text": "action.interact.feed",
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "billey:sand_banana"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									}
+								]
+							},
+							"event": "beenfedabanana",
+							"target": "self"
+						}
+					},
+					{
+						"use_item": true,
+						"play_sounds": "milk",
+						"interact_text": "action.interact.use",
+						"transform_to_item": "glass_bottle",
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "billey:colorful_bottle"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_owner",
+										"subject": "other",
+										"value": true
+									}
+								]
+							},
+							"event": "kroma",
+							"target": "self"
+						}
+					},
+					{
+						"use_item": true,
+						"play_sounds": "milk",
+						"interact_text": "action.interact.use",
+						"transform_to_item": "glass_bottle",
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "billey:colorless_bottle"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_owner",
+										"subject": "other",
+										"value": true
+									}
+								]
+							},
+							"event": "nokroma",
+							"target": "self"
+						}
+					},
+					{
+						"play_sounds": "plop",
+						"swing": true,
+						"interact_text": "action.interact.wander",
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "stick"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"value": "minecraft:behavior.follow_owner"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_owner",
+										"subject": "other",
+										"value": true
+									}
+								]
+							},
+							"event": "eventwander",
+							"target": "self"
+						}
+					},
+					{
+						"play_sounds": "plop",
+						"swing": true,
+						"interact_text": "action.interact.follow",
+						"on_interact": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_equipment",
+										"subject": "other",
+										"domain": "hand",
+										"value": "stick"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "not",
+										"value": "minecraft:behavior.follow_owner"
+									},
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "player"
+									},
+									{
+										"test": "is_owner",
+										"subject": "other",
+										"value": true
+									}
+								]
+							},
+							"event": "eventfollow",
+							"target": "self"
+						}
+					}
+				],
+				"minecraft:health": {
+					"value": 14,
+					"max": 14
+				},
+				"minecraft:damage_sensor": [
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_owner",
+										"subject": "other",
+										"value": true
+									},
+									{
+										"test": "has_tag",
+										"subject": "other",
+										"operator": "not",
+										"value": "billey:can_hit_own_pet"
+									}
+								]
+							},
+							"event": "say_owner_hit_pet_info"
+						},
+						"cause": "all",
+						"deals_damage": false
+					},
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_component",
+										"subject": "self",
+										"value": "minecraft:is_tamed"
+									},
+									{
+										"test": "is_owner",
+										"subject": "other",
+										"value": false
+									},
+									{
+										"test": "has_tag",
+										"subject": "other",
+										"value": "billey:cant_hit_other_pet"
+									}
+								]
+							},
+							"event": "say_other_hit_pet_info"
+						},
+						"cause": "all",
+						"deals_damage": false
+					},
+					{
+						"on_damage": {
+							"filters": {
+								"test": "has_equipment",
+								"subject": "other",
+								"domain": "hand",
+								"value": "billey:swordfish"
+							}
+						},
+						"damage_multiplier": 2.333
+					},
+					{
+						"on_damage": {
+							"filters": {
+								"test": "has_equipment",
+								"subject": "other",
+								"domain": "hand",
+								"value": "billey:golden_swordfish"
+							}
+						},
+						"damage_multiplier": 2.333
+					},
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"any_of": [
+											{
+												"test": "is_family",
+												"subject": "other",
+												"value": "eatscod"
+											},
+											{
+												"test": "is_family",
+												"subject": "other",
+												"value": "piranha"
+											}
+										]
+									},
+									{
+										"test": "has_damage",
+										"value": "fatal"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"value": "minecraft:is_sheared",
+										"operator": "not"
+									}
+								]
+							},
+							"event": "minecraft:die1"
+						},
+						"deals_damage": false
+					},
+					{
+						"on_damage": {
+							"filters": {
+								"all_of": [
+									{
+										"any_of": [
+											{
+												"test": "is_family",
+												"subject": "other",
+												"value": "eatscod"
+											},
+											{
+												"test": "is_family",
+												"subject": "other",
+												"value": "piranha"
+											}
+										]
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"value": "minecraft:is_sheared"
+									}
+								]
+							}
+						},
+						"deals_damage": false
+					},
+					{
+						"on_damage": {
+							"filters": {
+								"test": "is_family",
+								"subject": "other",
+								"value": "wildcod"
+							}
+						},
+						"deals_damage": false
+					},
+					{
+						"cause": "all",
+						"deals_damage": false,
+						"on_damage_sound_event": "armor.equip_generic",
+						"on_damage": {
+							"event": "destroy_head_equipment",
+							"target": "self",
+							"filters": {
+								"all_of": [
+									{
+										"test": "has_damage",
+										"value": "fatal"
+									},
+									{
+										"test": "has_equipment",
+										"value": "billey:pet_hat",
+										"domain": "head"
+									}
+								]
+							}
+						}
+					}
+				]
+			},
+			"eaten1": {
+				"minecraft:scale": {
+					"value": 0.9
+				},
+				"minecraft:health": {
+					"value": 23,
+					"max": 23
+				},
+				"minecraft:timer": {
+					"time": [
+						0.05,
+						0.05
+					],
+					"looping": false,
+					"time_down_event": {
+						"event": "minecraft:die2",
+						"target": "self"
+					}
+				},
+				"minecraft:loot": {
+					"table": "loot_tables/empty.json"
+				}
+			},
+			"eaten2": {
+				"minecraft:scale": {
+					"value": 0.8
+				},
+				"minecraft:health": {
+					"value": 23,
+					"max": 23
+				},
+				"minecraft:timer": {
+					"time": [
+						0.05,
+						0.05
+					],
+					"looping": false,
+					"time_down_event": {
+						"event": "minecraft:die3",
+						"target": "self"
+					}
+				},
+				"minecraft:loot": {
+					"table": "loot_tables/empty.json"
+				}
+			},
+			"eaten3": {
+				"minecraft:scale": {
+					"value": 0.7
+				},
+				"minecraft:health": {
+					"value": 23,
+					"max": 23
+				},
+				"minecraft:timer": {
+					"time": [
+						0.05,
+						0.05
+					],
+					"looping": false,
+					"time_down_event": {
+						"event": "minecraft:die4",
+						"target": "self"
+					}
+				},
+				"minecraft:loot": {
+					"table": "loot_tables/empty.json"
+				}
+			},
+			"eaten4": {
+				"minecraft:scale": {
+					"value": 0.5
+				},
+				"minecraft:health": {
+					"value": 23,
+					"max": 23
+				},
+				"minecraft:timer": {
+					"time": [
+						0.05,
+						0.05
+					],
+					"looping": false,
+					"time_down_event": {
+						"event": "minecraft:die5",
+						"target": "self"
+					}
+				},
+				"minecraft:loot": {
+					"table": "loot_tables/empty.json"
+				}
+			},
+			"eaten5": {
+				"minecraft:scale": {
+					"value": 0.3
+				},
+				"minecraft:health": {
+					"value": 23,
+					"max": 23
+				},
+				"minecraft:timer": {
+					"time": [
+						0.05,
+						0.05
+					],
+					"looping": false,
+					"time_down_event": {
+						"event": "minecraft:die6",
+						"target": "self"
+					}
+				},
+				"minecraft:loot": {
+					"table": "loot_tables/empty.json"
+				}
+			},
+			"eaten6": {
+				"minecraft:scale": {
+					"value": 0.1
+				},
+				"minecraft:health": {
+					"value": 23,
+					"max": 23
+				},
+				"minecraft:timer": {
+					"time": [
+						0.05,
+						0.05
+					],
+					"looping": false,
+					"time_down_event": {
+						"event": "minecraft:die7",
+						"target": "self"
+					}
+				},
+				"minecraft:loot": {
+					"table": "loot_tables/empty.json"
+				}
+			},
+			"die": {
+				"minecraft:scale": {
+					"value": 0
+				},
+				"minecraft:health": {
+					"value": 1,
+					"max": 1
+				},
+				"minecraft:loot": {
+					"table": "loot_tables/empty.json"
+				},
+				"minecraft:transformation": {
+					"into": "billey:despawn",
+					"delay": 0.01
+				}
+			},
+			"variant1": {
+				"minecraft:variant": {
+					"value": 0
+				}
+			},
+			"variant2": {
+				"minecraft:variant": {
+					"value": 1
+				}
+			},
+			"variant3": {
+				"minecraft:variant": {
+					"value": 2
+				}
+			},
+			"variant4": {
+				"minecraft:variant": {
+					"value": 3
+				}
+			},
+			"variant5": {
+				"minecraft:variant": {
+					"value": 4
+				}
+			},
+			"variant6": {
+				"minecraft:variant": {
+					"value": 5
+				}
+			},
+			"variant7": {
+				"minecraft:variant": {
+					"value": 6
+				}
+			},
+			"variant8": {
+				"minecraft:variant": {
+					"value": 7
+				}
+			},
+			"wild": {
+				"minecraft:shareables": {
+					"all_items": false,
+					"all_items_max_amount": 1,
+					"items": [
+						{
+							"item": "minecraft:chicken",
+							"priority": 0,
+							"max_amount": 1
+						},
+						{
+							"item": "minecraft:clownfish",
+							"priority": 0,
+							"max_amount": 1
+						},
+						{
+							"item": "minecraft:fish",
+							"priority": 0,
+							"max_amount": 1
+						},
+						{
+							"item": "minecraft:rotten_flesh",
+							"priority": 0,
+							"max_amount": 1
+						},
+						{
+							"item": "minecraft:salmon",
+							"priority": 0,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:swordmeat",
+							"priority": 0,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:swordcooked",
+							"priority": 0,
+							"max_amount": 1
+						},
+						{
+							"item": "minecraft:bone",
+							"priority": 1,
+							"max_amount": 1
+						},
+						{
+							"item": "minecraft:feather",
+							"priority": 1,
+							"max_amount": 1
+						},
+						{
+							"item": "minecraft:dye", //ink sac
+							"priority": 1,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:shark_tooth",
+							"priority": 1,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:shark_scales",
+							"priority": 1,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:swordfin",
+							"priority": 1,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:swordtail",
+							"priority": 1,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:swordstick",
+							"priority": 1,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:anglerlight",
+							"priority": 1,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:betta_fish",
+							"priority": 0,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:raw_catfish",
+							"priority": 0,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:pizzapiece",
+							"priority": 0,
+							"max_amount": 1
+						},
+						{
+							"item": "billey:raw_piranha",
+							"priority": 0,
+							"max_amount": 1
+						}
+					]
+				},
+				"minecraft:behavior.eat_carried_item": {
+					"priority": 4,
+					"delay_before_eating": 0
+				},
+				"minecraft:behavior.pickup_items": {
+					"priority": 0,
+					"max_dist": 10,
+					"goal_radius": 2,
+					"speed_multiplier": 1.1
+				},
+				"minecraft:behavior.equip_item": {
+					"priority": 2
+				},
+				"minecraft:despawn": {
+					"despawn_from_distance": {}
+				},
+				"minecraft:tameable": {
+					"probability": 0.69420666,
+					"tame_items": [
+						"billey:power_banana",
+						"billey:pizzapiece"
+					],
+					"tame_event": {
+						"event": "tamed_yay",
+						"target": "self"
+					}
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 1,
+					"entity_types": [
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "wildcod"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "not",
+										"value": "minecraft:is_sheared"
+									}
+								]
+							},
+							"max_dist": 4
+						}
+					]
+				},
+				"minecraft:on_target_acquired": {
+					"event": "billey:pet_target_acquired",
+					"target": "self"
+				},
+				"minecraft:on_target_escape": {
+					"event": "billey:pet_target_escape",
+					"target": "self"
+				},
+				"minecraft:type_family": {
+					"family": [
+						"wildangler",
+						"angler",
+						"eatscod",
+						"mob"
+					]
+				}
+			},
+			"tamed": {
+                "minecraft:behavior.owner_hurt_by_target": {
+                    "priority": 1,
+                    "entity_types": {
+                        "filters": {
+                            "test": "has_tag",
+                            "subject": "self",
+                            "value": "billey:brave"
+                        }
+                    }
+                },
+                "minecraft:behavior.owner_hurt_target": {
+                    "priority": 2,
+                    "entity_types": {
+                        "max_dist": 127,
+                        "filters": {
+                            "test": "has_tag",
+                            "subject": "self",
+                            "value": "billey:brave"
+                        }
+                    }
+                },
+				"minecraft:persistent": {},
+				"minecraft:leashable": {
+					"soft_distance": 6.0,
+					"hard_distance": 8.0,
+					"max_distance": 12.0
+				},
+				"minecraft:healable": {
+					"items": [
+						{
+							"item": "billey:poultry_orange",
+							"heal_amount": 7
+						},
+						{
+							"item": "billey:cooked_snail",
+							"heal_amount": 4,
+							"effects": [
+								{
+									"name": "strength",
+									"chance": 1.0,
+									"duration": 15,
+									"amplifier": 1
+								}
+							]
+						},
+						{
+							"item": "billey:cooked_snail_s",
+							"heal_amount": 4,
+							"effects": [
+								{
+									"name": "speed",
+									"chance": 1.0,
+									"duration": 15,
+									"amplifier": 1
+								}
+							]
+						},
+						{
+							"item": "billey:cooked_snail_w",
+							"heal_amount": 4,
+							"effects": [
+								{
+									"name": "regeneration",
+									"chance": 1.0,
+									"duration": 15,
+									"amplifier": 1
+								}
+							]
+						},
+						{
+							"item": "billey:pizzapiece",
+							"heal_amount": 4
+						}
+					]
+				},
+				"minecraft:behavior.avoid_mob_type": {
+					"priority": 0,
+					"max_flee": 16,
+					"entity_types": [
+						{
+							"filters": {
+								"test": "has_component",
+								"subject": "other",
+								"value": "minecraft:explode"
+							},
+							"max_dist": 12,
+							"walk_speed_multiplier": 1.4,
+							"sprint_speed_multiplier": 1.4
+						}
+					]
+				},
+				"minecraft:is_tamed": {},
+				"minecraft:tameable": {}, //for the script to be able to get the mob's owner
+				"minecraft:type_family": {
+					"family": [
+						"angler",
+						"eatscod"
+					]
+				},
+				"minecraft:behavior.nearest_attackable_target": {
+					"priority": 1,
+					"entity_types": [
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "wildcod"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "not",
+										"value": "minecraft:is_sheared"
+									}
+								]
+							},
+							"max_dist": 6
+						},
+						{
+							"filters": {
+								"all_of": [
+									{
+										"test": "is_family",
+										"subject": "other",
+										"value": "anglerfish_boost"
+									},
+									{
+										"test": "has_component",
+										"subject": "self",
+										"operator": "not",
+										"value": "minecraft:is_sheared"
+									}
+								]
+							},
+							"max_dist": 127
+						}
+					]
+				}
+			},
+			"sugar": {
+				"minecraft:mark_variant": {
+					"value": 7
+				}
+			},
+			"boosted": {
+				"minecraft:is_sheared": {},
+				"minecraft:addrider": {
+					"entity_type": "billey:anglerfish_boost"
+				},
+				"minecraft:timer": {
+					"time": 14,
+					"time_down_event": {
+						"event": "lose_boost",
+						"target": "self"
+					}
+				}
+			},
+			"boosted_long": {
+				"minecraft:is_sheared": {},
+				"minecraft:addrider": {
+					"entity_type": "billey:anglerfish_boost"
+				},
+				"minecraft:timer": {
+					"time": 56,
+					"time_down_event": {
+						"event": "lose_boost",
+						"target": "self"
+					}
+				}
+			}
+		},
+		"components": {
+            "minecraft:environment_sensor": {
+                "triggers": [
+                    {
+                        "event": "exit_fish_tank",
+                        "target": "self",
+                        "filters": [
+                            {
+                                "test": "is_riding",
+                                "subject": "self",
+                                "value": false
+                            },
+                            {
+                                "test": "bool_property",
+                                "subject": "self",
+                                "domain": "billey:in_tank",
+                                "value": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            "minecraft:block_sensor": {
+                "sensor_radius": 0,
+                "on_break": [{
+                    "block_list": [
+                        "billey:fish_tank"
+                    ],
+                    "on_block_broken": "exit_fish_tank"
+                }]
+            },
+			"minecraft:is_hidden_when_invisible": {},
+			"minecraft:type_family": {
+				"family": [
+					"angler",
+					"eatscod",
+					"mob"
+				]
+			},
+			"minecraft:collision_box": {
+				"width": 0.7,
+				"height": 0.5
+			},
+			"minecraft:loot": {
+				"table": "loot_tables/entities/billangler.json"
+			},
+			"minecraft:breathable": {
+				"total_supply": 15,
+				"suffocate_time": 0,
+				"breathes_air": false,
+				"breathes_water": true
+			},
+			"minecraft:underwater_movement": {
+				"value": 0.075
+			},
+			"minecraft:movement": {
+				"value": 0.15
+			},
+			"minecraft:physics": {
+				"has_gravity": false
+			},
+			"minecraft:pushable": {
+				"is_pushable": true,
+				"is_pushable_by_piston": true
+			},
+			"minecraft:navigation.generic": {
+				"is_amphibious": false,
+				"can_path_over_water": false,
+				"can_swim": true,
+				"can_walk": false,
+				"can_breach": false,
+				"can_sink": false
+			},
+			"minecraft:movement.sway": {
+				"sway_amplitude": 0.0
+			},
+			"minecraft:behavior.swim_idle": {
+				"priority": 5
+			},
+			"minecraft:behavior.swim_wander": {
+				"priority": 4,
+				"speed_multiplier": 0.014,
+				"interval": 60
+			},
+			"minecraft:behavior.random_swim": {
+				"speed_multiplier": 1.0,
+				"priority": 3,
+				"xz_dist": 16,
+				"y_dist": 4,
+				"interval": 0
+			},
+			"minecraft:behavior.hurt_by_target": {
+				"priority": 2
+			},
+			"minecraft:attack": {
+				"damage": 10,
+				"effect_name": "poison",
+				"effect_duration": 30
+			},
+			"minecraft:target_nearby_sensor": {
+				"must_see": true,
+				"on_inside_range": {
+					"event": "attack_animation",
+					"target": "self"
+				},
+				"inside_range": 1,
+				"outside_range": 1.1
+			},
+			"minecraft:nameable": {},
+			"minecraft:damage_sensor": [
+				{
+					"on_damage": {
+						"filters": {
+							"all_of": [
+								{
+									"test": "is_owner",
+									"subject": "other",
+									"value": true
+								},
+								{
+									"test": "has_tag",
+									"subject": "other",
+									"operator": "not",
+									"value": "billey:can_hit_own_pet"
+								}
+							]
+						},
+						"event": "say_owner_hit_pet_info"
+					},
+					"cause": "all",
+					"deals_damage": false
+				},
+				{
+					"on_damage": {
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_component",
+									"subject": "self",
+									"value": "minecraft:is_tamed"
+								},
+								{
+									"test": "is_owner",
+									"subject": "other",
+									"value": false
+								},
+								{
+									"test": "has_tag",
+									"subject": "other",
+									"value": "billey:cant_hit_other_pet"
+								}
+							]
+						},
+						"event": "say_other_hit_pet_info"
+					},
+					"cause": "all",
+					"deals_damage": false
+				},
+				{
+					"on_damage": {
+						"filters": {
+							"test": "is_family",
+							"subject": "other",
+							"value": "cod"
+						}
+					},
+					"deals_damage": false
+				}
+			],
+			"minecraft:rideable": {
+				"family_types": [
+					"anglerfish_boost"
+				]
+			},
+			"minecraft:behavior.melee_attack": {
+				"priority": 1,
+				"speed_multiplier": 1.3,
+				"track_target": true
+			}
+		},
+		"events": {
+            "enter_fish_tank": {
+                "set_property": {
+                    "billey:in_tank": true
+                }
+            },
+            "exit_fish_tank": {
+                "set_property": {
+                    "billey:in_tank": false
+                }
+            },
+            "reset_target": {
+                "reset_target": {}
+            },
+			"billey:pet_target_acquired": {},
+			"billey:pet_target_escape": {},
+			"destroy_head_equipment": {
+				"queue_command": {
+					"command": "scriptevent billey:destroy_pet_head_equipment"
+				}
+			},
+			"say_owner_hit_pet_info": {
+				"queue_command": {
+					"target": "other",
+					"command": [
+						"titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.owner_hit_pet\"}]}",
+						"tellraw @s[tag=!billey:has_hurt_own_pet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.owner_hit_pet\"}]}",
+						"tag @s add billey:has_hurt_own_pet"
+					]
+				}
+			},
+			"say_other_hit_pet_info": {
+				"queue_command": {
+					"target": "other",
+					"command": "titleraw @s actionbar {\"rawtext\":[{\"translate\":\"chat.billeys_mobs.other_hit_pet\"}]}"
+				}
+			},
+			"add_sittable": {
+				"add": {
+					"component_groups": [
+						"sittable"
+					]
+				}
+			},
+			"remove_sittable": {
+				"remove": {
+					"component_groups": [
+						"sittable"
+					]
+				}
+			},
+			"attack_animation": {
+				"queue_command": {
+					"command": "playanimation @s animation.billeys_mobs.angler.attack"
+				}
+			},
+			"boost": {
+				"add": {
+					"component_groups": [
+						"boosted"
+					]
+				}
+			},
+			"boost_long": {
+				"add": {
+					"component_groups": [
+						"boosted_long"
+					]
+				}
+			},
+			"lose_boost": {
+				"sequence": [
+					{
+						"queue_command": {
+							"command": [
+								"event entity @e[type=billey:anglerfish_boost,c=1] despawn"
+							]
+						}
+					},
+					{
+						"remove": {
+							"component_groups": [
+								"boosted",
+								"boosted_long"
+							]
+						}
+					}
+				]
+			},
+			"send_info": {
+				"queue_command": {
+					"target": "other",
+					"command": [
+						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}",
+						"tellraw @s {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.anglerfish\",\"with\":[\"\\n\"]},{\"text\": \"\\n\"},{\"text\": \"\\n\"},{\"translate\":\"ui.billeys_mobs.info.formore\"}]}",
+						"tellraw @s {\"rawtext\":[{\"text\":\"\\n\"}]}"
+					]
+				}
+			},
+			"untame": {
+				"sequence": [
+					{
+						"queue_command": {
+							"command": [
+								"playsound random.orb @a ~~~ 1.00 0.8 0.5",
+								"tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.untame\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.untame2\"}] }"
+							]
+						}
+					},
+					{
+						"remove": {
+							"component_groups": [
+								"tamed_component"
+							]
+						},
+						"add": {
+							"component_groups": [
+								"untamed"
+							]
+						}
+					}
+				]
+			},
+			"get_electrocuted": {
+				"add": {
+					"component_groups": [
+						"electrocuted"
+					]
+				}
+			},
+			"eventwander": {
+				"sequence": [
+					{
+						"remove": {
+							"component_groups": [
+								"following"
+							]
+						}
+					},
+					{
+						"queue_command": {
+							"command": [
+								"tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.wander\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.wander2\"}] }"
+							]
+						}
+					}
+				]
+			},
+			"eventfollow": {
+				"sequence": [
+					{
+						"add": {
+							"component_groups": [
+								"following"
+							]
+						}
+					},
+					{
+						"queue_command": {
+							"command": [
+								"tellraw @a[r=5] {\"rawtext\": [{\"translate\": \"billmobs.follow\"},{\"selector\": \"@s\"}, {\"translate\": \"billmobs.follow2\"}] }"
+							]
+						}
+					}
+				]
+			},
+			"beenfedabanana": {
+				"sequence": [
+					{
+						"queue_command": {
+							"command": [
+								"particle billey:eatbanana ~ ~.5 ~"
+							]
+						}
+					},
+					{
+						"randomize": [
+							{
+								"weight": 8,
+								"queue_command": {
+									"command": [
+										"effect @s regeneration 7 1"
+									]
+								}
+							},
+							{
+								"weight": 4,
+								"queue_command": {
+									"command": [
+										"effect @s regeneration 10"
+									]
+								}
+							},
+							{
+								"weight": 4,
+								"queue_command": {
+									"command": [
+										"effect @s speed 10"
+									]
+								}
+							},
+							{
+								"weight": 4,
+								"queue_command": {
+									"command": [
+										"effect @s absorption 10"
+									]
+								}
+							},
+							{
+								"weight": 4,
+								"queue_command": {
+									"command": [
+										"effect @s resistance 10"
+									]
+								}
+							},
+							{
+								"weight": 4,
+								"queue_command": {
+									"command": [
+										"effect @s strength 10"
+									]
+								}
+							},
+							{
+								"weight": 4,
+								"queue_command": {
+									"command": [
+										"effect @s water_breathing 10"
+									]
+								}
+							},
+							{
+								"weight": 4,
+								"queue_command": {
+									"command": [
+										"effect @s fire_resistance 10"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"sequence": [
+									{
+										"queue_command": {
+											"command": [
+												"effect @s levitation 1 0 true"
+											]
+										}
+									},
+									{
+										"queue_command": {
+											"target": "other",
+											"command": [
+												"effect @s levitation 1 0 true"
+											]
+										}
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"bepetted": {
+				"sequence": [
+					{
+						"randomize": [
+							{
+								"weight": 13
+							},
+							{
+								"weight": 1
+							},
+							{
+								"weight": 1,
+								"queue_command": {
+									"command": [
+										"playanimation @s animation.billeys_mobs.cat.petted"
+									]
+								}
+							}
+						]
+					},
+					{
+						"queue_command": {
+							"target": "other",
+							"command": [
+								"playanimation @s animation.billeys_mobsplayer.pet"
+							]
+						}
+					},
+					{
+						"randomize": [
+							{
+								"weight": 1
+							},
+							{
+								"weight": 99
+							},
+							{
+								"weight": 3,
+								"queue_command": {
+									"command": [
+										"effect @s resistance 10 1 true"
+									]
+								}
+							},
+							{
+								"weight": 3,
+								"queue_command": {
+									"command": [
+										"effect @s fire_resistance 10 1 true"
+									]
+								}
+							},
+							{
+								"weight": 3,
+								"queue_command": {
+									"command": [
+										"effect @s strength 10 1 true"
+									]
+								}
+							},
+							{
+								"weight": 3,
+								"queue_command": {
+									"command": [
+										"effect @s water_breathing 30 0 true"
+									]
+								}
+							},
+							{
+								"weight": 3,
+								"queue_command": {
+									"command": [
+										"effect @s speed 10 1 true"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"queue_command": {
+									"command": [
+										"effect @s levitation 1 1 true",
+										"effect @s regeneration 30 1 true"
+									]
+								}
+							},
+							{
+								"weight": 1,
+								"queue_command": {
+									"command": [
+										"effect @s speed 1 0"
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"kroma": {
+				"add": {
+					"component_groups": [
+						"kromatik"
+					]
+				}
+			},
+			"nokroma": {
+				"remove": {
+					"component_groups": [
+						"kromatik"
+					]
+				}
+			},
+			"spawn_blue": {
+				"add": {
+					"component_groups": [
+						"alive",
+						"dry",
+						"wild",
+						"variant8"
+					]
+				}
+			},
+			"minecraft:entity_spawned": {
+				"sequence": [
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_biome_tag",
+									"operator": "not",
+									"value": "frozen"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "not",
+									"value": "warm"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "not",
+									"value": "lukewarm"
+								}
+							]
+						},
+						"randomize": [
+							{
+								"weight": 90,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant1"
+									]
+								}
+							},
+							{
+								"weight": 30,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant2"
+									]
+								}
+							},
+							{
+								"weight": 30,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant3"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant4"
+									]
+								}
+							},
+							{
+								"weight": 30,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant5"
+									]
+								}
+							},
+							{
+								"weight": 30,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant6"
+									]
+								}
+							},
+							{
+								"weight": 30,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant7"
+									]
+								}
+							},
+							{
+								"weight": 30,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant8"
+									]
+								}
+							}
+						]
+					},
+					{
+						"filters": {
+							"all_of": [
+								{
+									"test": "has_biome_tag",
+									"value": "frozen"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "not",
+									"value": "warm"
+								},
+								{
+									"test": "has_biome_tag",
+									"operator": "not",
+									"value": "lukewarm"
+								}
+							]
+						},
+						"randomize": [
+							{
+								"weight": 10,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant1"
+									]
+								}
+							},
+							{
+								"weight": 40,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant2"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant3"
+									]
+								}
+							},
+							{
+								"weight": 2,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant4"
+									]
+								}
+							},
+							{
+								"weight": 40,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant5"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant6"
+									]
+								}
+							},
+							{
+								"weight": 5,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant7"
+									]
+								}
+							},
+							{
+								"weight": 25,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant7"
+									]
+								}
+							}
+						]
+					},
+					{
+						"filters": {
+							"any_of": [
+								{
+									"test": "has_biome_tag",
+									"value": "warm"
+								},
+								{
+									"test": "has_biome_tag",
+									"value": "lukewarm"
+								}
+							]
+						},
+						"randomize": [
+							{
+								"weight": 10,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant1"
+									]
+								}
+							},
+							{
+								"weight": 500,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant2"
+									]
+								}
+							},
+							{
+								"weight": 500,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant3"
+									]
+								}
+							},
+							{
+								"weight": 100,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant4"
+									]
+								}
+							},
+							{
+								"weight": 500,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant5"
+									]
+								}
+							},
+							{
+								"weight": 500,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant6"
+									]
+								}
+							},
+							{
+								"weight": 500,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant7"
+									]
+								}
+							},
+							{
+								"weight": 500,
+								"add": {
+									"component_groups": [
+										"alive",
+										"dry",
+										"wild",
+										"variant8"
+									]
+								}
+							}
+						]
+					}
+				]
+			},
+			"become_wet": {
+				"add": {
+					"component_groups": [
+						"wet"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"dry"
+					]
+				}
+			},
+			"become_dry": {
+				"add": {
+					"component_groups": [
+						"dry"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wet"
+					]
+				}
+			},
+			"minecraft:die1": {
+				"add": {
+					"component_groups": [
+						"eaten1"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"alive"
+					]
+				}
+			},
+			"minecraft:die2": {
+				"add": {
+					"component_groups": [
+						"eaten2"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"eaten1"
+					]
+				}
+			},
+			"dotheboom": {
+				"add": {
+					"component_groups": [
+						"theboom"
+					]
+				}
+			},
+			"minecraft:die3": {
+				"add": {
+					"component_groups": [
+						"eaten3"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"eaten2"
+					]
+				}
+			},
+			"minecraft:die4": {
+				"add": {
+					"component_groups": [
+						"eaten4"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"eaten3"
+					]
+				}
+			},
+			"minecraft:die5": {
+				"add": {
+					"component_groups": [
+						"eaten5"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"eaten4"
+					]
+				}
+			},
+			"minecraft:die6": {
+				"add": {
+					"component_groups": [
+						"eaten6"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"eaten5"
+					]
+				}
+			},
+			"minecraft:die7": {
+				"add": {
+					"component_groups": [
+						"die"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"eaten6"
+					]
+				}
+			},
+			"tamed_yay": {
+				"add": {
+					"component_groups": [
+						"tamed"
+					]
+				},
+				"remove": {
+					"component_groups": [
+						"wild"
+					]
+				}
+			},
+			"minecraft:start_exploding": {
+				"sequence": [
+					{
+						"filters": {
+							"test": "has_component",
+							"operator": "!=",
+							"value": "minecraft:is_charged"
+						},
+						"add": {
+							"component_groups": [
+								"minecraft:exploding"
+							]
+						}
+					},
+					{
+						"filters": {
+							"test": "has_component",
+							"value": "minecraft:is_charged"
+						},
+						"add": {
+							"component_groups": [
+								"minecraft:charged_exploding"
+							]
+						}
+					}
+				]
+			},
+			"minecraft:stop_exploding": {
+				"remove": {
+					"component_groups": [
+						"minecraft:exploding"
+					]
+				}
+			}
+		}
+	}
+}

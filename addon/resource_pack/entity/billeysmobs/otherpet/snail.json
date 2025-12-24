@@ -1,0 +1,62 @@
+///sssssscriptssssssss
+//what
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:snail",
+			"materials": {
+				"dye": "cat",
+				"nodye": "entity"
+			},
+			"textures": {
+				"default": "textures/entity/billeys_mobs/snail",
+				"one": "textures/entity/billeys_mobs/snail1",
+				"two": "textures/entity/billeys_mobs/snail2",
+				"three": "textures/entity/billeys_mobs/snail3",
+				"four": "textures/entity/billeys_mobs/snail4",
+				"five": "textures/entity/billeys_mobs/snail5",
+				"six": "textures/entity/billeys_mobs/snail6",
+				"seven": "textures/entity/billeys_mobs/snail7"
+			},
+			"geometry": {
+				"default": "geometry.billeys_mobs.snail"
+			},
+			"animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+				"healthcont": "controller.animation.billeys_mobs.crack",
+				"sheared": "animation.billeys_mobs.snail.sit",
+				"controller.sheared": "controller.animation.billeys_mobs.snail",
+				"controller.climb": "controller.animation.billeys_mobs.climb",
+				"climb": "animation.billeys_mobs.snail.climb",
+				"poison": "animation.billeys_mobs.snail.poison"
+			},
+			"sound_effects": {
+			  "crack": "block.turtle_egg.crack"
+			},//doing the hurt sound the proper way didnt work
+			"particle_effects": {
+				"zeelol": "billey:zee"
+			},
+			"scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+				"initialize": [
+				  "v.prevhealth = 0;"
+				],
+				"animate": [ "new",
+					"healthcont",
+					"controller.sheared",
+					"controller.climb",
+					{ "climb": "q.is_wall_climbing ? 0 : math.sin(v.attack_time * 180) / 3" },
+					{ "poison": "q.variant" }
+				]
+			},
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": ["controller.render.billeys_mobs.snail"],
+			"spawn_egg": {
+				"base_color": "#fedcbe",
+				"overlay_color": "#A8B881"
+			}
+		}
+	}
+}

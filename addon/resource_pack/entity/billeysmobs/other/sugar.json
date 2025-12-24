@@ -1,0 +1,35 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:sugar",
+      "materials": { "default": "salmon" },
+      "textures": {
+        "default": "textures/entity/cat/sugar"
+      },
+      "geometry": {
+        "default": "geometry.cat"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "sneak": "animation.cat.sneak",
+        "walk": "animation.cat.walk",
+        "sprint": "animation.cat.sprint",
+        "sit": "animation.cat.sit",
+        "look_at_target": "animation.common.look_at_target",
+        "baby_transform": "animation.cat.baby_transform",
+        "lie_down": "animation.cat.lie_down"
+      },
+      "animation_controllers": [
+        { "look_at_target": "controller.animation.cat.look_at_target" },
+        { "move": "controller.animation.cat.move" },
+        { "baby": "controller.animation.cat.baby" }
+      ],
+      "render_controllers": [ "controller.render.billeys_mobs_default" ],
+      "spawn_egg": {
+        "base_color": "#A300AE",
+        "overlay_color": "#A300AE"
+      }
+    }
+  }
+}

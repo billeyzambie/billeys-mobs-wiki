@@ -1,0 +1,33 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "billey:catfish_syringe"
+      },
+      "tags": [
+        "crafting_table"
+      ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "k",
+        "d",
+        "i"
+      ],
+      "key": {
+        "i": {
+          "item": "iron_ingot"
+        },
+        "k": {
+          "item": "billey:kiwi_fur"
+        },
+        "d": {
+          "item": "diamond"
+        }
+      },
+      "result": [
+        {
+          "item": "billey:catfish_syringe"
+        }
+      ]
+    }
+  }

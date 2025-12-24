@@ -1,0 +1,14 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.angler.sugar": {
+			"loop": true,
+			"bones": {
+				"bone": {
+					"rotation": ["q.life_time * 50", "q.life_time * 60", "q.life_time * 40"],
+					"scale": ["1 + math.abs(math.sin(q.life_time * 100) / 3)", "1 + math.abs(math.sin(q.life_time * 100) / 3)", "1 + math.abs(math.sin(q.life_time * 100) / 3)"]
+				}
+			}
+		}
+	}
+}

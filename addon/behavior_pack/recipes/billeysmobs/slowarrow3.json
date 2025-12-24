@@ -1,0 +1,22 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+      "description": {
+      "identifier": "billey:slowarrow3"
+      },
+       "tags": [ "crafting_table" ],
+      "ingredients": [
+        {
+          "item": "minecraft:arrow"
+        },
+        {
+          "item": "billey:deinonychus_feather"
+        }
+      ],
+      "result": {
+       "item": "arrow",
+       "data": 19
+     }
+    }
+  }
+  

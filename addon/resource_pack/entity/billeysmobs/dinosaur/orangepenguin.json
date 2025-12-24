@@ -1,0 +1,84 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:orange_penguin",
+			"materials": {
+				"default": "entity_alphatest",
+				"cat": "cat"
+			},
+			"textures": {
+				"zero": "textures/entity/billeys_mobs/orangepenguin",
+				"one": "textures/entity/billeys_mobs/orangepenguin1",
+				"two": "textures/entity/billeys_mobs/orangepenguin2",
+				"three": "textures/entity/billeys_mobs/orangepenguin3",
+				"four": "textures/entity/billeys_mobs/orangepenguin4",
+				"five": "textures/entity/billeys_mobs/orangepenguin5"
+			},
+			"geometry": {
+				"default": "geometry.billeys_mobs.orangepenguin"
+			},
+			"animations": {
+				"new": "animation.billeys_mobs.duckproj.body",
+				"move": "animation.billeys_mobs.orange_penguin.walk",
+				"leaf_rotation": "animation.billeys_mobs.orange_penguin.leaf_rotation",
+				"swim_not_angry": "animation.billeys_mobs.orange_penguin.swim_not_angry",
+				"look_at_target": "animation.billeys_mobs.orange_penguin.look_at_target",
+				"bob": "animation.humanoid.bob",
+				"angry": "animation.billeys_mobs.orange_penguin.angry",
+				"sit": "animation.billeys_mobs.orange_penguin.sit",
+				"gothurt": "animation.billeys_mobs.orange_penguin.gothurt",
+				"hitcont": "controller.animation.billeys_mobs.hitanim",
+				"hurt": "animation.billeys_mobs.orange_penguin.hurt",
+				"baby_transform": "animation.billeys_mobs.orange_penguin.baby2",
+				"controller.eat": "controller.animation.billeys_mobs.eat",
+				"eat": "animation.billeys_mobs.orange_penguin.eat",
+				"controller.sit": "controller.animation.billeys_mobs.sit"
+			},
+			"scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+                "variables": {
+                  "variable.head_size_x": "public",
+                  "variable.head_size_y": "public",
+                  "variable.head_size_z": "public"
+                },
+                "initialize": [
+                  "v.head_size_x = 6;",
+                  "v.head_size_y = 6;",
+                  "v.head_size_z = 6;"
+                ],
+				"animate": [
+					"new",
+					"bob",
+					"hitcont",
+					"leaf_rotation",
+					"controller.sit",
+					"controller.eat",
+					{
+						"hurt": "(q.health < 16 * q.max_health / 30) && q.is_alive"
+					},
+						"look_at_target",
+					{
+						"baby_transform": "q.is_baby"
+					},
+					{
+						"angry": "!q.is_baby && q.has_target && !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+					},
+					{
+						"move": "q.modified_move_speed * 1.5"
+					}
+				]
+			},
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+				"controller.render.billeys_mobs.orangepenguin"
+				//in the betta fish file
+			],
+			"spawn_egg": {
+				"overlay_color": "#118101",
+				"base_color": "#D16800"
+			}
+		}
+	}
+}

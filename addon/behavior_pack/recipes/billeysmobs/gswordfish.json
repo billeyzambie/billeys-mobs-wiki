@@ -1,0 +1,34 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:goldswordfish"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "NTT",
+        "NST",
+        "INT"
+      ],
+      "key": {
+        "N": {
+          "item": "minecraft:gold_ingot"
+        },
+        "S": {
+          "item": "billey:swordfish",
+          "data": 0
+        },
+        "T": {
+          "item": "billey:shark_tooth"
+        },
+        "I": {
+          "item": "minecraft:gold_block"
+        }
+      },
+      "result": [
+        { "item": "billey:golden_swordfish" }
+      ]
+    }
+  }
+  

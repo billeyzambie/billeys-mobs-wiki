@@ -1,0 +1,45 @@
+{
+	"format_version": 2,
+	"header": {
+		"description": "§eYou §c!MUST!§e turn on the experiment \"§c§lBeta APIs§r§e\" or the add-on §cwill not work!\n§rAdds §auseful§r pets and fish to your game, intended to contribute to survival gameplay as much as possible. Made by billeyzambie.",
+		//Makes the game more fishy! Also adds some purrfect pets, made by billeyzambie. §a§lGET IT FROM MCPEDL OR BILL'S TWITTER/DISCORD NOT SOME STUPID WEBSITE OR APP LIKE MCPEMONSTER!!!",
+		"name": "Billey's Mobs Development",
+		"uuid": "a5feb5d2-78b5-4753-ac22-dd37f271b279",
+		//NOTE TO SELF: Change a to b
+		"min_engine_version": [1,16,200],
+		"pack_scope": "world",
+		"version": [ 1, 0, 0 ]
+	},
+	"metadata": {
+		"authors":["billeyzambie"],
+		"url": "https://mcpedl.com/billeys-mobs-addon"
+	},
+	"modules": [
+		{
+            "description": "NOTE TO SELF: Change a to b",
+			"type": "data",
+			"uuid": "a642675e-3f2b-42fc-8739-f2dd85d2249e",
+			"version": [ 1, 0, 0 ]
+		},
+        {
+            "type": "script",
+            "uuid": "ac2dc7e3-0ce2-44fc-909b-20f4b5815b43",
+            "entry": "scripts/billeys_mobs/_main.js",
+            "version": [ 1, 0, 0 ]
+        }
+	],
+	"dependencies": [
+		{
+			"uuid": "ad3853a7-d812-4c65-ab9c-e5b0a4b3fbce",
+			"version": [ 1, 0, 0 ]
+		},
+		{
+		  "module_name": "@minecraft/server",
+		  "version": "2.5.0-beta"
+		},
+		{
+		  "module_name": "@minecraft/server-ui",
+		  "version": "2.1.0-beta"
+		}
+	]
+}

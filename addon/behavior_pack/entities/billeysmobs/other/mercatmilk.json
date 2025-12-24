@@ -1,0 +1,67 @@
+
+        {
+          "format_version": "1.8.0",
+          "minecraft:entity": {
+            "description": {
+              "runtime_identifier": "minecraft:egg",
+              "identifier": "billey:fermented_mercat_milk",
+              "is_spawnable": false,
+              "is_summonable": true,
+              "is_experimental": false
+            },
+            "components": {
+              "minecraft:collision_box": {
+                "width": 0.25,
+                "height": 0.25
+              },
+              "minecraft:projectile": {
+                "onHit": {
+                  "spawn_chance": {
+                    "firstSpawnChance": 1,
+                    "secondSpawnChance": 32,
+                    "firstSpawnCount": 1,
+                    "secondSpawnCount": 1,
+                    "spawnMob": "billey:mercat_milk_effect",
+                    "spawnDefinition": "billey:mercat_milk_effect",
+                    "spawnBaby": true
+                  },
+                  "remove_on_hit": {}
+                },
+                "power": 1.5,
+                "gravity": 0.03,
+                "angleoffset": 0.0
+              },
+              "minecraft:physics": {
+              }
+            },
+            "events": {
+            "add_sittable": {
+                "add": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "remove_sittable": {
+                "remove": {
+                    "component_groups": [
+                        "sittable"
+                    ]
+                }
+            },
+            "check_if_experiments_on": {
+                "queue_command": {
+                    "command": "tag @s add billey_exp_on"
+                }
+            },
+                "minecraft:entity_spawned": {
+                    "queue_command": {
+                        "command": [
+                            "playsound random.bow @a ~~~ 1.0 0.7"
+                        ]
+                    }
+                }
+            }
+          }
+        }
+        

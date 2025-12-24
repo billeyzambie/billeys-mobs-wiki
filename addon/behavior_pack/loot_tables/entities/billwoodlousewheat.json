@@ -1,0 +1,89 @@
+{
+    "pools": [
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "billey:swordcooked",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:cooked_snail",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:cooked_snail_s",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:cooked_snail_w",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:cooked_piranha",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:pickle_juice",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:cooked_hamster",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:cooked_betta_fish",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:poultry_orange",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:cooked_mergoose_tongue",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:cooked_catfish",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:chocolate_catfish",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:potato_stick",
+                    "weight": 1
+                },
+                {
+                    "type": "item",
+                    "name": "billey:pizzapiece",
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "wheat_seeds",
+                    "weight": 1
+                }
+            ]
+        }
+    ]
+}

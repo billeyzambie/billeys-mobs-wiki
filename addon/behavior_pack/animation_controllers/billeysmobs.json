@@ -1,0 +1,1191 @@
+{
+	"format_version": "1.10.0",
+	"animation_controllers": {
+		"controller.animation.billeys_mobs.set_sitting_property": {
+			"initial_state": "standing",
+			"states": {
+				"standing": {
+					"transitions": [
+						{
+							"sitting": "q.is_sitting"
+						}
+					],
+					"on_entry": [
+						"@s set_sitting_property_false"
+					]
+				},
+				"sitting": {
+					"transitions": [
+						{
+							"standing": "!q.is_sitting"
+						}
+					],
+					"on_entry": [
+						"@s set_sitting_property_true"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.stand_up_when_hit": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"stand_up": "q.health < (v.prev_health ?? 0)"
+						},
+						{
+							"healed": "q.health > (v.prev_health ?? 0)"
+						}
+					],
+					"on_entry": [
+						"@s add_sittable",
+						"v.prev_health = q.health;"
+					]
+				},
+				"stand_up": {
+					"transitions": [
+						{
+							"default": "1"
+						}
+					],
+					"on_entry": [
+						"@s remove_sittable"
+					]
+				},
+				"healed": {
+					"transitions": [
+						{
+							"default": "1"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.sleeping": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"sleeping": "q.is_sleeping"
+						}
+					],
+					"on_entry": [
+						"@s do_ambient"
+					],
+					"on_exit": [
+						"@s dont_ambient"
+					]
+				},
+				"sleeping": {
+					"transitions": [
+						{
+							"default": "!q.is_sleeping"
+						}
+					],
+					"on_entry": [
+						"@s dont_ambient"
+					],
+					"on_exit": [
+						"@s do_ambient"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.bananafire": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_on_fire || q.has_target || q.is_in_water || q.is_interested"
+						}
+					],
+					"on_entry": [
+						"@s nofire"
+					],
+					"on_exit": [
+						"@s givefire"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_on_fire && !q.has_target && !q.is_in_water && !q.is_interested"
+						}
+					],
+					"on_entry": [
+						"@s givefire"
+					],
+					"on_exit": [
+						"@s nofire"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.standhamster": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					],
+					"on_exit": [
+						"@s stop_dust"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.kiwialb": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "!q.variant && (q.is_avoiding_mobs || (q.health < q.max_health))"
+						}
+						//!q.variant is basically just q.variant == 0
+					]
+				},
+				"doing_thing": {
+					"animations": [
+						"kiwipear"
+					],
+					"transitions": [
+						{
+							"default": "q.is_tamed && q.health >= q.max_health"
+						}
+					],
+					"on_entry": [
+						"@s addpanic"
+					],
+					"on_exit": [
+						"@s removepanic"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.hmrbill": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.has_rider"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.has_rider && !q.is_tamed"
+						}
+					],
+					"on_exit": [
+						"@s lostrider"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duckhat.exdehe": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_riding"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_riding"
+						}
+					],
+					"on_exit": [
+						"/kill"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duckatrice.fix_after_ride": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"is_being_ridden": "q.has_rider"
+						}
+					],
+					"on_entry": [
+						"@s test_if_target"
+					]
+				},
+				"is_being_ridden": {
+					"transitions": [
+						{
+							"default": "!q.has_rider"
+						}
+					],
+					"on_exit": [
+						"/tp ~~~",
+						"/effect @s speed 0 255 true"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.despawn": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_alive"
+						}
+					],
+					"on_entry": [
+						"/tp 0 0 0"
+					],
+					"on_exit": [
+						"/tp 0 0 0"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.has_rider && !q.is_tamed"
+						}
+					],
+					"on_entry": [
+						"/tp 0 0 0"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.mercatbreathing": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_breathing"
+						}
+					],
+					"on_entry": [
+						"/tag @s remove is_breathing"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_breathing"
+						}
+					],
+					"on_entry": [
+						"/tag @s add is_breathing"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.mercatwater": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"in_water": "!q.is_in_water"
+						}
+					],
+					"on_entry": [
+						"@s enter_water",
+						"/effect @s water_breathing 1 0 true"
+					]
+				},
+				"in_water": {
+					"transitions": [
+						{
+							"default": "q.is_in_water"
+						}
+					],
+					"on_entry": [
+						"@s exit_water"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.tiktaalik_switch_movement": {
+			"initial_state": "on_land_or_sitting",
+			"states": {
+				"on_land_or_sitting": {
+					"transitions": [
+						{
+							"in_water": "q.is_in_water && !q.is_sitting"
+						}
+					],
+					"on_entry": [
+						"@s exit_water"
+					]
+				},
+				"in_water": {
+					"transitions": [
+						{
+							"on_land_or_sitting": "!q.is_in_water || q.is_sitting"
+							//give sitting tiktaaliks the land ai even if they are underwater
+							//so that they'll sink instead of floating
+						}
+					],
+					"on_entry": [
+						"@s enter_water"
+					]
+				}
+			}
+		},
+		"controller.animation.cucumba.vitamin": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.has_rider || !q.is_in_water"
+						}
+					],
+					"on_exit": [
+						"@s horse"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "q.is_in_water && !q.has_rider"
+						}
+					],
+					"on_exit": [
+						"@s fish"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobsangel_death": {
+			"states": {
+				"default": {
+					"on_entry": [
+						"/function billeyangel_death"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.pigeon": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_avoiding_mobs && !q.is_tamed"
+						}
+					],
+					"on_exit": [
+						"@s exdee"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "q.is_on_ground"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.dont_fly_while_mating": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_in_love"
+						}
+					],
+					"on_entry": [
+						"/tag @s remove in_love"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_in_love"
+						}
+					],
+					"on_entry": [
+						"/tag @s add in_love",
+						"@s switch_movement"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.eelflee": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_avoiding_mobs"
+						}
+					],
+					"on_exit": [
+						"@s electrocute_event"
+					]
+				},
+				"doing_thing": {
+					"on_entry": [
+						"v.pigeon_time=q.life_time + Math.Random(1,3);"
+					],
+					"transitions": [
+						{
+							"default": "v.pigeon_time < q.life_time"
+						}
+					]
+				}
+			}
+		},
+		"controller.animation.cucumba.bacteria": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "!q.is_in_water"
+						}
+					],
+					"on_exit": [
+						"/effect @p water_breathing 5 0 true"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "q.has_rider"
+						}
+					],
+					"on_exit": [
+						"/effect @p water_breathing 5 0 true"
+					]
+				}
+			}
+		},
+		"controller.animation.cucumba.veryhighnumba": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "!q.is_in_water"
+						}
+					],
+					"on_exit": [
+						"@s horse"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "q.is_in_water"
+						}
+					],
+					"on_exit": [
+						"@s fish"
+					]
+				}
+			}
+		},
+		"controller.animation.velvet.billeys_mobszambie": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "v.attack_time"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!v.attack_time"
+						}
+					],
+					"on_exit": [
+						"/summon billey:slimedrop"
+					]
+				}
+			}
+		},
+		"controller.animation.picklepet.birth": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_shaking"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_shaking"
+						}
+					],
+					"on_exit": [
+						"/function picklepetbirth"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.love_tag": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"in_love": "q.is_in_love"
+						}
+					],
+					"on_entry": [
+						"/tag @s remove in_love"
+					]
+				},
+				"in_love": {
+					"transitions": [
+						{
+							"default": "!q.is_in_love"
+						}
+					],
+					"on_entry": [
+						"/tag @s add in_love"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.rat.ride": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"riding": "q.is_riding"
+						}
+					]
+				},
+				"riding": {
+					"transitions": [
+						{
+							"default": "!q.is_riding"
+						},
+						{
+							"jump_off": "q.has_target || q.is_in_water"
+						}
+					],
+					"on_entry": [
+						"@s rode_player"
+					]
+				},
+				"jump_off": {
+					"transitions": [
+						{
+							"default": "!q.has_target"
+						}
+					],
+					"on_entry": [
+						"/tp ~ ~-0.1 ~"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobswyvern.ride": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"riding": "q.is_riding || q.is_sitting"
+						}
+					]
+				},
+				"riding": {
+					"transitions": [
+						{
+							"default": "!q.is_riding"
+						},
+						{
+							"jump_off": "q.has_target || q.is_stunned || q.is_in_water"
+						}
+					],
+					"on_entry": [
+						"@s rode_player"
+					]
+				},
+				"jump_off": {
+					"transitions": [
+						{
+							"default": "!q.has_target"
+						}
+					],
+					"on_entry": [
+						"/tp ~ ~-0.1 ~"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.tame": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"tamed_and_full_health": "q.is_tamed"
+						},
+						{
+							"leashed": "q.is_leashed && !q.is_tamed"
+						}
+					]
+				},
+				"leashed": {
+					"transitions": [
+						{
+							"tamed_and_full_health": "q.is_tamed"
+						}
+					],
+					"on_entry": [
+						"/tellraw @a[r=6,tag=billeyinfoleashwild,tag=!billeyinfoleashwild2] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.leashwild\"}]}",
+						"/tag @p[r=6,tag=billeyinfoleashwild,tag=!billeyinfoleashwild2] add billeyinfoleashwild2",
+						"/tellraw @a[r=6,tag=!billeyinfoleashwild] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.leashwild\"}]}",
+						"/tag @p[r=6,tag=!billeyinfoleashwild] add billeyinfoleashwild"
+					]
+				},
+				"tamed_and_full_health": {
+					"transitions": [
+						{
+							"hurt": "q.health < q.max_health"
+						}
+					],
+					"on_entry": [
+						"/tag @s add tamed",
+						//read (behavior pack)/readme.txt for what the
+						//tamed tag is used for
+						"/tag @s add billey:tamed"
+					]
+				},
+				"hurt": {
+					"transitions": [
+						{
+							"tamed_and_full_health": "q.health >= q.max_health"
+						}
+					],
+					"on_exit": [
+						"/particle billey:sprinkles ~ ~.4 ~"
+					],
+					"on_entry": [
+						"/tellraw @p[r=6,tag=!billeyinfohurtpet] {\"rawtext\":[{\"translate\":\"ui.billeys_mobs.info.tip5\",\"with\":{\"rawtext\":[{\"selector\":\"@s\"}]}}]}",
+						"/tag @p[r=6,tag=!billeyinfohurtpet] add billeyinfohurtpet"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.cocc": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "1"
+						}
+					]
+				},
+				"doing_thing": {
+					"on_entry": [
+						"/particle billey:sprinkles ~ ~.5 ~",
+						"/tellraw @a {\"rawtext\":[{\"translate\":\"rawtext.billeys_mobshonk\"},{\"translate\":\"rawtext.billeys_mobshonk2\"},{\"text\":\"\\n\\n\\n\\n\\n§ehttps://mcpedl.com/billeys-mobs-addon§r is where you should have gotten this addon from, if you got it from anywhere else then the website you got it from steals add-ons from mcpedl and no add-on you find there is actually uploaded by its creator. Popular examples of websites like that would be mcpеhub.ru, mc-аddons.com, mcpе-gаme.ru, monstеr-mcpе.com, minеcrаftpе-mods.com and every app where you can download addons, unless mcpеdl made their own app after this was written\\n\\n\\n\\n\"}]}",
+						"/setblock ~~~ billey:zambie",
+						"/playsound billey.goose.say @a ~~~",
+						"/tp 0 0 0"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.place_pickle": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "1"
+						}
+					]
+				},
+				"doing_thing": {
+					"on_entry": [
+						"/particle minecraft:crop_growth_emitter ~ ~.4 ~",
+						"/fill ~~~~~~ sea_pickle 3 replace sea_pickle 2",
+						"/fill ~~~~~~ sea_pickle 2 replace sea_pickle 1",
+						"/fill ~~~~~~ sea_pickle 1 replace sea_pickle 0",
+						"/fill ~~~~~~ sea_pickle 0 replace water 0",
+						"/fill ~~~~~~ sea_pickle 7 replace sea_pickle 6",
+						"/fill ~~~~~~ sea_pickle 6 replace sea_pickle 5",
+						"/fill ~~~~~~ sea_pickle 5 replace sea_pickle 4",
+						"/fill ~~~~~~ sea_pickle 4 replace air",
+						"/tp ~ 0 ~",
+						"@s despawn"
+					]
+				}
+			}
+		},
+		"controller.animation.fook.fly": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_saddled"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_saddled"
+						}
+					],
+					"on_entry": [
+						"/effect @s levitation 1 2 true",
+						"/effect @s slow_falling 2 0 true"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.can_sleep": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"cant_sleep": "!q.is_sitting"
+						}
+					],
+					"on_exit": [
+						"/tag @s add cantsleep"
+					],
+					"on_entry": [
+						"/tag @s remove cantsleep"
+					]
+				},
+				"cant_sleep": {
+					"transitions": [
+						{
+							"default": "q.is_sitting"
+						}
+					],
+					"on_entry": [
+						"/tag @s add cantsleep"
+					],
+					"on_exit": [
+						"/tag @s remove cantsleep"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.shouldgetanorange": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"orange": "q.health >= q.max_health && !q.is_baby"
+						}
+					],
+					"on_exit": [
+						"/tag @s add shouldgetanorange"
+					],
+					"on_entry": [
+						"/tag @s remove shouldgetanorange"
+					]
+				},
+				"orange": {
+					"transitions": [
+						{
+							"default": "q.health < q.max_health || q.is_baby"
+						}
+					],
+					"on_entry": [
+						"/tag @s add shouldgetanorange"
+					],
+					"on_exit": [
+						"/tag @s remove shouldgetanorange"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.panicompo": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"panicompo": "(q.health < (16 * q.max_health / 30) || q.is_on_fire)"
+						}
+					],
+					"on_exit": [
+						"@s getpanic"
+					],
+					"on_entry": [
+						"@s losepanic"
+					]
+				},
+				"panicompo": {
+					"transitions": [
+						{
+							"default": "!(q.health < (16 * q.max_health / 30) || q.is_on_fire)"
+						}
+					],
+					"on_entry": [
+						"@s getpanic",
+						"@s hit_orange"
+					],
+					"on_exit": [
+						"@s losepanic"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.betta.boost": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_sheared"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_sheared"
+						}
+					],
+					"animations": [
+						"boost"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.goose.eat": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"eating": "q.is_item_equipped && q.is_eating"
+						},
+						{
+							"glistering_melon": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glistering_melon_slice')"
+						},
+						{
+							"melon_block": "q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:melon_block')"
+						}
+					]
+				},
+				"melon_block": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:melon_block')"
+						}
+					],
+					"on_entry": [
+						"/replaceitem entity @s slot.weapon.mainhand 0 melon",
+						"/loot spawn ~~~ loot \"entities/billeightmelonslices\""
+					]
+				},
+				"eating": {
+					"transitions": [
+						{
+							"default": "!q.is_eating"
+						}
+					],
+					"on_exit": [
+						"/effect @s regeneration 2 3 true"
+					]
+				},
+				"glistering_melon": {
+					"transitions": [
+						{
+							"default": "!q.is_item_name_any('slot.weapon.mainhand', 0, 'minecraft:glistering_melon_slice')"
+						}
+					],
+					"on_entry": [
+						"/replaceitem entity @s slot.weapon.mainhand 0 billey:glistering_melon_goose"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.goose.isholdingitem": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_item_equipped"
+						}
+					],
+					"on_exit": [
+						"/tag @s add isholdingitem"
+					],
+					"on_entry": [
+						"/tag @s remove isholdingitem"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_item_equipped"
+						}
+					],
+					"on_entry": [
+						"/tag @s add isholdingitem"
+					],
+					"on_exit": [
+						"/tag @s remove isholdingitem"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.checkifsitting": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+						}
+					],
+					"on_entry": [
+						"/tag @s add sitting"
+					],
+					"on_exit": [
+						"/tag @s remove sitting"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.cucumbeel.fix": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_in_water && !q.has_rider"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_in_water || q.has_rider"
+						}
+					],
+					"on_entry": [
+						"@s fish"
+					],
+					"on_exit": [
+						"@s horse"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.falconlowhealth": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"dothing": "q.health <= 4"
+						}
+					]
+				},
+				"dothing": {
+					"transitions": [
+						{
+							"default": "q.health > 4"
+						}
+					],
+					"on_entry": [
+						"@s wild_fly_count_down",
+						"/tag @s add lowhealth"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.fixredstone": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_powered"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_powered"
+						}
+					],
+					"on_exit": [
+						"/fill ~~~~~~ redstone_wire 0 replace redstone_torch"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.asspower": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_saddled"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_saddled"
+						}
+					],
+					"on_exit": [
+						"/effect @s regeneration 1 1 true"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.level_when_shooting": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_charged"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_charged"
+						}
+					],
+					"on_entry": [
+						"/say say gex"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.duck.gold": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.variant == 2 && !q.is_baby && q.is_tamed"
+						}
+					]
+				},
+				"doing_thing": {
+					"on_entry": [
+						"@s addgold"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.snail.fix": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_in_water"
+						}
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_in_water"
+						}
+					],
+					"on_entry": [
+						"/effect @s levitation 3000 3 true",
+						"/effect @s speed 3000 0 true"
+					],
+					"on_exit": [
+						"/effect @s speed 0 255 true",
+						"/effect @s levitation 0 255 true"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.snail.fix2": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_in_water"
+						}
+					],
+					"on_entry": [
+						"/effect @s clear"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_in_water"
+						}
+					],
+					"on_entry": [
+						"/effect @s speed 3000 2 true"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.yuty.float": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_in_water"
+						}
+					],
+					"on_entry": [
+						"/effect @s clear"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "!q.is_in_water"
+						}
+					],
+					"on_entry": [
+						"/effect @s levitation 300000 0 true"
+					],
+					"on_exit": [
+						"/effect @s levitation 0 255 true"
+					]
+				}
+			}
+		},
+		"controller.animation.billeys_mobs.yuty.rideable": {
+			"states": {
+				"default": {
+					"transitions": [
+						{
+							"doing_thing": "q.is_tamed && !q.is_sitting && !q.is_baby && q.is_saddled"
+						}
+					],
+					"on_entry": [
+						"@s remove_rideable"
+					]
+				},
+				"doing_thing": {
+					"transitions": [
+						{
+							"default": "q.is_sitting || q.is_baby || !q.is_saddled"
+						}
+					],
+					"on_entry": [
+						"@s add_rideable"
+					]
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,30 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:power_banana"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "gdg",
+        "dbd",
+        "gdg"
+      ],
+      "key": {
+        "b": {
+          "item": "billey:sand_banana"
+        },
+        "g": {
+          "item": "gold_block"
+        },
+        "d": {
+          "item": "diamond_block"
+        }
+      },
+      "result": {
+       "item": "billey:power_banana"
+     }
+    }
+  }
+  

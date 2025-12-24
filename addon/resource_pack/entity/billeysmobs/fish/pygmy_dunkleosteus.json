@@ -1,0 +1,131 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:pygmy_dunkleosteus",
+			"materials": {
+				"default": "villager_v2_masked",
+				"cat": "cat"
+			},
+			"textures": {
+				"variant0": "textures/entity/billeys_mobs/pygmy_dunkleosteus",
+				"variant1": "textures/entity/billeys_mobs/pygmy_dunkleosteus1",
+				"variant2": "textures/entity/billeys_mobs/pygmy_dunkleosteus2",
+				"variant3": "textures/entity/billeys_mobs/pygmy_dunkleosteus3",
+				"variant4": "textures/entity/billeys_mobs/pygmy_dunkleosteus4",
+				"variant5": "textures/entity/billeys_mobs/pygmy_dunkleosteus5",
+				"variant6": "textures/entity/billeys_mobs/pygmy_dunkleosteus6",
+				"variant7": "textures/entity/billeys_mobs/pygmy_dunkleosteus7",
+				"variant0a": "textures/entity/billeys_mobs/pygmy_dunkleosteusa",
+				"variant0b": "textures/entity/billeys_mobs/pygmy_dunkleosteusb",
+				"variant0c": "textures/entity/billeys_mobs/pygmy_dunkleosteusc",
+				"variant0d": "textures/entity/billeys_mobs/pygmy_dunkleosteusd",
+				"variant0e": "textures/entity/billeys_mobs/pygmy_dunkleosteuse",
+				"variant0f": "textures/entity/billeys_mobs/pygmy_dunkleosteusf",
+				"variant0g": "textures/entity/billeys_mobs/pygmy_dunkleosteusg",
+				"variant1a": "textures/entity/billeys_mobs/pygmy_dunkleosteus1a",
+				"variant1b": "textures/entity/billeys_mobs/pygmy_dunkleosteus1b",
+				"variant1c": "textures/entity/billeys_mobs/pygmy_dunkleosteus1c",
+				"variant1d": "textures/entity/billeys_mobs/pygmy_dunkleosteus1d",
+				"variant1e": "textures/entity/billeys_mobs/pygmy_dunkleosteus1e",
+				"variant1f": "textures/entity/billeys_mobs/pygmy_dunkleosteus1f",
+				"variant1g": "textures/entity/billeys_mobs/pygmy_dunkleosteus1g",
+				"variant2a": "textures/entity/billeys_mobs/pygmy_dunkleosteus2a",
+				"variant2b": "textures/entity/billeys_mobs/pygmy_dunkleosteus2b",
+				"variant2c": "textures/entity/billeys_mobs/pygmy_dunkleosteus2c",
+				"variant2d": "textures/entity/billeys_mobs/pygmy_dunkleosteus2d",
+				"variant2e": "textures/entity/billeys_mobs/pygmy_dunkleosteus2e",
+				"variant2f": "textures/entity/billeys_mobs/pygmy_dunkleosteus2f",
+				"variant2g": "textures/entity/billeys_mobs/pygmy_dunkleosteus2g",
+				"variant3a": "textures/entity/billeys_mobs/pygmy_dunkleosteus3a",
+				"variant3b": "textures/entity/billeys_mobs/pygmy_dunkleosteus3b",
+				"variant3c": "textures/entity/billeys_mobs/pygmy_dunkleosteus3c",
+				"variant3d": "textures/entity/billeys_mobs/pygmy_dunkleosteus3d",
+				"variant3e": "textures/entity/billeys_mobs/pygmy_dunkleosteus3e",
+				"variant3f": "textures/entity/billeys_mobs/pygmy_dunkleosteus3f",
+				"variant3g": "textures/entity/billeys_mobs/pygmy_dunkleosteus3g",
+				"variant4a": "textures/entity/billeys_mobs/pygmy_dunkleosteus4a",
+				"variant4b": "textures/entity/billeys_mobs/pygmy_dunkleosteus4b",
+				"variant4c": "textures/entity/billeys_mobs/pygmy_dunkleosteus4c",
+				"variant4d": "textures/entity/billeys_mobs/pygmy_dunkleosteus4d",
+				"variant4e": "textures/entity/billeys_mobs/pygmy_dunkleosteus4e",
+				"variant4f": "textures/entity/billeys_mobs/pygmy_dunkleosteus4f",
+				"variant4g": "textures/entity/billeys_mobs/pygmy_dunkleosteus4g",
+				"variant5a": "textures/entity/billeys_mobs/pygmy_dunkleosteus5a",
+				"variant5b": "textures/entity/billeys_mobs/pygmy_dunkleosteus5b",
+				"variant5c": "textures/entity/billeys_mobs/pygmy_dunkleosteus5c",
+				"variant5d": "textures/entity/billeys_mobs/pygmy_dunkleosteus5d",
+				"variant5e": "textures/entity/billeys_mobs/pygmy_dunkleosteus5e",
+				"variant5f": "textures/entity/billeys_mobs/pygmy_dunkleosteus5f",
+				"variant5g": "textures/entity/billeys_mobs/pygmy_dunkleosteus5g",
+				"variant6a": "textures/entity/billeys_mobs/pygmy_dunkleosteus6a",
+				"variant6b": "textures/entity/billeys_mobs/pygmy_dunkleosteus6b",
+				"variant6c": "textures/entity/billeys_mobs/pygmy_dunkleosteus6c",
+				"variant6d": "textures/entity/billeys_mobs/pygmy_dunkleosteus6d",
+				"variant6e": "textures/entity/billeys_mobs/pygmy_dunkleosteus6e",
+				"variant6f": "textures/entity/billeys_mobs/pygmy_dunkleosteus6f",
+				"variant6g": "textures/entity/billeys_mobs/pygmy_dunkleosteus6g",
+				"variant7a": "textures/entity/billeys_mobs/pygmy_dunkleosteus7a",
+				"variant7b": "textures/entity/billeys_mobs/pygmy_dunkleosteus7b",
+				"variant7c": "textures/entity/billeys_mobs/pygmy_dunkleosteus7c",
+				"variant7d": "textures/entity/billeys_mobs/pygmy_dunkleosteus7d",
+				"variant7e": "textures/entity/billeys_mobs/pygmy_dunkleosteus7e",
+				"variant7f": "textures/entity/billeys_mobs/pygmy_dunkleosteus7f",
+				"variant7g": "textures/entity/billeys_mobs/pygmy_dunkleosteus7g",
+				"nothing": "textures/entity/billeys_mobs/transparent_white"
+			},
+			"geometry": {
+				"default": "geometry.billeys_mobs.pygmy_dunkleosteus"
+			},
+			"animations": {
+				"new": "animation.billeys_mobs.duckproj.body",
+				"flop": "animation.billeys_mobs.angler.flop",
+				"death": "animation.billeys_mobs.angler.death",
+				"swim": "animation.billeys_mobs.pygmy_dunkleosteus.swim",
+				"look": "animation.billeys_mobs.angler.look",
+				"attack": "animation.billeys_mobs.pygmy_dunkleosteus.attack"
+			},
+			"scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 6;",
+				  "v.head_size_y = 5;",
+				  "v.head_size_z = 5;"
+				],
+				"pre_animation": [
+                    "v.mark_variant = q.property('billey:mark_variant');",
+                    "v.big_tail = q.property('billey:big_tail');"
+				],
+				"animate": [
+					"new",
+					{
+						"death": "!q.is_alive"
+					},
+					{
+						"swim": "q.is_in_water ? math.clamp(q.modified_move_speed * 3, 0.3, 1) : 1"
+					},
+					{
+						"look": "q.is_in_water"
+					},
+					{
+						"flop": "!q.is_in_water && q.is_alive"
+					}
+				]
+			},
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+				"controller.render.billeys_mobs.pygmy_dunkleosteus"
+			],
+			"spawn_egg": {
+				"base_color": "#e74909",
+				"overlay_color": "#ffdeb8"
+			}
+		}
+	}
+}

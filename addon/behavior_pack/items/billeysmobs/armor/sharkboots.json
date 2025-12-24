@@ -1,0 +1,47 @@
+{
+	"format_version": "1.20.60",
+	"minecraft:item": {
+		"description": {
+			"identifier": "billey:shark_boots",
+			"menu_category": {
+			  "category": "equipment",
+			  "group": "itemGroup.name.boots"
+			}
+		},
+		"components": {
+			"minecraft:icon": {
+			  "textures": {
+				"default": "billey.shark_boots"
+			  }
+			},
+			"minecraft:max_stack_size": 1,
+			"minecraft:enchantable": {
+				"value": 20,
+				"slot": "armor_feet"
+			},
+			"minecraft:wearable": {
+				"slot": "slot.armor.feet",
+				"protection": 3
+			},
+			"minecraft:durability": {
+				"max_durability": 390
+			},
+			"minecraft:repairable": {
+				"repair_items": [
+					{
+						"items": [
+							"billey:shark_boots"
+						],
+						"repair_amount": 390
+					},
+					{
+						"items": [
+							"billey:shark_scales"
+						],
+						"repair_amount": 20
+					}
+				]
+			}
+		}
+	}
+}

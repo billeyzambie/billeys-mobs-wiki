@@ -1,0 +1,55 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "billey:picklepet",
+      "population_control": "water_animal"
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": { },
+        "minecraft:spawns_underwater": { },
+ 
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 15,
+          "adjust_for_weather": true
+        },
+        "minecraft:weight": {
+          "default": 40
+        },
+        "minecraft:permute_type": [
+          {
+            "weight": 4
+          },
+          {
+            "weight": 1,
+            "entity_type": "billey:cucumbeel"
+          },
+          {
+            "weight": 3,
+            "entity_type": "billey:pickle_cat"
+          }
+        ],
+
+        "minecraft:herd": {
+          "min_size": 2,
+          "max_size": 4
+        },
+
+        "minecraft:biome_filter": [
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "ocean"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "warm"
+          }
+        ]
+      }
+    ]
+  }
+}

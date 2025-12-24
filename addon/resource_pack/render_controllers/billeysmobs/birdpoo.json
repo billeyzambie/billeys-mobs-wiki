@@ -1,0 +1,37 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.billeys_mobs.poop": {
+      "arrays": {
+        "textures": {
+          "array.variants": [
+            "texture.fall",
+            "texture.flat"
+          ]
+        },
+          "geometries": {
+          "array.geos": [
+            "Geometry.fall",
+            "Geometry.flat"
+          ]
+          }
+      },
+      "geometry": "array.geos[q.is_on_ground]",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "array.variants[q.is_on_ground]" ],
+      "overlay_color": {
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "0.5"
+      },
+      "is_hurt_color": {
+          "r": "-math.sin(q.life_time * 200)",
+          "g": "-math.sin(q.life_time * 200 + 120)",
+          "b": "-math.sin(q.life_time * 200 + 240)",
+          "a": "0.5"
+      }
+    }
+  }
+}

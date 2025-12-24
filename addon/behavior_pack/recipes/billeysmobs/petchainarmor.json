@@ -1,0 +1,26 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+    "identifier": "billey:petchainarmor"
+    },
+    "tags": [ "crafting_table" ],
+    "group": "what_does_this_do",
+    "pattern": [
+      "MMM",
+      "MSM",
+      "MMM"
+    ],
+    "key": {
+      "M": {
+        "item": "minecraft:iron_nugget"
+      },
+      "S": {
+        "item": "billey:kiwi_fur"
+      }
+    },
+    "result": [
+      { "item": "billey:chain_pet_armor" }
+    ]
+  }
+}

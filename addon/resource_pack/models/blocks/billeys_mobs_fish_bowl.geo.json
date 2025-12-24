@@ -1,0 +1,127 @@
+{
+	"format_version": "1.21.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.billeys_mobs.fish_tank",
+				"texture_width": 16,
+				"texture_height": 16,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "fish_bowl",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 14, 16],
+							"uv": {
+								"north": {"uv": [0, 2], "uv_size": [16, 14], "material_instance": "side"},
+								"east": {"uv": [0, 2], "uv_size": [16, 14], "material_instance": "side"},
+								"south": {"uv": [0, 2], "uv_size": [16, 14], "material_instance": "side"},
+								"west": {"uv": [0, 2], "uv_size": [16, 14], "material_instance": "side"},
+								"up": {"uv": [16, 16], "uv_size": [-16, -16], "material_instance": "top"},
+								"down": {"uv": [16, 16], "uv_size": [-16, -16], "material_instance": "bottom"}
+							}
+						}
+					]
+				},
+				{
+					"name": "tip",
+					"parent": "fish_bowl",
+					"pivot": [0, 15, 0],
+					"cubes": [
+						{
+							"origin": [-5, 14, -5],
+							"size": [10, 2, 10],
+							"uv": {
+								"north": {"uv": [2, 3], "uv_size": [10, 2], "material_instance": "tip"},
+								"east": {"uv": [2, 0], "uv_size": [10, 2], "material_instance": "tip"},
+								"south": {"uv": [2, 9], "uv_size": [10, 2], "material_instance": "tip"},
+								"west": {"uv": [2, 6], "uv_size": [10, 2], "material_instance": "tip"}
+							}
+						}
+					]
+				},
+				{
+					"name": "water",
+					"parent": "fish_bowl",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 14, 16],
+							"inflate": -0.2,
+							"uv": {
+								"north": {"uv": [0, 2], "uv_size": [16, 14], "material_instance": "water"},
+								"east": {"uv": [0, 2], "uv_size": [16, 14], "material_instance": "water"},
+								"south": {"uv": [0, 2], "uv_size": [16, 14], "material_instance": "water"},
+								"west": {"uv": [0, 2], "uv_size": [16, 14], "material_instance": "water"},
+								"up": {"uv": [16, 16], "uv_size": [-16, -16], "material_instance": "water"},
+								"down": {"uv": [16, 16], "uv_size": [-16, -16], "material_instance": "water"}
+							}
+						}
+					]
+				},
+				{
+					"name": "substrate",
+					"parent": "fish_bowl",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, 0, -8],
+							"size": [16, 2, 16],
+							"inflate": -0.1,
+							"uv": {
+								"north": {"uv": [0, 14], "uv_size": [16, 2], "material_instance": "substrate"},
+								"east": {"uv": [0, 0], "uv_size": [2, 16], "uv_rotation": 90, "material_instance": "substrate"},
+								"south": {"uv": [0, 0], "uv_size": [16, 2], "material_instance": "substrate"},
+								"west": {"uv": [14, 0], "uv_size": [2, 16], "uv_rotation": 270, "material_instance": "substrate"},
+								"up": {"uv": [16, 16], "uv_size": [-16, -16], "material_instance": "substrate"},
+								"down": {"uv": [16, 16], "uv_size": [-16, -16], "material_instance": "substrate"}
+							}
+						}
+					]
+				},
+				{
+					"name": "plant",
+					"parent": "fish_bowl",
+					"pivot": [0, 0, 0],
+					"cubes": [
+						{
+							"origin": [-8, -0.2, 0],
+							"size": [16, 16, 0],
+							"pivot": [0, 0, 0],
+							"rotation": [0, 45, 0],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [16, 16], "material_instance": "plant"},
+								"east": {"uv": [0, 0.5], "uv_size": [0, 15.5], "material_instance": "plant"},
+								"south": {"uv": [0, 0], "uv_size": [0, 0], "material_instance": "plant"},
+								"west": {"uv": [0, 0.5], "uv_size": [0, 15.5], "material_instance": "plant"},
+								"up": {"uv": [16, 0], "uv_size": [-16, 0], "material_instance": "plant"},
+								"down": {"uv": [16, 0], "uv_size": [-16, 0], "material_instance": "plant"}
+							}
+						},
+						{
+							"origin": [-8, -0.2, 0],
+							"size": [16, 16, 0],
+							"pivot": [0, 0, 0],
+							"rotation": [0, -45, 0],
+							"uv": {
+								"north": {"uv": [0, 0], "uv_size": [16, 16], "material_instance": "plant"},
+								"east": {"uv": [0, 0.5], "uv_size": [0, 15.5], "material_instance": "plant"},
+								"south": {"uv": [0, 0], "uv_size": [0, 0], "material_instance": "plant"},
+								"west": {"uv": [0, 0.5], "uv_size": [0, 15.5], "material_instance": "plant"},
+								"up": {"uv": [16, 0], "uv_size": [-16, 0], "material_instance": "plant"},
+								"down": {"uv": [16, 0], "uv_size": [-16, 0], "material_instance": "plant"}
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}

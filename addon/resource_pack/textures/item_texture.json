@@ -1,0 +1,468 @@
+{
+	"resource_pack_name": "billeysmobs",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"billey.pizzapiece": {
+			"textures": "textures/billeyitems/pizzapiece"
+		},
+		"egg_cat_zombie": {
+			"textures": "textures/billeyitems/egg_cat_zombie"
+		},
+		"egg_cat_skeleton": {
+			"textures": "textures/billeyitems/egg_cat_skeleton"
+		},
+		"egg_cat_enderman": {
+			"textures": "textures/billeyitems/egg_cat_enderman"
+		},
+		"egg_cat_angel": {
+			"textures": "textures/billeyitems/egg_cat_angel"
+		},
+		"egg_pig_angel": {
+			"textures": "textures/billeyitems/egg_pig_angel"
+		},
+		"egg_cat_enderman_angel": {
+			"textures": "textures/billeyitems/egg_cat_enderman_angel"
+		},
+		"egg_cat_withered": {
+			"textures": "textures/billeyitems/egg_cat_withered"
+		},
+		"egg_cat_pickle": {
+			"textures": "textures/billeyitems/egg_cat_pickle"
+		},
+		"egg_cat_pickle_angel": {
+			"textures": "textures/billeyitems/egg_cat_pickle_angel"
+		},
+		"picklefertilizer": {
+			"textures": "textures/billeyitems/picklefertilizer"
+		},
+		"cat_bottle": {
+			"textures": "textures/billeyitems/cat_bottle"
+		},
+		"cat_dust": {
+			"textures": "textures/billeyitems/cat_dust"
+		},
+		"scat_bottle": {
+			"textures": "textures/billeyitems/scat_bottle"
+		},
+		"scat_dust": {
+			"textures": "textures/billeyitems/scat_dust"
+		},
+		"zcat_bottle": {
+			"textures": "textures/billeyitems/zcat_bottle"
+		},
+		"zcat_dust": {
+			"textures": "textures/billeyitems/zcat_dust"
+		},
+		"wcat_bottle": {
+			"textures": "textures/billeyitems/wormcat_bottle"
+		},
+		"wcat_dust": {
+			"textures": "textures/billeyitems/wormcat_dust"
+		},
+		"swordfish": {
+			"textures": "textures/billeyitems/swordfish"
+		},
+		"swordstick": {
+			"textures": "textures/billeyitems/swordstick"
+		},
+		"swordtail": {
+			"textures": "textures/billeyitems/swordtail"
+		},
+		"swordfin": {
+			"textures": "textures/billeyitems/swordfin"
+		},
+		"swordmeat": {
+			"textures": "textures/billeyitems/swordmeat"
+		},
+		"swordcooked": {
+			"textures": "textures/billeyitems/swordcooked"
+		},
+		"billanglerlight": {
+			"textures": "textures/billeyitems/anglerlight"
+		},
+		"polychromatic_bottle": {
+			"textures": "textures/billeyitems/polychromatic_bottle"
+		},
+		"polychromatic_dust": {
+			"textures": "textures/billeyitems/polychromatic_dust"
+		},
+		"monochromatic_bottle": {
+			"textures": "textures/billeyitems/monochromatic_bottle"
+		},
+		"monochromatic_dust": {
+			"textures": "textures/billeyitems/monochromatic_dust"
+		},
+		"adult_bottle": {
+			"textures": "textures/billeyitems/adult_bottle"
+		},
+		"adult_dust": {
+			"textures": "textures/billeyitems/adult_dust"
+		},
+		"baby_bottle": {
+			"textures": "textures/billeyitems/baby_bottle"
+		},
+		"baby_dust": {
+			"textures": "textures/billeyitems/baby_dust"
+		},
+		"billduckleather": {
+			"textures": "textures/billeyitems/billduckleather"
+		},
+		"billduckgolden": {
+			"textures": "textures/billeyitems/billduckgolden"
+		},
+		"billduckchain": {
+			"textures": "textures/billeyitems/billduckchain"
+		},
+		"billduckiron": {
+			"textures": "textures/billeyitems/billduckiron"
+		},
+		"billduckdiamond": {
+			"textures": "textures/billeyitems/billduckdiamond"
+		},
+		"billducknetherite": {
+			"textures": "textures/billeyitems/billducknetherite"
+		},
+		"billduckendrod": {
+			"textures": "textures/billeyitems/billduckendrod"
+		},
+		"velvetslime": {
+			"textures": "textures/billeyitems/balaglitsas"
+		},
+		"billhamsterball": {
+			"textures": "textures/billeyitems/billhamsterball"
+		},
+		"billhamsterraw": {
+			"textures": "textures/billeyitems/billhamsterraw"
+		},
+		"billhamstercooked": {
+			"textures": "textures/billeyitems/billhamstercooked"
+		},
+		"billey.pet_hat": {
+			"textures": "textures/billeyitems/pet_hat"
+		},
+		"billcatfishraw": {
+			"textures": "textures/billeyitems/billcatfishraw"
+		},
+		"billcatfishbeans": {
+			"textures": "textures/billeyitems/billcatfishbeans"
+		},
+		"billcatfishcooked": {
+			"textures": "textures/billeyitems/billcatfishcooked"
+		},
+		"billcatfishchocolate": {
+			"textures": "textures/billeyitems/lefisheauchocolat"
+		},
+		"billpickle_juice": {
+			"textures": "textures/billeyitems/pickle_juice"
+		},
+		"billsharktooth": {
+			"textures": "textures/billeyitems/billsharktooth"
+		},
+		"goldswordfish": {
+			"textures": "textures/billeyitems/goldswordfish"
+		},
+		"egg_bduckcolor": {
+			"textures": "textures/billeyitems/bananacoloregg"
+		},
+		"billeybanana": {
+			"textures": "textures/billeyitems/banana"
+		},
+		"billeybananaenc": {
+			"textures": "textures/billeyitems/bananaenc"
+		},
+		"billsnailshell": {
+			"textures": "textures/billeyitems/snailshell"
+		},
+		"billrawsnail": {
+			"textures": "textures/billeyitems/rawsnail"
+		},
+		"billcookedsnail": {
+			"textures": "textures/billeyitems/cookedsnail"
+		},
+		"yeet_the_duck": {
+			"textures": "textures/billeyitems/yeet_the_duck"
+		},
+		"billey.kiwi_fur": {
+			"textures": "textures/billeyitems/kiwifur"
+		},
+		"billsnailhelmet": {
+			"textures": "textures/billeyitems/snail_helmet"
+		},
+		"billbettafish": {
+			"textures": "textures/billeyitems/betta_fish"
+		},
+		"billbettafishcooked": {
+			"textures": "textures/billeyitems/betta_fish_cooked"
+		},
+		"billey.diamond_nugget": {
+			"textures": "textures/billeyitems/diamond_nugget"
+		},
+		"billey.copper_nugget": {
+			"textures": "textures/billeyitems/copper_nugget"
+		},
+		"billey.chicken_nugget": {
+			"textures": "textures/billeyitems/chicken_nugget"
+		},
+		"billeyorange": {
+			"textures": "textures/billeyitems/orange"
+		},
+		"billeyorangepeel": {
+			"textures": "textures/billeyitems/orange_peel"
+		},
+		"billeyorangechestplate": {
+			"textures": "textures/billeyitems/orange_chestplate"
+		},
+		"billey.mercat_milk": {
+			"textures": "textures/billeyitems/mercat_milk"
+		},
+		"billey.fermented_mercat_milk": {
+			"textures": "textures/billeyitems/mercat_milk_fermented"
+		},
+		"billey.terraphin_staff": {
+			"textures": "textures/billeyitems/orange_on_a_stick"
+		},
+		"billey.terraphin_furball": {
+			"textures": "textures/billeyitems/terraphin_furball"
+		},
+		"billey.raw_mergoose_tongue": {
+			"textures": "textures/billeyitems/raw_mergoose_tongue"
+		},
+		"billey.cooked_mergoose_tongue": {
+			"textures": "textures/billeyitems/cooked_mergoose_tongue"
+		},
+		"billey.mergoose_spikes": {
+			"textures": "textures/billeyitems/mergoose_spikes"
+		},
+		"billey.pigeon_poop": {
+			"textures": "textures/billeyitems/pigeon_poop"
+		},
+		"billey.shark_tooth_sword": {
+			"textures": "textures/billeyitems/shark_sword"
+		},
+		"billey.piranha": {
+			"textures": "textures/billeyitems/piranha"
+		},
+		"billey.raw_piranha": {
+			"textures": "textures/billeyitems/raw_piranha"
+		},
+		"billey.cooked_piranha": {
+			"textures": "textures/billeyitems/cooked_piranha"
+		},
+		"billey.piranha_launcher": {
+			"textures": "textures/billeyitems/piranha_launcher"
+		},
+		"billey.loaded_piranha_launcher": {
+			"textures": "textures/billeyitems/loaded_piranha_launcher"
+		},
+		"billey.deinonychus_feather": {
+			"textures": "textures/billeyitems/deinonychus_feather"
+		},
+		"billey.potato_stick": {
+			"textures": "textures/billeyitems/potato_stick"
+		},
+		"billey.yutyrannus_feather": {
+			"textures": "textures/billeyitems/yutyrannus_feather"
+		},
+		"billey.mergoose_sword": {
+			"textures": "textures/billeyitems/mergoose_sword"
+		},
+		"billey.throwable_mercat_milk": {
+			"textures": "textures/billeyitems/throwable_mercat_milk"
+		},
+		"billey.untaming_stick": {
+			"textures": "textures/billeyitems/untaming_stick"
+		},
+		"billey.ratatouille": {
+			"textures": "textures/billeyitems/ratatouille"
+		},
+		"billey.shark_scales": {
+			"textures": "textures/billeyitems/shark_scales"
+		},
+		"billey.shark_helmet": {
+			"textures": "textures/billeyitems/shark_helmet"
+		},
+		"billey.shark_chestplate": {
+			"textures": "textures/billeyitems/shark_chestplate"
+		},
+		"billey.shark_leggings": {
+			"textures": "textures/billeyitems/shark_leggings"
+		},
+		"billey.shark_boots": {
+			"textures": "textures/billeyitems/shark_boots"
+		},
+		"billey.rat_beer": {
+			"textures": "textures/billeyitems/rat_beer"
+		},
+		"billey.warped_wine": {
+			"textures": "textures/billeyitems/warped_wine"
+		},
+		"billey.spicy_ratatouille": {
+			"textures": "textures/billeyitems/spicy_ratatouille"
+		},
+		"billey.to_level1": {
+			"textures": "textures/billeyitems/to_level1"
+		},
+		"billey.to_level2": {
+			"textures": "textures/billeyitems/to_level2"
+		},
+		"billey.to_level3": {
+			"textures": "textures/billeyitems/to_level3"
+		},
+		"billey.to_level4": {
+			"textures": "textures/billeyitems/to_level4"
+		},
+		"billey.to_level5": {
+			"textures": "textures/billeyitems/to_level5"
+		},
+		"billey.to_level6": {
+			"textures": "textures/billeyitems/to_level6"
+		},
+		"billey.to_level7": {
+			"textures": "textures/billeyitems/to_level7"
+		},
+		"billey.to_level8": {
+			"textures": "textures/billeyitems/to_level8"
+		},
+		"billey.to_level9": {
+			"textures": "textures/billeyitems/to_level9"
+		},
+		"billey.to_level10": {
+			"textures": "textures/billeyitems/to_level10"
+		},
+		"billey.banana_peel": {
+			"textures": "textures/billeyitems/banana_peel"
+		},
+		"billey.penguin_boots": {
+			"textures": "textures/billeyitems/penguin_boots"
+		},
+		"billey.penguin_feather": {
+			"textures": "textures/billeyitems/penguin_feather"
+		},
+		"billey.ice_cream": {
+			"textures": "textures/billeyitems/ice_cream"
+		},
+		"billey.big_stone": {
+			"textures": "textures/billeyitems/big_stone"
+		},
+		"billey.small_stone": {
+			"textures": "textures/billeyitems/small_stone"
+		},
+		"billey.duck_bucket": {
+			"textures": "textures/billeyitems/bucket_duck"
+		},
+		"billey.mercat_bucket": {
+			"textures": "textures/billeyitems/bucket_mercat"
+		},
+		"billey.pigeon_backpack": {
+			"textures": "textures/billeyitems/pigeon_backpack"
+		},
+		"billey.rat_potion": {
+			"textures": "textures/billeyitems/rat_potion"
+		},
+		"billey.info_book": {
+			"textures": "textures/billeyitems/info_book"
+		},
+		"billey.duck_morph_potion": {
+			"textures": "textures/billeyitems/duck_morph_potion"
+		},
+		"billey.duck_morph": {
+			"textures": "textures/billey_icons/duck"
+		},
+		"billey.empty_morph_potion": {
+			"textures": "textures/billeyitems/empty_morph_potion"
+		},
+		"billey.tiktaalik_slime": {
+			"textures": "textures/billeyitems/tiktaalik_slime"
+		},
+		"billey.royal_rat_chef_hat": {
+			"textures": "textures/billeyitems/royal_rat_chef_hat"
+		},
+		"billey.rat_crown": {
+			"textures": "textures/billeyitems/rat_crown"
+		},
+		"billey.catfish_syringe": {
+			"textures": "textures/billeyitems/catfish_syringe"
+		},
+		"billey.catfish_blood": {
+			"textures": "textures/billeyitems/catfish_blood"
+		},
+		"billey.catfish_antibodies": {
+			"textures": "textures/billeyitems/catfish_antibodies"
+		},
+		"billey.pygmy_dunkleosteus_scutes": {
+			"textures": "textures/billeyitems/pygmy_dunkleosteus_scutes"
+		},
+		"billey.scroll": {
+			"textures": "textures/billeyitems/scroll"
+		},
+		"billey.slime_wyvern_plushie": {
+			"textures": "textures/billeyitems/slime_wyvern_plushie"
+		},
+		"billey.pet_chef_hat": {
+			"textures": "textures/billeyitems/pet_chef_hat"
+		},
+		"billey.rubber_ducky": {
+			"textures": "textures/billeyitems/rubber_ducky"
+		},
+		"billey.pet_bowtie": {
+			"textures": "textures/billeyitems/pet_bowtie"
+		},
+		"billey.anniversary_pet_hat_6": {
+			"textures": "textures/billeyitems/anniversary_pet_hat_6"
+		},
+		"billey.duckatrice_amber": {
+			"textures": "textures/billeyitems/duckatrice_amber"
+		},
+		"billey.pet_straw_hat": {
+			"textures": "textures/billeyitems/pet_straw_hat"
+		},
+		"billey.mercat_plushie": {
+			"textures": "textures/billeyitems/mercat_plushie"
+		},
+		"billey.duck_spawn_egg": {
+			"textures": "textures/billeyitems/duck_spawn_egg_2"
+		},
+		"billey.banana_duck_spawn_egg": {
+			"textures": "textures/billeyitems/banana_duck_spawn_egg"
+		},
+		"billey.shark_spawn_egg": {
+			"textures": "textures/billeyitems/shark_spawn_egg"
+		},
+		"billey.hammerhead_shark_spawn_egg": {
+			"textures": "textures/billeyitems/hammerhead_shark_spawn_egg"
+		},
+		"billey.giraffe_cat_spawn_egg": {
+			"textures": "textures/billeyitems/giraffe_cat_spawn_egg"
+		},
+		"billey.giraffe_cat_treat": {
+			"textures": "textures/billeyitems/giraffe_cat_treat"
+		},
+		"billey.duckatrice_spawn_egg": {
+			"textures": "textures/billeyitems/duckatrice_spawn_egg"
+		},
+		"billey.duckatrice_boss_spawn_egg": {
+			"textures": "textures/billeyitems/duckatrice_boss_spawn_egg"
+		},
+		"billey.gooseberries": {
+			"textures": "textures/billeyitems/gooseberries"
+		},
+		"billey.golden_gooseberries": {
+			"textures": "textures/billeyitems/golden_gooseberries"
+		},
+		"billey.instant_health_potion": {
+			"textures": "textures/items/potion_bottle_heal"
+		},
+		"billey.jump_boost_potion": {
+			"textures": "textures/items/potion_bottle_jump"
+		},
+		"billey.regeneration_potion": {
+			"textures": "textures/items/potion_bottle_regeneration"
+		},
+		"billey.strength_potion": {
+			"textures": "textures/items/potion_bottle_damageBoost"
+		},
+		"billey.speed_potion": {
+			"textures": "textures/items/potion_bottle_moveSpeed"
+		}
+	}
+}

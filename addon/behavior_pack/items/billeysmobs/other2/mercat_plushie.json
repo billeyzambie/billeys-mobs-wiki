@@ -1,0 +1,35 @@
+{
+	"format_version": "1.21.30",
+	"minecraft:item": {
+		"description": {
+			"identifier": "billey:mercat_plushie",
+			"menu_category": {
+				"category": "items"
+			}
+		},
+		"components": {
+			"minecraft:max_stack_size": 1,
+			"minecraft:custom_components": [
+				"billey:plushie"
+			],
+			"minecraft:entity_placer": {
+				"entity": "billey:plushie<mercat>"
+			},
+			"minecraft:wearable": {
+				"slot": "slot.armor.head"
+			},
+			"minecraft:enchantable": {
+				"slot": "armor_head",
+				"value": 1
+			},
+			"minecraft:icon": {
+				"textures": {
+					"default": "billey.mercat_plushie"
+				}
+			},
+			"minecraft:rarity": {
+			  "value": "epic"
+			}
+		}
+	}
+}

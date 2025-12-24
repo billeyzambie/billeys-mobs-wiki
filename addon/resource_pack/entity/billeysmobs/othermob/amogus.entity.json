@@ -1,0 +1,31 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:amogus",
+			"materials": {
+				"default": "entity"
+			},
+			"textures": {
+				"default": "textures/entity/billamogus"
+			},
+			"geometry": {
+				"default": "geometry.billeys_mobs.amogus"
+			},
+			"animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+				"xd": "animation.billeys_mobs.amogus.new4",
+				"lol": "animation.billeys_mobs.amogus.new"
+			},
+			"scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+				"animate": [ "new",
+                    { "lol": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))" }, {"xd": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"}
+				]
+			},
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": ["controller.render.billeys_mobs_default"]
+		}
+	}
+}

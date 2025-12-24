@@ -1,0 +1,21 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shapeless": {
+    "description": {
+    "identifier": "billey:billcatfishchocolate"
+    },
+     "tags": [ "crafting_table" ],
+    "ingredients": [
+      {
+        "item": "billey:raw_catfish"
+      },
+      {
+        "item": "minecraft:cocoa_beans"
+      }
+    ],
+    "result": [
+      { "item": "billey:cocoa_beans_catfish"
+      }
+    ]
+  }
+}

@@ -1,0 +1,58 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.snaketest.new": {
+			"loop": true,
+			"bones": {
+				"bone": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 8) * 3", 0, 0]
+				},
+				"bone2": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 7) * 3", 0, 0]
+				},
+				"bone3": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 6) * 3", 0, 0]
+				},
+				"bone4": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 5) * 3", 0, 0]
+				},
+				"bone5": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 4) * 3", 0, 0]
+				},
+				"bone6": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 3) * 3", 0, 0]
+				},
+				"bone7": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 2) * 3", 0, 0]
+				},
+				"bone8": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness) * 3", 0, 0]
+				},
+				"bone9": {
+					"position": ["math.sin(q.life_time * 200) * 3", 0, 0]
+				},
+				"bone10": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 9) * 3", 0, 0]
+				},
+				"bone11": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 10) * 3", 0, 0]
+				},
+				"bone12": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 11) * 3", 0, 0]
+				},
+				"bone13": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 12) * 3", 0, 0]
+				},
+				"bone14": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 13) * 3", 0, 0]
+				},
+				"bone15": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 14) * 3", 0, 0]
+				},
+				"bone16": {
+					"position": ["math.sin(q.life_time * 200 + v.snakeyness * 15) * 3", 0, 0]
+				}
+			}
+		}
+	}
+}

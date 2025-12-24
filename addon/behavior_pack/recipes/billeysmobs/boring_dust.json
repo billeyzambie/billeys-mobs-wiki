@@ -1,0 +1,34 @@
+{
+  "format_version": "1.12",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "billey:boring_dust"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "group": "what_does_this_do",
+    "pattern": [
+      "FPF",
+      "PCP",
+      "FPF"
+    ],
+    "key": {
+      "F": {
+        "item": "minecraft:dirt"
+      },
+      "C": {
+        "item": "minecraft:clownfish"
+      },
+      "P": {
+        "item": "minecraft:gold_ingot"
+      }
+    },
+    "result": [
+      {
+        "item": "billey:scat_dust",
+        "count": 3
+      }
+    ]
+  }
+}

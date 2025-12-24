@@ -1,0 +1,59 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobs.angelpig.fly": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"rotation": ["math.sin(q.anim_time*20)*2", "math.cos(q.anim_time*30)*2", "math.sin(q.anim_time*45)*2"]
+				},
+				"bone": {
+					"rotation": [0, "-20+math.sin(-720*q.anim_time)*20", 0]
+				},
+				"bone2": {
+					"rotation": [0, "20+math.sin(720*q.anim_time)*20", 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.angelpig.sit": {
+			"loop": true,
+			"bones": {
+				"body": {
+					"position": [0, -5, 0]
+				},
+				"leg0": {
+					"rotation": [-80, 0, 0],
+					"position": [0, 1, 0]
+				},
+				"leg1": {
+					"rotation": [-80, 0, 0],
+					"position": [0, 1, 0]
+				},
+				"leg2": {
+					"rotation": [-10, 5, 0]
+				},
+				"leg3": {
+					"rotation": [-10, -5, 0]
+				},
+				"bone": {
+					"rotation": [0, -30, 0]
+				},
+				"bone2": {
+					"rotation": [0, 30, 0]
+				},
+				"hello": {
+					"position": [0, -1, 0]
+				}
+			}
+		},
+		"animation.billeys_mobs.angelpig.baby_transform": {
+			"loop": true,
+			"bones": {
+				"head": {
+					"position": [0, 2, 3.5],
+					"scale": 1.9
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,27 @@
+{
+  "format_version": "1.20.60",
+  "minecraft:item": {
+    "description": {
+      "identifier": "billey:zcat_bottle",
+      "menu_category": {
+        "category": "equipment",
+        "group": "itemGroup.name.horseArmor"
+      }
+    },
+    "components": {
+      "minecraft:tags": {
+        "tags": [
+          "billey:can_craft_info_book"
+        ]
+      },
+      "minecraft:max_stack_size": {
+        "value": 1
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "zcat_bottle"
+        }
+      }
+    }
+  }
+}

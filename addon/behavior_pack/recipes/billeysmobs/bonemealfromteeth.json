@@ -1,0 +1,30 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shapeless": {
+        "description": {
+            "identifier": "billey:teethtobonemeal"
+        },
+        "tags": [
+            "crafting_table"
+        ],
+        "ingredients": [
+            {
+                "item": "billey:shark_tooth"
+            },
+            {
+                "item": "billey:shark_tooth"
+            },
+            {
+                "item": "billey:shark_tooth"
+            },
+            {
+                "item": "billey:shark_tooth"
+            }
+        ],
+        "result": [
+            {
+                "item": "bone_meal"
+            }
+        ]
+    }
+}

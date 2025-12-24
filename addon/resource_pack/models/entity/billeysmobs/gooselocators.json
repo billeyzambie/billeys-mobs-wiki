@@ -1,0 +1,148 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.billeys_mobs.gooselocators",
+				"texture_width": 32,
+				"texture_height": 32,
+				"visible_bounds_width": 2,
+				"visible_bounds_height": 3.5,
+				"visible_bounds_offset": [0, 1.25, 0]
+			},
+			"bones": [{
+				"name": "ooo",
+				"pivot": [
+					0,
+					0,
+					0
+				]
+			},
+			{
+				"parent": "ooo",
+					"name": "body",
+					"pivot": [0, 5, 1]
+				},
+				{
+					"name": "leg0",
+					"parent": "body",
+					"pivot": [-2, 4, 1]
+				},
+				{
+					"name": "bone5",
+					"parent": "leg0",
+					"pivot": [0, 0, 1]
+				},
+				{
+					"name": "leg1",
+					"parent": "body",
+					"pivot": [1, 4, 1]
+				},
+				{
+					"name": "bone4",
+					"parent": "leg1",
+					"pivot": [0, 0, 1]
+				},
+				{
+					"name": "bone6",
+					"parent": "body",
+					"pivot": [0, 5, -2]
+				},
+				{
+					"name": "bodynolegs",
+					"parent": "bone6",
+					"pivot": [0, 6, 1]
+				},
+				{
+					"name": "head",
+					"parent": "bodynolegs",
+					"pivot": [0, 7.7, -3],
+					"locators": {
+						"lead": [0, 10.75, -3.25],
+						"zee": [0, 10.75, -3.25]
+					}
+				},
+				{
+					"name": "bone2",
+					"parent": "head",
+					"pivot": [0, 11.75122, -3.21512]
+				},
+				{
+					"name": "lol",
+					"parent": "bone2",
+					"pivot": [0, 13.45317, -3.50931]
+				},
+				{
+					"name": "bone7",
+					"parent": "lol",
+					"pivot": [0, 13.90439, -3.47443]
+				},
+				{
+					"name": "bone13",
+					"parent": "bone7",
+					"pivot": [-1.051, 14.1544, -3.7494]
+				},
+				{
+					"name": "bone8",
+					"parent": "bone13",
+					"pivot": [-1.051, 14.15439, -3.74943]
+				},
+				{
+					"name": "bone12",
+					"parent": "bone13",
+					"pivot": [1.051, 14.15439, -3.74943]
+				},
+				{
+					"name": "bone11",
+					"parent": "bone7",
+					"pivot": [0, 13.90439, -3.47443]
+				},
+				{
+					"name": "bone10",
+					"parent": "bone11",
+					"pivot": [0, 12.45439, -4.09943]
+				},
+				{
+					"name": "bone9",
+					"parent": "bone11",
+					"pivot": [0, 15.45439, -4.09943]
+				},
+				{
+					"name": "beak",
+					"parent": "lol",
+					"pivot": [0.1, 6.90195, -3.94419],
+					"rotation": [2, 0, 0],
+					"locators": {
+						"held_item": [0, 13.16658, -4.54326]
+					}
+				},
+				{
+					"name": "bone",
+					"parent": "beak",
+					"pivot": [0.05, 13.1, -4.50929],
+					"rotation": [4, 0, 0]
+				},
+				{
+					"name": "bone3",
+					"parent": "beak",
+					"pivot": [0.05, 13.10256, -4.50929]
+				},
+				{
+					"name": "bodylol",
+					"parent": "bodynolegs",
+					"pivot": [0, 7, 0]
+				},
+				{
+					"name": "wing0",
+					"parent": "bodynolegs",
+					"pivot": [-3, 9.25, 0]
+				},
+				{
+					"name": "wing1",
+					"parent": "bodynolegs",
+					"pivot": [3, 9.25, 0]
+				}
+			]
+		}
+	]
+}

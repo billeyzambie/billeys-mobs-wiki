@@ -1,0 +1,26 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+        "identifier": "billey:pet_bowtie"
+      },
+      "tags": [
+        "crafting_table"
+      ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "ls"
+      ],
+      "key": {
+        "s": {
+          "item": "billey:kiwi_fur"
+        },
+        "l": {
+          "item": "wool"
+        }
+      },
+      "result": {
+        "item": "billey:pet_bowtie"
+      }
+    }
+  }

@@ -1,0 +1,26 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:golden_gooseberries"
+      },
+      "tags": [ "crafting_table" ],
+      "pattern": [
+        "ggg",
+        "gbg",
+        "ggg"
+      ],
+      "key": {
+        "g": {
+          "item": "minecraft:gold_ingot"
+        },
+        "b": {
+          "item": "billey:gooseberries"
+        }
+      },
+      "result": [
+        { "item": "billey:golden_gooseberries" }
+      ]
+    }
+  }
+  

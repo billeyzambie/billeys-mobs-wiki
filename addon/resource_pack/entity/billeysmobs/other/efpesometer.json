@@ -1,0 +1,30 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+      "description": {
+        "identifier": "billey:efpesometer",
+        "materials": { "default": "entity_alphatest" },
+        "textures": {
+          "default": "textures/efpesometer"
+        },
+        "geometry": {
+          "default": "geometry.efpesometer"
+        },
+        "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+          "swim": "animation.efpesometer.new"
+        },
+        "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+          "animate": [ "new",
+            { "swim": "(1.0)" }
+          ]
+        },
+        "render_controllers": [ "controller.render.billeys_mobs_default" ],
+        "spawn_egg": {
+          "base_color": "#2D4456",
+          "overlay_color": "#AAC7E2"
+        }
+      }
+    }
+  }

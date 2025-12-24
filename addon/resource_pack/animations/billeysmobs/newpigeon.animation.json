@@ -1,0 +1,53 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.newpigeon.new": {
+			"loop": true,
+			"bones": {
+				"left_wing": {
+					"rotation": [90, 0, 90],
+					"position": [0.5, 0.5, 0]
+				},
+				"left_forearm": {
+					"rotation": [0, 0, -160]
+				},
+				"left_hand": {
+					"rotation": [0, 0, 142.5],
+					"position": [0, 0, 0]
+				},
+				"left_wing_feathers": {
+					"position": [0, 3, 0]
+				},
+				"left_forearm_feathers": {
+					"scale": [1, 0, 1]
+				},
+				"left_hand_feathers": {
+					"scale": [1, 0, 1]
+				},
+				"right_wing": {
+					"rotation": [90, 0, -90],
+					"position": [-0.5, 0.5, 0]
+				},
+				"right_wing_feathers": {
+					"position": [0, 3, 0]
+				},
+				"right_forearm": {
+					"rotation": [0, 0, 160]
+				},
+				"right_forearm_feathers": {
+					"scale": [1, 0, 1]
+				},
+				"right_hand": {
+					"rotation": [0, 0, -142.5],
+					"position": [0, 0, 0]
+				},
+				"right_hand_feathers": {
+					"scale": [1, 0, 1]
+				}
+			}
+		},
+		"animation.newpigeon.new2": {
+			"loop": true
+		}
+	}
+}

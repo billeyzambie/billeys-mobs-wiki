@@ -1,0 +1,76 @@
+{
+  "resource_pack_name": "billeys_mobs",
+  "texture_name": "atlas.terrain",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "billbanana_peel": {
+      "textures": [
+        "textures/blocks/billbanana_peel"
+      ]
+    },
+    "velvetslimeblock": {
+      "textures": [
+        "textures/blocks/cybosglitsas"
+      ]
+    },
+    "bluevelvetslimeblock": {
+      "textures": [
+        "textures/blocks/cockinoscybosglitsas"
+      ]
+    },
+    "mixedvelvetslimeblock": {
+      "textures": [
+        "textures/blocks/miktoscybosglitsas"
+      ]
+    },
+    "billcolorgravel": {
+      "textures": [
+        "textures/blocks/billcolorgravel"
+      ]
+    },
+    "billwoodlousewheat": {
+      "textures": [
+        "textures/blocks/billwoodlousewheat"
+      ]
+    },
+    "billpotatosticks": {
+      "textures": [
+        "textures/blocks/billpotatostick"
+      ]
+    },
+    "billeyzambie": {
+      "textures": [
+        "textures/blocks/billeyzambie"
+      ]
+    },
+    "billey.aquarium_gravel": {
+      "textures": [
+        "textures/blocks/billcolorgravel"
+      ]
+    },
+    "billey.fish_tank_bottom": {
+      "textures": [
+        "textures/blocks/billeys_mobs_fish_tank/bottom"
+      ]
+    },
+    "billey.fish_tank_top": {
+      "textures": [
+        "textures/blocks/billeys_mobs_fish_tank/top"
+      ]
+    },
+    "billey.fish_tank_side": {
+      "textures": [
+        "textures/blocks/billeys_mobs_fish_tank/side"
+      ]
+    },
+    "billey.fish_tank_tip": {
+      "textures": [
+        "textures/blocks/billeys_mobs_fish_tank/tip"
+      ]
+    },
+		"billey.nothing": {
+			"textures": "textures/entity/billeys_mobs/nothing"
+		}
+  }
+}

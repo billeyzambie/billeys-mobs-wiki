@@ -1,0 +1,58 @@
+{
+  "format_version": "1.8.0",
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "billey:mercat",
+      "population_control": "water_animal"
+    },
+    "conditions": [
+      {
+        "minecraft:density_limit": {
+          "surface": 2
+        },
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_underwater": {},
+        "minecraft:distance_filter": {
+          "min": 24,
+          "max": 32
+        },
+        "minecraft:weight": {
+          "default": 1
+        },
+        "minecraft:herd": {
+          "min_size": 1,
+          "max_size": 4
+        },
+        "minecraft:biome_filter": {
+          "all_of": [
+            {
+              "test": "has_biome_tag",
+              "operator": "!=",
+              "value": "ocean"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "!=",
+              "value": "beach"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "!=",
+              "value": "cold"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "!=",
+              "value": "frozen"
+            },
+            {
+              "test": "has_biome_tag",
+              "operator": "==",
+              "value": "overworld"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

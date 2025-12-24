@@ -1,0 +1,51 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.tropicalfish": {
+      "arrays": {
+        "geometries": {
+          "array.models": [
+            "Geometry.typeA",
+            "Geometry.typeB"
+          ]
+        },
+        "textures": {
+          "array.types": [
+            "texture.typeA",
+            "texture.typeB"
+          ],
+          "array.patterns": [
+            "texture.aPattern1",
+            "texture.aPattern2",
+            "texture.aPattern3",
+            "texture.aPattern4",
+            "texture.aPattern5",
+            "texture.aPattern6",
+            "texture.bPattern1",
+            "texture.bPattern2",
+            "texture.bPattern3",
+            "texture.bPattern4",
+            "texture.bPattern5",
+            "texture.bPattern6"
+          ]
+        }
+      },
+      "geometry": "array.models[v.TropicalFish.Base]",
+      "materials": [
+        {
+          "*": "Material.default"
+        }
+      ],
+      "textures": [
+        "array.types[v.TropicalFish.Base]",
+        "array.patterns[v.TropicalFish.Pattern]"
+      ],
+      "overlay_color": {
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+        "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

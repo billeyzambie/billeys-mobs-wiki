@@ -1,0 +1,59 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.cat": {
+      "arrays": {
+        "textures": {
+          "array.skins": [
+            "texture.white",
+            "texture.black",
+            "texture.red",
+            "texture.siamese",
+            "texture.british",
+            "texture.calico",
+            "texture.persian",
+            "texture.ragdoll",
+            "texture.tabby",
+            "texture.all_black",
+            "texture.jellie",
+            "texture.blackorange",
+            "texture.blackwhite",
+            "texture.perry",
+            "texture.pizza",
+            "texture.sugar",
+            "texture.lily"
+          ],
+          "array.tame": [
+            "texture.white_tame",
+            "texture.black_tame",
+            "texture.red_tame",
+            "texture.siamese_tame",
+            "texture.british_tame",
+            "texture.calico_tame",
+            "texture.persian_tame",
+            "texture.ragdoll_tame",
+            "texture.tabby_tame",
+            "texture.all_black_tame",
+            "texture.jellie_tame",
+            "texture.blackorange_tame",
+            "texture.blackwhite_tame",
+            "texture.perry_tame",
+            "texture.pizza_tame",
+            "texture.sugar_tame",
+            "texture.lily_tame"
+          ]
+        }
+      },
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "q.get_name == 'Tigerlily' ? texture.tigerlily : ((q.get_name == 'Bill' || q.get_name == 'Billey' || q.get_name == 'Βασίλης') ? (array.tame[q.life_time * 1.5 + q.variant]) : (q.get_name == 'Sugar' || q.get_name == 'Ζαχαρώτος' || q.get_name == 'Ζαχαρωτός') ? texture.sugar : ((q.get_name == 'Pizza' || q.get_name == 'Πίτσα') ? texture.pizza : ((q.get_name == 'Perry' || q.get_name == 'Peri' || q.get_name == 'Πέρι') ? texture.perry : (q.is_tamed ? array.tame[q.variant] : array.skins[q.variant]))))" ],
+      "overlay_color": {
+          
+          "r": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 0.0) * 0.5 + 0.5)",
+          "g": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 120) * 0.5 + 0.5)",
+          "b": "q.is_illager_captain ? (math.sin(q.life_time * 200 + q.variant * 234 + 240) * 0.5 + 0.5)",
+          "a": "q.is_illager_captain ? 0.4 : 0.0"
+      }
+    }
+  }
+}

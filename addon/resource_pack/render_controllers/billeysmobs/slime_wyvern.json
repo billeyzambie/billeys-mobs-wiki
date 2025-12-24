@@ -1,0 +1,55 @@
+{
+    "format_version": "1.8.0",
+    "render_controllers": {
+        "controller.render.billeys_mobs.slimewyvern": {
+            "arrays": {
+                "textures": {
+                    "array.variants": [
+                        "texture.default",
+                        "texture.variant1",
+                        "texture.variant2",
+                        "texture.variant3",
+                        "texture.variant4",
+                        "texture.variant5",
+                        "texture.variant6",
+                        "texture.variant7",
+                        "texture.variant8"
+                    ]
+                }
+            },
+            "geometry": "Geometry.default",
+            "materials": [
+                {
+                    "*": "Material.default"
+                }
+            ],
+            "overlay_color": {
+                "r": "math.sin(q.life_time * 200 + q.variant * 234)",
+                "g": "math.sin(q.life_time * 200 + q.variant * 234 + 120)",
+                "b": "math.sin(q.life_time * 200 + q.variant * 234 + 240)",
+                "a": "q.is_illager_captain ? 0.4 : 0.0"
+            },
+            "textures": [
+                "array.variants[q.variant]",
+                "q.is_sheared ? texture.drunk : texture.nothing"
+            ]
+        },
+        "controller.render.billeys_mobs.slimewyvern.cum": {
+            "geometry": "Geometry.cum",
+            "materials": [
+                {
+                    "*": "Material.cum"
+                }
+            ],
+            "overlay_color": {
+                "r": "math.sin(q.life_time * 230 + q.variant * 234)",
+                "g": "math.sin(q.life_time * 230 + q.variant * 234 + 120)",
+                "b": "math.sin(q.life_time * 230 + q.variant * 234 + 240)",
+                "a": "q.is_illager_captain ? 0.4 : 0.0"
+            },
+            "textures": [
+                "texture.cum"
+            ]
+        }
+    }
+}

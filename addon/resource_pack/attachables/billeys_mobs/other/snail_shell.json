@@ -1,0 +1,33 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+      "description": {
+        "identifier": "billey:snail_helmet",
+        "materials": {
+          "default": "armor",
+          "enchanted": "armor_enchanted"
+        },
+        "textures": {
+          "default": "textures/billeyarmor/snail",
+          "enchanted": "textures/misc/enchanted_item_glint"
+        },
+        "sound_effects": {
+          "crack": "block.turtle_egg.crack"
+        },
+        "animations": {
+          "healthcont": "controller.animation.billeys_mobs.crack"
+        },
+        "geometry": {
+          "default": "geometry.humanoid.armor.helmet"
+        },
+        "scripts": {
+          "parent_setup": "v.helmet_layer_visible = 0.0;",
+          "animate": [
+            "healthcont"
+          ]
+        },
+        "render_controllers": [ "controller.render.armor" ]
+      }
+    }
+  }
+  

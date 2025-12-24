@@ -1,0 +1,29 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.billeys_mobsplayer.pet": {
+			"animation_length": 1.2,
+			"bones": {
+				"rightArm": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"0.16": ["v.is_first_person ? -40 : -60", 0, 0],
+						"0.28": ["v.is_first_person ? -40 : -60", -27.5, -27.5],
+						"0.4": ["v.is_first_person ? -40 : -60", 20, 20],
+						"0.6": ["v.is_first_person ? -40 : -60", -27.5, -27.5],
+						"0.76": ["v.is_first_person ? -40 : -60", 20, 20],
+						"0.92": ["v.is_first_person ? -40 : -60", -27.5, -27.5],
+						"1.08": ["v.is_first_person ? -40 : -60", 20, 20],
+						"1.2": [0, 0, 0]
+					},
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.16": ["v.is_first_person ? -4 : 0", "v.is_first_person ? 4.5 : 0", "v.is_first_person ? 5 : 0"],
+						"1.08": ["v.is_first_person ? -4 : 0", "v.is_first_person ? 4.5 : 0", "v.is_first_person ? 5 : 0"],
+						"1.2": [0, 0, 0]
+					}
+				}
+			}
+		}
+	}
+}

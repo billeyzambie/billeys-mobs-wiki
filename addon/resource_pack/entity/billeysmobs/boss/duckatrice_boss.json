@@ -1,0 +1,111 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:duckatrice_boss",
+            "materials": {
+                "default": "entity_emissive_alpha"
+            },
+            "textures": {
+                "default": "textures/entity/billeys_mobs/duckatrice_boss"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.duckatrice"
+            },
+            "animations": {
+                "new": "animation.billeys_mobs.duckproj.body",
+                "move": "animation.billeys_mobs.duckatrice.walk",
+                "look_at_target": "animation.billeys_mobs.duckatrice.look",
+                "death": "animation.billeys_mobs.duckatrice.death",
+                "cancel_vanilla_death": "animation.billeys_mobs.duckatrice.cancel_vanilla_death",
+                "sit": "animation.billeys_mobs.duckatrice.sit",
+                "idle": "animation.billeys_mobs.duckatrice.idle",
+                "controller.sit": "controller.animation.billeys_mobs.sit",
+                "eat": "animation.billeys_mobs.duckatrice.eat",
+                "eatcont": "controller.animation.billeys_mobs.eat",
+                "attackcont": "controller.animation.billeys_mobs.attack",
+                "attack": "animation.billeys_mobs.duckatrice.attack",
+                //quacking and fapping wings
+                "controller.random_idle": "controller.animation.billeys_mobs.duckatrice.random_idle",
+                "controller.flying_or_not": "controller.animation.billeys_mobs.duckatrice.flying_or_not",
+                "controller.angry": "controller.animation.billeys_mobs.duckatrice.angry",
+                "controller.fly": "controller.animation.billeys_mobs.duckatrice.fly",
+                "controller.fall": "controller.animation.billeys_mobs.duckatrice.fall",
+                "fall": "animation.billeys_mobs.duckatrice.fall",
+                "quack": "animation.billeys_mobs.duckatrice.quack",
+                "angry": "animation.billeys_mobs.duckatrice.angry",
+                "flap": "animation.billeys_mobs.duckatrice.flap",
+                "fly": "animation.billeys_mobs.duckatrice.fly",
+                "glide": "animation.billeys_mobs.duckatrice.glide",
+                "moisturize_teeth": "animation.billeys_mobs.duckatrice.moisturize_teeth",
+                "controller.moisturize_teeth": "controller.animation.billeys_mobs.duckatrice.moisturize_teeth"
+            },
+            "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+                "variables": {
+                  "variable.head_size_x": "public",
+                  "variable.head_size_y": "public",
+                  "variable.head_size_z": "public"
+                },
+                "initialize": [
+                    "v.is_moisturizing_teeth = 0;",
+                    "v.time_to_quack = 0;",
+                    "v.quack_random_choice = 0;",
+                    "v.flying_x_rotation_smoothened = 0;",
+                    "v.flying_z_rotation_smoothened = 0;",
+                    "v.head_size_x = 7;",
+                    "v.head_size_y = 5;",
+                    "v.head_size_z = 6;"
+                ],
+                "pre_animation": [
+                    "v.is_fly_attacking = q.property('billey:is_fly_attacking');",
+                    "v.is_flying = (q.has_rider && !q.is_on_ground && !q.is_in_water) || v.is_fly_attacking;",
+                    //the 'v.is_flying ?' in the following expressions
+                    //is just a lil optimization, probably pointless
+                    "v.velocity_magnitude = v.is_flying ? math.sqrt(q.vertical_speed * q.vertical_speed + q.modified_move_speed * q.modified_move_speed);",
+                    //
+                    //The - flips it to the correct direction,
+                    //the * math.min( ) makes it rotate less when it's slower,
+                    //and the 2/3 makes it range from -60 to 60 degrees instead of -90 to 90
+                    // (being rotated 90 degrees when going straight up/down looked goofy)
+                    //
+                    "v.fly_x_rot_multiplier = v.is_flying ? -2/3 * math.min(v.velocity_magnitude / 4, 1);",
+                    "v.flying_x_rotation = v.is_flying ? v.fly_x_rot_multiplier * math.atan2(q.vertical_speed, q.modified_move_speed);",
+                    "v.flying_z_rotation = q.has_rider ? -math.min_angle(q.rider_head_y_rotation(0) - q.body_y_rotation) * math.min(v.velocity_magnitude * 2, 1) : -q.yaw_speed / 4;",
+                    "v.flying_z_rotation = math.clamp((v.flying_z_rotation), -45, 45);",
+
+                    "v.flying_x_rotation_smoothened = v.flying_x_rotation_smoothened + (v.flying_x_rotation - v.flying_x_rotation_smoothened) * (1.0 - math.exp(-q.delta_time * 10));",
+                    "v.flying_z_rotation_smoothened = v.flying_z_rotation_smoothened + (v.flying_z_rotation - v.flying_z_rotation_smoothened) * (1.0 - math.exp(-q.delta_time * 10));"
+                ],
+                "animate": [
+                    "new",
+                    {
+                        "idle": "q.is_alive"
+                    },
+                    "attackcont",
+                    "controller.moisturize_teeth",
+                    {
+                        "controller.flying_or_not": "q.is_alive"
+                    },
+                    {
+                        "death": "!q.is_alive"
+                    },
+                    {
+                        "cancel_vanilla_death": "!q.is_alive"
+                    }
+                ]
+            },
+            "sound_effects": {
+                "quack": "billey.duckatrice.quack"
+            },
+            "enable_attachables": true,
+            "hide_armor": false,
+            "render_controllers": [
+                "controller.render.default"
+            ],
+            "spawn_egg": {
+                "texture": "billey.duckatrice_boss_spawn_egg"
+            }
+        }
+    }
+}

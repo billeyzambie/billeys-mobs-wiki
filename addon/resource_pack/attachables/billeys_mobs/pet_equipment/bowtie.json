@@ -1,0 +1,41 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:attachable": {
+        "description": {
+            "identifier": "billey:pet_bowtie_attachable",
+            "materials": {
+                "default": "armor"
+            },
+            "textures": {
+                //attachables can't actually be made dyable unfortunately
+                "white": "textures/entity/billeys_mobs/dyeable_pet_equipment/white",
+                "orange": "textures/entity/billeys_mobs/dyeable_pet_equipment/orange",
+                "magenta": "textures/entity/billeys_mobs/dyeable_pet_equipment/magenta",
+                "light_blue": "textures/entity/billeys_mobs/dyeable_pet_equipment/light_blue",
+                "yellow": "textures/entity/billeys_mobs/dyeable_pet_equipment/yellow",
+                "lime": "textures/entity/billeys_mobs/dyeable_pet_equipment/lime",
+                "pink": "textures/entity/billeys_mobs/dyeable_pet_equipment/pink",
+                "gray": "textures/entity/billeys_mobs/dyeable_pet_equipment/gray",
+                "light_gray": "textures/entity/billeys_mobs/dyeable_pet_equipment/light_gray",
+                "cyan": "textures/entity/billeys_mobs/dyeable_pet_equipment/cyan",
+                "purple": "textures/entity/billeys_mobs/dyeable_pet_equipment/purple",
+                "blue": "textures/entity/billeys_mobs/dyeable_pet_equipment/blue",
+                "brown": "textures/entity/billeys_mobs/dyeable_pet_equipment/brown",
+                "green": "textures/entity/billeys_mobs/dyeable_pet_equipment/green",
+                "red": "textures/entity/billeys_mobs/dyeable_pet_equipment/red",
+                "black": "textures/entity/billeys_mobs/dyeable_pet_equipment/black"
+            },
+            "geometry": {
+                "default": "geometry.billeys_mobs.pet_bowtie"
+            },
+            "scripts": {
+                "pre_animation": [
+                    "v.color = c.owning_entity -> q.property('billey:legs_equipment_color');"
+                ]
+            },
+            "render_controllers": [
+                "controller.render.billeys_mobs.pet_bowtie"
+            ]
+        }
+    }
+}

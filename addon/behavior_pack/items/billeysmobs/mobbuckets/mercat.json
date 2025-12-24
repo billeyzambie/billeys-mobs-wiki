@@ -1,0 +1,27 @@
+{
+    "format_version": "1.20.60",
+    "minecraft:item": {
+      "description": {
+        "identifier": "billey:mercat_container",
+        "menu_category": {
+            "category": "none",
+            "is_hidden_in_commands": true
+        }
+      },
+      "components": {
+        "minecraft:max_stack_size": {
+          "value": 1
+        },
+        "minecraft:icon": {
+          "textures": {
+            "default": "billey.mercat_bucket"
+          }
+        },
+        "minecraft:block_placer": {
+          "block": "flowing_water"
+        }
+      }
+      //all of its functionality was done with scripts
+      //later comment: nvm it was canceled
+    }
+  }

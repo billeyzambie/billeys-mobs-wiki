@@ -1,0 +1,96 @@
+{
+	"format_version": "1.10.0",
+	"minecraft:client_entity": {
+		"description": {
+			"identifier": "billey:velvet_worm",
+			"materials": {
+				"default": "entity_alphatest"
+			},
+			"textures": {
+				"normal": "textures/entity/billeys_mobs/velvet_worm",
+				"blue": "textures/entity/billeys_mobs/velvet_worm1",
+				"red": "textures/entity/billeys_mobs/velvet_worm2",
+				"orange": "textures/entity/billeys_mobs/velvet_worm3"
+			},
+			"geometry": {
+				"default": "geometry.billeys_mobs.velvet_worm"
+			},
+			"animations": {
+				"new": "animation.billeys_mobs.duckproj.body",
+				"sheared": "animation.billeys_mobs.velvet_worm.antennas",
+				"walk": "animation.billeys_mobs.velvet_worm.walk",
+				"turn": "animation.billeys_mobs.velvet_worm.turn",
+				"sit": "animation.billeys_mobs.velvet_worm.sit",
+				"controller.sheared": "controller.animation.billeys_mobs.shearedd",
+				"controller.climb": "controller.animation.billeys_mobs.climbb",
+				"controller.attack": "controller.animation.billeys_mobs.velvet_attack",
+				"controller.sit": "controller.animation.billeys_mobs.sit",
+				"climb": "animation.billeys_mobs.velvet_worm.climb",
+				"c.fall": "controller.animation.billeys_mobs.ground",
+				"fall": "animation.billeys_mobs.velvet_worm.fall",
+				"angry": "animation.billeys_mobs.velvet_worm.angry",
+				"hurt": "animation.billeys_mobs.velvet_worm.hurt",
+				"death2": "animation.billeys_mobs.kiwi.cancelvanilladeath",
+				"death": "animation.billeys_mobs.velvet_worm.death",
+				"attacking": "animation.billeys_mobs.velvet_worm.attacking",
+				"attacked": "animation.billeys_mobs.velvet_worm.attacked"
+			},
+			"particle_effects": {
+				"zeelol": "billey:zee"
+			},
+			"scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+				"variables": {
+				  "variable.head_size_x": "public",
+				  "variable.head_size_y": "public",
+				  "variable.head_size_z": "public"
+				},
+				"initialize": [
+				  "v.head_size_x = 3;",
+				  "v.head_size_y = 2;",
+				  "v.head_size_z = 2;",
+					"v.time_to_transition = 0;"
+				],
+				"animate": [
+					"new",
+					"controller.attack",
+					"controller.sit",
+					{
+						"death2": "!q.is_alive"
+					},
+					{
+						"death": "!q.is_alive"
+					},
+					"controller.sheared",
+					{
+						"controller.climb": "!q.is_in_water"
+					},
+					{
+						"c.fall": "!q.is_in_water && q.is_alive"
+					},
+					{
+						"turn": "!(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target)) && q.is_alive"
+					},
+					{
+						"hurt": "q.max_health > q.health"
+					},
+					{
+						"angry": "q.has_target"
+					},
+					{
+						"walk": "(q.has_rider || !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))) ? q.modified_move_speed * 4"
+					}
+				]
+			},
+			"enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+				"controller.render.velvetwormbill"
+			],
+			"spawn_egg": {
+				"base_color": "#a44a34",
+				"overlay_color": "#c87d52"
+			}
+		}
+	}
+}

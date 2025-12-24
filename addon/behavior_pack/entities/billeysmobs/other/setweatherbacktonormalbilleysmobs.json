@@ -1,0 +1,31 @@
+{
+  //don't reproduce anything you see in this file lol
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "billey:nrmalwther",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false,
+	  "scripts": {
+	    "animate": [ "tame" ]
+	  },
+	  "animations": {
+	    "tame": "animation.billeys_mobs.normal_weather"
+    }
+    },
+    "components": { "minecraft:is_hidden_when_invisible": {},
+      "minecraft:type_family": {
+        "family": [ "poop" ]
+      },
+        "minecraft:collision_box": {
+            "width": 0.0,
+           "height": 0.0
+      },
+      "minecraft:health": {
+        "value": 10000,
+        "max": 10000000
+      }
+    }
+  }
+}

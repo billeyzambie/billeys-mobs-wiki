@@ -1,0 +1,31 @@
+{
+    "format_version": "1.12",
+    "minecraft:recipe_shaped": {
+      "description": {
+      "identifier": "billey:slowarrowa"
+      },
+      "tags": [ "crafting_table" ],
+      "group": "what_does_this_do",
+      "pattern": [
+        "v",
+        "s",
+        "f"
+      ],
+      "key": {
+        "f": {
+          "item": "billey:deinonychus_feather"
+        },
+        "s": {
+          "item": "stick"
+        },
+        "v": {
+          "item": "billey:shark_tooth"
+        }
+      },
+      "result": {
+       "item": "arrow",
+       "data": 19
+     }
+    }
+  }
+  

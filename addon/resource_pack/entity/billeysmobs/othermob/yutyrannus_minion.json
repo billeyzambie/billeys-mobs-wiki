@@ -1,0 +1,90 @@
+{
+    "format_version": "1.10.0",
+    "minecraft:client_entity": {
+        "description": {
+            "identifier": "billey:yutyrannus_minion",
+      "materials": {
+        "default": "entity_emissive_alpha"
+      },
+      "textures": {
+          "of_potion": "textures/entity/billeys_mobs/yutyrannus_minion",
+          "friendly": "textures/entity/billeys_mobs/yutyrannus_minion_friendly",
+          "hostile": "textures/entity/billeys_mobs/yutyrannus_minion"
+      },
+            "geometry": {
+                "default": "geometry.billeys_mobs.yutyrannus"
+            },
+            "animations": {
+                "new": "animation.billeys_mobs.duckproj.body",
+                "move": "animation.billeys_mobs.yutyrannus.walk",
+                "death": "animation.billeys_mobs.yutyrannus.death",
+                "sit": "animation.billeys_mobs.yutyrannus.sit",
+                "general": "animation.billeys_mobs.yutyrannus.general",
+                "controller.sit": "controller.animation.billeys_mobs.sit",
+                "eat": "animation.billeys_mobs.yutyrannus.eat",
+                "dance": "animation.billeys_mobs.yutyrannus.dance",
+                "eatcont": "controller.animation.billeys_mobs.eat",
+                "hurt": "animation.billeys_mobs.cat.hurt2",
+                "attackcont": "controller.animation.billeys_mobs.attack",
+                "attack": "animation.billeys_mobs.yutyrannus.attack",
+                "roar": "animation.billeys_mobs.yutyrannus.roar",
+                "dancecont": "controller.animation.billeys_mobs.dance"
+            },
+            "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+                "variables": {
+                    "variable.head_size_x": "public",
+                    "variable.head_size_y": "public",
+                    "variable.head_size_z": "public"
+                },
+                "initialize": [
+                    "v.transition_time = 0;",
+                    "v.scale_timer = 0;",
+                    "v.head_size_x = 8;",
+                    "v.head_size_y = 8;",
+                    "v.head_size_z = 8;",
+                    "v.smooth_scale = q.model_scale;",
+                    "v.smooth_baby = q.is_baby;"
+                ],
+                "pre_animation": [
+                    "v.show_details = q.distance_from_camera < 7;",
+                    "v.smooth_scale = v.show_details ? (v.smooth_scale + (q.model_scale - v.smooth_scale) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.model_scale;",
+                    "v.smooth_baby = v.show_details ? (v.smooth_baby + (q.is_baby - v.smooth_baby) * (1.0 - math.exp(-q.delta_time * 10-1+1)) ): q.is_baby;"
+                ],
+                "scale": "v.smooth_scale / q.model_scale",
+                "animate": [
+                    "new",
+                    "general",
+                    {
+                        "hurt": "0" //never
+                    },
+                    "attackcont",
+                    {
+                        "controller.sit": "q.is_alive"
+                    },
+                    {
+                        "eatcont": "q.is_alive"
+                    },
+                    {
+                        "dancecont": "q.is_alive"
+                    },
+                    {
+                        "death": "!q.is_alive"
+                    },
+                    {
+                        "move": "q.modified_move_speed * 2 / (q.is_baby+1) * !(q.is_sitting&&q.is_alive&&!q.has_rider&&!q.is_avoiding_mobs&&!(q.is_moving&&q.has_target))"
+                    }
+                ]
+            },
+            "enable_attachables": true,
+            "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.rat_minion"
+      ],
+            "spawn_egg": {
+                "overlay_color": "#91cae2",
+                "base_color": "#f9f9ff"
+            }
+        }
+    }
+}

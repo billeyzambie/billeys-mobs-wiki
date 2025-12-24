@@ -1,0 +1,78 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:mercat",
+      "materials": {
+          "default": "entity_alphatest",
+          "cat": "cat"
+      },
+      "textures": {
+        "zero": "textures/entity/cat/fotd",
+        "one": "textures/entity/cat/fotd1",
+        "two": "textures/entity/cat/fotd2",
+        "three": "textures/entity/cat/fotd3",
+        "four": "textures/entity/cat/fotd4",
+        "five": "textures/entity/cat/fotd5",
+        "six": "textures/entity/cat/fotd6",
+        "eight": "textures/entity/cat/fotd7",
+        "nine": "textures/entity/cat/fotd"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.mercat"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "ritual": "animation.billeys_mobs.mercat.ritual",
+        "flop": "animation.billeys_mobs.mercat.flop",
+        "upside_down": "animation.billeys_mobs.mercat.upside_down",
+        "lookwater": "animation.billeys_mobs.mercat.lookwater",
+        "walk": "animation.billeys_mobs.mercat.walk",
+        "sit": "animation.billeys_mobs.mercat.sit",
+        "float": "animation.billeys_mobs.mercat.float",
+        "baby": "animation.cat.baby_transform",
+        "general": "controller.animation.billeys_mobs.mercat",
+        "look_cont": "controller.animation.billeys_mobs.mercat_look",
+        "spin_cont": "controller.animation.billeys_mobs.mercat_spin",
+        "swim_cont": "controller.animation.billeys_mobs.mercat_swim",
+        "ups_cont": "controller.animation.billeys_mobs.mercat_upside_down",
+        "swim": "animation.billeys_mobs.mercat.swim",
+        "swim2": "animation.billeys_mobs.mercat.swim2",
+        "hurt": "animation.billeys_mobs.cat.hurt2",
+        "swim_with_fins": "animation.billeys_mobs.mercat.swim_with_fins",
+        "spin": "animation.billeys_mobs.mercat.spin",
+        "ritual_or_anything_else_cont": "controller.animation.billeys_mobs.mercat.ritual_or_anything_else"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "variables": {
+          "variable.head_size_x": "public",
+          "variable.head_size_y": "public",
+          "variable.head_size_z": "public"
+        },
+        "initialize": [
+          "v.random_mercat=0;",
+          "v.head_size_x = 5;",
+          "v.head_size_y = 4;",
+          "v.head_size_z = 5;"
+        ],
+        "animate": [
+          "new",
+          "ritual_or_anything_else_cont",
+          {
+            "baby": "q.is_baby"
+          }
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [
+        "controller.render.billeys_mobs.mercat"
+      ],
+      "spawn_egg": {
+        "base_color": "#316469",
+        "overlay_color": "#00093F"
+      }
+    }
+  }
+}

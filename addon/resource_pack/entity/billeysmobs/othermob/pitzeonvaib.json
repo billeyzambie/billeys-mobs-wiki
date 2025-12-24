@@ -1,0 +1,36 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "billey:pigeon_vibe",
+      "materials": { "default": "entity_alphatest","cat": "cat" },
+      "textures": {
+        "default": "textures/entity/billeys_mobs/pigeon"
+      },
+      "geometry": {
+        "default": "geometry.billeys_mobs.pigeon"
+      },
+      "animations": {
+        "new": "animation.billeys_mobs.duckproj.body",
+        "walk": "animation.billeys_mobs.pigeon.walk",
+        "look_at_target": "animation.common.look_at_target",
+        "lol": "animation.billeys_mobs.pigeon.new"
+      },
+      "scripts": {
+                "should_update_bones_and_effects_offscreen": "q.graphics_mode_is_any('raytraced')",
+        "animate": [ "new",
+          "walk",
+          {"lol":"math.max(0,1 - q.modified_move_speed)"},
+          "look_at_target"
+        ]
+      },
+      "enable_attachables": true,
+      "hide_armor": false,
+      "render_controllers": [ "controller.render.billeys_mobs_default" ],
+      "spawn_egg": {
+        "base_color": "#2D4456",
+        "overlay_color": "#AAC7E2"
+      }
+    }
+  }
+}
