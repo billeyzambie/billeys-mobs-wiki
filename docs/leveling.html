@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset='utf-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <title>Pet Leveling - Billey's Mobs Wiki</title>
+  <link rel='stylesheet' href='assets/css/wiki.css'>
+</head>
+<body>
+  <div class='page'>
+    <header class='page-header'>
+      <h1>Pet Leveling</h1>
+      <p class='lead'>Leveling improves certain pets as they fight or perform their special tasks, and the details are defined by the add-on scripts.</p>
+    </header>
+
+    <nav class='toc'>
+      <h2>Contents</h2>
+      <ul>
+        <li><a href='#how-xp-is-earned'>How XP is earned</a></li>
+        <li><a href='#level-thresholds'>Level thresholds</a></li>
+        <li><a href='#xp-multipliers'>XP multipliers</a></li>
+        <li><a href='#mob-specific-bonuses'>Mob-specific bonuses</a></li>
+        <li><a href='#technical-details'>Technical details</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id='how-xp-is-earned'>
+        <h2>How XP is earned</h2>
+        <p>Levelable pets gain XP whenever they hit or kill an eligible target, with hits being the primary driver of progress for combat-based leveling.</p>
+        <p>Each successful hit grants 0.6 XP, and each kill grants 1 XP before multipliers are applied.</p>
+        <p>Minions spawned by the rat crown count, but they only give one quarter of the XP to the crowned rat.</p>
+      </section>
+
+      <section id='level-thresholds'>
+        <h2>Level thresholds</h2>
+        <p>Level thresholds are calculated from a formula rather than fixed values, and XP is stored as the total cumulative amount required to reach the current level.</p>
+        <p>This means that when a pet levels up, its XP is set to the total XP required for that level (not just the XP from the previous level), which helps commands and level-up items behave predictably.</p>
+        <table class='wikitable'>
+          <tr><th>Formula</th><td>XP to reach next level = 100 × floor(3 × level^1.5) + 100 × floor(2.4^(level + 1) / 10)</td></tr>
+        </table>
+      </section>
+
+      <section id='xp-multipliers'>
+        <h2>XP multipliers</h2>
+        <p>Pets wearing anniversary pet hats earn double XP.</p>
+        <p>Happiness also boosts XP: the script multiplies XP gains by (1 + effective happiness percentage).</p>
+      </section>
+
+      <section id='mob-specific-bonuses'>
+        <h2>Mob-specific bonuses</h2>
+        <p>Some pets have extra leveling triggers that supplement combat XP, such as banana ducks earning XP when they create bananas.</p>
+        <p>Check each mob's Leveling section for its specific bonuses, stat increases, and level caps.</p>
+      </section>
+
+      <section id='technical-details'>
+        <h2>Technical details</h2>
+        <table class='wikitable'>
+          <tr><th>Script</th><td>addon/behavior_pack/scripts/billeys_mobs/leveling.js</td></tr>
+          <tr><th>Hit XP</th><td>0.6 XP before multipliers</td></tr>
+          <tr><th>Kill XP</th><td>1 XP before multipliers</td></tr>
+          <tr><th>Minion XP</th><td>25% of normal (rat crown minions)</td></tr>
+        </table>
+      </section>
+    </main>
+
+    <footer class='page-footer'>Generated from add-on files.</footer>
+  </div>
+</body>
+</html>
